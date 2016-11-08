@@ -1,5 +1,5 @@
 #' @title 
-#' frequencies
+#' frequencies..
 #'  
 #' @description
 #' This functions calculates frequencies of factors/characters of the input dataset.
