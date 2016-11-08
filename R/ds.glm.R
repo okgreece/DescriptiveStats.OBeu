@@ -12,7 +12,7 @@
 #' @param independent The independent variables of the model
 #' @param distr.family A character string naming a the error distribution 
 #' and link function to be used in the model(See family for details of family functions.)
-#' 
+#' ss
 #' @details 
 #' This function returns a list with the frequencies of factors/characters of the input dataset.
 #' 
