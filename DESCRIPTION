@@ -1,0 +1,15 @@
+Package: DescriptiveStats.OBeu
+Type: Package
+Title: Descriptive Statistics OpenBudgets.eu
+Version: 1.1.5
+Date: 2016-09-18
+Description: Descriptive Statistics and other related analysis for OBeu datasets.
+Author: Kleanthis Koupidis
+Contributor: Aikaterini Chatzopoulou <mis16010@uom.edu.gr>
+Maintainer: Kleanthis Koupidis <koupidis.okfgr@gmail.com>
+URL: https://github.com/okgreece/DescriptiveStats.OBeu
+BugReports: https://github.com/okgreece/DescriptiveStats.OBeu/issues
+License: GPL-2 | file LICENSE
+LazyData: TRUE
+Imports: grDevices,jsonlite, stats
+RoxygenNote: 5.0.1
