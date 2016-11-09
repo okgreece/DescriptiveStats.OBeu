@@ -34,4 +34,7 @@ standartdeviation, skewness and kurtosis of the input data.
 \author{
 Katerina Chatzopoulou, Kleanthis Koupidis
 }
+\seealso{
+\code{\link{open_spending.ds}}
+}
 

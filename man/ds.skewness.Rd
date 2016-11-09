@@ -2,7 +2,7 @@
 % Please edit documentation in R/ds.skewness.R
 \name{ds.skewness}
 \alias{ds.skewness}
-\title{Skewness}
+\title{Calculation of Skewness}
 \usage{
 ds.skewness(x)
 }
@@ -13,9 +13,13 @@ ds.skewness(x)
 This functions calculates skewness of the input dataset.
 }
 \details{
-This function returns a json output with the skewness of numbers of the input dataset.
+This function returns the skewness of numbers of the input dataset.
 }
 \author{
 Aikaterini Chatzopoulou
+}
+\seealso{
+\code{\link{ds.kurtosis}}, \code{\link{ds.statistics}}, 
+\code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 
