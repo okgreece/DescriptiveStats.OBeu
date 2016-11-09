@@ -1,9 +1,9 @@
-DescriptiveStats.OBeu
+DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
 ================
 Kleanthis Koupidis, Aikaterini Chatzopoulou
 November 7, 2016
 
-<img src="obeu_logo.png" align="right" /> [![Pending Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls) [![Github Issues](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/issues.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/issues)
+[![Pending Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls) [![Github Issues](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/issues.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/issues)
 
 This document describes the use of the functions implemented in DescriptiveStats.OBeu package both in R and OpenCPU environments.
 
