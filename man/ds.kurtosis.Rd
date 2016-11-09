@@ -7,15 +7,15 @@
 ds.kurtosis(x)
 }
 \arguments{
-\item{x}{A vector, matrix or data frame which includes at least one number.}
+\item{x}{A vector, matrix or data frame}
 }
 \description{
 This functions calculates kurtosis of the input dataset.
 }
 \details{
-This function returns a json output with the kurtosis of numbers of the input dataset.
+This function returns a json output with the kurtosis of numbers of the input data
 }
 \author{
-Kleanthis Koupidis
+Aikaterini Chatzopoulou
 }
 
