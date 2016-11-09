@@ -28,10 +28,7 @@ ds.kurtosis <- function(x)
   data <- as.data.frame(x)
   stopifnot(all(sapply(x, is.factor)|sapply(x, is.character))==F)
   # only numeric data
-  
-  num <- sapply(x, is.numeric)
-  
-  data.num <- x[num]
+  data.num<-nums(data)
   
   # calculation
   
