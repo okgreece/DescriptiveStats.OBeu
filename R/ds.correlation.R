@@ -37,9 +37,7 @@ ds.correlation<-function(x, y=NULL, cor.method="pearson"){
       data <- as.data.frame(x)
   }
   
-  num <- sapply(data, is.numeric)
-  
-  data.num <- data[num]
+  data.num<-nums(data)
   
   # Check that the data frame has at least two numeric variables
   stopifnot( length(data.num) >= 2 )
@@ -50,8 +48,8 @@ ds.correlation<-function(x, y=NULL, cor.method="pearson"){
   # Correlation
   correlation <- stats::cor(data.num, method=cor.method)
 
-  correlation <- data.frame(correlation,row.names = rownames(correlation)
-                            ,column=colnames(correlation) )
+  correlation <- data.frame(correlation,row.names = rownames(correlation),
+                            column=colnames(correlation) )
 
   # JSON output
   correlation.json <- jsonlite::toJSON(correlation)
