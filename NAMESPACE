@@ -3,5 +3,7 @@
 export(ds.boxplot)
 export(ds.frequency)
 export(ds.glm)
+export(ds.kurtosis)
+export(ds.skewness)
 export(ds.statistics)
 import(jsonlite)

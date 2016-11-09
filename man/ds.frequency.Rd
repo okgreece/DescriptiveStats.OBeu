@@ -2,7 +2,7 @@
 % Please edit documentation in R/ds.frequency.R
 \name{ds.frequency}
 \alias{ds.frequency}
-\title{Frequency of nominal variables}
+\title{Frequencies of nominal variables}
 \usage{
 ds.frequency(data,select=NULL)
 }

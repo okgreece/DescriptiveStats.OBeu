@@ -16,12 +16,25 @@ ds.glm(x, dependent=NULL, independent=NULL, distr.family = "gaussian")
 \item{distr.family}{A character string naming a the error distribution 
 and link function to be used in the model(See family for details of family functions.)}
 }
+\value{
+coefficients
+ residuals
+ fitted
+ residuals.degfred
+ qq.plot
+ linear.predictors
+}
 \description{
 \code{\link{ds.glm}} is used to fit generalized linear models through glm from stats package and 
 return some results in json format.
 }
 \details{
-This function returns a list with the frequencies of factors/characters of the input dataset.
+Generalized linear models are used to fit data, using glm stats package, by specifying the
+dependent and independent variables and the description of the distribution error 
+(default is gaussian). If user provides only the dependent variables, the rest 
+variables are selected as independent. If user provides the independent variables, 
+the rest variables are selected as dependent. If user provides the independent variables, 
+the two variables with the highest correlation are selected.
 }
 \author{
 Kleanthis Koupidis
