@@ -46,8 +46,7 @@ ds.statistics <- function(data)
   data<-as.data.frame(data)
   
   # only numeric data
-  num <- sapply(data, is.numeric)
-  data.num<-data[num]
+  data.num<-nums(data)
   
   # Calculation of statistics
   min <- apply(data.num, 2, min)
