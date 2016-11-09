@@ -1,6 +1,6 @@
 DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
 ================
-Kleanthis Koupidis, Aikaterini Chatzopoulou
+Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas
 November 7, 2016
 
 [![Pending Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls) [![Github Issues](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/issues.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/issues)
