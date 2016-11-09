@@ -2,7 +2,7 @@
 % Please edit documentation in R/ds.kurtosis.R
 \name{ds.kurtosis}
 \alias{ds.kurtosis}
-\title{Kurtosis}
+\title{Calculation of Kurtosis}
 \usage{
 ds.kurtosis(x)
 }
@@ -13,9 +13,13 @@ ds.kurtosis(x)
 This functions calculates kurtosis of the input dataset.
 }
 \details{
-This function returns a json output with the kurtosis of numbers of the input data
+This function returns the kurtosis of numbers of the input data
 }
 \author{
 Aikaterini Chatzopoulou
+}
+\seealso{
+\code{\link{ds.skewness}}, \code{\link{ds.statistics}}, 
+\code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 
