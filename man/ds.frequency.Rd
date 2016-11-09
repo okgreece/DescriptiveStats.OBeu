@@ -20,4 +20,7 @@ This function returns a json output with the frequencies of factors/characters o
 \author{
 Kleanthis Koupidis
 }
+\seealso{
+\code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
+}
 
