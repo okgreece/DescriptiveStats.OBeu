@@ -24,19 +24,16 @@ environments.
 
 Load *devtools* library or install it if not already:
 
-```{r, eval=FALSE, include=FALSE}
-install.packages("devtools")
-```
+
 
 Then install *DescriptiveStats.OBeu* from [Github](https://github.com/okgreece/DescriptiveStats.OBeu)
 
-```{r, eval=FALSE, include=FALSE}
-devtools::install_github("okgreece/DescriptiveStats.OBeu")
-```
+
 
 And load the library
 
-```{r}
+
+```r
 library(DescriptiveStats.OBeu)
 ```
 
