@@ -16,6 +16,6 @@ This functions calculates skewness of the input dataset.
 This function returns a json output with the skewness of numbers of the input dataset.
 }
 \author{
-Kleanthis Koupidis
+Aikaterini Chatzopoulou
 }
 
