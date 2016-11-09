@@ -1,5 +1,5 @@
 #' @title 
-#' Skewness
+#' Calculation of Skewness
 #'  
 #' @description
 #' This functions calculates skewness of the input dataset.
@@ -9,11 +9,11 @@
 #' @param x A vector, matrix or data frame which includes at least one number.
 #' 
 #' @details 
-#' This function returns a json output with the skewness of numbers of the input dataset.
+#' This function returns the skewness of numbers of the input dataset.
 #' 
 #' @author Aikaterini Chatzopoulou
 #' 
-#' @seealso \code{\link{ds.kurtosis}, \code{\link{ds.statistics}}, 
+#' @seealso \code{\link{ds.kurtosis}}, \code{\link{ds.statistics}}, 
 #' \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.skewness
@@ -44,16 +44,8 @@ ds.skewness <- function(x)
   
   sum <- apply(mult, 2, sum)
   m3 <- sum / nrow(data.num)
-  skew <- m3/sd3
-  
-  # Names
-  skew <- as.data.frame(skew)
-  colnames(skew) <- "skewness"
-  rownames(skew) <- colnames(data.num)
-  
-  # JSON output
-  skew.json<-jsonlite::toJSON(skew)
+  skewness <- m3/sd3
   
   # Return
-  return(skew.json)
+  return(skewness)
 }
