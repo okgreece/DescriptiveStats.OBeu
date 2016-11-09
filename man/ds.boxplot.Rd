@@ -4,12 +4,15 @@
 \alias{ds.boxplot}
 \title{Boxplot}
 \usage{
-ds.boxplot( data, q = 1.5 )
+ds.boxplot(data, q=1.5)
 }
 \arguments{
 \item{data}{The input matrix or data frame}
 
-\item{q}{The dependent variables of the model}
+\item{q}{...}
+}
+\value{
+Description of the returns
 }
 \description{
 Boxplot
@@ -18,6 +21,9 @@ Boxplot
 boxplot
 }
 \author{
-Kleanthis Koupidis
+Aikaterini Chatzopoulou, Kleanthis Koupidis
+}
+\seealso{
+\code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 
