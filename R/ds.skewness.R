@@ -11,9 +11,13 @@
 #' @details 
 #' This function returns a json output with the skewness of numbers of the input dataset.
 #' 
-#' @author Kleanthis Koupidis
+#' @author Aikaterini Chatzopoulou
+#' 
+#' @seealso \code{\link{ds.kurtosis}, \code{\link{ds.statistics}}, 
+#' \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.skewness
+#' 
 #' 
 #' @import jsonlite
 #'

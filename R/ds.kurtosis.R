@@ -6,19 +6,22 @@
 #' 
 #' @usage ds.kurtosis(x)
 #' 
-#' @param x A vector, matrix or data frame which includes at least one number.
+#' @param x A vector, matrix or data frame
 #' 
 #' @details 
-#' This function returns a json output with the kurtosis of numbers of the input dataset.
+#' This function returns a json output with the kurtosis of numbers of the input data
 #' 
-#' @author Kleanthis Koupidis
+#' @author Aikaterini Chatzopoulou
+#' 
+#' @seealso \code{\link{ds.skewness}, \code{\link{ds.statistics}}, 
+#' \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.kurtosis
 #' 
 #' @import jsonlite
 #'
 #' @export
-#####################################################################################################################################
+#########################################################################################
 
 ds.kurtosis <- function(x)
 {
