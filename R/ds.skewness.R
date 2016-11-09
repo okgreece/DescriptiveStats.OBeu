@@ -28,11 +28,10 @@ ds.skewness <- function(x)
 {
   data <- as.data.frame(x)
   stopifnot(all(sapply(x, is.factor)|sapply(x, is.character))==F)
+  
   # only numeric data
+  data.num<-nums(data)
   
-  num <- sapply(x, is.numeric)
-  
-  data.num <- x[num]
   
   # calculation
   mean <- apply(data.num,2,mean)
