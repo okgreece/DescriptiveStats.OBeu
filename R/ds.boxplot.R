@@ -35,12 +35,10 @@ ds.boxplot<-function(data, q=1.5){
   stopifnot(all(sapply(data, is.factor)|sapply(data, is.character))==F)
   
   # only numeric data
-  num <- sapply(data, is.numeric)
-  
-  data.num<-data[num]
+  data.num<-nums(data)
   
   # Boxplot parameters
-  box.data<-apply(data.num, 2, grDevices::boxplot.stats,coef=q, 
+  box.data<-apply(data.num, 2, grDevices::boxplot.stats,coef=2, 
                   do.conf = TRUE, do.out = TRUE)
   
   box.data<-as.list(box.data)
