@@ -28,6 +28,7 @@
 #'
 #' @author Katerina Chatzopoulou, Kleanthis Koupidis
 #' 
+#' @seealso \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.statistics
 #' 
@@ -35,6 +36,7 @@
 #'
 #' @export
 #####################################################################################################################################
+
 ds.statistics <- function(data)
 {
   # Check if all are categorical
@@ -49,21 +51,30 @@ ds.statistics <- function(data)
   
   # Calculation of statistics
   min <- apply(data.num, 2, min)
+  
   max <- apply(data.num, 2, max)
+  
   range <- max-min
+  
   mean <- apply(data.num, 2, mean)
+  
   median <- apply(data.num, 2, median)  
+  
   var <- apply(data.num, 2, var)
+  
   stdev <- apply(data.num, 2, stats::sd)
-  #kurtosis <- apply(data.num, 2, kurtosis)
-  #skewness <- apply(data.num, 2, skewness)
+  
+  kurtosis <- ds.kurtosis(data.num)
+  
+  skewness <- ds.skewness(data.num)
+  
   q <- as.data.frame(apply(data.num, 2, stats::quantile))
   
   # construction of dataframe with all the statistics
   statistics<-list(Min=min, Max=max,Range=range, Mean=mean, Median=median, 
-                   Quantiles=q,Variance=var, StandartDeviation=stdev)#, 
-                  # Kurtosis=kurtosis, Skewness=skewness)
-  
+                   Quantiles=q,Variance=var, StandartDeviation=stdev,
+                   Kurtosis=kurtosis, Skewness=skewness)
+
   # JSON output
   #stats.json<-jsonlite::toJSON(statistics)
   
