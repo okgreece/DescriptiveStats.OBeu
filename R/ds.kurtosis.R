@@ -1,5 +1,5 @@
 #' @title 
-#' Kurtosis
+#' Calculation of Kurtosis
 #'  
 #' @description
 #' This functions calculates kurtosis of the input dataset.
@@ -9,11 +9,11 @@
 #' @param x A vector, matrix or data frame
 #' 
 #' @details 
-#' This function returns a json output with the kurtosis of numbers of the input data
+#' This function returns the kurtosis of numbers of the input data
 #' 
 #' @author Aikaterini Chatzopoulou
 #' 
-#' @seealso \code{\link{ds.skewness}, \code{\link{ds.statistics}}, 
+#' @seealso \code{\link{ds.skewness}}, \code{\link{ds.statistics}}, 
 #' \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.kurtosis
@@ -45,16 +45,8 @@ ds.kurtosis <- function(x)
   
   sum <- apply(mult, 2, sum)
   m4 <- sum / nrow(data.num)
-  kurto <- m4/sd4
+  kurtosis <- m4/sd4-3
 
-  # Names
-  kurto <- as.data.frame(kurto)
-  colnames(kurto) <- "kurtosis"
-  rownames(kurto) <- colnames(data.num)
- 
-  # JSON output
-  kurt.json<-jsonlite::toJSON(kurto)
-  
   # Return
-  return(kurt.json)
+  return(kurtosis)
 }
