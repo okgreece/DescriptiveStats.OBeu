@@ -31,7 +31,9 @@
 #'  
 #' @author Kleanthis Koupidis
 #' 
-#' @rdname ds.frequencies
+#' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
+#' 
+#' @rdname ds.glm
 #' 
 #' @import jsonlite
 #'

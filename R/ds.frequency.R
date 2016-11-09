@@ -13,7 +13,9 @@
 #' This function returns a json output with the frequencies of factors/characters of the input dataset.
 #' 
 #' @author Kleanthis Koupidis
-#' 
+#'
+#' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
+#'  
 #' @rdname ds.frequency
 #' 
 #' @import jsonlite
