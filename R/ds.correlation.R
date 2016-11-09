@@ -1,30 +1,58 @@
-ds.correlation<-function(x,y=NULL){
+#' @title 
+#' Correlation Coefficient
+#'  
+#' @description
+#' This functions calculates the correlation coefficient of the input vectors or datasets.
+#' By default, the correlation coefficient of pearson is computed.
+#' 
+#' @usage ds.correlation(x, y=NULL, cor.method="pearson")
+#' 
+#' @param x A vector, matrix or data frame
+#' 
+#' @details 
+#' This function returns a symmetric matrix in json format with the correlation coefficients 
+#' of the input data. The correlation coefficient of pearson is computed, by default. 
+#' Other options are "kendall" or "spearman".
+#' 
+#' @author Aikaterini Chatzopoulou, Kleanthis Koupidis
+#' 
+#' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
+#' 
+#' @rdname ds.correlation
+#' 
+#' @import jsonlite
+#'
+#' @export
+###########################################################################################
+
+ds.correlation<-function(x, y=NULL, cor.method="pearson"){
   
   # Convert to data frame
-  
   if (is.null(y)==F){
     
     data<-as.data.frame(x,y)
-    
+   
   } else if (is.null(y)){
     
-      data<-as.data.frame(x)
+      data <- as.data.frame(x)
   }
   
-  # Check the dimension of the data frame
-  stopifnot(ncol(data)>=2)
-  
-  # Check if all categorical   
-  stopifnot(all(sapply(data, is.factor)|sapply(data, is.character))==F)
-  
-  # only numeric values
   num <- sapply(data, is.numeric)
+  
   data.num <- data[num]
   
-  # correlation
-  correlation <- stats::cor(data.num)
-  correlation <- as.data.frame(correlation)
+  # Check that the data frame has at least two numeric variables
+  stopifnot( length(data.num) >= 2 )
+
+  # Correlation method
+  cor.method=match.arg(cor.method,c("pearson", "kendall", "spearman"))
   
+  # Correlation
+  correlation <- stats::cor(data.num, method=cor.method)
+
+  correlation <- data.frame(correlation,row.names = rownames(correlation)
+                            ,column=colnames(correlation) )
+
   # JSON output
   correlation.json <- jsonlite::toJSON(correlation)
   
