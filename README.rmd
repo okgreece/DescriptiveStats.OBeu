@@ -1,6 +1,6 @@
 ---
-title: DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
-author: "Kleanthis Koupidis", "Aikaterini Chatzopoulou"
+title: "DescriptiveStats.OBeu" 
+author: "Kleanthis Koupidis, Aikaterini Chatzopoulou"
 date: "November 7, 2016"
 output:
   github_document:
