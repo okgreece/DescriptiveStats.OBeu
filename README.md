@@ -12,6 +12,10 @@ Install:
 
 Load *devtools* library or install it if not already:
 
+``` r
+install.packages("devtools")
+```
+
 Then install *DescriptiveStats.OBeu* from [Github](https://github.com/okgreece/DescriptiveStats.OBeu)
 
 ``` r
@@ -139,10 +143,45 @@ ds.analysis(sample_df_rudolf)
     ## NULL
     ## 
     ## $boxplot
-    ## {"global__amount__0397f.sum":{"stats":[369627311,4129232479.515,5204844408.5,8065296591,10897898000],"n":[60],"conf":{},"out":[]}} 
+    ## $boxplot$global__amount__0397f.sum
+    ## $boxplot$global__amount__0397f.sum$stats
+    ##          25          57          24           1          10 
+    ##   369627311  4129232480  5204844409  8065296591 10897898000 
+    ## 
+    ## $boxplot$global__amount__0397f.sum$n
+    ## [1] 60
+    ## 
+    ## $boxplot$global__amount__0397f.sum$conf
+    ## NULL
+    ## 
+    ## $boxplot$global__amount__0397f.sum$out
+    ## named numeric(0)
+    ## 
+    ## 
     ## 
     ## $frequencies
-    ## {"global__budgetPhase__afd93.prefLabel":[{"Var1":"Approved","Freq":12},{"Var1":"Draft","Freq":12},{"Var1":"Executed","Freq":12},{"Var1":"Reserved","Freq":12},{"Var1":"Revised","Freq":12}],"global__fiscalPeriod__28951.notation":[{"Var1":"2004","Freq":5},{"Var1":"2005","Freq":5},{"Var1":"2006","Freq":5},{"Var1":"2007","Freq":5},{"Var1":"2008","Freq":5},{"Var1":"2009","Freq":5},{"Var1":"2010","Freq":5},{"Var1":"2011","Freq":5},{"Var1":"2012","Freq":5},{"Var1":"2013","Freq":5},{"Var1":"2014","Freq":5},{"Var1":"2015","Freq":5}]}
+    ## $frequencies$global__budgetPhase__afd93.prefLabel
+    ##       Var1 Freq
+    ## 1 Approved   12
+    ## 2    Draft   12
+    ## 3 Executed   12
+    ## 4 Reserved   12
+    ## 5  Revised   12
+    ## 
+    ## $frequencies$global__fiscalPeriod__28951.notation
+    ##    Var1 Freq
+    ## 1  2004    5
+    ## 2  2005    5
+    ## 3  2006    5
+    ## 4  2007    5
+    ## 5  2008    5
+    ## 6  2009    5
+    ## 7  2010    5
+    ## 8  2011    5
+    ## 9  2012    5
+    ## 10 2013    5
+    ## 11 2014    5
+    ## 12 2015    5
 
 Also we can define the parameters of *box.out* to 2 and *corr.method* to "spearman"
 
@@ -197,10 +236,45 @@ ds.analysis(sample_df_rudolf,box.out=2,corr.method = "spearman")
     ## NULL
     ## 
     ## $boxplot
-    ## {"global__amount__0397f.sum":{"stats":[369627311,4129232479.515,5204844408.5,8065296591,10897898000],"n":[60],"conf":{},"out":[]}} 
+    ## $boxplot$global__amount__0397f.sum
+    ## $boxplot$global__amount__0397f.sum$stats
+    ##          25          57          24           1          10 
+    ##   369627311  4129232480  5204844409  8065296591 10897898000 
+    ## 
+    ## $boxplot$global__amount__0397f.sum$n
+    ## [1] 60
+    ## 
+    ## $boxplot$global__amount__0397f.sum$conf
+    ## NULL
+    ## 
+    ## $boxplot$global__amount__0397f.sum$out
+    ## named numeric(0)
+    ## 
+    ## 
     ## 
     ## $frequencies
-    ## {"global__budgetPhase__afd93.prefLabel":[{"Var1":"Approved","Freq":12},{"Var1":"Draft","Freq":12},{"Var1":"Executed","Freq":12},{"Var1":"Reserved","Freq":12},{"Var1":"Revised","Freq":12}],"global__fiscalPeriod__28951.notation":[{"Var1":"2004","Freq":5},{"Var1":"2005","Freq":5},{"Var1":"2006","Freq":5},{"Var1":"2007","Freq":5},{"Var1":"2008","Freq":5},{"Var1":"2009","Freq":5},{"Var1":"2010","Freq":5},{"Var1":"2011","Freq":5},{"Var1":"2012","Freq":5},{"Var1":"2013","Freq":5},{"Var1":"2014","Freq":5},{"Var1":"2015","Freq":5}]}
+    ## $frequencies$global__budgetPhase__afd93.prefLabel
+    ##       Var1 Freq
+    ## 1 Approved   12
+    ## 2    Draft   12
+    ## 3 Executed   12
+    ## 4 Reserved   12
+    ## 5  Revised   12
+    ## 
+    ## $frequencies$global__fiscalPeriod__28951.notation
+    ##    Var1 Freq
+    ## 1  2004    5
+    ## 2  2005    5
+    ## 3  2006    5
+    ## 4  2007    5
+    ## 5  2008    5
+    ## 6  2009    5
+    ## 7  2010    5
+    ## 8  2011    5
+    ## 9  2012    5
+    ## 10 2013    5
+    ## 11 2014    5
+    ## 12 2015    5
 
 OpenCPU Short Guide - DescriptiveStats.OBeu
 ===========================================

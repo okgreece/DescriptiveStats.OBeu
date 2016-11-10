@@ -24,7 +24,7 @@ environments.
 
 Load *devtools* library or install it if not already:
 
-```{r, eval=FALSE, include=FALSE}
+```{r, eval=FALSE, include=T}
 install.packages("devtools")
 ```
 
