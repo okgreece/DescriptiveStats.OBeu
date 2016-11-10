@@ -38,7 +38,7 @@ ds.analysis <- function(data, box.out=1.5, corr.method= "pearson", fr.select=NUL
       descriptives <- ds.statistics(data)
       
       # If correlation can be calculated
-      if (length(nums(data))>2) {
+      if (length(nums(data))>=2) {
         correlation <- ds.correlation(data,y=NULL, cor.method=corr.method)
       }else {
         correlation <- NULL
