@@ -56,6 +56,6 @@ open_spending.ds <- function(json_data, box.outl=1.5, cor.method= "pearson", sel
   dt2 <- stats::na.omit(dt2)
   
   ds.result <- ds.analysis(dt2, box.out=box.outl, corr.method= cor.method, fr.select=select)
-  
-  return(ds.result)  
+  ds.results <- jsonlite::toJSON(ds.result)
+  return(ds.results)  
 }
