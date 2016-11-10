@@ -46,16 +46,16 @@ ds.frequency <- function(data,select=NULL){
  freq <-  apply(data, 2,table)
  
  if(is.list(freq)){
-   freq.df <- lapply(freq,as.data.frame)
+   freq <- lapply(freq,as.data.frame)
    }else {
-     freq.df <- as.data.frame(freq)
+     freq <- as.data.frame(freq)
    }
  
  # JSON output
  #frequencies <- jsonlite::toJSON(freq.df)
 
  # Return
- return(frequencies)
+ return(freq)
 }
 
 
