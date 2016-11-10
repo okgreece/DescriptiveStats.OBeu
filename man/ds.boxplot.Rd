@@ -4,12 +4,12 @@
 \alias{ds.boxplot}
 \title{Boxplot}
 \usage{
-ds.boxplot(data, q=1.5)
+ds.boxplot(data, out.level=1.5)
 }
 \arguments{
 \item{data}{The input matrix or data frame}
 
-\item{q}{...}
+\item{out.level}{...}
 }
 \value{
 Description of the returns
