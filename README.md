@@ -231,21 +231,21 @@ Post
 Example \#1:
 ------------
 
-1.  Go to <http://okfnrg.math.auth.gr/ocpu/test/>
+1 Go to <http://okfnrg.math.auth.gr/ocpu/test/>
 
-2.  Copy and paste the following function to the endpoint
+2 Copy and paste the following function to the endpoint
 
 ``` r
 ../library/DescriptiveStats.OBeu/R/ds.analysis
 ```
 
-1.  *Select Method*:
+3 *Select Method*:
 
 ``` r
  Post
 ```
 
-1.  **Add parameters** and set:
+4 **Add parameters** and set:
 
 Define the input time series data:
 
@@ -283,32 +283,32 @@ corr.method
 "spearman"
 ```
 
-1.  Ready! Click on **Ajax request**!
+5 Ready! Click on **Ajax request**!
 
-2.  To see the results:
+6 To see the results:
 
 copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
 
-1.  and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
+7 and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
 
 Example \#2 - Rudolf/Open Spending-DescriptiveStats
 ---------------------------------------------------
 
-1.  Go to <http://okfnrg.math.auth.gr/ocpu/test/>
+1 Go to <http://okfnrg.math.auth.gr/ocpu/test/>
 
-2.  Copy and paste the following function to the endpoint
+2 Copy and paste the following function to the endpoint
 
 ``` r
 ../library/DescriptiveStats.OBeu/R/open_spending.ds
 ```
 
-1.  *Select Method*:
+3 *Select Method*:
 
 ``` r
 Post
 ```
 
-1.  **Add parameters** and set:
+4 **Add parameters** and set:
 
 Define the input time series data:
 
@@ -353,9 +353,9 @@ corr.method
 "spearman" 
 ```
 
-1.  Ready! Click on **Ajax request**!
+5 Ready! Click on **Ajax request**!
 
-2.  To see the results:
+6 To see the results:
 
 copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
 
