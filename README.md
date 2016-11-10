@@ -14,6 +14,10 @@ Load *devtools* library or install it if not already:
 
 Then install *DescriptiveStats.OBeu* from [Github](https://github.com/okgreece/DescriptiveStats.OBeu)
 
+``` r
+devtools::install_github("okgreece/DescriptiveStats.OBeu")
+```
+
 And load the library
 
 ``` r

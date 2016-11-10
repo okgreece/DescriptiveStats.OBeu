@@ -30,7 +30,7 @@ install.packages("devtools")
 
 Then install *DescriptiveStats.OBeu* from [Github](https://github.com/okgreece/DescriptiveStats.OBeu)
 
-```{r, eval=FALSE, include=FALSE}
+```{r, eval=FALSE, include=T}
 devtools::install_github("okgreece/DescriptiveStats.OBeu")
 ```
 
