@@ -5,18 +5,28 @@
 \alias{open_spending.ds}
 \title{Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending API}
 \usage{
-ds.analysis(json_data,method)
+ds.analysis(data, box.out=1.5, corr.method= "pearson", fr.select=NULL)
 
-open_spending.ds(json_data,amount)
+open_spending.ds(json_data, box.outl=1.5, cor.method= "pearson", select=NULL)
 }
 \arguments{
+\item{data}{The input data}
+
+\item{box.out}{...}
+
+\item{corr.method}{The correlation coefficient method to compute: "pearson" (default),
+"kendall" or "spearman".}
+
+\item{fr.select}{One or more nominal variables to calculate their corresponding frequencies.}
+
 \item{json_data}{The json string, URL or file from Open Spending API}
 
-\item{amount}{Specify the amount label of the json input data}
+\item{box.outl}{...}
 
-\item{json_data}{The json string, URL or file from Open Spending API}
+\item{cor.method}{The correlation coefficient method to compute: "pearson" (default),
+"kendall" or "spearman".}
 
-\item{amount}{Specify the amount label of the json input data}
+\item{select}{One or more nominal variables to calculate their corresponding frequencies.}
 }
 \value{
 A json string with the resulted parameters of the \code{\link{ds.analysis}} function.
@@ -41,7 +51,7 @@ Kleanthis Koupidis
 Kleanthis Koupidis
 }
 \seealso{
-\code{\link{ds.analysis}}
+\code{\link{open_spending.ds}}
 
 \code{\link{ds.analysis}}
 }
