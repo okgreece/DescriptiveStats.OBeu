@@ -10,6 +10,6 @@ Maintainer: Kleanthis Koupidis <koupidis.okfgr@gmail.com>
 URL: https://github.com/okgreece/DescriptiveStats.OBeu
 BugReports: https://github.com/okgreece/DescriptiveStats.OBeu/issues
 License: GPL-2 | file LICENSE
-LazyData: TRUE
-Imports: grDevices,jsonlite, stats
+LazyData: true
+Imports: grDevices,jsonlite,reshape,stats
 RoxygenNote: 5.0.1
