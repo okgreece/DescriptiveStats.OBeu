@@ -8,6 +8,9 @@
 #' @usage ds.correlation(x, y=NULL, cor.method="pearson")
 #' 
 #' @param x A vector, matrix or data frame
+#' @param y A vector, matrix or data frame
+#' @param cor.method The correlation coefficient method to compute: "pearson" (default),
+#' "kendall" or "spearman".
 #' 
 #' @details 
 #' This function returns a symmetric matrix in json format with the correlation coefficients 
