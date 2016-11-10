@@ -18,7 +18,6 @@
 #'  
 #' @rdname ds.frequency
 #' 
-#' @import jsonlite
 #'
 #' @export
 #####################################################################################################################################
@@ -53,7 +52,7 @@ ds.frequency <- function(data,select=NULL){
    }
  
  # JSON output
- frequencies <- jsonlite::toJSON(freq.df)
+ #frequencies <- jsonlite::toJSON(freq.df)
 
  # Return
  return(frequencies)

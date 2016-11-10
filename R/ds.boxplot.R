@@ -45,8 +45,8 @@ ds.boxplot<-function(data, out.level=1.5){
   
   # JSON output
   
-  box.json<-jsonlite::toJSON(box.data)
+  #box.json<-jsonlite::toJSON(box.data)
   
   # Return
-  return(box.json)
+  return(box.data)
 }

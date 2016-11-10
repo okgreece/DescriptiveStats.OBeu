@@ -55,8 +55,8 @@ ds.correlation<-function(x, y=NULL, cor.method="pearson"){
                             column=colnames(correlation) )
 
   # JSON output
-  correlation.json <- jsonlite::toJSON(correlation)
+  #correlation.json <- jsonlite::toJSON(correlation)
   
   # Return
-  return(correlation.json)
+  return(correlation)
 }
