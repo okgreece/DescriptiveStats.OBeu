@@ -359,7 +359,7 @@ corr.method
 
 copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
 
-1.  and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
+7 and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
 
 Further Details:
 ================

@@ -238,13 +238,13 @@ corr.method
 "spearman" 
 ```
 
--5. Ready! Click on **Ajax request**!
+5) Ready! Click on **Ajax request**!
 
--6. To see the results: 
+6) To see the results: 
 
 copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
 
--7. and paste http://okfnrg.math.auth.gr/ocpu/tmp/ {this} /R/.val on a new tab.
+7 and paste http://okfnrg.math.auth.gr/ocpu/tmp/ {this} /R/.val on a new tab.
 
 
 
