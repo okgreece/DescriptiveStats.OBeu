@@ -2,7 +2,7 @@
 #' Calculation of Skewness
 #'  
 #' @description
-#' This functions calculates skewness of the input dataset.
+#' This function calculates skewness of the input dataset.
 #' 
 #' @usage ds.skewness(x)
 #' 

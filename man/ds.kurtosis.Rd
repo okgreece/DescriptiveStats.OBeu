@@ -10,7 +10,7 @@ ds.kurtosis(x)
 \item{x}{A vector, matrix or data frame}
 }
 \description{
-This functions calculates kurtosis of the input dataset.
+This function calculates kurtosis of the input dataset.
 }
 \details{
 This function returns the kurtosis of numbers of the input data

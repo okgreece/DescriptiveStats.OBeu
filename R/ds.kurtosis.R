@@ -2,7 +2,7 @@
 #' Calculation of Kurtosis
 #'  
 #' @description
-#' This functions calculates kurtosis of the input dataset.
+#' This function calculates kurtosis of the input dataset.
 #' 
 #' @usage ds.kurtosis(x)
 #' 

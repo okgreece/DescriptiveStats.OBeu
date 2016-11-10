@@ -12,7 +12,7 @@ ds.frequency(data,select=NULL)
 \item{select}{One or more nominal variables to calculate their corresponding frequencies.}
 }
 \description{
-This functions calculates frequencies of factors/characters of the input dataset.
+This function calculates frequencies of factors/characters of the input dataset.
 }
 \details{
 This function returns a json output with the frequencies of factors/characters of the input dataset.

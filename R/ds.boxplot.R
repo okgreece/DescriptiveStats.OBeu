@@ -2,7 +2,7 @@
 #' Boxplot
 #'  
 #' @description
-#' This functions calculates the statistics for a boxplot of the input dataset.
+#' This function calculates the statistics for the boxplot of the input dataset.
 #' 
 #' @usage ds.boxplot(data, out.level=1.5)
 #' 

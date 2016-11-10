@@ -2,7 +2,7 @@
 #' Frequencies of nominal variables
 #'  
 #' @description
-#' This functions calculates frequencies of factors/characters of the input dataset.
+#' This function calculates frequencies of factors/characters of the input dataset.
 #' 
 #' @usage ds.frequency(data,select=NULL)
 #' 

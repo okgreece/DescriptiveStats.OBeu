@@ -25,7 +25,7 @@ A json file with the following components:
 }
 }
 \description{
-This functions calculates the basic descriptive measures of the input dataset.
+This function calculates the basic descriptive measures of the input dataset.
 }
 \details{
 This function returns the min, max, range, mean, median, 0\%,25\%,50\%,75\%,100\% quantiles variance,

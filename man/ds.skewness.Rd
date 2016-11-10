@@ -10,7 +10,7 @@ ds.skewness(x)
 \item{x}{A vector, matrix or data frame which includes at least one number.}
 }
 \description{
-This functions calculates skewness of the input dataset.
+This function calculates skewness of the input dataset.
 }
 \details{
 This function returns the skewness of numbers of the input dataset.

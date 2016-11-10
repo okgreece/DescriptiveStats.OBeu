@@ -2,7 +2,7 @@
 #' Calculation of the Statistic Measures
 #'  
 #' @description
-#' This functions calculates the basic descriptive measures of the input dataset.
+#' This function calculates the basic descriptive measures of the input dataset.
 #' 
 #' @usage ds.statistics(data)
 #' 

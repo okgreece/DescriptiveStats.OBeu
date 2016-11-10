@@ -21,7 +21,7 @@ n: the number of non-NA observations in the sample.
 out: the values of any data points which lie beyond the extremes of the whiskers
 }
 \description{
-This functions calculates the statistics for a boxplot of the input dataset.
+This function calculates the statistics for the boxplot of the input dataset.
 }
 \details{
 This function returns the necessary statistics for bulding a boxplot
