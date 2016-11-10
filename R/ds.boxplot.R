@@ -1,5 +1,5 @@
 #' @title 
-#' Boxplot
+#' Calculation of Statistics for the Boxplot
 #'  
 #' @description
 #' This function calculates the statistics for the boxplot of the input dataset.

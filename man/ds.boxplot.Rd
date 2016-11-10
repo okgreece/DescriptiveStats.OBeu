@@ -2,7 +2,7 @@
 % Please edit documentation in R/ds.boxplot.R
 \name{ds.boxplot}
 \alias{ds.boxplot}
-\title{Boxplot}
+\title{Calculation of Statistics for the Boxplot}
 \usage{
 ds.boxplot(data, out.level=1.5)
 }
