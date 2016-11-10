@@ -41,6 +41,213 @@ library(DescriptiveStats.OBeu)
 ```
 
 
+#Use:
+
+The basic function is: 
+```{r, eval=FALSE, include=TRUE}
+ds.analysis(data, box.out=1.5, corr.method= "pearson", fr.select=NULL)
+```
+
+where *data*: The input data
+
+*box.out*: The level of of outliers, default is 1.5*sd
+
+*corr.method*: The correlation coefficient method to compute: "pearson" (default), "kendall" or "spearman".
+
+and *fr.select*: One or more nominal variables to calculate their corresponding frequencies.
+
+
+### R Example
+
+The package includes the following data: 
+
+```{r}
+# 1. data frame produced from rudolf:
+sample_df_rudolf 
+```
+
+```{r}
+# 2. json format file
+sample_json_openspending
+```
+
+```{r}
+# 3. a link to json file-openspending
+sample_json_link_openspending
+```
+
+```{r}
+# 4. a link to json file-rudolf
+sample_json_link_rudolf
+```
+
+We select for example the data frame produced from rudolf.
+
+```{r}
+ds.analysis(sample_df_rudolf)
+```
+
+Also we can define the parameters of *box.out* to 2 and *corr.method* to "spearman"
+
+```{r}
+ds.analysis(sample_df_rudolf,box.out=2,corr.method = "spearman")
+```
+
+
+
+
+# OpenCPU Short Guide - DescriptiveStats.OBeu
+
+Go to: http://okfnrg.math.auth.gr/ocpu/test/
+
+## How to use functions:
+
+Type to the endpoint:
+
+```{r, eval=FALSE, include=TRUE}
+ ../library/ {name of the library} /R/ {function}
+```
+
+If you want to see the function parameters you should: 
+
++ Select Method:
+```{r, eval=FALSE, include=TRUE}
+Get
+```
+
+and in order to run a function you should:
+
++ Select Method:
+```{r, eval=FALSE, include=TRUE}
+Post
+```
+
+
+## Example #1:
+
+1. Go to http://okfnrg.math.auth.gr/ocpu/test/
+
+2. Copy and paste the following function to the endpoint 
+```{r, eval=FALSE, include=TRUE}
+../library/DescriptiveStats.OBeu/R/ds.analysis
+```
+
+3. *Select Method*:
+```{r, eval=FALSE, include=TRUE}
+ Post
+```
+
+4. **Add parameters** and set:
+
+Define the input time series data:
+
++ *Param Name*:
+ 
+```{r, eval=FALSE, include=TRUE}
+data
+```
+
++ *Param Value* the following:
+ 
+```{r, eval=FALSE, include=TRUE}
+sample_df_rudolf
+```
+
+Define the level of boxplot outliers (*optional*),default is 1.5:
+
++ *Param Name*: 
+```{r, eval=FALSE, include=TRUE}
+box.out
+```
+
+Define the correlation method (*corr.method*), default is *"pearson"*:
+
++ *Param Name*: 
+```{r, eval=FALSE, include=TRUE}
+corr.method
+```
+
++ *Param Value* -for example:
+```{r, eval=FALSE, include=TRUE}
+"spearman"
+```
+
+5. Ready! Click on **Ajax request**!
+
+6. To see the results: 
+
+copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
+
+7. and paste http://okfnrg.math.auth.gr/ocpu/tmp/ {this} /R/.val on a new tab.
+
+
+
+
+## Example #2 - Rudolf/Open Spending-DescriptiveStats
+
+1. Go to http://okfnrg.math.auth.gr/ocpu/test/
+
+2. Copy and paste the following function to the endpoint 
+```{r, eval=FALSE, include=TRUE}
+../library/DescriptiveStats.OBeu/R/open_spending.ds
+```
+
+3. *Select Method*:
+```{r, eval=FALSE, include=TRUE}
+Post
+```
+
+4. **Add parameters** and set:
+
+Define the input time series data:
+
++ *Param Name*:
+ 
+```{r, eval=FALSE, include=TRUE}
+json_data
+```
+
++ *Param Value* -the following output from rudolf/ open spending api or you can provide the also **json URL**:
+```{r, eval=FALSE, include=TRUE}
+# 1. json format file
+sample_json_openspending
+
+# 2. a link to json file-openspending
+sample_json_link_openspending
+
+# 3. a link to json file-rudolf
+sample_json_link_rudolf
+```
+
+Define the level of boxplot outliers (*optional*),default is 1.5:
+
++ *Param Name*: 
+```{r, eval=FALSE, include=TRUE}
+box.out
+```
+
+Define the correlation method (*corr.method*), default is *"pearson"*:
+
++ *Param Name*: 
+```{r, eval=FALSE, include=TRUE}
+corr.method
+```
+
++ *Param Value* -for example:
+```{r, eval=FALSE, include=TRUE}
+"spearman" 
+```
+
+5. Ready! Click on **Ajax request**!
+
+6. To see the results: 
+
+copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
+
+7. and paste http://okfnrg.math.auth.gr/ocpu/tmp/ {this} /R/.val on a new tab.
+
+
+
 # Further Details:
 
 + https://www.opencpu.org/help.html
