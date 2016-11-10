@@ -67,8 +67,8 @@ ds.statistics <- function(data)
   
   skewness <- ds.skewness(data.num)
   
-  q <- as.data.frame(apply(data.num, 2, stats::quantile))
-  
+  q <- as.data.frame(apply(data.num, 2, stats::quantile, probs=c(0.25,0.75) ) )
+
   # construction of dataframe with all the statistics
   statistics<-list(Min=min, Max=max,Range=range, Mean=mean, Median=median, 
                    Quantiles=q,Variance=var, StandartDeviation=stdev,
