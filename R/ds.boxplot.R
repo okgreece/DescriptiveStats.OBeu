@@ -4,10 +4,10 @@
 #' @description
 #' Boxplot
 #' 
-#' @usage ds.boxplot(data, q=1.5)
+#' @usage ds.boxplot(data, out.level=1.5)
 #' 
 #' @param data The input matrix or data frame 
-#' @param q ...
+#' @param out.level ...
 #' 
 #' @details 
 #' boxplot
@@ -26,7 +26,7 @@
 #' @export
 ###################################################################################################
 
-ds.boxplot<-function(data, q=1.5){
+ds.boxplot<-function(data, out.level=1.5){
   
   # Convert to data frame
   data<-as.data.frame(data)
@@ -38,8 +38,8 @@ ds.boxplot<-function(data, q=1.5){
   data.num<-nums(data)
   
   # Boxplot parameters
-  box.data<-apply(data.num, 2, grDevices::boxplot.stats,coef=2, 
-                  do.conf = TRUE, do.out = TRUE)
+  box.data<-apply(data.num, 2, grDevices::boxplot.stats,coef=out.level, 
+                  do.conf = F, do.out = T)
   
   box.data<-as.list(box.data)
   

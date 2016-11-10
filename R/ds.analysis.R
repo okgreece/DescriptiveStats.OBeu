@@ -4,10 +4,13 @@
 #' @description
 #' Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
 #' 
-#' @usage ds.analysis(json_data,method)
+#' @usage ds.analysis(data, box.out=1.5, corr.method= "pearson", fr.select=NULL)
 #' 
-#' @param json_data The json string, URL or file from Open Spending API
-#' @param amount Specify the amount label of the json input data
+#' @param data The input data
+#' @param box.out ...
+#' @param corr.method The correlation coefficient method to compute: "pearson" (default),
+#' "kendall" or "spearman".
+#' @param fr.select One or more nominal variables to calculate their corresponding frequencies.
 #' 
 #' @details 
 #' This function is used to read data in json format from Open Spending API, in order to implement 
@@ -17,7 +20,7 @@
 #'
 #' @author Kleanthis Koupidis
 #' 
-#' @seealso \code{\link{ds.analysis}}
+#' @seealso \code{\link{open_spending.ds}}
 #' 
 #' @rdname open_spending.ds
 #' 
@@ -26,23 +29,36 @@
 #' @export
 #####################################################################################################
 
-ds.analysis <- function(data, method){
+ds.analysis <- function(data, box.out=1.5, corr.method= "pearson", fr.select=NULL){
       
     if(all(is.factor(data)) & !all(is.character(data))){
       freq <- ds.frequency(data)
     } else {
       
-      statistics <- ds.statistics(data)
-      #if data[num]
-      correlation <- ds.correlation(data)
+      descriptives <- ds.statistics(data)
       
-      boxplot <- ds.boxplot(data)
+      # If correlation can be calculated
+      if (length(nums(data))>2) {
+        correlation <- ds.correlation(data,y=NULL, cor.method=corr.method)
+      }else {
+        correlation <- NULL
+      }
+     
+      boxplot <- ds.boxplot(data,out.level=box.out)
       
-      frequencies <- ds.frequency(data)
+      frequencies <- ds.frequency(data,select=fr.select)
       
-      linear.model <- ds.glm(data)
+      #linear.model <- ds.glm(data)
       
-      
+      stat.plots <- list(
+        descriptives=descriptives,
+        correlation=correlation,
+        boxplot= boxplot,
+        frequencies= frequencies
+        #linear.model= linear.model
+      )
+      #stat.plots <- jsonlite::toJSON(stat.plots)
+      return(stat.plots)
     }
       
 }
