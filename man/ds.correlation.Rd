@@ -8,6 +8,11 @@ ds.correlation(x, y=NULL, cor.method="pearson")
 }
 \arguments{
 \item{x}{A vector, matrix or data frame}
+
+\item{y}{A vector, matrix or data frame}
+
+\item{cor.method}{The correlation coefficient method to compute: "pearson" (default),
+"kendall" or "spearman".}
 }
 \description{
 This functions calculates the correlation coefficient of the input vectors or datasets.
