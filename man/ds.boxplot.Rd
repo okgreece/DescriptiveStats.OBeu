@@ -9,16 +9,22 @@ ds.boxplot(data, out.level=1.5)
 \arguments{
 \item{data}{The input matrix or data frame}
 
-\item{out.level}{...}
+\item{out.level}{Determines how far the plot "whiskers" extend out from the box.}
 }
 \value{
-Description of the returns
+Returns a list with the following components:
+
+stats: a vector with the extreme of the lower whisker, the lower "hinge", the median, the upper "hinge" and the extreme of the upper whisker.
+
+n: the number of non-NA observations in the sample.
+
+out: the values of any data points which lie beyond the extremes of the whiskers
 }
 \description{
-Boxplot
+This functions calculates the statistics for a boxplot of the input dataset.
 }
 \details{
-boxplot
+This function returns the necessary statistics for bulding a boxplot
 }
 \author{
 Aikaterini Chatzopoulou, Kleanthis Koupidis
