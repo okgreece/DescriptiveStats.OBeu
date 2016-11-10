@@ -238,7 +238,7 @@ corr.method
 "spearman" 
 ```
 
-\5. Ready! Click on **Ajax request**!
+5. Ready! Click on **Ajax request**!
 
 6. To see the results: 
 
