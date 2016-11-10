@@ -42,15 +42,20 @@ open_spending.ds <- function(json_data, box.outl=1.5, cor.method= "pearson", sel
 
   dt2<-unique(as.data.frame(dt))
   
-  if (select.dim=="cells"){
-    melt <- reshape::melt.data.frame(dt2)
-    dt2 <- reshape::cast(melt, 
-                  "global__fiscalPeriod__28951.notation ~ global__budgetPhase__afd93.prefLabel",
-                  sum)
-    dt2 <- stats::na.omit(dt2)
-    
+  if (select.dim=="data"){
+    dt2[,"data.date_2.Year"] <- as.factor(dt2[,"data.date_2.Year"])
   }
-    ds.result <- ds.analysis(dt2, box.out=box.outl, corr.method= cor.method, fr.select=select)
+  
+  if (select.dim=="cells"){
+      melt <- reshape::melt.data.frame(dt2)
+    dt2 <- reshape::cast(melt, 
+                  "cells.global__fiscalPeriod__28951.notation ~ cells.global__budgetPhase__afd93.prefLabel",
+                  sum)
+  }
+  
+  dt2 <- stats::na.omit(dt2)
+  
+  ds.result <- ds.analysis(dt2, box.out=box.outl, corr.method= cor.method, fr.select=select)
   
   return(ds.result)  
 }
