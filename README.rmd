@@ -63,7 +63,7 @@ The package includes the following data:
 
 ```{r}
 # 1. data frame produced from rudolf:
-sample_df_rudolf 
+head(sample_df_rudolf )
 ```
 
 ```{r}

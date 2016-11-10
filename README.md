@@ -43,131 +43,23 @@ The package includes the following data:
 
 ``` r
 # 1. data frame produced from rudolf:
-sample_df_rudolf 
+head(sample_df_rudolf )
 ```
 
-    ##    global__budgetPhase__afd93.prefLabel
-    ## 1                               Revised
-    ## 2                              Executed
-    ## 3                              Approved
-    ## 4                              Executed
-    ## 5                              Approved
-    ## 6                              Executed
-    ## 7                              Approved
-    ## 8                              Executed
-    ## 9                               Revised
-    ## 10                              Revised
-    ## 11                             Reserved
-    ## 12                              Revised
-    ## 13                             Executed
-    ## 14                             Executed
-    ## 15                              Revised
-    ## 16                             Reserved
-    ## 17                             Reserved
-    ## 18                             Approved
-    ## 19                             Executed
-    ## 20                             Approved
-    ## 21                             Reserved
-    ## 22                             Approved
-    ## 23                             Approved
-    ## 24                             Executed
-    ## 25                             Reserved
-    ## 26                             Executed
-    ## 27                             Reserved
-    ## 28                              Revised
-    ## 29                                Draft
-    ## 30                             Reserved
-    ## 31                             Reserved
-    ## 32                                Draft
-    ## 33                                Draft
-    ## 34                             Reserved
-    ## 35                                Draft
-    ## 36                              Revised
-    ## 37                             Executed
-    ## 38                                Draft
-    ## 39                                Draft
-    ## 40                              Revised
-    ## 41                              Revised
-    ## 42                             Reserved
-    ## 43                             Reserved
-    ## 44                                Draft
-    ## 45                              Revised
-    ## 46                                Draft
-    ## 47                             Approved
-    ## 48                                Draft
-    ## 49                              Revised
-    ## 50                                Draft
-    ## 51                             Approved
-    ## 52                             Executed
-    ## 53                             Approved
-    ## 54                              Revised
-    ## 55                                Draft
-    ## 56                             Approved
-    ## 57                             Approved
-    ## 58                             Executed
-    ## 59                             Reserved
-    ## 60                                Draft
-    ##    global__fiscalPeriod__28951.notation global__amount__0397f.sum
-    ## 1                                  2004                7776199431
-    ## 2                                  2014                4561405226
-    ## 3                                  2007                4528366008
-    ## 4                                  2006                5137041789
-    ## 5                                  2006                4576689407
-    ## 6                                  2015                4350299388
-    ## 7                                  2009                5240736006
-    ## 8                                  2008                5727781327
-    ## 9                                  2008                9471043516
-    ## 10                                 2010               10897898000
-    ## 11                                 2015                 397805068
-    ## 12                                 2012                9511626156
-    ## 13                                 2007                5048868478
-    ## 14                                 2010                5382714318
-    ## 15                                 2006                7151389509
-    ## 16                                 2012                 459080674
-    ## 17                                 2013                 474341545
-    ## 18                                 2004                3653382033
-    ## 19                                 2005                5048868478
-    ## 20                                 2015                3807199209
-    ## 21                                 2010                 678705028
-    ## 22                                 2012                4259002229
-    ## 23                                 2008                5032128560
-    ## 24                                 2013                5194074957
-    ## 25                                 2004                 369627311
-    ## 26                                 2011                5648622872
-    ## 27                                 2007                 544506971
-    ## 28                                 2013               10020289289
-    ## 29                                 2007                6718140000
-    ## 30                                 2005                 544506971
-    ## 31                                 2014                 415927816
-    ## 32                                 2010               10367445000
-    ## 33                                 2009                9760828000
-    ## 34                                 2006                 522211280
-    ## 35                                 2014                8506966105
-    ## 36                                 2005                6862535009
-    ## 37                                 2009                6051621219
-    ## 38                                 2013                7337000000
-    ## 39                                 2011                9892047000
-    ## 40                                 2009               10643830406
-    ## 41                                 2015                9163079890
-    ## 42                                 2011                 528749813
-    ## 43                                 2009                 681484245
-    ## 44                                 2008                9175892000
-    ## 45                                 2014                8968679270
-    ## 46                                 2015                8354393751
-    ## 47                                 2013                4510210535
-    ## 48                                 2005                6718140000
-    ## 49                                 2011                9910581362
-    ## 50                                 2004                7554173000
-    ## 51                                 2005                4528366008
-    ## 52                                 2004                5215613860
-    ## 53                                 2011                4902387038
-    ## 54                                 2007                6862535009
-    ## 55                                 2006                6632439000
-    ## 56                                 2010                4597258144
-    ## 57                                 2014                3999462730
-    ## 58                                 2012                5025993560
-    ## 59                                 2008                 626919079
-    ## 60                                 2012                9020000000
+    ##   global__budgetPhase__afd93.prefLabel
+    ## 1                              Revised
+    ## 2                             Executed
+    ## 3                             Approved
+    ## 4                             Executed
+    ## 5                             Approved
+    ## 6                             Executed
+    ##   global__fiscalPeriod__28951.notation global__amount__0397f.sum
+    ## 1                                 2004                7776199431
+    ## 2                                 2014                4561405226
+    ## 3                                 2007                4528366008
+    ## 4                                 2006                5137041789
+    ## 5                                 2006                4576689407
+    ## 6                                 2015                4350299388
 
 ``` r
 # 2. json format file
