@@ -7,7 +7,7 @@
 #' @usage ds.boxplot(data, out.level=1.5)
 #' 
 #' @param data The input matrix or data frame 
-#' @param out.level Determines how far the plot "whiskers" extend out from the box.
+#' @param out.level times the length of the box away from the box. A value of zero causes the whiskers to extend to the data extremes (and no outliers be returned) 
 #' 
 #' @details 
 #' This function returns the necessary statistics for bulding a boxplot

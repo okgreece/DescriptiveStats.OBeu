@@ -9,7 +9,7 @@ ds.boxplot(data, out.level=1.5)
 \arguments{
 \item{data}{The input matrix or data frame}
 
-\item{out.level}{Determines how far the plot "whiskers" extend out from the box.}
+\item{out.level}{times the length of the box away from the box. A value of zero causes the whiskers to extend to the data extremes (and no outliers be returned)}
 }
 \value{
 Returns a list with the following components:
