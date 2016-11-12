@@ -4,9 +4,13 @@
 #' @description
 #' Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
 #' 
-#' @usage open_spending.ds(json_data, box.outl=1.5, cor.method= "pearson", select=NULL)
+#' @usage open_spending.ds(json_data, what=NULL, to.what=NULL, subset=NULL,
+#' box.outl=1.5, cor.method= "pearson", select=NULL)
 #' 
 #' @param json_data The json string, URL or file from Open Spending API
+#' @param what ...
+#' @param to.what ...
+#' @param subset ...
 #' @param box.outl ...
 #' @param cor.method The correlation coefficient method to compute: "pearson" (default),
 #' "kendall" or "spearman".
@@ -30,32 +34,40 @@
 #' @export
 #####################################################################################################
 
-open_spending.ds <- function(json_data, box.outl=1.5, cor.method= "pearson", select=NULL){
+open_spending.ds <- function(json_data,  
+                             what=NULL, to.what=NULL, 
+                             box.outl=1.5, cor.method= "pearson", select=NULL){ 
 
   dt <- jsonlite::fromJSON(json_data)
 
-  dimensions=c("data","cells")
+  components <- c("data", "cells")
   
-  select.dim=match.arg(dimensions,names(dt),several.ok = T)
+  select.comp <- match.arg(components, names(dt), several.ok = T)
   
-  dt<-dt[select.dim]
+  
+  dt <- as.data.frame(dt[select.comp])
 
-  dt2<-unique(as.data.frame(dt))
+  if (select.comp=="data") names(dt) <- gsub("data.","",names(dt)) else names(dt) <- gsub("cells.","",names(dt))
   
-  if (select.dim=="data"){
-    dt2[,"data.date_2.Year"] <- as.factor(dt2[,"data.date_2.Year"])
-  }
+  # Create data frame with the the selections of user
+
+  dt2 <- unique(as.data.frame(dt))
   
-  if (select.dim=="cells"){
-      melt <- reshape::melt.data.frame(dt2)
-    dt2 <- reshape::cast(melt, 
-                  "cells.global__fiscalPeriod__28951.notation ~ cells.global__budgetPhase__afd93.prefLabel",
-                  sum)
-  }
+  #dt2[id_variables] <- lapply(dt2[id_variables],factor)
   
-  dt2 <- stats::na.omit(dt2)
+  formula <- paste(what,to.what,sep="~") 
   
-  ds.result <- ds.analysis(dt2, box.out=box.outl, corr.method= cor.method, fr.select=select)
+  melt <- reshape::melt.data.frame(dt)
+  
+  dt2 <- reshape::cast(melt,formula,sum) 
+
+  dt2 <- stats::na.omit(dt2) 
+  
+  #descriptives
+  ds.result <- ds.analysis(dt2, box.out=box.outl, corr.method= cor.method, fr.select=select) 
+  
   ds.results <- jsonlite::toJSON(ds.result)
+  
   return(ds.results)  
-}
+  
+} 
