@@ -7,7 +7,7 @@
 #' @usage ds.boxplot(data, out.level=1.5)
 #' 
 #' @param data The input matrix or data frame 
-#' @param out.level times the length of the box away from the box. A value of zero causes the whiskers to extend to the data extremes (and no outliers be returned) 
+#' @param out.level Determines the times of length of the box the "whiskers" are away from the box. If it is equal to zero, the whiskers extend to the data extremes (and no outliers be returned) 
 #' 
 #' @details 
 #' This function returns the necessary statistics for bulding a boxplot
@@ -21,7 +21,7 @@
 #' 
 #' n: the number of non-NA observations in the sample.
 #' 
-#' out: the values of any data points which lie beyond the extremes of the whiskers
+#' out: the values of any data points which lie beyond the whiskers' extremes
 #' 
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 

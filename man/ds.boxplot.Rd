@@ -9,7 +9,7 @@ ds.boxplot(data, out.level=1.5)
 \arguments{
 \item{data}{The input matrix or data frame}
 
-\item{out.level}{times the length of the box away from the box. A value of zero causes the whiskers to extend to the data extremes (and no outliers be returned)}
+\item{out.level}{Determines the times of length of the box the "whiskers" are away from the box. If it is equal to zero, the whiskers extend to the data extremes (and no outliers be returned)}
 }
 \value{
 Returns a list with the following components:
@@ -18,7 +18,7 @@ stats: a vector with the extreme of the lower whisker, the lower "hinge", the me
 
 n: the number of non-NA observations in the sample.
 
-out: the values of any data points which lie beyond the extremes of the whiskers
+out: the values of any data points which lie beyond the whiskers' extremes
 }
 \description{
 This function calculates the statistics for the boxplot of the input dataset.
