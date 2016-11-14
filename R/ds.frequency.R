@@ -55,4 +55,3 @@ ds.frequency <- function(data,select=NULL){
  return(freq)
 }
 
-
