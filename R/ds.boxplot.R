@@ -11,18 +11,18 @@
 #' If it is equal to zero no outliers will be returned.
 #' 
 #' @details 
-#' This function returns the necessary statistics for bulding a boxplot
+#' This function returns the statistics needed to visualize boxplots.
 #' 
 #' @author Aikaterini Chatzopoulou, Kleanthis Koupidis
 #' 
 #' @return 
 #' Returns a list with the following components:
-#' 
-#' stats: a vector with the extreme of the lower whisker, the lower "hinge", the median, the upper "hinge" and the extreme of the upper whisker.
-#' 
-#' n: the number of non-NA observations in the sample.
-#' 
-#' out: the values of any data points which lie beyond the whiskers' extremes
+#' \itemize{ 
+#' \item Stats a vector with the extreme of the lower whisker, the lower "hinge", 
+#' the median, the upper "hinge" and the extreme of the upper whisker.
+#' \item n The number of non-NA observations of the data.
+#' \item out The values of any data points which lie beyond the whiskers' extremes
+#' }
 #' 
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
@@ -37,7 +37,7 @@ ds.boxplot<-function(data, out.level=1.5){
   data<-as.data.frame(data)
   
   # Check if all are categorical
-  stopifnot(all(sapply(data, is.factor)|sapply(data, is.character))==F)
+  stopifnot(all(sapply(data, is.factor) | sapply(data, is.character))==F)
   
   # only numeric data
   data.num<-nums(data)
