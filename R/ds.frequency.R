@@ -10,7 +10,7 @@
 #' @param select One or more nominal variables to calculate their corresponding frequencies.
 #' 
 #' @details 
-#' This function returns a json output with the frequencies of factors/characters of the input dataset.
+#' This function returns a data frame with the frequencies of factors/characters of the input dataset.
 #' 
 #' @author Kleanthis Koupidis
 #'
