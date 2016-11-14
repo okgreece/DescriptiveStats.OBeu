@@ -18,7 +18,8 @@ cor.method= "pearson", select=NULL)
 \item{coef.outl}{Determines the length of the "whiskers" plot.
 If it is equal to zero no outliers will be returned.}
 
-\item{box.outliers}{If TRUE the outliers will be computed at the selected "coef.outl" level (default is 1.5 times the Interquartile Range).}
+\item{box.outliers}{If TRUE the outliers will be computed at the selected "coef.outl" level 
+(default is 1.5 times the Interquartile Range).}
 
 \item{box.wdth}{The width level is determined 0.15 times the square root of the size of the input data.}
 
