@@ -4,15 +4,17 @@
 #' @description
 #' Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
 #' 
-#' @usage open_spending.ds(json_data, what=NULL, to.what=NULL, subset=NULL,
-#' box.outl=1.5, cor.method= "pearson", select=NULL)
+#' @usage open_spending.ds(json_data,  what=NULL, to.what=NULL, 
+#' coef.outl=1.5, box.outliers=T, box.wdth=0.15,
+#' cor.method= "pearson", select=NULL)
 #' 
 #' @param json_data The json string, URL or file from Open Spending API
 #' @param what ...
 #' @param to.what ...
-#' @param subset ...
-#' @param box.outl Determines the length of the "whiskers" plot.
+#' @param coef.outl Determines the length of the "whiskers" plot.
 #' If it is equal to zero no outliers will be returned.
+#' @param box.outliers If TRUE the outliers will be computed at the selected "coef.outl" level (default is 1.5 times the Interquartile Range).
+#' @param box.wdth The width level is determined 0.15 times the square root of the size of the input data.
 #' @param cor.method The correlation coefficient method to compute: "pearson" (default),
 #' "kendall" or "spearman".
 #' @param select One or more nominal variables to calculate their corresponding frequencies.
@@ -37,7 +39,8 @@
 
 open_spending.ds <- function(json_data,  
                              what=NULL, to.what=NULL, 
-                             box.outl=1.5, cor.method= "pearson", select=NULL){ 
+                             coef.outl=1.5, box.outliers=T, box.wdth=0.15,
+                             cor.method= "pearson", select=NULL){ 
 
   dt <- jsonlite::fromJSON(json_data)
 
@@ -64,8 +67,9 @@ open_spending.ds <- function(json_data,
 
   dt2 <- stats::na.omit(dt2) 
   
-  #descriptives
-  ds.result <- ds.analysis(dt2, box.out=box.outl, corr.method= cor.method, fr.select=select) 
+  #descriptives(data, box.out=1.5, outliers=T, corr.method= "pearson", fr.select=NULL)
+  ds.result <- ds.analysis(dt2, c.out=coef.outl,outliers=box.outliers,box.width=box.wdth, 
+                           corr.method= cor.method, fr.select=select) 
   
   ds.results <- jsonlite::toJSON(ds.result)
   
