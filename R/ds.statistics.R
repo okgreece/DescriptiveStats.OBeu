@@ -21,11 +21,11 @@
 #' \item Median: The median value of the input data
 #' \item Quantiles: The 0\%,25\%,50\%,75\%,100\% percentiles
 #' \item Variance: The variance of the input data
-#' \item StandartDeviation: The standard deviation of the input data
+#' \item StandardDeviation: The standard deviation of the input data
 #' \item Skewness: The Skewness of the input data
 #' \item Kurtosis: The Kurtosis of the input data
 #' }
-#'
+#' 
 #' @author Katerina Chatzopoulou, Kleanthis Koupidis
 #' 
 #' @seealso \code{\link{open_spending.ds}}
@@ -71,12 +71,9 @@ ds.statistics <- function(data)
 
   # construction of dataframe with all the statistics
   statistics<-list(Min=min, Max=max,Range=range, Mean=mean, Median=median, 
-                   Quantiles=q,Variance=var, StandartDeviation=stdev,
+                   Quantiles=q,Variance=var, StandardDeviation=stdev,
                    Kurtosis=kurtosis, Skewness=skewness)
 
-  # JSON output
-  #stats.json<-jsonlite::toJSON(statistics)
-  
   # Return
   return(statistics)
 }
