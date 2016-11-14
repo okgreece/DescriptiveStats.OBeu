@@ -13,7 +13,8 @@
 #' @param to.what ...
 #' @param coef.outl Determines the length of the "whiskers" plot.
 #' If it is equal to zero no outliers will be returned.
-#' @param box.outliers If TRUE the outliers will be computed at the selected "coef.outl" level (default is 1.5 times the Interquartile Range).
+#' @param box.outliers If TRUE the outliers will be computed at the selected "coef.outl" level 
+#' (default is 1.5 times the Interquartile Range).
 #' @param box.wdth The width level is determined 0.15 times the square root of the size of the input data.
 #' @param cor.method The correlation coefficient method to compute: "pearson" (default),
 #' "kendall" or "spearman".
@@ -35,7 +36,7 @@
 #' @import reshape
 #' 
 #' @export
-#####################################################################################################
+############################################################################################################
 
 open_spending.ds <- function(json_data,  
                              what=NULL, to.what=NULL, amount=NULL,
@@ -56,7 +57,7 @@ open_spending.ds <- function(json_data,
   # Create data frame with the the selections of user
 
   dt2 <- unique(as.data.frame(dt))
-  
+  names(dt2)
   #dt2[id_variables] <- lapply(dt2[id_variables],factor)
   
   melt <- reshape::melt.data.frame(dt,id.vars = c(what,to.what))
