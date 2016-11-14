@@ -4,7 +4,7 @@
 \alias{ds.frequency}
 \title{Frequencies of nominal variables}
 \usage{
-ds.frequency(data,select=NULL)
+ds.frequency(data, select=NULL)
 }
 \arguments{
 \item{data}{A vector, matrix or data frame which includes at least one factor/character.}
@@ -15,7 +15,7 @@ ds.frequency(data,select=NULL)
 This function calculates frequencies of factors/characters of the input dataset.
 }
 \details{
-This function returns a json output with the frequencies of factors/characters of the input dataset.
+This function returns a data frame with the frequencies of factors/characters of the input dataset.
 }
 \author{
 Kleanthis Koupidis

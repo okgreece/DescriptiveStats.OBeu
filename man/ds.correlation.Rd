@@ -15,11 +15,11 @@ ds.correlation(x, y=NULL, cor.method="pearson")
 "kendall" or "spearman".}
 }
 \description{
-This functions calculates the correlation coefficient of the input vectors or datasets.
+This functions calculates the correlation coefficient of the input vectors, matrix or data frame.
 By default, the correlation coefficient of pearson is computed.
 }
 \details{
-This function returns a symmetric matrix in json format with the correlation coefficients 
+This function returns an upper triangle matrix with the correlation coefficients 
 of the input data. The correlation coefficient of pearson is computed, by default. 
 Other options are "kendall" or "spearman".
 }

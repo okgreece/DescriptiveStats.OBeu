@@ -7,13 +7,13 @@
 nums(data)
 }
 \arguments{
-\item{data}{The json string, URL or file from Open Spending API}
+\item{data}{The input data frame}
 }
 \value{
-This function returns a dataframe with the numeric columns of the input dataset.
+This function returns a data frame with the numeric columns of the input dataset.
 }
 \description{
-Extract and return a dataframe with the columns that include only numeric values
+Extract and return a data frame with the columns that include only numeric values
 }
 \author{
 Kleanthis Koupidis
