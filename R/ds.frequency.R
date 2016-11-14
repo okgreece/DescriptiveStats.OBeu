@@ -4,7 +4,7 @@
 #' @description
 #' This function calculates frequencies of factors/characters of the input dataset.
 #' 
-#' @usage ds.frequency(data,select=NULL)
+#' @usage ds.frequency(data, select=NULL)
 #' 
 #' @param data A vector, matrix or data frame which includes at least one factor/character.
 #' @param select One or more nominal variables to calculate their corresponding frequencies.
@@ -50,9 +50,6 @@ ds.frequency <- function(data,select=NULL){
    }else {
      freq <- as.data.frame(freq)
    }
- 
- # JSON output
- #frequencies <- jsonlite::toJSON(freq.df)
 
  # Return
  return(freq)
