@@ -2,11 +2,11 @@
 #' Calculation of Kurtosis
 #'  
 #' @description
-#' This function calculates kurtosis of the input vector, matrix or dataset.
+#' This function calculates kurtosis of the input vector, matrix or data frame.
 #' 
 #' @usage ds.kurtosis(x)
 #' 
-#' @param x A vector, matrix or data frame
+#' @param x A vector, matrix or data frame.
 #' 
 #' @details 
 #' This function returns the kurtosis of numbers of the input data.

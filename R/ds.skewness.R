@@ -6,7 +6,7 @@
 #' 
 #' @usage ds.skewness(x)
 #' 
-#' @param x A vector, matrix or data frame .
+#' @param x A vector, matrix or data frame.
 #'  
 #' @details 
 #' This function returns the skewness of numbers of the input data.
@@ -19,7 +19,7 @@
 #' @rdname ds.skewness
 #'
 #' @export
-##################################################################################################
+#########################################################################################
 
 ds.skewness <- function(x)
 {
