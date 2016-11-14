@@ -13,7 +13,7 @@
 #' "kendall" or "spearman".
 #' 
 #' @details 
-#' This function returns a symmetric matrix in json format with the correlation coefficients 
+#' This function returns an upper triangle matrix with the correlation coefficients 
 #' of the input data. The correlation coefficient of pearson is computed, by default. 
 #' Other options are "kendall" or "spearman".
 #' 
@@ -48,10 +48,14 @@ ds.correlation<-function(x, y=NULL, cor.method="pearson"){
   
   # Correlation
   correlation <- stats::cor(data.num, method=cor.method)
-
-  correlation <- data.frame(correlation,row.names = rownames(correlation),
-                            column=colnames(correlation) )
-
+  
+  correlation <- round(correlation, 2)
+  
+  correlation[upper.tri(correlation)] <-0
+  
+  cor.matrix <- data.frame(correlation,row.names = rownames(correlation))  
+  
   # Return
-  return(correlation)
+  return(cor.matrix)
 }
+
