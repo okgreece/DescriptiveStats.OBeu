@@ -33,7 +33,7 @@ ds.skewness <- function(x)
   # calculation
   mean <- apply(data.num,2,mean)
   sd <- apply(data.num, 2, sd)
-  sd3 <- apply(as.data.frame(sd),2,function(x) x^3)
+  sd3 <- sapply(sd,function(x) x^3)
   
   data.num[,1:ncol(data.num)] <- sweep(data.num,2,mean)
   mult <- data.num ^ 3
