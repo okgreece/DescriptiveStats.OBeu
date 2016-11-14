@@ -2,14 +2,14 @@
 #' Calculation of Skewness
 #'  
 #' @description
-#' This function calculates skewness of the input dataset.
+#' This function calculates skewness of the input vector, matrix or data frame.
 #' 
 #' @usage ds.skewness(x)
 #' 
-#' @param x A vector, matrix or data frame 
+#' @param x A vector, matrix or data frame .
 #'  
 #' @details 
-#' This function returns the skewness of numbers of the input dataset.
+#' This function returns the skewness of numbers of the input data.
 #' 
 #' @author Aikaterini Chatzopoulou
 #' 
@@ -17,8 +17,6 @@
 #' \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.skewness
-#' 
-#' @import jsonlite
 #'
 #' @export
 ##################################################################################################
