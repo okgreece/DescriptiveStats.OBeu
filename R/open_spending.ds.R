@@ -57,10 +57,10 @@ open_spending.ds <- function(json_data,
   # Create data frame with the the selections of user
 
   dt2 <- unique(as.data.frame(dt))
-  names(dt2)
+
   #dt2[id_variables] <- lapply(dt2[id_variables],factor)
   
-  melt <- reshape::melt.data.frame(dt,id.vars = c(what,to.what))
+  melt <- reshape::melt.data.frame(dt)
 
   formula <- paste(what,to.what,sep="~") 
   
@@ -77,4 +77,3 @@ open_spending.ds <- function(json_data,
   return(ds.results)  
   
 } 
-

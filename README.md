@@ -126,7 +126,7 @@ ds.analysis(sample_df_rudolf)
     ## global__amount__0397f.sum 
     ##              1.011777e+19 
     ## 
-    ## $descriptives$StandartDeviation
+    ## $descriptives$StandardDeviation
     ## global__amount__0397f.sum 
     ##                3180844645 
     ## 
@@ -144,18 +144,32 @@ ds.analysis(sample_df_rudolf)
     ## 
     ## $boxplot
     ## $boxplot$global__amount__0397f.sum
-    ## $boxplot$global__amount__0397f.sum$stats
-    ##          25          57          24           1          10 
-    ##   369627311  4129232480  5204844409  8065296591 10897898000 
+    ## $boxplot$global__amount__0397f.sum$lo.whisker
+    ## [1] 369627311
+    ## 
+    ## $boxplot$global__amount__0397f.sum$lo.hinge
+    ## [1] 4129232480
+    ## 
+    ## $boxplot$global__amount__0397f.sum$median
+    ## [1] 5204844409
+    ## 
+    ## $boxplot$global__amount__0397f.sum$up.hinge
+    ## [1] 8065296591
+    ## 
+    ## $boxplot$global__amount__0397f.sum$up.whisker
+    ## [1] 10897898000
+    ## 
+    ## $boxplot$global__amount__0397f.sum$box.width
+    ## [1] 1.16
+    ## 
+    ## $boxplot$global__amount__0397f.sum$lo.out
+    ## numeric(0)
+    ## 
+    ## $boxplot$global__amount__0397f.sum$up.out
+    ## numeric(0)
     ## 
     ## $boxplot$global__amount__0397f.sum$n
     ## [1] 60
-    ## 
-    ## $boxplot$global__amount__0397f.sum$conf
-    ## NULL
-    ## 
-    ## $boxplot$global__amount__0397f.sum$out
-    ## named numeric(0)
     ## 
     ## 
     ## 
@@ -186,7 +200,7 @@ ds.analysis(sample_df_rudolf)
 Also we can define the parameters of *box.out* to 2 and *corr.method* to "spearman"
 
 ``` r
-ds.analysis(sample_df_rudolf,box.out=2,corr.method = "spearman")
+ds.analysis(sample_df_rudolf,c.out=2,corr.method = "spearman")
 ```
 
     ## $descriptives
@@ -219,7 +233,7 @@ ds.analysis(sample_df_rudolf,box.out=2,corr.method = "spearman")
     ## global__amount__0397f.sum 
     ##              1.011777e+19 
     ## 
-    ## $descriptives$StandartDeviation
+    ## $descriptives$StandardDeviation
     ## global__amount__0397f.sum 
     ##                3180844645 
     ## 
@@ -237,18 +251,32 @@ ds.analysis(sample_df_rudolf,box.out=2,corr.method = "spearman")
     ## 
     ## $boxplot
     ## $boxplot$global__amount__0397f.sum
-    ## $boxplot$global__amount__0397f.sum$stats
-    ##          25          57          24           1          10 
-    ##   369627311  4129232480  5204844409  8065296591 10897898000 
+    ## $boxplot$global__amount__0397f.sum$lo.whisker
+    ## [1] 369627311
+    ## 
+    ## $boxplot$global__amount__0397f.sum$lo.hinge
+    ## [1] 4129232480
+    ## 
+    ## $boxplot$global__amount__0397f.sum$median
+    ## [1] 5204844409
+    ## 
+    ## $boxplot$global__amount__0397f.sum$up.hinge
+    ## [1] 8065296591
+    ## 
+    ## $boxplot$global__amount__0397f.sum$up.whisker
+    ## [1] 10897898000
+    ## 
+    ## $boxplot$global__amount__0397f.sum$box.width
+    ## [1] 1.16
+    ## 
+    ## $boxplot$global__amount__0397f.sum$lo.out
+    ## numeric(0)
+    ## 
+    ## $boxplot$global__amount__0397f.sum$up.out
+    ## numeric(0)
     ## 
     ## $boxplot$global__amount__0397f.sum$n
     ## [1] 60
-    ## 
-    ## $boxplot$global__amount__0397f.sum$conf
-    ## NULL
-    ## 
-    ## $boxplot$global__amount__0397f.sum$out
-    ## named numeric(0)
     ## 
     ## 
     ## 
@@ -369,8 +397,8 @@ copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
 
 7 and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
 
-Example \#2 - Rudolf/Open Spending-DescriptiveStats
----------------------------------------------------
+Example \#2 - Open Spending-DescriptiveStats
+--------------------------------------------
 
 1 Go to <http://okfnrg.math.auth.gr/ocpu/test/>
 
@@ -404,9 +432,48 @@ sample_json_openspending
 
 # 2. a link to json file-openspending
 sample_json_link_openspending
+```
 
-# 3. a link to json file-rudolf
-sample_json_link_rudolf
+Define the what:
+
+-   *Param Name*:
+
+``` r
+what
+```
+
+-   *Param Value*:
+
+``` r
+"functional_classification_2.Function+functional_classification_2.Code"
+```
+
+Define the to.what parameter:
+
+-   *Param Name*:
+
+``` r
+to.what
+```
+
+-   *Param Value*:
+
+``` r
+"variable"
+```
+
+Define the amount parameter:
+
+-   *Param Name*:
+
+``` r
+amount
+```
+
+-   *Param Value*:
+
+``` r
+"Revised"
 ```
 
 Define the level of boxplot outliers (*optional*),default is 1.5:
@@ -414,15 +481,189 @@ Define the level of boxplot outliers (*optional*),default is 1.5:
 -   *Param Name*:
 
 ``` r
-box.out
+coef.outl
 ```
 
-Define the correlation method (*corr.method*), default is *"pearson"*:
+-   *Param Value*:
+
+``` r
+0.8
+```
+
+Define TRUE/FALSE if outliers should be returned (*optional*),default is TRUE:
 
 -   *Param Name*:
 
 ``` r
-corr.method
+box.outliers
+```
+
+-   *Param Value*:
+
+``` r
+TRUE
+```
+
+Define box width in boxplot (*optional*),default is 0.25\*sqrt(n):
+
+-   *Param Name*:
+
+``` r
+box.wdth
+```
+
+-   *Param Value*:
+
+``` r
+0.2
+```
+
+Define the correlation method (*cor.method*), default is *"pearson"*:
+
+-   *Param Name*:
+
+``` r
+cor.method
+```
+
+-   *Param Value* -for example:
+
+``` r
+"spearman" 
+```
+
+5 Ready! Click on **Ajax request**!
+
+6 To see the results:
+
+copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
+
+7 and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
+
+Example \#2 - Open Spending-DescriptiveStats
+--------------------------------------------
+
+1 Go to <http://okfnrg.math.auth.gr/ocpu/test/>
+
+2 Copy and paste the following function to the endpoint
+
+``` r
+../library/DescriptiveStats.OBeu/R/open_spending.ds
+```
+
+3 *Select Method*:
+
+``` r
+Post
+```
+
+4 **Add parameters** and set:
+
+Define the input time series data:
+
+-   *Param Name*:
+
+``` r
+json_data
+```
+
+-   *Param Value* -the following output from rudolf/ open spending api or you can provide the also **json URL**:
+
+``` r
+# 1. json link
+sample_json_link_rudolf
+```
+
+Define the what:
+
+-   *Param Name*:
+
+``` r
+what
+```
+
+-   *Param Value*:
+
+``` r
+"global__fiscalPeriod__28951.notation"
+```
+
+Define the to.what parameter:
+
+-   *Param Name*:
+
+``` r
+to.what
+```
+
+-   *Param Value*:
+
+``` r
+"global__budgetPhase__afd93.prefLabel"
+```
+
+Define the amount parameter:
+
+-   *Param Name*:
+
+``` r
+amount
+```
+
+-   *Param Value*:
+
+``` r
+"global__amount__0397f.sum"
+```
+
+Define the level of boxplot outliers (*optional*),default is 1.5:
+
+-   *Param Name*:
+
+``` r
+coef.outl
+```
+
+-   *Param Value*:
+
+``` r
+0.8
+```
+
+Define TRUE/FALSE if outliers should be returned (*optional*),default is TRUE:
+
+-   *Param Name*:
+
+``` r
+box.outliers
+```
+
+-   *Param Value*:
+
+``` r
+TRUE
+```
+
+Define box width in boxplot (*optional*),default is 0.25\*sqrt(n):
+
+-   *Param Name*:
+
+``` r
+box.wdth
+```
+
+-   *Param Value*:
+
+``` r
+0.2
+```
+
+Define the correlation method (*cor.method*), default is *"pearson"*:
+
+-   *Param Name*:
+
+``` r
+cor.method
 ```
 
 -   *Param Value* -for example:
