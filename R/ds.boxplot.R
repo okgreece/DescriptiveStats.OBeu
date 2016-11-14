@@ -7,7 +7,8 @@
 #' @usage ds.boxplot(data, out.level=1.5)
 #' 
 #' @param data The input matrix or data frame 
-#' @param out.level Determines the times of length of the box the "whiskers" are away from the box. If it is equal to zero, the whiskers extend to the data extremes (and no outliers be returned) 
+#' @param out.level Determines the length of the "whiskers" plot.
+#' If it is equal to zero no outliers will be returned.
 #' 
 #' @details 
 #' This function returns the necessary statistics for bulding a boxplot
@@ -27,8 +28,6 @@
 #' 
 #' @rdname ds.boxplot
 #' 
-#' @import jsonlite
-#'
 #' @export
 ###################################################################################################
 
@@ -48,10 +47,6 @@ ds.boxplot<-function(data, out.level=1.5){
                   do.conf = F, do.out = T)
   
   box.data<-as.list(box.data)
-  
-  # JSON output
-  
-  #box.json<-jsonlite::toJSON(box.data)
   
   # Return
   return(box.data)
