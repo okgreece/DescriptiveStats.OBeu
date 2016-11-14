@@ -23,8 +23,6 @@
 #' 
 #' @rdname ds.correlation
 #' 
-#' @import jsonlite
-#'
 #' @export
 ###########################################################################################
 
@@ -54,9 +52,7 @@ ds.correlation<-function(x, y=NULL, cor.method="pearson"){
   correlation <- data.frame(correlation,row.names = rownames(correlation),
                             column=colnames(correlation) )
 
-  # JSON output
-  #correlation.json <- jsonlite::toJSON(correlation)
-  
+
   # Return
   return(correlation)
 }
