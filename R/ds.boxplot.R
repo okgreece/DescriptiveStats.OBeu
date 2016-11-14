@@ -2,13 +2,16 @@
 #' Calculation of Statistics for the Boxplot
 #'  
 #' @description
-#' This function calculates the statistics for the boxplot of the input dataset.
+#' This function calculates the statistics for the boxplot of the input numeric vector, 
+#' matrix or data frame.
 #' 
-#' @usage ds.boxplot(data, out.level=1.5)
+#' @usage ds.boxplot(data, out.level=1.5, width = 0.15 , outl = T)
 #' 
-#' @param data The input matrix or data frame 
+#' @param data The input numeric vector, matrix or data frame.
 #' @param out.level Determines the length of the "whiskers" plot.
 #' If it is equal to zero no outliers will be returned.
+#' @param width The width level is determined 0.15 times the square root of the size of the input data.
+#' @param outl If TRUE the outliers will be computed at the selected "c" level (default is 1.5 times the Interquartile Range).
 #' 
 #' @details 
 #' This function returns the statistics needed to visualize boxplots.
@@ -16,22 +19,16 @@
 #' @author Aikaterini Chatzopoulou, Kleanthis Koupidis
 #' 
 #' @return 
-#' Returns a list with the following components:
-#' \itemize{ 
-#' \item Stats a vector with the extreme of the lower whisker, the lower "hinge", 
-#' the median, the upper "hinge" and the extreme of the upper whisker.
-#' \item n The number of non-NA observations of the data.
-#' \item out The values of any data points which lie beyond the whiskers' extremes
-#' }
+#' Returns a list with the extracted components of \code{\link{ds.box}} for each variable of the input data.
 #' 
-#' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
+#' @seealso \code{\link{ds.box}}, \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.boxplot
 #' 
 #' @export
-###################################################################################################
+######################################################################################
 
-ds.boxplot<-function(data, out.level=1.5){
+ds.boxplot<-function(data, out.level=1.5, width = 0.15 , outl = T){
   
   # Convert to data frame
   data<-as.data.frame(data)
@@ -43,10 +40,7 @@ ds.boxplot<-function(data, out.level=1.5){
   data.num<-nums(data)
   
   # Boxplot parameters
-  box.data<-apply(data.num, 2, grDevices::boxplot.stats,coef=out.level, 
-                  do.conf = F, do.out = T)
-  
-  box.data<-as.list(box.data)
+  box.data<-lapply(data.num, ds.box, c=out.level, c.width= width, out=outl)
   
   # Return
   return(box.data)
