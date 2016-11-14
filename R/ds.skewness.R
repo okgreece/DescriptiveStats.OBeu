@@ -6,8 +6,8 @@
 #' 
 #' @usage ds.skewness(x)
 #' 
-#' @param x A vector, matrix or data frame which includes at least one number.
-#' 
+#' @param x A vector, matrix or data frame 
+#'  
 #' @details 
 #' This function returns the skewness of numbers of the input dataset.
 #' 
@@ -18,11 +18,10 @@
 #' 
 #' @rdname ds.skewness
 #' 
-#' 
 #' @import jsonlite
 #'
 #' @export
-#####################################################################################################################################
+##################################################################################################
 
 ds.skewness <- function(x)
 {
