@@ -1,35 +1,38 @@
 #' @title 
-#' Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending API
+#' Calculation of some Descriptive Tasks
 #'  
 #' @description
-#' Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
+#' The input of this function can be a matrix or data frame. The function calculates the basic descriptive measures, 
+#' the correlation and the boxplot parameters of all the numerical variables, the frequencies of all the nominal variables
+#' and the necessary components of the selected generilized linear model.
 #' 
-#' @usage ds.analysis(data, box.out=1.5, corr.method= "pearson", fr.select=NULL)
+#' @usage ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T,
+#'  corr.method= "pearson", fr.select=NULL)
 #' 
 #' @param data The input data
-#' @param box.out ...
+#' @param c.out Determines the length of the "whiskers" plot.
+#' If it is equal to zero no outliers will be returned.
+#' @param box.width The width level is determined 0.15 times the square root of the size of the input data.
+#' @param outliers If TRUE the outliers will be computed at the selected "c.out" level (default is 1.5 times the Interquartile Range).
 #' @param corr.method The correlation coefficient method to compute: "pearson" (default),
 #' "kendall" or "spearman".
 #' @param fr.select One or more nominal variables to calculate their corresponding frequencies.
 #' 
 #' @details 
-#' This function is used to read data in json format from Open Spending API, in order to implement 
-#' some basic descriptive tasks through \code{\link{ds.analysis}} function.
+#' ...
 #' 
-#' @return A json string with the resulted parameters of the \code{\link{ds.analysis}} function.
+#' @return A list with...
 #'
 #' @author Kleanthis Koupidis
 #' 
 #' @seealso \code{\link{open_spending.ds}}
 #' 
-#' @rdname open_spending.ds
-#' 
-#' @import jsonlite
+#' @rdname ds.analysis
 #' 
 #' @export
 #####################################################################################################
 
-ds.analysis <- function(data, box.out=1.5, corr.method= "pearson", fr.select=NULL){
+ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, corr.method= "pearson", fr.select=NULL){
       
     if(all(is.factor(data)) & !all(is.character(data))){
       freq <- ds.frequency(data)
@@ -43,8 +46,8 @@ ds.analysis <- function(data, box.out=1.5, corr.method= "pearson", fr.select=NUL
       }else {
         correlation <- NULL
       }
-     
-      boxplot <- ds.boxplot(data,out.level=box.out)
+
+      boxplot <- ds.boxplot(data, out.level=c.out, width = box.width , outl =outliers)
       
       frequencies <- ds.frequency(data,select=fr.select)
       
