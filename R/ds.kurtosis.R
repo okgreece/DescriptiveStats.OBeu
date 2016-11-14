@@ -32,15 +32,15 @@ ds.kurtosis <- function(x)
   
   mean <- apply(data.num,2,mean)
   sd <- apply(data.num, 2, sd)
-  sd4 <- apply(as.data.frame(sd),2,function(x) x^4)
+
+  sd4 <- sapply(sd,function(x) x^4)
   
-  #mean <- t(as.data.frame(mean))
   data.num[,1:ncol(data.num)] <- sweep(data.num,2,mean)
   mult <- data.num ^ 4
   
   sum <- apply(mult, 2, sum)
   m4 <- sum / nrow(data.num)
-  kurtosis <- m4/sd4-3
+  kurtosis <- (m4/sd4)-3
 
   # Return
   return(kurtosis)
