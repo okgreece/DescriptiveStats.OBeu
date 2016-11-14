@@ -17,7 +17,7 @@
 #' @param box.wdth The width level is determined 0.15 times the square root of the size of the input data.
 #' @param cor.method The correlation coefficient method to compute: "pearson" (default),
 #' "kendall" or "spearman".
-#' @param select One or more nominal variables to calculate their corresponding frequencies.
+#' @param freq.select One or more nominal variables to calculate their corresponding frequencies.
 #' 
 #' @details 
 #' This function is used to read data in json format from Open Spending API, in order to implement 
@@ -38,9 +38,9 @@
 #####################################################################################################
 
 open_spending.ds <- function(json_data,  
-                             what=NULL, to.what=NULL, 
+                             what=NULL, to.what=NULL, amount=NULL,
                              coef.outl=1.5, box.outliers=T, box.wdth=0.15,
-                             cor.method= "pearson", select=NULL){ 
+                             cor.method= "pearson", freq.select=NULL){ 
 
   dt <- jsonlite::fromJSON(json_data)
 
@@ -59,20 +59,21 @@ open_spending.ds <- function(json_data,
   
   #dt2[id_variables] <- lapply(dt2[id_variables],factor)
   
+  melt <- reshape::melt.data.frame(dt,id.vars = c(what,to.what))
+
   formula <- paste(what,to.what,sep="~") 
   
-  melt <- reshape::melt.data.frame(dt)
-  
-  dt2 <- reshape::cast(melt,formula,sum) 
+  dt2 <- reshape::cast(melt,formula,sum,
+                       subset=variable==amount) 
 
   dt2 <- stats::na.omit(dt2) 
   
-  #descriptives(data, box.out=1.5, outliers=T, corr.method= "pearson", fr.select=NULL)
   ds.result <- ds.analysis(dt2, c.out=coef.outl,outliers=box.outliers,box.width=box.wdth, 
-                           corr.method= cor.method, fr.select=select) 
+                           corr.method= cor.method, fr.select=freq.select) 
   
   ds.results <- jsonlite::toJSON(ds.result)
   
   return(ds.results)  
   
 } 
+
