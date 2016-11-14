@@ -2,7 +2,7 @@
 #' Correlation Coefficient
 #'  
 #' @description
-#' This functions calculates the correlation coefficient of the input vectors or datasets.
+#' This functions calculates the correlation coefficient of the input vectors, matrix or data frame.
 #' By default, the correlation coefficient of pearson is computed.
 #' 
 #' @usage ds.correlation(x, y=NULL, cor.method="pearson")
@@ -51,7 +51,6 @@ ds.correlation<-function(x, y=NULL, cor.method="pearson"){
 
   correlation <- data.frame(correlation,row.names = rownames(correlation),
                             column=colnames(correlation) )
-
 
   # Return
   return(correlation)
