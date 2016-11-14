@@ -25,7 +25,7 @@ If it is equal to zero no outliers will be returned.}
 \item{cor.method}{The correlation coefficient method to compute: "pearson" (default),
 "kendall" or "spearman".}
 
-\item{select}{One or more nominal variables to calculate their corresponding frequencies.}
+\item{freq.select}{One or more nominal variables to calculate their corresponding frequencies.}
 }
 \value{
 A json string with the resulted parameters of the \code{\link{ds.analysis}} function.
