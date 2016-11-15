@@ -35,8 +35,7 @@
 #' @import jsonlite
 #'
 #' @export
-#####################################################################################################################################
-
+###########################################################################################################
 ds.statistics <- function(data)
 {
   # Check if all are categorical
@@ -49,25 +48,25 @@ ds.statistics <- function(data)
   data.num<-nums(data)
   
   # Calculation of statistics
-  min <- apply(data.num, 2, min)
+  min <- lapply(data.num, min)
+
+  max <- lapply(data.num, max)
   
-  max <- apply(data.num, 2, max)
+  range <- as.list(unlist(max)-unlist(min))
+
+  mean <- lapply(data.num, mean)
   
-  range <- max-min
+  median <- lapply(data.num, median)
   
-  mean <- apply(data.num, 2, mean)
+  var <- lapply(data.num, var)
   
-  median <- apply(data.num, 2, median)  
-  
-  var <- apply(data.num, 2, var)
-  
-  stdev <- apply(data.num, 2, stats::sd)
+  stdev <- lapply(data.num, stats::sd)
   
   kurtosis <- ds.kurtosis(data.num)
   
   skewness <- ds.skewness(data.num)
   
-  q <- as.data.frame(apply(data.num, 2, stats::quantile, probs=c(0.25,0.75) ) )
+  q <- lapply(data.num, stats::quantile, probs=c(0.25,0.75) ) 
 
   # construction of dataframe with all the statistics
   statistics<-list(Min=min, Max=max,Range=range, Mean=mean, Median=median, 
@@ -77,4 +76,3 @@ ds.statistics <- function(data)
   # Return
   return(statistics)
 }
-
