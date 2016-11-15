@@ -4,13 +4,15 @@
 #' @description
 #' Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
 #' 
-#' @usage open_spending.ds(json_data,  what=NULL, to.what=NULL, 
+#' @usage open_spending.ds(json_data,
+#' dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
 #' coef.outl=1.5, box.outliers=T, box.wdth=0.15,
-#' cor.method= "pearson", select=NULL)
+#' cor.method= "pearson", freq.select=NULL)
 #' 
 #' @param json_data The json string, URL or file from Open Spending API
-#' @param what ...
-#' @param to.what ...
+#' @param dimensions The dimensions of the input data
+#' @param amounts The measures of the input data
+#' @param measured.dimensions The dimensions to which correspond amount/numeric variables
 #' @param coef.outl Determines the length of the "whiskers" plot.
 #' If it is equal to zero no outliers will be returned.
 #' @param box.outliers If TRUE the outliers will be computed at the selected "coef.outl" level 
@@ -39,7 +41,7 @@
 ############################################################################################################
 
 open_spending.ds <- function(json_data,  
-                             what=NULL, to.what=NULL, amount=NULL,
+                             dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
                              coef.outl=1.5, box.outliers=T, box.wdth=0.15,
                              cor.method= "pearson", freq.select=NULL){ 
 
@@ -49,24 +51,28 @@ open_spending.ds <- function(json_data,
   
   select.comp <- match.arg(components, names(dt), several.ok = T)
   
-  
   dt <- as.data.frame(dt[select.comp])
 
-  if (select.comp=="data") names(dt) <- gsub("data.","",names(dt)) else names(dt) <- gsub("cells.","",names(dt))
+  if (select.comp== "data") {
+    
+    names(dt) <- gsub("data.","",names(dt)) 
+    
+    variables <- c(dimensions,amounts)
+    
+    dt2 <- dt[variables]
+  }
   
-  # Create data frame with the the selections of user
-
-  dt2 <- unique(as.data.frame(dt))
-
-  #dt2[id_variables] <- lapply(dt2[id_variables],factor)
+  else {
+    names(dt) <- gsub("cells.","",names(dt))
+    
+    melt <- reshape::melt.data.frame(dt)
+    
+    formula <- paste(dimensions,measured.dimensions,sep="~") 
+    
+    dt2 <- reshape::cast(melt,formula,sum,
+                         subset=variable==amounts) 
+  }
   
-  melt <- reshape::melt.data.frame(dt)
-
-  formula <- paste(what,to.what,sep="~") 
-  
-  dt2 <- reshape::cast(melt,formula,sum,
-                       subset=variable==amount) 
-
   dt2 <- stats::na.omit(dt2) 
   
   ds.result <- ds.analysis(dt2, c.out=coef.outl,outliers=box.outliers,box.width=box.wdth, 
@@ -74,6 +80,5 @@ open_spending.ds <- function(json_data,
   
   ds.results <- jsonlite::toJSON(ds.result)
   
-  return(ds.results)  
-  
+  return(ds.results)
 } 

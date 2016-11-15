@@ -4,16 +4,19 @@
 \alias{open_spending.ds}
 \title{Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending API}
 \usage{
-open_spending.ds(json_data,  what=NULL, to.what=NULL, 
+open_spending.ds(json_data,
+dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
 coef.outl=1.5, box.outliers=T, box.wdth=0.15,
-cor.method= "pearson", select=NULL)
+cor.method= "pearson", freq.select=NULL)
 }
 \arguments{
 \item{json_data}{The json string, URL or file from Open Spending API}
 
-\item{what}{...}
+\item{dimensions}{The dimensions of the input data}
 
-\item{to.what}{...}
+\item{amounts}{The measures of the input data}
+
+\item{measured.dimensions}{The dimensions to which correspond amount/numeric variables}
 
 \item{coef.outl}{Determines the length of the "whiskers" plot.
 If it is equal to zero no outliers will be returned.}
