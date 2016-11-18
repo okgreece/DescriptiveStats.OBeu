@@ -6,7 +6,7 @@
 #' the correlation and the boxplot parameters of all the numerical variables, the frequencies of all the nominal variables
 #' and the necessary components of the selected generilized linear model.
 #' 
-#' @usage ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T,
+#' @usage ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges",
 #'  corr.method= "pearson", fr.select=NULL)
 #' 
 #' @param data The input data
@@ -14,6 +14,7 @@
 #' If it is equal to zero no outliers will be returned.
 #' @param box.width The width level is determined 0.15 times the square root of the size of the input data.
 #' @param outliers If TRUE the outliers will be computed at the selected "c.out" level (default is 1.5 times the Interquartile Range).
+#' @param hist.class The method or the number of classes for the histogram.
 #' @param corr.method The correlation coefficient method to compute: "pearson" (default),
 #' "kendall" or "spearman".
 #' @param fr.select One or more nominal variables to calculate their corresponding frequencies.
@@ -32,7 +33,7 @@
 #' @export
 #####################################################################################################
 
-ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, corr.method= "pearson", fr.select=NULL){
+ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges", corr.method= "pearson", fr.select=NULL){
       
     if(all(is.factor(data)) & !all(is.character(data))){
       freq <- ds.frequency(data)
@@ -49,18 +50,20 @@ ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, corr.method
 
       boxplot <- ds.boxplot(data, out.level=c.out, width = box.width , outl =outliers)
       
+      histogram <- lapply(data,ds.hist,breaks=hist.class)
+      
       frequencies <- ds.frequency(data,select=fr.select)
       
       #linear.model <- ds.glm(data)
       
       stat.plots <- list(
         descriptives=descriptives,
-        correlation=correlation,
         boxplot= boxplot,
-        frequencies= frequencies
-        #linear.model= linear.model
+        histogram=histogram,
+        frequencies= frequencies,
+        correlation=correlation
       )
-      #stat.plots <- jsonlite::toJSON(stat.plots)
+
       return(stat.plots)
     }
       
