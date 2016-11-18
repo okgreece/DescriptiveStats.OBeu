@@ -50,7 +50,7 @@ ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, hist.class=
 
       boxplot <- ds.boxplot(data, out.level=c.out, width = box.width , outl =outliers)
       
-      histogram <- lapply(data,ds.hist,breaks=hist.class)
+      #histogram <- apply(data,2,ds.hist,breaks=hist.class)
       
       frequencies <- ds.frequency(data,select=fr.select)
       
@@ -59,7 +59,7 @@ ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, hist.class=
       stat.plots <- list(
         descriptives=descriptives,
         boxplot= boxplot,
-        histogram=histogram,
+        #histogram=histogram,
         frequencies= frequencies,
         correlation=correlation
       )
