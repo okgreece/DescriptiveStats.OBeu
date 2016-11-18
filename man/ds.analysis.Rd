@@ -4,7 +4,7 @@
 \alias{ds.analysis}
 \title{Calculation of some Descriptive Tasks}
 \usage{
-ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T,
+ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges",
  corr.method= "pearson", fr.select=NULL)
 }
 \arguments{
@@ -16,6 +16,8 @@ If it is equal to zero no outliers will be returned.}
 \item{box.width}{The width level is determined 0.15 times the square root of the size of the input data.}
 
 \item{outliers}{If TRUE the outliers will be computed at the selected "c.out" level (default is 1.5 times the Interquartile Range).}
+
+\item{hist.class}{The method or the number of classes for the histogram.}
 
 \item{corr.method}{The correlation coefficient method to compute: "pearson" (default),
 "kendall" or "spearman".}
