@@ -12,7 +12,7 @@
 #' 
 #' @format A link to json format file
 #' @name sample_df_openspending
-#' @source Rudolf
+#' @source Open Spending
 #' 
 #' 
 NULL
