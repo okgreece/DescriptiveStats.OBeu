@@ -2,7 +2,7 @@
 #' Frequencies of nominal variables
 #'  
 #' @description
-#' This function calculates frequencies of factors/characters of the input dataset.
+#' This function calculates frequencies and relative frequencies of factors/characters of the input dataset.
 #' 
 #' @usage ds.frequency(data, select=NULL)
 #' 
@@ -10,7 +10,8 @@
 #' @param select One or more nominal variables to calculate their corresponding frequencies.
 #' 
 #' @details 
-#' This function returns a data frame with the frequencies of factors/characters of the input dataset.
+#' This function returns a data frame with the frequencies and relative frequencies of factors/characters 
+#' of the input dataset.
 #' 
 #' @author Kleanthis Koupidis
 #'
@@ -44,13 +45,20 @@ ds.frequency <- function(data,select=NULL){
 
  freq <-  apply(data, 2,table)
  
+ relative.freq<- as.data.frame(apply(freq,2,prop.table))
+ 
  if(is.list(freq)){
    freq <- lapply(freq,as.data.frame)
    }else {
      freq <- as.data.frame(freq)
    }
 
+  freq.parameters<-list(
+  frequencies=freq,
+  relative.frequencies=relative.freq
+)
+ 
  # Return
- return(freq)
+ return(freq.parameters)
 }
 
