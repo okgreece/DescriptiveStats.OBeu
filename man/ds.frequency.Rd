@@ -12,10 +12,11 @@ ds.frequency(data, select=NULL)
 \item{select}{One or more nominal variables to calculate their corresponding frequencies.}
 }
 \description{
-This function calculates frequencies of factors/characters of the input dataset.
+This function calculates frequencies and relative frequencies of factors/characters of the input dataset.
 }
 \details{
-This function returns a data frame with the frequencies of factors/characters of the input dataset.
+This function returns a data frame with the frequencies and relative frequencies of factors/characters 
+of the input dataset.
 }
 \author{
 Kleanthis Koupidis
