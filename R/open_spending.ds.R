@@ -45,7 +45,7 @@ open_spending.ds <- function(json_data,
                              coef.outl=1.5, box.outliers=T, box.wdth=0.15,
                              cor.method= "pearson", freq.select=NULL){ 
 
-  dt <- jsonlite::fromJSON(sample_json_link_openspending)
+  dt <- jsonlite::fromJSON(json_data)
 
   components <- c("data", "cells")
   
