@@ -14,16 +14,16 @@
 #' @return 
 #' A json file with the following components:
 #' \itemize{
-#' \item Min: The minimum observed value of the input data
-#' \item Max: The maximum observed value of the input data
-#' \item Range: The range, defined as the difference of the maximum and the minimum value.
-#' \item Mean: The average value of the input data
-#' \item Median: The median value of the input data
-#' \item Quantiles: The 0\%,25\%,50\%,75\%,100\% percentiles
-#' \item Variance: The variance of the input data
-#' \item StandardDeviation: The standard deviation of the input data
-#' \item Skewness: The Skewness of the input data
-#' \item Kurtosis: The Kurtosis of the input data
+#' \item Min The minimum observed value of the input data
+#' \item Max The maximum observed value of the input data
+#' \item Range The range, defined as the difference of the maximum and the minimum value.
+#' \item Mean The average value of the input data
+#' \item Median The median value of the input data
+#' \item Quantiles The 0\%,25\%,50\%,75\%,100\% percentiles
+#' \item Variance The variance of the input data
+#' \item StandardDeviation The standard deviation of the input data
+#' \item Skewness The Skewness of the input data
+#' \item Kurtosis The Kurtosis of the input data
 #' }
 #' 
 #' @author Katerina Chatzopoulou, Kleanthis Koupidis
