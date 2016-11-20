@@ -49,22 +49,21 @@ ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, hist.class=
       }
 
       boxplot <- ds.boxplot(data, out.level=c.out, width = box.width , outl =outliers)
+      data<-as.data.frame(data)
+      histogram <- apply( nums(data), 2,ds.hist, breaks=hist.class)
       
-      #histogram <- apply(data,2,ds.hist,breaks=hist.class)
+      frequencies <- ds.frequency(data,select=fr.select) 
       
-      frequencies <- ds.frequency(data,select=fr.select)
-      
-      #linear.model <- ds.glm(data)
       
       stat.plots <- list(
         descriptives=descriptives,
         boxplot= boxplot,
-        #histogram=histogram,
+        histogram=histogram,
         frequencies= frequencies,
         correlation=correlation
-      )
+      ) 
 
       return(stat.plots)
-    }
+    } 
       
 }
