@@ -60,9 +60,7 @@ open_spending.ds <- function(json_data,
     variables <- c(dimensions,amounts)
     
     dt2 <- dt[variables]
-  }
-  
-  else {
+  }  else {
     names(dt) <- gsub("cells.","",names(dt))
     
     melt <- reshape::melt.data.frame(dt)
