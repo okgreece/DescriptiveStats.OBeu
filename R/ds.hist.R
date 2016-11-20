@@ -33,10 +33,8 @@
 #' @export
 ###########################################################################################
 ds.hist <- function(x, breaks= "Sturges") {
-  # only numeric data
-  num <- sapply(x, is.numeric)
-  
-  x <- x[num]  
+
+  x <- as.numeric(unlist(x))
   if (is.character(breaks)==F) {
     classes <- breaks 
   } else if (breaks=="Sturges") {
