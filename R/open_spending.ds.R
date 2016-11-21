@@ -45,7 +45,17 @@ open_spending.ds <- function(json_data,
                              coef.outl=1.5, box.outliers=T, box.wdth=0.15,
                              cor.method= "pearson", freq.select=NULL){ 
 
-  dt <- jsonlite::fromJSON(json_data)
+  json_data<-RCurl::getURL( json_data, ssl.verifyhost=FALSE )
+  
+  txt<-gsub(pattern = "\n"," ",x=json_data)
+  
+  tryCatch( dt <- jsonlite::fromJSON( txt ),
+            error = function( e ){
+              stop( 'Could not parse JSON response, \n',
+                    'The error message from the server was: \n',
+                    e$message)
+            })
+  
 
   components <- c("data", "cells")
   
@@ -80,3 +90,4 @@ open_spending.ds <- function(json_data,
   
   return(ds.results)
 } 
+

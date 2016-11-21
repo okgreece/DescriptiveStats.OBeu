@@ -45,12 +45,16 @@ library(DescriptiveStats.OBeu)
 
 The basic function is: 
 ```{r, eval=FALSE, include=TRUE}
-ds.analysis(data, box.out=1.5, corr.method= "pearson", fr.select=NULL)
+ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges", corr.method= "pearson", fr.select=NULL)
 ```
 
 where *data*: The input data
 
-*box.out*: The level of of outliers, default is 1.5*sd
+*c.out*: The level of of outliers, default is 1.5*sd
+
+*box.width*:  The width level is determined 0.15 times the square root of the size of the input data.
+
+*outliers*: If TRUE outliers will be included in bloxplot.
 
 *corr.method*: The correlation coefficient method to compute: "pearson" (default), "kendall" or "spearman".
 
@@ -62,12 +66,7 @@ and *fr.select*: One or more nominal variables to calculate their corresponding 
 The package includes the following data: 
 
 ```{r}
-# 1. data frame produced from rudolf:
-head(sample_df_rudolf )
-```
-
-```{r}
-# 2. json format file
+# 1. json format file
 sample_json_openspending
 ```
 
@@ -81,19 +80,22 @@ sample_json_link_openspending
 sample_json_link_rudolf
 ```
 
-We select for example the data frame produced from rudolf.
+```{r}
+# 4. a link to json file-rudolf
+sample_df_openspending
+```
+
+We select for example the data frame produced from Open Spending
 
 ```{r}
-ds.analysis(sample_df_rudolf)
+ds.analysis(sample_df_openspending)
 ```
 
 Also we can define the parameters of *box.out* to 2 and *corr.method* to "spearman"
 
 ```{r}
-ds.analysis(sample_df_rudolf,c.out=2,corr.method = "spearman")
+ds.analysis(sample_df_openspending, c.out=2, box.width=0.15, outliers=T, hist.class="Sturges", corr.method= "spearman", fr.select=NULL
 ```
-
-
 
 
 # OpenCPU Short Guide - DescriptiveStats.OBeu
@@ -150,15 +152,24 @@ data
 + *Param Value* the following:
  
 ```{r, eval=FALSE, include=TRUE}
-sample_df_rudolf
+sample_df_openspending
 ```
 
 Define the level of boxplot outliers (*optional*),default is 1.5:
 
 + *Param Name*: 
 ```{r, eval=FALSE, include=TRUE}
-box.out
+c.out
 ```
+
++ *Param Value*: 
+```{r, eval=FALSE, include=TRUE}
+2.5
+```
+box.width
+outliers
+hist.class
+
 
 Define the correlation method (*corr.method*), default is *"pearson"*:
 
@@ -318,7 +329,7 @@ copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
 
 
 
-## Example #2 - Open Spending-DescriptiveStats
+## Example #3 - Rudolf DescriptiveStats
 
 1 Go to http://okfnrg.math.auth.gr/ocpu/test/
 
