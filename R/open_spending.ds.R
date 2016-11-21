@@ -77,7 +77,7 @@ open_spending.ds <- function(json_data,
     variables <- c(dimensions,amounts)
     
     dt2 <- dt[variables]
-    dt2 <- as.character(dt[dimensions])
+    dt2[dimensions] <- sapply(dt2[dimensions],as.character)
   }  else {
     names(dt) <- gsub("cells.","",names(dt))
     
