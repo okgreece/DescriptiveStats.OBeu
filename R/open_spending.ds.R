@@ -48,7 +48,7 @@ open_spending.ds <- function(json_data,
   
   if (RCurl::url.exists(json_data)){
   json_data<-RCurl::getURL( json_data, ssl.verifyhost=FALSE )
-  } else json_data<- jsonlite::toJSON(json_data)
+  }
   
   txt<-gsub(pattern =   " \n ",replacement = " ",x=json_data)
   
