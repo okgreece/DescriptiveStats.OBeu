@@ -50,7 +50,7 @@ open_spending.ds <- function(json_data,
   json_data<-RCurl::getURL( json_data, ssl.verifyhost=FALSE )
   } else json_data<- jsonlite::toJSON(json_data)
   
-  txt<-gsub(pattern =   " \n ",replacement = " ",x=json_data1)
+  txt<-gsub(pattern =   " \n ",replacement = " ",x=json_data)
   
   tryCatch( dt <- jsonlite::fromJSON( txt ),
             error = function( e ){
