@@ -50,20 +50,8 @@ open_spending.ds <- function(json_data,
   json_data<-RCurl::getURL( json_data, ssl.verifyhost=FALSE )
   } 
   
-  txt<-gsub(pattern =   ',\n', replacement = ",", x=json_data)
-  txt<-stringr::str_replace_all(json_data, "[\r\n]" , "" )
-
+  s <- readLines(json_data); dt <- jsonlite::fromJSON(json_data)
   
-
-  
-  tryCatch( dt <- jsonlite::fromJSON( txt ),
-            error = function( e ){
-              stop( 'Could not parse JSON response, \n', 
-                    'The error message from the server was: \n',
-                    e$message)
-            })
-  
-
   components <- c("data", "cells")
   
   select.comp <- match.arg(components, names(dt), several.ok = T)

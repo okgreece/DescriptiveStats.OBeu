@@ -45,7 +45,7 @@ ds.frequency <- function(data,select=NULL){
 
  freq <-  apply(data, 2,table)
  
- relative.freq<- as.data.frame(apply(freq,2,prop.table))
+ relative.freq<- sapply(freq,prop.table)
  
  if(is.list(freq)){
    freq <- lapply(freq,as.data.frame)
