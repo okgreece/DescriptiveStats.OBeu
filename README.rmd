@@ -81,7 +81,7 @@ sample_json_link_rudolf
 ```
 
 ```{r}
-# 4. a link to json file-rudolf
+# 4. a link to json file rudolf
 sample_df_openspending
 ```
 
