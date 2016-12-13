@@ -37,7 +37,7 @@
 #' @import jsonlite
 #' @import RCurl
 #' @import reshape
-#' 
+#'
 #' @export
 ############################################################################################################
  
@@ -58,7 +58,11 @@ open_spending.ds <- function(json_data,
   select.comp <- match.arg(components, names(dt), several.ok = T)
   
   dt <- as.data.frame(dt[select.comp])
-
+  
+  amounts = unlist(strsplit(amounts,"\\|"))
+  
+  dimensions = unlist(strsplit(dimensions,"\\|"))
+  
   if (select.comp== "data") {
     
     names(dt) <- gsub("data.","",names(dt)) 
