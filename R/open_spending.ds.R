@@ -50,7 +50,8 @@ open_spending.ds <- function(json_data,
   json_data<-RCurl::getURL( json_data, ssl.verifyhost=FALSE )
   } 
   
-  s <- readLines(json_data); dt <- jsonlite::fromJSON(json_data)
+  #s <- readLines(json_data);
+  dt <- jsonlite::fromJSON(json_data)
   
   components <- c("data", "cells")
   
