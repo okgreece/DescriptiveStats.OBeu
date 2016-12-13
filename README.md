@@ -28,53 +28,9 @@ And load the library
 library(DescriptiveStats.OBeu)
 ```
 
-Use:
-====
-
-The basic function is:
-
-``` r
-ds.analysis(data, box.out=1.5, corr.method= "pearson", fr.select=NULL)
-```
-
-where *data*: The input data
-
-*box.out*: The level of of outliers, default is 1.5\*sd
-
-*corr.method*: The correlation coefficient method to compute: "pearson" (default), "kendall" or "spearman".
-
-and *fr.select*: One or more nominal variables to calculate their corresponding frequencies.
-
 ### R Example
 
 The package includes the following data:
-
-``` r
-# 1. data frame produced from rudolf:
-head(sample_df_rudolf )
-```
-
-    ##   global__budgetPhase__afd93.prefLabel
-    ## 1                              Revised
-    ## 2                             Executed
-    ## 3                             Approved
-    ## 4                             Executed
-    ## 5                             Approved
-    ## 6                             Executed
-    ##   global__fiscalPeriod__28951.notation global__amount__0397f.sum
-    ## 1                                 2004                7776199431
-    ## 2                                 2014                4561405226
-    ## 3                                 2007                4528366008
-    ## 4                                 2006                5137041789
-    ## 5                                 2006                4576689407
-    ## 6                                 2015                4350299388
-
-``` r
-# 2. json format file
-sample_json_openspending
-```
-
-    ## [1] "{\n\"page\": 1,\n\"order\": [],\n\"page_size\": 20,\n\"status\": \"ok\",\n\"cell\": [],\n\"data\": [\n{\n  \"date_2.Year\": 2016,\n  \"Revised\": 322588100000,\n  \"Original\": 316532600000,\n  \"functional_classification_2.Function\": \"GENERAL PUBLIC SERVICE\",\n  \"functional_classification_2.Code\": \"01\"\n},\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 109003900000,\n  \"Original\": 99648900000,\n  \"functional_classification_2.Function\": \"DEFENSE\",\n  \"functional_classification_2.Code\": \"02\"\n  },\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 122930500000,\n  \"Original\": 109794000000,\n  \"functional_classification_2.Function\": \"PUBLIC ORDER AND SAFETY\",\n  \"functional_classification_2.Code\": \"03\"\n  },\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 331005000000,\n  \"Original\": 360226700000,\n  \"functional_classification_2.Function\": \"ECONOMIC AFFAIRS\",\n  \"functional_classification_2.Code\": \"04\"\n  },\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 11007200000,\n  \"Original\": 12087800000,\n  \"functional_classification_2.Function\": \"ENVIRONMENTAL PROTECTION\",\n  \"functional_classification_2.Code\": \"05\"\n  },\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 34340700000,\n  \"Original\": 34651100000,\n  \"functional_classification_2.Function\": \"HOUSING AND PUBLIC FACILITIES\",\n  \"functional_classification_2.Code\": \"06\"\n  },\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 66069800000,\n  \"Original\": 67213700000,\n  \"functional_classification_2.Function\": \"HEALTH\",\n  \"functional_classification_2.Code\": \"07\"\n  },\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 5868600000,\n  \"Original\": 7432700000,\n  \"functional_classification_2.Function\": \"TOURISM\",\n  \"functional_classification_2.Code\": \"08\"\n  },\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 9778400000,\n  \"Original\": 9785100000,\n  \"functional_classification_2.Function\": \"RELIGION\",\n  \"functional_classification_2.Code\": \"09\"\n  },\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 143262100000,\n  \"Original\": 150090000000,\n  \"functional_classification_2.Function\": \"EDUCATION\",\n  \"functional_classification_2.Code\": \"10\"\n  },\n  {\n  \"date_2.Year\": 2016,\n  \"Revised\": 150841700000,\n  \"Original\": 158088800000,\n  \"functional_classification_2.Function\": \"SOCIAL PROTECTION\",\n  \"functional_classification_2.Code\": \"11\"\n  }\n  ],\n  \"fields\": [\n  \"date_2.Year\",\n  \"functional_classification_2.Code\",\n  \"functional_classification_2.Function\",\n  \"Original\",\n  \"Revised\"\n  ],\n  \"total_fact_count\": 11\n  }"
 
 ``` r
 # 3. a link to json file-openspending
@@ -89,220 +45,6 @@ sample_json_link_rudolf
 ```
 
     ## [1] "http://ws307.math.auth.gr/rudolf/public/api/v3/cubes/global/aggregate?drilldown=global__budgetPhase__afd93.prefLabel%7Cglobal__fiscalPeriod__28951.notation&cut=global__organization__0eba1.prefLabel:http://el.dbpedia.org/resource/%CE%94%CE%AE%CE%BC%CE%BF%CF%82_%CE%91%CE%B8%CE%B7%CE%BD%CE%B1%CE%AF%CF%89%CE%BD&aggregates=global__amount__0397f.sum"
-
-We select for example the data frame produced from rudolf.
-
-``` r
-ds.analysis(sample_df_rudolf)
-```
-
-    ## $descriptives
-    ## $descriptives$Min
-    ## global__amount__0397f.sum 
-    ##                 369627311 
-    ## 
-    ## $descriptives$Max
-    ## global__amount__0397f.sum 
-    ##               10897898000 
-    ## 
-    ## $descriptives$Range
-    ## global__amount__0397f.sum 
-    ##               10528270689 
-    ## 
-    ## $descriptives$Mean
-    ## global__amount__0397f.sum 
-    ##                5492485165 
-    ## 
-    ## $descriptives$Median
-    ## global__amount__0397f.sum 
-    ##                5204844409 
-    ## 
-    ## $descriptives$Quantiles
-    ##     global__amount__0397f.sum
-    ## 25%                4194117354
-    ## 75%                7920748011
-    ## 
-    ## $descriptives$Variance
-    ## global__amount__0397f.sum 
-    ##              1.011777e+19 
-    ## 
-    ## $descriptives$StandardDeviation
-    ## global__amount__0397f.sum 
-    ##                3180844645 
-    ## 
-    ## $descriptives$Kurtosis
-    ## global__amount__0397f.sum 
-    ##                 -0.977687 
-    ## 
-    ## $descriptives$Skewness
-    ## global__amount__0397f.sum 
-    ##                -0.1769652 
-    ## 
-    ## 
-    ## $correlation
-    ## NULL
-    ## 
-    ## $boxplot
-    ## $boxplot$global__amount__0397f.sum
-    ## $boxplot$global__amount__0397f.sum$lo.whisker
-    ## [1] 369627311
-    ## 
-    ## $boxplot$global__amount__0397f.sum$lo.hinge
-    ## [1] 4129232480
-    ## 
-    ## $boxplot$global__amount__0397f.sum$median
-    ## [1] 5204844409
-    ## 
-    ## $boxplot$global__amount__0397f.sum$up.hinge
-    ## [1] 8065296591
-    ## 
-    ## $boxplot$global__amount__0397f.sum$up.whisker
-    ## [1] 10897898000
-    ## 
-    ## $boxplot$global__amount__0397f.sum$box.width
-    ## [1] 1.16
-    ## 
-    ## $boxplot$global__amount__0397f.sum$lo.out
-    ## numeric(0)
-    ## 
-    ## $boxplot$global__amount__0397f.sum$up.out
-    ## numeric(0)
-    ## 
-    ## $boxplot$global__amount__0397f.sum$n
-    ## [1] 60
-    ## 
-    ## 
-    ## 
-    ## $frequencies
-    ## $frequencies$global__budgetPhase__afd93.prefLabel
-    ##       Var1 Freq
-    ## 1 Approved   12
-    ## 2    Draft   12
-    ## 3 Executed   12
-    ## 4 Reserved   12
-    ## 5  Revised   12
-    ## 
-    ## $frequencies$global__fiscalPeriod__28951.notation
-    ##    Var1 Freq
-    ## 1  2004    5
-    ## 2  2005    5
-    ## 3  2006    5
-    ## 4  2007    5
-    ## 5  2008    5
-    ## 6  2009    5
-    ## 7  2010    5
-    ## 8  2011    5
-    ## 9  2012    5
-    ## 10 2013    5
-    ## 11 2014    5
-    ## 12 2015    5
-
-Also we can define the parameters of *box.out* to 2 and *corr.method* to "spearman"
-
-``` r
-ds.analysis(sample_df_rudolf,c.out=2,corr.method = "spearman")
-```
-
-    ## $descriptives
-    ## $descriptives$Min
-    ## global__amount__0397f.sum 
-    ##                 369627311 
-    ## 
-    ## $descriptives$Max
-    ## global__amount__0397f.sum 
-    ##               10897898000 
-    ## 
-    ## $descriptives$Range
-    ## global__amount__0397f.sum 
-    ##               10528270689 
-    ## 
-    ## $descriptives$Mean
-    ## global__amount__0397f.sum 
-    ##                5492485165 
-    ## 
-    ## $descriptives$Median
-    ## global__amount__0397f.sum 
-    ##                5204844409 
-    ## 
-    ## $descriptives$Quantiles
-    ##     global__amount__0397f.sum
-    ## 25%                4194117354
-    ## 75%                7920748011
-    ## 
-    ## $descriptives$Variance
-    ## global__amount__0397f.sum 
-    ##              1.011777e+19 
-    ## 
-    ## $descriptives$StandardDeviation
-    ## global__amount__0397f.sum 
-    ##                3180844645 
-    ## 
-    ## $descriptives$Kurtosis
-    ## global__amount__0397f.sum 
-    ##                 -0.977687 
-    ## 
-    ## $descriptives$Skewness
-    ## global__amount__0397f.sum 
-    ##                -0.1769652 
-    ## 
-    ## 
-    ## $correlation
-    ## NULL
-    ## 
-    ## $boxplot
-    ## $boxplot$global__amount__0397f.sum
-    ## $boxplot$global__amount__0397f.sum$lo.whisker
-    ## [1] 369627311
-    ## 
-    ## $boxplot$global__amount__0397f.sum$lo.hinge
-    ## [1] 4129232480
-    ## 
-    ## $boxplot$global__amount__0397f.sum$median
-    ## [1] 5204844409
-    ## 
-    ## $boxplot$global__amount__0397f.sum$up.hinge
-    ## [1] 8065296591
-    ## 
-    ## $boxplot$global__amount__0397f.sum$up.whisker
-    ## [1] 10897898000
-    ## 
-    ## $boxplot$global__amount__0397f.sum$box.width
-    ## [1] 1.16
-    ## 
-    ## $boxplot$global__amount__0397f.sum$lo.out
-    ## numeric(0)
-    ## 
-    ## $boxplot$global__amount__0397f.sum$up.out
-    ## numeric(0)
-    ## 
-    ## $boxplot$global__amount__0397f.sum$n
-    ## [1] 60
-    ## 
-    ## 
-    ## 
-    ## $frequencies
-    ## $frequencies$global__budgetPhase__afd93.prefLabel
-    ##       Var1 Freq
-    ## 1 Approved   12
-    ## 2    Draft   12
-    ## 3 Executed   12
-    ## 4 Reserved   12
-    ## 5  Revised   12
-    ## 
-    ## $frequencies$global__fiscalPeriod__28951.notation
-    ##    Var1 Freq
-    ## 1  2004    5
-    ## 2  2005    5
-    ## 3  2006    5
-    ## 4  2007    5
-    ## 5  2008    5
-    ## 6  2009    5
-    ## 7  2010    5
-    ## 8  2011    5
-    ## 9  2012    5
-    ## 10 2013    5
-    ## 11 2014    5
-    ## 12 2015    5
 
 OpenCPU Short Guide - DescriptiveStats.OBeu
 ===========================================
@@ -334,70 +76,7 @@ and in order to run a function you should:
 Post
 ```
 
-Example \#1:
-------------
-
-1 Go to <http://okfnrg.math.auth.gr/ocpu/test/>
-
-2 Copy and paste the following function to the endpoint
-
-``` r
-../library/DescriptiveStats.OBeu/R/ds.analysis
-```
-
-3 *Select Method*:
-
-``` r
- Post
-```
-
-4 **Add parameters** and set:
-
-Define the input time series data:
-
--   *Param Name*:
-
-``` r
-data
-```
-
--   *Param Value* the following:
-
-``` r
-sample_df_rudolf
-```
-
-Define the level of boxplot outliers (*optional*),default is 1.5:
-
--   *Param Name*:
-
-``` r
-box.out
-```
-
-Define the correlation method (*corr.method*), default is *"pearson"*:
-
--   *Param Name*:
-
-``` r
-corr.method
-```
-
--   *Param Value* -for example:
-
-``` r
-"spearman"
-```
-
-5 Ready! Click on **Ajax request**!
-
-6 To see the results:
-
-copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
-
-7 and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
-
-Example \#2 - Open Spending-DescriptiveStats
+Example \#1 - Open Spending-DescriptiveStats
 --------------------------------------------
 
 1 Go to <http://okfnrg.math.auth.gr/ocpu/test/>
@@ -424,13 +103,10 @@ Define the input time series data:
 json_data
 ```
 
--   *Param Value* -the following output from rudolf/ open spending api or you can provide the also **json URL**:
+-   *Param Value* -the **URL** of json data:
 
 ``` r
-# 1. json format file
-sample_json_openspending
-
-# 2. a link to json file-openspending
+# a link with json file-openspending
 sample_json_link_openspending
 ```
 
@@ -439,27 +115,13 @@ Define the what:
 -   *Param Name*:
 
 ``` r
-what
+dimensions
 ```
 
 -   *Param Value*:
 
 ``` r
-"functional_classification_2.Function+functional_classification_2.Code"
-```
-
-Define the to.what parameter:
-
--   *Param Name*:
-
-``` r
-to.what
-```
-
--   *Param Value*:
-
-``` r
-"variable"
+"functional_classification_2.Function|functional_classification_2.Code"
 ```
 
 Define the amount parameter:
@@ -467,7 +129,7 @@ Define the amount parameter:
 -   *Param Name*:
 
 ``` r
-amount
+amounts 
 ```
 
 -   *Param Value*:
@@ -540,8 +202,8 @@ copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
 
 7 and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
 
-Example \#2 - Open Spending-DescriptiveStats
---------------------------------------------
+Example \#3 - Rudolf DescriptiveStats
+-------------------------------------
 
 1 Go to <http://okfnrg.math.auth.gr/ocpu/test/>
 
@@ -579,7 +241,7 @@ Define the what:
 -   *Param Name*:
 
 ``` r
-what
+dimensions
 ```
 
 -   *Param Value*:
@@ -593,7 +255,7 @@ Define the to.what parameter:
 -   *Param Name*:
 
 ``` r
-to.what
+measured.dimensions
 ```
 
 -   *Param Value*:
@@ -607,7 +269,7 @@ Define the amount parameter:
 -   *Param Name*:
 
 ``` r
-amount
+amounts
 ```
 
 -   *Param Value*:
