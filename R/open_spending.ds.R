@@ -35,7 +35,6 @@
 #' @rdname open_spending.ds
 #' 
 #' @import jsonlite
-#' @import RCurl
 #' @import reshape
 #'
 #' @export
@@ -79,7 +78,7 @@ open_spending.ds <- function(json_data,
     formula <- paste(dimensions,measured.dimensions,sep="~") 
     
     dt2 <- reshape::cast(melt,formula,sum,
-                         subset=variable==amounts) 
+                         subset=melt$variable==amounts) 
   }
   
   dt2 <- stats::na.omit(dt2) 
