@@ -202,7 +202,7 @@ copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
 
 
 
-## Example #3 - Rudolf DescriptiveStats
+## Example #2 - Rudolf DescriptiveStats
 
 1 Go to http://okfnrg.math.auth.gr/ocpu/test/
 
