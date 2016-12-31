@@ -5,7 +5,7 @@ November 7, 2016
 
 [![Build Status](https://travis-ci.org/okgreece/DescriptiveStats.OBeu.svg?branch=master)](https://travis-ci.org/okgreece/DescriptiveStats.OBeu) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls) [![Github Issues](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/issues.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/issues)
 
-This document describes the use of the functions implemented in DescriptiveStats.OBeu package both in R and OpenCPU environments.
+This document describes the use of the functions implemented in DescriptiveStats.OBeu package in OpenCPU environment.
 
 Install:
 ========
@@ -33,14 +33,14 @@ library(DescriptiveStats.OBeu)
 The package includes the following data:
 
 ``` r
-# 3. a link to json file-openspending
+# 1. a link to json file-openspending
 sample_json_link_openspending
 ```
 
     ## [1] "http://next.openspending.org/api/3/cubes/21260d070eb5d63a121ea4c400dafbbb:apbn_fungsi_2016/facts?pagesize=20"
 
 ``` r
-# 4. a link to json file-rudolf
+# 2. a link to json file-rudolf
 sample_json_link_rudolf
 ```
 
@@ -76,6 +76,8 @@ and in order to run a function you should:
 Post
 ```
 
+The you can push Ajax Request.
+
 Example \#1 - Open Spending-DescriptiveStats
 --------------------------------------------
 
@@ -110,7 +112,7 @@ json_data
 sample_json_link_openspending
 ```
 
-Define the what:
+Define the dimensions:
 
 -   *Param Name*:
 
@@ -236,7 +238,7 @@ json_data
 sample_json_link_rudolf
 ```
 
-Define the what:
+Define the dimension of the input data (nominal variables):
 
 -   *Param Name*:
 
@@ -250,7 +252,7 @@ dimensions
 "global__fiscalPeriod__28951.notation"
 ```
 
-Define the to.what parameter:
+Define the measured dimensions parameter (e.g. budgetPhase dimension includes variables that are measurable/numeric variables):
 
 -   *Param Name*:
 

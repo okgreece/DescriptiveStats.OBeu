@@ -4,8 +4,7 @@
 #' @description
 #' Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
 #' 
-#' @usage open_spending.ds(json_data,
-#' dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
+#' @usage open_spending.ds(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
 #' coef.outl=1.5, box.outliers=T, box.wdth=0.15,
 #' cor.method= "pearson", freq.select=NULL)
 #' 
@@ -40,8 +39,7 @@
 #' @export
 ############################################################################################################
  
-open_spending.ds <- function(json_data,  
-                             dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
+open_spending.ds <- function(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
                              coef.outl=1.5, box.outliers=T, box.wdth=0.15,
                              cor.method= "pearson", freq.select=NULL){  
   
