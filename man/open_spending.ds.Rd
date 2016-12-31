@@ -4,8 +4,7 @@
 \alias{open_spending.ds}
 \title{Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending API}
 \usage{
-open_spending.ds(json_data,
-dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
+open_spending.ds(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
 coef.outl=1.5, box.outliers=T, box.wdth=0.15,
 cor.method= "pearson", freq.select=NULL)
 }
