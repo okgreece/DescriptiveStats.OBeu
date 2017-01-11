@@ -23,7 +23,7 @@
 #####################################################################################################################################
 
 ds.frequency <- function(data,select=NULL){
-  dt2->data
+
   data <- as.data.frame(data)
   
   stopifnot(all(sapply(data, is.numeric))==F)
