@@ -23,7 +23,7 @@
 #####################################################################################################################################
 
 ds.frequency <- function(data,select=NULL){
-  
+  dt2->data
   data <- as.data.frame(data)
   
   stopifnot(all(sapply(data, is.numeric))==F)
@@ -43,16 +43,18 @@ ds.frequency <- function(data,select=NULL){
   
   data <- data[selection]
 
- freq <-  sapply(data, table)
+ freq <-  lapply(data, table)
  
- relative.freq<- sapply(freq,prop.table)
-
+ relative.freq<- lapply(freq,prop.table)
+  
  
  if(is.list(freq)){
    freq <- lapply(freq,as.data.frame)
-   }else {
-     freq <- as.data.frame(freq)
-   }
+   relative.freq <- lapply(relative.freq,as.data.frame)
+ }else {
+   freq <- as.data.frame(freq)
+   relative.freq <- as.data.frame(relative.freq)
+ }
 
   freq.parameters<-list(
   frequencies=freq,
