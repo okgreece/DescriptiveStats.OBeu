@@ -1,4 +1,4 @@
-DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
+DescriptiveStats.OBeu bs\_carousel(id = "the\_beatles", use\_indicators = TRUE) %&gt;% bs\_append( content = bs\_carousel\_image(src = image\_uri("obeu\_logo.png")), caption = bs\_carousel\_caption("John Lennon", "Rhythm guitar, vocals") ) %&gt;% bs\_append( content = bs\_carousel\_image(src = image\_uri("obeu\_logo.png")), caption = bs\_carousel\_caption("Paul McCartney", "Bass guitar, vocals") )
 ================
 Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas
 November 7, 2016
