@@ -1,9 +1,11 @@
-DescriptiveStats.OBeu bs\_carousel(id = "the\_beatles", use\_indicators = TRUE) %&gt;% bs\_append( content = bs\_carousel\_image(src = image\_uri("obeu\_logo.png")), caption = bs\_carousel\_caption("John Lennon", "Rhythm guitar, vocals") ) %&gt;% bs\_append( content = bs\_carousel\_image(src = image\_uri("obeu\_logo.png")), caption = bs\_carousel\_caption("Paul McCartney", "Bass guitar, vocals") )
+DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
 ================
 Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas
 November 7, 2016
 
 [![Build Status](https://travis-ci.org/okgreece/DescriptiveStats.OBeu.svg?branch=master)](https://travis-ci.org/okgreece/DescriptiveStats.OBeu) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls) [![Github Issues](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/issues.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/issues) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![packageversion](https://img.shields.io/badge/Package%20version-1.1.5-orange.svg?style=flat-square)](commits/master) [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.1-6666ff.svg)](https://cran.r-project.org/) [![Licence](https://img.shields.io/badge/licence-GPL--2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+
+bs\_carousel(id = "obeu\_logo.png", use\_indicators = TRUE) %&gt;% bs\_append( content = bs\_carousel\_image(src = image\_uri("obeu\_logo.png")), caption = bs\_carousel\_caption("John Lennon", "Rhythm guitar, vocals") ) %&gt;% bs\_append( content = bs\_carousel\_image(src = image\_uri("obeu\_logo.png")), caption = bs\_carousel\_caption("Paul McCartney", "Bass guitar, vocals") )
 
 This document describes the use of the functions implemented in DescriptiveStats.OBeu package in OpenCPU environment.
 

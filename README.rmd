@@ -1,14 +1,5 @@
 ---
-title: DescriptiveStats.OBeu bs_carousel(id = "the_beatles", use_indicators = TRUE) %>%
-  bs_append(
-    content = bs_carousel_image(src = image_uri("obeu_logo.png")),
-    caption = bs_carousel_caption("John Lennon", "Rhythm guitar, vocals")
-  ) %>%
-  bs_append(
-    content = bs_carousel_image(src = image_uri("obeu_logo.png")),
-    caption = bs_carousel_caption("Paul McCartney", "Bass guitar, vocals")
-  )
-  #<img src="obeu_logo.png" align="right" />
+title: DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
 author: "Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas"
 date: "November 7, 2016"
 output:
@@ -29,6 +20,17 @@ subtitle: A Short Guide in R and OpenCPU environments
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.1-6666ff.svg)](https://cran.r-project.org/)
 [![Licence](https://img.shields.io/badge/licence-GPL--2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
+
+bs_carousel(id = "obeu_logo.png", use_indicators = TRUE) %>%
+  bs_append(
+    content = bs_carousel_image(src = image_uri("obeu_logo.png")),
+    caption = bs_carousel_caption("John Lennon", "Rhythm guitar, vocals")
+  ) %>%
+  bs_append(
+    content = bs_carousel_image(src = image_uri("obeu_logo.png")),
+    caption = bs_carousel_caption("Paul McCartney", "Bass guitar, vocals")
+  )
+  
 This document describes the use of the functions implemented in DescriptiveStats.OBeu package in OpenCPU environment. 
 
 
