@@ -1,5 +1,5 @@
 #' @title 
-#' Calculation of Statistics for the Boxplot
+#' Boxplot Parameters of a matrix or data frame
 #'  
 #' @description
 #' This function calculates the statistics for the boxplot of the input numeric vector, 

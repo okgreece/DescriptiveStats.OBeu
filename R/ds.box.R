@@ -1,19 +1,19 @@
 #' @title 
-#' Calculation of Statistics for the Boxplot
+#' Boxplot Parameters of a numeric vector
 #'  
 #' @description
-#' This function calculates the statistics for the boxplot of the numeric vector for visualization purposes.
+#' This function calculates the statistical measures needed to visualize the boxplot of a numeric vector.
 #' 
 #' @usage ds.box(x, c=1.5, c.width = 0.15 , out = T)
 #' 
-#' @param x The input matrix or data frame 
+#' @param x The input numeric vector
 #' @param c Determines the length of the "whiskers" plot.
-#' If it is equal to zero no outliers will be returned.
+#' If it is equal to zero or out=F, no outliers will be returned.
 #' @param c.width The width level is determined 0.15 times the square root of the size of the input vector
 #' @param out If TRUE the outliers will be computed at the selected "c" level (default is 1.5 times the Interquartile Range). 
 #' 
 #' @details 
-#' This function returns the statistics needed to visualize boxplot.
+#' This function returns a list with the parameters needed to visualize a boxplot.
 #' 
 #' @author Kleanthis Koupidis
 #' 
@@ -37,7 +37,6 @@
 #' @rdname ds.box
 #' 
 #' @export
-######################################################################################
 
 ds.box<-function(x, c=1.5, c.width = 0.15 , out = T){
   
@@ -66,8 +65,6 @@ ds.box<-function(x, c=1.5, c.width = 0.15 , out = T){
       up.out <- NULL
       }
   
- 
-
   box<-list(lo.whisker=lo.whisker,
             lo.hinge=lo.hinge,
             median=median,
