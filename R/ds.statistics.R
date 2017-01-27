@@ -9,8 +9,9 @@
 #' @param data A numeric vector, matrix or data frame
 #' 
 #' @details 
-#' This function returns the min, max, range, mean, median, 0\%,25\%,50\%,75\%,100\% quantiles variance,
-#' standartdeviation, skewness and kurtosis of the input data.
+#' This function returns the following values of the input data: minimum, maximum, range, mean, median, 0\%,25\%,50\%,75\%,100\% quantiles, variance,
+#' standart deviation, skewness and kurtosis.
+#' 
 #' @return 
 #' A json file with the following components:
 #' \itemize{
@@ -26,9 +27,9 @@
 #' \item Kurtosis The Kurtosis of the input data
 #' }
 #' 
-#' @author Katerina Chatzopoulou, Kleanthis Koupidis
+#' @author Aikaterini Chatzopoulou, Kleanthis Koupidis
 #' 
-#' @seealso \code{\link{open_spending.ds}}
+#' @seealso {\code{\link{open_spending.ds}} \code{\link[stats]{quantile}} (in package \pkg{stats})}
 #' 
 #' @rdname ds.statistics
 #' 
