@@ -17,7 +17,7 @@ A json file with the following components:
 \item Range The range, defined as the difference of the maximum and the minimum value.
 \item Mean The average value of the input data
 \item Median The median value of the input data
-\item Quantiles The 0\%,25\%,50\%,75\%,100\% percentiles
+\item Quantiles The 25\% and 75\% percentiles
 \item Variance The variance of the input data
 \item StandardDeviation The standard deviation of the input data
 \item Skewness The Skewness of the input data
@@ -28,7 +28,7 @@ A json file with the following components:
 This function calculates the basic descriptive measures of the input dataset.
 }
 \details{
-This function returns the following values of the input data: minimum, maximum, range, mean, median, 0\%,25\%,50\%,75\%,100\% quantiles, variance,
+This function returns the following values of the input data: minimum, maximum, range, mean, median, first and third quantiles, variance,
 standart deviation, skewness and kurtosis.
 }
 \author{
