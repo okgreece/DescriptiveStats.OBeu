@@ -28,13 +28,13 @@ A json file with the following components:
 This function calculates the basic descriptive measures of the input dataset.
 }
 \details{
-This function returns the min, max, range, mean, median, 0\%,25\%,50\%,75\%,100\% quantiles variance,
-standartdeviation, skewness and kurtosis of the input data.
+This function returns the following values of the input data: minimum, maximum, range, mean, median, 0\%,25\%,50\%,75\%,100\% quantiles, variance,
+standart deviation, skewness and kurtosis.
 }
 \author{
-Katerina Chatzopoulou, Kleanthis Koupidis
+Aikaterini Chatzopoulou, Kleanthis Koupidis
 }
 \seealso{
-\code{\link{open_spending.ds}}
+{\code{\link{open_spending.ds}} \code{\link[stats]{quantile}} (in package \pkg{stats})}
 }
 
