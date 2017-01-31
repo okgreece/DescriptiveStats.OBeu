@@ -2,7 +2,7 @@
 % Please edit documentation in R/ds.boxplot.R
 \name{ds.boxplot}
 \alias{ds.boxplot}
-\title{Calculation of Statistics for the Boxplot}
+\title{Boxplot Parameters of a matrix or data frame}
 \usage{
 ds.boxplot(data, out.level=1.5, width = 0.15 , outl = T)
 }
