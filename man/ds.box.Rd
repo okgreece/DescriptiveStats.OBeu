@@ -2,15 +2,15 @@
 % Please edit documentation in R/ds.box.R
 \name{ds.box}
 \alias{ds.box}
-\title{Calculation of Statistics for the Boxplot}
+\title{Boxplot Parameters of a numeric vector}
 \usage{
 ds.box(x, c=1.5, c.width = 0.15 , out = T)
 }
 \arguments{
-\item{x}{The input matrix or data frame}
+\item{x}{The input numeric vector}
 
 \item{c}{Determines the length of the "whiskers" plot.
-If it is equal to zero no outliers will be returned.}
+If it is equal to zero or out=F, no outliers will be returned.}
 
 \item{c.width}{The width level is determined 0.15 times the square root of the size of the input vector}
 
@@ -32,10 +32,10 @@ square root of the size of the vector)
 }
 }
 \description{
-This function calculates the statistics for the boxplot of the numeric vector for visualization purposes.
+This function calculates the statistical measures needed to visualize the boxplot of a numeric vector.
 }
 \details{
-This function returns the statistics needed to visualize boxplot.
+This function returns a list with the parameters needed to visualize a boxplot.
 }
 \author{
 Kleanthis Koupidis
