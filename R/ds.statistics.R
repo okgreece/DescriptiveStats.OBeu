@@ -22,21 +22,21 @@
 #' \item Median The median value of the input data
 #' \item Quantiles The 25\% and 75\% percentiles
 #' \item Variance The variance of the input data
-#' \item StandardDeviation The standard deviation of the input data
+#' \item Standard Deviation The standard deviation of the input data
 #' \item Skewness The Skewness of the input data
 #' \item Kurtosis The Kurtosis of the input data
 #' }
 #' 
 #' @author Aikaterini Chatzopoulou, Kleanthis Koupidis
 #' 
-#' @seealso {\code{\link{open_spending.ds}} \code{\link[stats]{quantile}} (in package \pkg{stats})}
+#' @seealso {\code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.statistics
 #' 
 #' @import jsonlite
 #'
 #' @export
-###########################################################################################################
+
 ds.statistics <- function(data)
 {
   # Check if all are categorical
