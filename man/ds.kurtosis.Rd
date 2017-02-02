@@ -13,7 +13,7 @@ ds.kurtosis(x)
 This function calculates kurtosis of the input vector, matrix or data frame.
 }
 \details{
-This function returns the kurtosis of numbers of the input data.
+This function returns the kurtosis, based on a scaled version of the fourth moment, of numbers of the input data.
 }
 \author{
 Aikaterini Chatzopoulou

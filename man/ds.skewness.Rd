@@ -13,7 +13,7 @@ ds.skewness(x)
 This function calculates skewness of the input vector, matrix or data frame.
 }
 \details{
-This function returns the skewness of numbers of the input data.
+This function returns the skewness, also known as Pearson's moment coefficient of skewness, of numbers of the input data.
 }
 \author{
 Aikaterini Chatzopoulou
