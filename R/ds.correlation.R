@@ -1,5 +1,5 @@
 #' @title 
-#' Correlation Coefficient
+#' Correlation Coefficient of a dataframe
 #'  
 #' @description
 #' This functions calculates the correlation coefficient of the input vectors, matrix or data frame.
@@ -51,7 +51,7 @@ ds.correlation<-function(x, y=NULL, cor.method="pearson"){
   
   correlation <- round(correlation, 2)
   
-  correlation[upper.tri(correlation)] <-0
+  correlation[lower.tri(correlation)] <-0
   
   cor.matrix <- data.frame(correlation,row.names = rownames(correlation))  
   

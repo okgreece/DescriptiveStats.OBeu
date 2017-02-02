@@ -1,16 +1,17 @@
 #' @title 
-#' Frequencies of nominal variables
+#' Barplot parameters
 #'  
 #' @description
-#' This function calculates frequencies and relative frequencies of factors/characters of the input dataset.
+#' This function calculates the frequencies and the relative frequencies of factors/characters of the input dataset.
 #' 
 #' @usage ds.frequency(data, select=NULL)
 #' 
 #' @param data A vector, matrix or data frame which includes at least one factor/character.
-#' @param select One or more nominal variables to calculate their corresponding frequencies.
+#' @param select Select one or more specific nominal variables to calculate their corresponding frequencies, 
+#' if it's not specified the result corresponds to frequencies of every factor variable in the data.
 #' 
 #' @details 
-#' This function returns a data frame with the frequencies and relative frequencies of factors/characters 
+#' This function returns a list with the frequencies and relative frequencies of factors/characters 
 #' of the input dataset.
 #' 
 #' @author Kleanthis Koupidis
@@ -64,4 +65,3 @@ ds.frequency <- function(data,select=NULL){
  # Return
  return(freq.parameters)
 }
-
