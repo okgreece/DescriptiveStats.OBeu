@@ -7,24 +7,23 @@
 ds.boxplot(data, out.level=1.5, width = 0.15 , outl = T)
 }
 \arguments{
-\item{data}{The input numeric vector, matrix or data frame.}
+\item{data}{The input numeric matrix or data frame.}
 
-\item{out.level}{Determines the length of the "whiskers" plot.
-If it is equal to zero no outliers will be returned.}
+\item{out.level}{Determines the length of the "whiskers" plot. If it is equal to zero or "outl" is set to F, 
+no outliers will be returned.}
 
 \item{width}{The width level is determined 0.15 times the square root of the size of the input data.}
 
-\item{outl}{If TRUE the outliers will be computed at the selected "c" level (default is 1.5 times the Interquartile Range).}
+\item{outl}{If TRUE the outliers will be computed at the selected "out.level" level (default is 1.5 times the Interquartile Range).}
 }
 \value{
-Returns a list with the extracted components of \code{\link{ds.box}} for each variable of the input data.
+Returns a list with the extracted components of \code{\link{ds.box}} for each variable/column of the input data.
 }
 \description{
-This function calculates the statistics for the boxplot of the input numeric vector, 
-matrix or data frame.
+This function calculates the statistics of the boxplot for the input matrix or data frame.
 }
 \details{
-This function returns the statistics needed to visualize boxplots.
+This function returns as a list object the statistical parameters needed to visualize boxplot.
 }
 \author{
 Aikaterini Chatzopoulou, Kleanthis Koupidis

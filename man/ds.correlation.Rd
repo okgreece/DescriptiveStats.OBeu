@@ -2,7 +2,7 @@
 % Please edit documentation in R/ds.correlation.R
 \name{ds.correlation}
 \alias{ds.correlation}
-\title{Correlation Coefficient}
+\title{Correlation Coefficient of a dataframe}
 \usage{
 ds.correlation(x, y=NULL, cor.method="pearson")
 }

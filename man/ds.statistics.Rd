@@ -34,4 +34,7 @@ standart deviation, skewness and kurtosis.
 \author{
 Aikaterini Chatzopoulou, Kleanthis Koupidis
 }
+\seealso{
+\code{\link{open_spending.ds}}
+}
 

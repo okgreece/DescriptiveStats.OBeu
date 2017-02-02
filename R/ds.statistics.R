@@ -29,7 +29,7 @@
 #' 
 #' @author Aikaterini Chatzopoulou, Kleanthis Koupidis
 #' 
-#' @seealso {\code{\link{open_spending.ds}}
+#' @seealso \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.statistics
 #' 

@@ -2,20 +2,21 @@
 % Please edit documentation in R/ds.frequency.R
 \name{ds.frequency}
 \alias{ds.frequency}
-\title{Frequencies of nominal variables}
+\title{Barplot parameters}
 \usage{
 ds.frequency(data, select=NULL)
 }
 \arguments{
 \item{data}{A vector, matrix or data frame which includes at least one factor/character.}
 
-\item{select}{One or more nominal variables to calculate their corresponding frequencies.}
+\item{select}{Select one or more specific nominal variables to calculate their corresponding frequencies, 
+if it's not specified the result corresponds to frequencies of every factor variable in the data.}
 }
 \description{
-This function calculates frequencies and relative frequencies of factors/characters of the input dataset.
+This function calculates the frequencies and the relative frequencies of factors/characters of the input dataset.
 }
 \details{
-This function returns a data frame with the frequencies and relative frequencies of factors/characters 
+This function returns a list with the frequencies and relative frequencies of factors/characters 
 of the input dataset.
 }
 \author{
