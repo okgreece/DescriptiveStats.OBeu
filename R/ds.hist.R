@@ -11,15 +11,20 @@
 #' @param breaks The method or the number of classes for the histogram.
 #' 
 #' @details 
-#' The possible values for breaks are "Sturges"(see nclass.Sturges), "Scott"(see nclass.scott),
-#' "FD" / "Freedman-Diaconis" (see nclass.FD) and other integer value.
+#' The possible values for breaks are "Sturges"(see \code{\link[grDevices]{nclass.Sturges}}), 
+#' "Scott"(see \code{\link[grDevices]{nclass.scott}}) and "FD" or "Freedman-Diaconis" \code{\link[grDevices]{nclass.FD}}
+#' which are in package \pkg{grDevices}.
+#' 
 #' 
 #' @return A list with the following components:
 #' 
 #' \itemize{
 #' \item cuts The boundaries of the histogram classes
-#' \item counts The frequency of each histogram class
-#' \item normal.curve The normal curve 
+#' \item density The density of each histogram class
+#' \item normal.curve.x Αbscissa of the normal curve 
+#' \item normal.curve.y Ordinate of the normal curve 
+#' \item fit.line.x Αbscissa of the data density curve 
+#' \item fit.line.y Ordinate of the data density curve 
 #' \item mean The average value of the input vector
 #' \item median The median value of the input data
 #' } 
@@ -31,45 +36,32 @@
 #' @rdname ds.hist
 #' 
 #' @export
-###########################################################################################
+
 ds.hist <- function(x, breaks= "Sturges") {
+  
+  x = as.numeric(unlist(x))
 
-  x <- as.numeric(unlist(x))
-  if (is.character(breaks)==F) {
-    classes <- breaks 
-  } else if (breaks=="Sturges") {
-    classes <- grDevices::nclass.Sturges(x)
-  } else if (breaks=="Scott") {
-      classes<-grDevices::nclass.scott(x)
-  } else if (breaks=="Freedman-Diaconis") {
-        classes<-grDevices::nclass.FD(x)
-        }
+  histog=hist(x,probability = T,plot = F,warn.unused = F)
   
-  range <- ceiling(max(x)/.5)*.5-floor((min(x)/.5))*.5
-  width <- round((range/classes)/.5)*.5
-  breaks <- seq(from= floor(min(x)/.5)*.5,to=ceiling(max(x)/.5)*.5, by=width)
+  # norm line
   
-  if (min(x)==floor((min(x)/.5))*.5) {
-  hist.frequncies <- cut(x, breaks, right=F)
-  } else {
-    hist.frequncies <- cut(x, breaks, right=T)
-  }
-
-  hist.frequncies <- as.data.frame(table(hist.frequncies))
+  ynorm2= density(rnorm(x, mean = mean(x), sd = stats::sd(x)))
   
-  #lines
-  ynorm<-stats::dnorm(breaks,mean=mean(x),sd=stats::sd(x)) 
-  ynorm <- ynorm*width*length(x) 
+  # prob line
+  fit.line=density(x)
   
-  mean <- mean(x)
-  median <- median(x)
+  mean = mean(x)
+  median = median(x)
   
-  hist.param <- list(
-  cuts = breaks,
-  counts = hist.frequncies$Freq,
-  normal.curve = ynorm,
-  mean = mean,
-  median = median
-  )
-  return(hist.param)
+  hist.param = list(
+                 cuts = histog$breaks,
+                 density = histog$density,
+                 normal.curve.x = ynorm$x,
+                 normal.curve.y = ynorm$y,
+                 fit.line.x=fit.line$x,
+                 fit.line.y=fit.line$y,
+                 mean = mean,
+                 median = median
+               )
+               return(hist.param)
 }

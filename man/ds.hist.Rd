@@ -16,8 +16,11 @@ A list with the following components:
 
 \itemize{
 \item cuts The boundaries of the histogram classes
-\item counts The frequency of each histogram class
-\item normal.curve The normal curve 
+\item density The density of each histogram class
+\item normal.curve.x <U+039E>‘bscissa of the normal curve 
+\item normal.curve.y Ordinate of the normal curve 
+\item fit.line.x <U+039E>‘bscissa of the data density curve 
+\item fit.line.y Ordinate of the data density curve 
 \item mean The average value of the input vector
 \item median The median value of the input data
 }
@@ -27,8 +30,9 @@ This function computes the histogram parameters of the numeric input vector. The
 breaks is the value resulted from "Sturges" algorithm.
 }
 \details{
-The possible values for breaks are "Sturges"(see nclass.Sturges), "Scott"(see nclass.scott),
-"FD" / "Freedman-Diaconis" (see nclass.FD) and other integer value.
+The possible values for breaks are "Sturges"(see \code{\link[grDevices]{nclass.Sturges}}), 
+"Scott"(see \code{\link[grDevices]{nclass.scott}}) and "FD" or "Freedman-Diaconis" \code{\link[grDevices]{nclass.FD}}
+which are in package \pkg{grDevices}.
 }
 \author{
 Kleanthis Koupidis
