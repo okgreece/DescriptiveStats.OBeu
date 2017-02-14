@@ -45,7 +45,7 @@ ds.hist <- function(x, breaks= "Sturges") {
   
   # norm line
   
-  ynorm2= density(rnorm(x, mean = mean(x), sd = stats::sd(x)))
+  ynorm= density(rnorm(x, mean = mean(x), sd = stats::sd(x)))
   
   # prob line
   fit.line=density(x)
