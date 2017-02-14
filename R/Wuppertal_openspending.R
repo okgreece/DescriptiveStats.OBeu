@@ -11,7 +11,7 @@
 #'   }
 #' 
 #' @format A link with the json format data
-#' @name openspending_Wuppertal
+#' @name Wuppertal_openspending
 #' @source OpenSpending
 #' 
 #' 
