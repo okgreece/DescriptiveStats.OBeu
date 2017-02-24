@@ -50,7 +50,7 @@ The basic measures are the mean and the median.
 Dispersion measures describe how similar or varied the data are. The range, quartiles and the interquartile range, variance and standard deviation are measures of spread.
 
 ## Output
-The output of this process is a list in json format divided into four components of parameters and results with the first subcomponents (for further details go on [TimeSeries.OBeu](https://github.com/okgreece/TimeSeries.OBeu/blob/master/R/ts.analysis.R))
+The output of this process is a list in json format divided into four components of parameters and results with the first subcomponents.
 Here is a sort description of the outputs in each function:
 
 +---------------+------------------------+-----------------------------------------------------------+
