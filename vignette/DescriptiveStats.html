@@ -301,7 +301,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>In same examples specific columns of the dataset are selected in order for smaller amount of results to be presented. The dataset that is being used is available in DescriptiveStats.OBeu package and represents the data …..</p>
 <div id="statistics" class="section level3">
 <h3>Statistics</h3>
-<p>We often need the basic descriptive statistics for the data we are working with. ds.statistics() can provide us with these results.</p>
+<p>We often need the basic descriptive statistics for the data we are working with. <code>ds.statistics()</code> can provide us with these results.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DescriptiveStats.OBeu)
 <span class="kw">ds.statistics</span>(Wuppertal_df[,-<span class="dv">4</span>])</code></pre></div>
 <pre><code>## $Min
@@ -405,7 +405,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="boxplot" class="section level3">
 <h3>Boxplot</h3>
-<p>ds.boxplot() gives the statistics needed for a boxplot to be drawn.</p>
+<p><code>ds.boxplot()</code> gives the statistics needed for a boxplot to be drawn.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ds.boxplot</span>(Wuppertal_df$Amount,<span class="dt">out.level =</span> <span class="dv">0</span>)</code></pre></div>
 <pre><code>## $data
 ## $data$lo.whisker
@@ -447,7 +447,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="frequency" class="section level3">
 <h3>Frequency</h3>
-<p>ds.frequency() provides the frequencies and the relative frequencies of factors/characters of the input dataset.</p>
+<p><code>ds.frequency()</code> provides the frequencies and the relative frequencies of factors/characters of the input dataset.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ds.frequency</span>(Wuppertal_df[,<span class="dv">2</span>:<span class="dv">3</span>])</code></pre></div>
 <pre><code>## $frequencies
 ## $frequencies$Kontotyp
