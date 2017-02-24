@@ -100,14 +100,14 @@ In same examples specific columns of the dataset are selected in order for small
 The dataset that is being used is available in DescriptiveStats.OBeu package and represents the data .....
 
 ### Statistics
-We often need the basic descriptive statistics for the data we are working with. ds.statistics() can provide us with these results.
+We often need the basic descriptive statistics for the data we are working with. `ds.statistics()` can provide us with these results.
 ```{r}
 library(DescriptiveStats.OBeu)
 ds.statistics(Wuppertal_df[,-4])
 ```
 
 ### Boxplot
-ds.boxplot() gives the statistics needed for a boxplot to be drawn.
+`ds.boxplot()` gives the statistics needed for a boxplot to be drawn.
 ```{r}
 ds.boxplot(Wuppertal_df$Amount,out.level = 0)
 ```
@@ -119,7 +119,7 @@ ds.correlation(Wuppertal_df)
 ```
 
 ### Frequency
-ds.frequency() provides the frequencies and the relative frequencies of factors/characters of the input dataset.
+`ds.frequency()` provides the frequencies and the relative frequencies of factors/characters of the input dataset.
 ```{r}
 ds.frequency(Wuppertal_df[,2:3])
 ```
