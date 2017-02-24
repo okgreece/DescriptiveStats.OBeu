@@ -1,0 +1,140 @@
+---
+title: "DescriptiveStats.OBeu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+# Intoduction
+This package was created in order to enable the calculation of descriptive statistical measures, for the needs of a European project.
+This document introduces you to DescriptiveStats.OBeu's basic set of tools.
+
+## Input
+The parameters: “dimensions”, “measured.dimensions” and “amounts” should be defined by the user, to form the dataset. Then an automated process calculates the basic descriptive measures of tendency and spread, boxplot and histogram parameters in order to describe and visualize the distribution characteristics of the desired dataset.
+
++----------------------+----------------------------------------------------------------------------------------------+
+| Input                | Description                                                                                  |
++======================+==============================================================================================+
+| - json_data          | - The json string, URL or file from Open Spending API                                        |
++----------------------+----------------------------------------------------------------------------------------------+
+| - dimensions         | - The dimensions of the input data                                                           |
++----------------------+----------------------------------------------------------------------------------------------+
+| - amounts            | - The measures of the input data                                                             |
++----------------------+----------------------------------------------------------------------------------------------+
+| - measured.dimensions| - The dimensions to which correspond amount/numeric variables                                |
++----------------------+----------------------------------------------------------------------------------------------+
+| - coef.outl          | - Determines the length of the "whiskers" plot. Default is 1.5.                              |
++----------------------+----------------------------------------------------------------------------------------------+
+| - box.outliers       | - If TRUE the outliers will be computed at the selected "coef.outl" level                    |
++----------------------+----------------------------------------------------------------------------------------------+
+| - box.width          | - The width level is determined 0.15 times the square root of the size of the input data.    |
++----------------------+----------------------------------------------------------------------------------------------+
+| - cor.method         | - The correlation coefficient method to compute: "pearson" (default),"kendall" or "spearman".|
++----------------------+----------------------------------------------------------------------------------------------+
+| - freq.select        | - One or more nominal variables to calculate their corresponding frequencies.                |
++----------------------+----------------------------------------------------------------------------------------------+
+
+#### Pre-processing of input
+**DescriptiveStats.OBeu** includes functions that automatically calculates the central tendency and spread measures, the boxplot, histogram and barplot visualization parameters and the correlation matrix of the input fiscal dataset. 
+
+The final returns are the parameters needed for forming summary tables of central tendency and dispersion measures and visualizing boxplot, histogram, barplot and correlation matrix of the input data.
+
+#### Central Tendency Measures
+Central Tendency Measures describe the central position of a [distribution](https://en.wikipedia.org/wiki/Probability_distribution) for a group of data. 
+The basic measures are the mean and the median.
+
+#### Dispersion Measures (Measures of Spread)
+Dispersion measures describe how similar or varied the data are. The range, quartiles and the interquartile range, variance and standard deviation are measures of spread.
+
+## Output
+The output of this process is a list in json format divided into four components of parameters and results with the first subcomponents (for further details go on [TimeSeries.OBeu](https://github.com/okgreece/TimeSeries.OBeu/blob/master/R/ts.analysis.R))
+Here is a sort description of the outputs in each function:
+
++---------------+------------------------+-----------------------------------------------------------+
+| Function      | Output                 | Description                                               |
++===============+========================+===========================================================+
+| statistics    | - Min                  | - The minimum observed value of the input data            |
+|               | - Max                  | - The maximum observed value of the input data            |
+|               | - Range                | - The difference between maximum and minimum              |
+|               | - Mean                 | - The average value of the input data                     |
+|               | - Median               | - The median value of the input data                      |
+|               | - Quantiles            | - The 25%, 75% percentiles                                |
+|               | - Variance             | - The variance of the input data                          |
+|               | - StandardDeviation    | - The standard deviation of the input data                |
+|               | - Skewness             | - The Skewness of the input data                          |
+|               | - Kurtosis             | - The Kurtosis of the input data                          |
++---------------+------------------------+-----------------------------------------------------------+
+| boxplot       | - lo.whisker           | - Lower horizontal line out of the box                    |
+|               | - lo.hinge             | - Lower horizontal line of the box                        |
+|               | - median               | - Horizontal line in the box                              |
+|               | - up.hinge             | - Upper horizontal line of the box                        |
+|               | - up.whisker           | - Upper horizontal line out of the box                    |
+|               | - box.width            | - The box width of each variable                          |
+|               | - lo.out               | - Lower outliers                                          |
+|               | - up.out               | - Upper outliers                                          |
+|               | - n                    | - The number of non-NA observations                       |
++---------------+------------------------+-----------------------------------------------------------+
+| histogram     | - cuts                 | - The boundaries of the histogram classes                 |
+|               | - counts               | - The frequency of each histogram class                   |
+|               | - normal.curve         | - The normal curve                                        |
+|               | - mean                 | - The average value of the input vector                   |
+|               | - median               | - The median value of the input data                      |
++---------------+------------------------+-----------------------------------------------------------+
+| frequencies   | - Variable name        | - The name of the calculated variable                     |
+|               | - frequencies          | - The frequency value                                     |
+|               | - "_row"               | - Name of the categories of the variable                  |
+|               | - relative.frequencies | - Relative frequency values                               |
++---------------+------------------------+-----------------------------------------------------------+
+| correlation   | - Variable name        | - The name of the calculated variable                     |
+|               | - Correlation value    | - The correlation value                                   |
+|               | - "_row"               |- The corresponding correlation variable                   |
++---------------+------------------------+-----------------------------------------------------------+
+
+## Examples
+Simple examples for each function are provided, in order for the user to understand the use and how to deal with these functions.
+
+In same examples specific columns of the dataset are selected in order for smaller amount of results to be presented.
+The dataset that is being used is available in DescriptiveStats.OBeu package and represents the data .....
+
+### Statistics
+We often need the basic descriptive statistics for the data we are working with. ds.statistics() can provide us with these results.
+```{r}
+library(DescriptiveStats.OBeu)
+ds.statistics(Wuppertal_df[,-4])
+```
+
+### Boxplot
+ds.boxplot() gives the statistics needed for a boxplot to be drawn.
+```{r}
+ds.boxplot(Wuppertal_df$Amount,out.level = 0)
+```
+
+### Correlation
+This function calculates the correlation coefficient of the input data.
+```{r}
+ds.correlation(Wuppertal_df)
+```
+
+### Frequency
+ds.frequency() provides the frequencies and the relative frequencies of factors/characters of the input dataset.
+```{r}
+ds.frequency(Wuppertal_df[,2:3])
+```
+
+### Kurtosis
+This function calculates kurtosis of the input data.
+```{r}
+ds.kurtosis(Wuppertal_df)
+```
+
+### Skewness
+This function calculates skewness of the input data.
+```{r}
+ds.skewness(Wuppertal_df)
+```
+
+# Conclusion
+These six functions provide the basic statistics of data. Even inexperienced users can handle them, in order to evaluate their data and visualize them.
