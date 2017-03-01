@@ -1,11 +1,10 @@
 ---
 title: "DescriptiveStats.OBeu"
-date: "`r Sys.Date()`"
-output: pdf_document
-vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+output:
+  github_document: null
+date: '`r Sys.Date()`'
+vignette: |
+  %\VignetteIndexEntry{Vignette Title} %\VignetteEngine{knitr::rmarkdown} \usepackage[utf8]{inputenc}
 ---
 
 # Intoduction
@@ -15,27 +14,29 @@ This document introduces you to DescriptiveStats.OBeu's basic set of tools.
 ## Input
 The parameters: “dimensions”, “measured.dimensions” and “amounts” should be defined by the user, to form the dataset. Then an automated process calculates the basic descriptive measures of tendency and spread, boxplot and histogram parameters in order to describe and visualize the distribution characteristics of the desired dataset.
 
-+----------------------+----------------------------------------------------------------------------------------------+
-| Input                | Description                                                                                  |
-+======================+==============================================================================================+
-| - json_data          | - The json string, URL or file from Open Spending API                                        |
-+----------------------+----------------------------------------------------------------------------------------------+
-| - dimensions         | - The dimensions of the input data                                                           |
-+----------------------+----------------------------------------------------------------------------------------------+
-| - amounts            | - The measures of the input data                                                             |
-+----------------------+----------------------------------------------------------------------------------------------+
-| - measured.dimensions| - The dimensions to which correspond amount/numeric variables                                |
-+----------------------+----------------------------------------------------------------------------------------------+
-| - coef.outl          | - Determines the length of the "whiskers" plot. Default is 1.5.                              |
-+----------------------+----------------------------------------------------------------------------------------------+
-| - box.outliers       | - If TRUE the outliers will be computed at the selected "coef.outl" level                    |
-+----------------------+----------------------------------------------------------------------------------------------+
-| - box.width          | - The width level is determined 0.15 times the square root of the size of the input data.    |
-+----------------------+----------------------------------------------------------------------------------------------+
-| - cor.method         | - The correlation coefficient method to compute: "pearson" (default),"kendall" or "spearman".|
-+----------------------+----------------------------------------------------------------------------------------------+
-| - freq.select        | - One or more nominal variables to calculate their corresponding frequencies.                |
-+----------------------+----------------------------------------------------------------------------------------------+
++--------------------+--------------------------------------------------------------------------------------------+
+| Input              | Description                                                                                |
++====================+============================================================================================+
+| json_data          | The json string, URL or file from Open Spending API                                        |
++--------------------+--------------------------------------------------------------------------------------------+
+| dimensions         | The dimensions of the input data                                                           |
++--------------------+--------------------------------------------------------------------------------------------+
+| amounts            | The measures of the input data                                                             |
++--------------------+--------------------------------------------------------------------------------------------+
+| measured.dimensions| The dimensions to which correspond amount/numeric variables                                |
++--------------------+--------------------------------------------------------------------------------------------+
+| coef.outl          | Determines the length of the "whiskers" plot. Default is 1.5.                              |
++--------------------+--------------------------------------------------------------------------------------------+
+| box.outliers       | If TRUE the outliers will be computed at the selected "coef.outl" level                    |
++--------------------+--------------------------------------------------------------------------------------------+
+| box.width          | The width level is determined 0.15 times the square root of the size of the input data.    |
++--------------------+--------------------------------------------------------------------------------------------+
+| cor.method         | The correlation coefficient method to compute: "pearson" (default),"kendall" or "spearman".|
++--------------------+--------------------------------------------------------------------------------------------+
+| freq.select        | One or more nominal variables to calculate their corresponding frequencies.                |
++--------------------+--------------------------------------------------------------------------------------------+
+
+Table: A sort description about the inputs. 
 
 #### Pre-processing of input
 **DescriptiveStats.OBeu** includes functions that automatically calculates the central tendency and spread measures, the boxplot, histogram and barplot visualization parameters and the correlation matrix of the input fiscal dataset. 
@@ -90,8 +91,10 @@ Here is a sort description of the outputs in each function:
 +---------------+------------------------+-----------------------------------------------------------+
 | correlation   | - Variable name        | - The name of the calculated variable                     |
 |               | - Correlation value    | - The correlation value                                   |
-|               | - "_row"               |- The corresponding correlation variable                   |
+|               | - "_row"               | - The corresponding correlation variable                  |
 +---------------+------------------------+-----------------------------------------------------------+
+
+Table: Output descriptions in each function.
 
 ## Examples
 Simple examples for each function are provided, in order for the user to understand the use and how to deal with these functions.
