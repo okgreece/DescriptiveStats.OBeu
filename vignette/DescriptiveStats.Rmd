@@ -99,18 +99,24 @@ Table: Output descriptions in each function.
 ## Examples
 Simple examples for each function are provided, in order for the user to understand the use and how to deal with these functions.
 
-In same examples specific columns of the dataset are selected in order for smaller amount of results to be presented.
-The dataset that is being used is available in DescriptiveStats.OBeu package and represents the data .....
+In some examples specific columns of the dataset are selected in order for smaller amount of results to be presented.
+The dataset that is being used is available in DescriptiveStats.OBeu package and represents the budget for wuppertal for 2009 to 2018.
 
 ### Statistics
-We often need the basic descriptive statistics for the data we are working with. `ds.statistics()` can provide us with these results.
+We often need the basic descriptive statistics for the data we are working with. The `ds.statistics()` function can provide  these results.
 ```{r}
 library(DescriptiveStats.OBeu)
 ds.statistics(Wuppertal_df[,-4])
 ```
 
+### Histogram
+`ds.hist()` gives the parameters of the numeric input vector.
+```{r}
+ds.hist(Wuppertal_df$Amount)
+```
+
 ### Boxplot
-`ds.boxplot()` gives the statistics needed for a boxplot to be drawn.
+The `ds.boxplot()` function gives the statistics needed for a boxplot to be drawn.
 ```{r}
 ds.boxplot(Wuppertal_df$Amount,out.level = 0)
 ```
@@ -130,7 +136,7 @@ ds.frequency(Wuppertal_df[,2:3])
 ### Kurtosis
 This function calculates kurtosis of the input data.
 ```{r}
-ds.kurtosis(Wuppertal_df)
+ds.kurtosis(Wuppertal_df$Amount)
 ```
 
 ### Skewness
@@ -140,4 +146,4 @@ ds.skewness(Wuppertal_df)
 ```
 
 # Conclusion
-These six functions provide the basic statistics of data. Even inexperienced users can handle them, in order to evaluate their data and visualize them.
+These seven functions provide the basic statistics of data. Even inexperienced users can handle them, in order to evaluate their data and be able to visualize them.
