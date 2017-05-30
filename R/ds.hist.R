@@ -22,9 +22,9 @@
 #' \itemize{
 #' \item cuts The boundaries of the histogram classes
 #' \item density The density of each histogram class
-#' \item normal.curve.x Αbscissa of the normal curve 
+#' \item normal.curve.x Abscissa of the normal curve 
 #' \item normal.curve.y Ordinate of the normal curve 
-#' \item fit.line.x Αbscissa of the data density curve 
+#' \item fit.line.x Abscissa of the data density curve 
 #' \item fit.line.y Ordinate of the data density curve 
 #' \item mean The average value of the input vector
 #' \item median The median value of the input data
