@@ -4,10 +4,12 @@
 \alias{ds.statistics}
 \title{Calculation of the Statistic Measures}
 \usage{
-ds.statistics(data)
+ds.statistics(data, tojson=F)
 }
 \arguments{
 \item{data}{A numeric vector, matrix or data frame}
+
+\item{tojson}{If TRUE the results are returned in json format, default returns a list}
 }
 \value{
 A json file with the following components:
@@ -31,10 +33,9 @@ This function calculates the basic descriptive measures of the input dataset.
 This function returns the following values of the input data: minimum, maximum, range, mean, median, first and third quantiles, variance,
 standart deviation, skewness and kurtosis.
 }
-\author{
-Aikaterini Chatzopoulou, Kleanthis Koupidis
-}
 \seealso{
 \code{\link{open_spending.ds}}
 }
-
+\author{
+Aikaterini Chatzopoulou, Kleanthis Koupidis
+}

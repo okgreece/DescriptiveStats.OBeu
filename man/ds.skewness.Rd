@@ -4,10 +4,12 @@
 \alias{ds.skewness}
 \title{Calculation of Skewness}
 \usage{
-ds.skewness(x)
+ds.skewness(x, tojson=F)
 }
 \arguments{
 \item{x}{A vector, matrix or data frame.}
+
+\item{tojson}{If TRUE the results are returned in json format}
 }
 \description{
 This function calculates skewness of the input vector, matrix or data frame.
@@ -15,11 +17,10 @@ This function calculates skewness of the input vector, matrix or data frame.
 \details{
 This function returns the skewness, also known as Pearson's moment coefficient of skewness, of numbers of the input data.
 }
-\author{
-Aikaterini Chatzopoulou
-}
 \seealso{
 \code{\link{ds.kurtosis}}, \code{\link{ds.statistics}}, 
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
-
+\author{
+Aikaterini Chatzopoulou
+}

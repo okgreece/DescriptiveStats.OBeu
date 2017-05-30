@@ -4,13 +4,14 @@
 #' @description
 #' This function calculates the statistical measures needed to visualize the boxplot of a numeric vector.
 #' 
-#' @usage ds.box(x, c=1.5, c.width = 0.15 , out = T)
+#' @usage ds.box(x, c=1.5, c.width = 0.15 , out = T, tojson=F)
 #' 
 #' @param x The input numeric vector
 #' @param c Determines the length of the "whiskers" plot.
 #' If it is equal to zero or out=F, no outliers will be returned.
 #' @param c.width The width level is determined 0.15 times the square root of the size of the input vector
 #' @param out If TRUE the outliers will be computed at the selected "c" level (default is 1.5 times the Interquartile Range). 
+#' @param tojson If TRUE the results are returned in json format
 #' 
 #' @details 
 #' This function returns a list with the parameters needed to visualize a boxplot.
@@ -35,10 +36,11 @@
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.box
+#' @import jsonlite
 #' 
 #' @export
 
-ds.box<-function(x, c=1.5, c.width = 0.15 , out = T){
+ds.box<-function(x, c=1.5, c.width = 0.15 , out = T, tojson=F){
   
   b <- grDevices::boxplot.stats(x, coef=c,  do.out = out)
   
@@ -74,6 +76,11 @@ ds.box<-function(x, c=1.5, c.width = 0.15 , out = T){
             lo.out=lo.out,
             up.out=up.out,
             n=n)
+  
+  if (tojson==T){
+    
+    box=jsonlite::toJSON(box)
+  }
   
   return(box)
 }

@@ -4,7 +4,7 @@
 \alias{ds.correlation}
 \title{Correlation Coefficient of a dataframe}
 \usage{
-ds.correlation(x, y=NULL, cor.method="pearson")
+ds.correlation(x, y=NULL, cor.method="pearson", tojson=F)
 }
 \arguments{
 \item{x}{A vector, matrix or data frame}
@@ -13,6 +13,8 @@ ds.correlation(x, y=NULL, cor.method="pearson")
 
 \item{cor.method}{The correlation coefficient method to compute: "pearson" (default),
 "kendall" or "spearman".}
+
+\item{tojson}{If TRUE the results are returned in json format, default returns a data frame}
 }
 \description{
 This functions calculates the correlation coefficient of the input vectors, matrix or data frame.
@@ -23,10 +25,9 @@ This function returns an upper triangle matrix with the correlation coefficients
 of the input data. The correlation coefficient of pearson is computed, by default. 
 Other options are "kendall" or "spearman".
 }
-\author{
-Aikaterini Chatzopoulou, Kleanthis Koupidis
-}
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
-
+\author{
+Aikaterini Chatzopoulou, Kleanthis Koupidis
+}

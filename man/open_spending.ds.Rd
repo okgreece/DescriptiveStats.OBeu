@@ -40,10 +40,9 @@ Extract and analyze the input data provided from Open Spending API, using the ds
 This function is used to read data in json format from Open Spending API, in order to implement 
 some basic descriptive tasks through \code{\link{ds.analysis}} function.
 }
-\author{
-Kleanthis Koupidis
-}
 \seealso{
 \code{\link{ds.analysis}}
 }
-
+\author{
+Kleanthis Koupidis
+}

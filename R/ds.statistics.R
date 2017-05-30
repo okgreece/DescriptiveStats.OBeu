@@ -4,9 +4,10 @@
 #' @description
 #' This function calculates the basic descriptive measures of the input dataset.
 #' 
-#' @usage ds.statistics(data)
+#' @usage ds.statistics(data, tojson=F)
 #' 
 #' @param data A numeric vector, matrix or data frame
+#' @param tojson If TRUE the results are returned in json format, default returns a list
 #' 
 #' @details 
 #' This function returns the following values of the input data: minimum, maximum, range, mean, median, first and third quantiles, variance,
@@ -37,7 +38,7 @@
 #'
 #' @export
 
-ds.statistics <- function(data)
+ds.statistics <- function(data, tojson=F)
 {
   # Check if all are categorical
   stopifnot(!all(is.factor(data)) & !all(is.character(data)))
@@ -73,6 +74,11 @@ ds.statistics <- function(data)
   statistics<-list(Min=min, Max=max,Range=range, Mean=mean, Median=median, 
                    Quantiles=q,Variance=var, StandardDeviation=stdev,
                    Kurtosis=kurtosis, Skewness=skewness)
+  
+  if (tojson==T){
+    
+    statistics=jsonlite::toJSON(statistics)
+  }
 
   # Return
   return(statistics)

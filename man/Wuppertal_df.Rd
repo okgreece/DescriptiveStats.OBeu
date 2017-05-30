@@ -17,4 +17,3 @@ OpenSpending
   \item The ...
   }
 }
-

@@ -5,12 +5,13 @@
 #' This functions calculates the correlation coefficient of the input vectors, matrix or data frame.
 #' By default, the correlation coefficient of pearson is computed.
 #' 
-#' @usage ds.correlation(x, y=NULL, cor.method="pearson")
+#' @usage ds.correlation(x, y=NULL, cor.method="pearson", tojson=F)
 #' 
 #' @param x A vector, matrix or data frame
 #' @param y A vector, matrix or data frame
 #' @param cor.method The correlation coefficient method to compute: "pearson" (default),
 #' "kendall" or "spearman".
+#' @param tojson If TRUE the results are returned in json format, default returns a data frame
 #' 
 #' @details 
 #' This function returns an upper triangle matrix with the correlation coefficients 
@@ -23,10 +24,11 @@
 #' 
 #' @rdname ds.correlation
 #' 
+#' @import jsonlite
 #' @export
 ###########################################################################################
 
-ds.correlation<-function(x, y=NULL, cor.method="pearson"){
+ds.correlation<-function(x, y=NULL, cor.method="pearson", tojson=F){
   
   # Convert to data frame
   if (is.null(y)==F){
@@ -55,6 +57,10 @@ ds.correlation<-function(x, y=NULL, cor.method="pearson"){
   
   cor.matrix <- data.frame(correlation,row.names = rownames(correlation))  
   
+  if (tojson==T){
+    
+    cor.matrix=jsonlite::toJSON(cor.matrix)
+  }
   # Return
   return(cor.matrix)
 }

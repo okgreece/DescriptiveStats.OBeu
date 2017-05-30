@@ -4,14 +4,15 @@
 #' @description
 #' This function calculates the statistics of the boxplot for the input matrix or data frame.
 #' 
-#' @usage ds.boxplot(data, out.level=1.5, width = 0.15 , outl = T)
+#' @usage ds.boxplot(data, out.level=1.5, width = 0.15 , outl = T, tojson=F)
 #' 
 #' @param data The input numeric matrix or data frame.
 #' @param out.level Determines the length of the "whiskers" plot. If it is equal to zero or "outl" is set to F, 
 #' no outliers will be returned.
 #' @param width The width level is determined 0.15 times the square root of the size of the input data.
 #' @param outl If TRUE the outliers will be computed at the selected "out.level" level (default is 1.5 times the Interquartile Range).
-#' 
+#' @param tojson If TRUE the results are returned in json format
+#'  
 #' @details 
 #' This function returns as a list object the statistical parameters needed to visualize boxplot.
 #' 
@@ -24,9 +25,10 @@
 #' 
 #' @rdname ds.boxplot
 #' 
+#' @import jsonlite
 #' @export
 
-ds.boxplot<-function(data, out.level=1.5, width = 0.15 , outl = T){
+ds.boxplot<-function(data, out.level=1.5, width = 0.15 , outl = T, tojson=F){
   
   # Convert to data frame
   data<-as.data.frame(data)
@@ -39,6 +41,11 @@ ds.boxplot<-function(data, out.level=1.5, width = 0.15 , outl = T){
   
   # Boxplot parameters
   box.data<-lapply(data.num, ds.box, c=out.level, c.width= width, out=outl)
+  
+  if (tojson==T){
+    
+    box.data=jsonlite::toJSON(box.data)
+  }
   
   # Return
   return(box.data)

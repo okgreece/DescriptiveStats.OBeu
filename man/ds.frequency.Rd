@@ -4,13 +4,15 @@
 \alias{ds.frequency}
 \title{Barplot parameters}
 \usage{
-ds.frequency(data, select=NULL)
+ds.frequency(data, select=NULL, tojson=F)
 }
 \arguments{
 \item{data}{A vector, matrix or data frame which includes at least one factor/character.}
 
 \item{select}{Select one or more specific nominal variables to calculate their corresponding frequencies, 
 if it's not specified the result corresponds to frequencies of every factor variable in the data.}
+
+\item{tojson}{If TRUE the results are returned in json format, default returns a list}
 }
 \description{
 This function calculates the frequencies and the relative frequencies of factors/characters of the input dataset.
@@ -19,10 +21,9 @@ This function calculates the frequencies and the relative frequencies of factors
 This function returns a list with the frequencies and relative frequencies of factors/characters 
 of the input dataset.
 }
-\author{
-Kleanthis Koupidis
-}
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
-
+\author{
+Kleanthis Koupidis
+}

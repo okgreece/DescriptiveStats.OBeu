@@ -3,16 +3,17 @@
 #'  
 #' @description
 #' This function computes the histogram parameters of the numeric input vector. The default for 
-#' breaks is the value resulted from "Sturges" algorithm.
+#' breaks is the value resulted from Sturges algorithm.
 #' 
-#' @usage ds.hist(x, breaks="Sturges")
+#' @usage ds.hist(x, breaks="Sturges", tojson=F)
 #' 
-#' @param x The input numeric vector.
-#' @param breaks The method or the number of classes for the histogram.
+#' @param x The input numeric vector
+#' @param breaks The method or the number of classes for the histogram
+#' @param tojson If TRUE the results are returned in json format, default returns a list
 #' 
 #' @details 
-#' The possible values for breaks are "Sturges"(see \code{\link[grDevices]{nclass.Sturges}}), 
-#' "Scott"(see \code{\link[grDevices]{nclass.scott}}) and "FD" or "Freedman-Diaconis" \code{\link[grDevices]{nclass.FD}}
+#' The possible values for breaks are Sturges see \code{\link[grDevices]{nclass.Sturges}}, 
+#' Scott see \code{\link[grDevices]{nclass.scott}} and FD or Freedman Diaconis \code{\link[grDevices]{nclass.FD}}
 #' which are in package \pkg{grDevices}.
 #' 
 #' 
@@ -31,24 +32,24 @@
 #' 
 #' @author Kleanthis Koupidis
 #' 
-#' @seealso \code{\link{ds.analysis}},\code{\link{open_spending.ds}}
+#' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @rdname ds.hist
-#' 
+#' @import jsonlite
 #' @export
 
-ds.hist <- function(x, breaks= "Sturges") {
+ds.hist <- function(x, breaks= "Sturges", tojson=F) {
   
   x = as.numeric(unlist(x))
 
-  histog=hist(x,probability = T,plot = F,warn.unused = F)
+  histog=graphics::hist(x,probability = T,plot = F,warn.unused = F)
   
   # norm line
   
-  ynorm= density(rnorm(x, mean = mean(x), sd = stats::sd(x)))
+  ynorm= stats::density(stats::rnorm(x, mean = mean(x), sd = stats::sd(x)))
   
   # prob line
-  fit.line=density(x)
+  fit.line=stats::density(x)
   
   mean = mean(x)
   median = median(x)
@@ -63,5 +64,11 @@ ds.hist <- function(x, breaks= "Sturges") {
                  mean = mean,
                  median = median
                )
-               return(hist.param)
+  
+  if (tojson==T){
+    
+    hist.param=jsonlite::toJSON(hist.param)
+  }
+  
+  return(hist.param)
 }

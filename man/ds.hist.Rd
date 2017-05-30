@@ -4,12 +4,14 @@
 \alias{ds.hist}
 \title{Histogram breaks and frequencies}
 \usage{
-ds.hist(x, breaks="Sturges")
+ds.hist(x, breaks=Sturges, tojson=F)
 }
 \arguments{
-\item{x}{The input numeric vector.}
+\item{x}{The input numeric vector}
 
-\item{breaks}{The method or the number of classes for the histogram.}
+\item{breaks}{The method or the number of classes for the histogram}
+
+\item{tojson}{If TRUE the results are returned in json format, default returns a list}
 }
 \value{
 A list with the following components:
@@ -17,9 +19,9 @@ A list with the following components:
 \itemize{
 \item cuts The boundaries of the histogram classes
 \item density The density of each histogram class
-\item normal.curve.x <U+039E>‘bscissa of the normal curve 
+\item normal.curve.x Î‘bscissa of the normal curve 
 \item normal.curve.y Ordinate of the normal curve 
-\item fit.line.x <U+039E>‘bscissa of the data density curve 
+\item fit.line.x Î‘bscissa of the data density curve 
 \item fit.line.y Ordinate of the data density curve 
 \item mean The average value of the input vector
 \item median The median value of the input data
@@ -27,17 +29,16 @@ A list with the following components:
 }
 \description{
 This function computes the histogram parameters of the numeric input vector. The default for 
-breaks is the value resulted from "Sturges" algorithm.
+breaks is the value resulted from Sturges algorithm.
 }
 \details{
-The possible values for breaks are "Sturges"(see \code{\link[grDevices]{nclass.Sturges}}), 
-"Scott"(see \code{\link[grDevices]{nclass.scott}}) and "FD" or "Freedman-Diaconis" \code{\link[grDevices]{nclass.FD}}
+The possible values for breaks are Sturges see \code{\link[grDevices]{nclass.Sturges}}, 
+Scott see \code{\link[grDevices]{nclass.scott}} and FD or Freedman Diaconis \code{\link[grDevices]{nclass.FD}}
 which are in package \pkg{grDevices}.
+}
+\seealso{
+\code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 \author{
 Kleanthis Koupidis
 }
-\seealso{
-\code{\link{ds.analysis}},\code{\link{open_spending.ds}}
-}
-

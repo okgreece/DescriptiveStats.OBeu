@@ -7,7 +7,7 @@
 #' and the necessary components of the selected generilized linear model.
 #' 
 #' @usage ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges",
-#'  corr.method= "pearson", fr.select=NULL)
+#'  corr.method= "pearson", fr.select=NULL, tojson=F)
 #' 
 #' @param data The input data
 #' @param c.out Determines the length of the "whiskers" plot.
@@ -18,6 +18,7 @@
 #' @param corr.method The correlation coefficient method to compute: "pearson" (default),
 #' "kendall" or "spearman".
 #' @param fr.select One or more nominal variables to calculate their corresponding frequencies.
+#' @param tojson If TRUE the results are returned in json format
 #' 
 #' @details 
 #' ...
@@ -30,10 +31,12 @@
 #' 
 #' @rdname ds.analysis
 #' 
+#' @import jsonlite
 #' @export
 #####################################################################################################
 
-ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges", corr.method= "pearson", fr.select=NULL){
+ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges", 
+                        corr.method= "pearson", fr.select=NULL, tojson=F){
       
     if(all(is.factor(data)) & !all(is.character(data))){
       freq <- ds.frequency(data)
@@ -62,7 +65,12 @@ ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, hist.class=
         frequencies= frequencies,
         correlation=correlation
       ) 
-
+      
+      if (tojson==T){
+        
+        stat.plots=jsonlite::toJSON(stat.plots)
+      }
+      
       return(stat.plots)
     } 
       

@@ -4,9 +4,10 @@
 #' @description
 #' This function calculates kurtosis of the input vector, matrix or data frame.
 #' 
-#' @usage ds.kurtosis(x)
+#' @usage ds.kurtosis(x, tojson=F)
 #' 
 #' @param x A vector, matrix or data frame.
+#' @param tojson If TRUE the results are returned in json format
 #' 
 #' @details 
 #' This function returns the kurtosis, based on a scaled version of the fourth moment, of numbers of the input data.
@@ -18,10 +19,11 @@
 #' 
 #' @rdname ds.kurtosis
 #' 
+#' @import jsonlite
 #' @export
 
 
-ds.kurtosis <- function(x)
+ds.kurtosis <- function(x, tojson=F)
 {
   data <- as.data.frame(x)
   stopifnot(all(sapply(x, is.factor)|sapply(x, is.character))==F)
@@ -42,6 +44,12 @@ ds.kurtosis <- function(x)
   m4 <- sum / nrow(data.num)
   kurtosis <- (m4/sd4)-3
 
+  
+  if (tojson==T){
+    
+    kurtosis=jsonlite::toJSON(kurtosis)
+  }
+  
   # Return
   return(kurtosis)
 }

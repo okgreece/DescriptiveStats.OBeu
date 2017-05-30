@@ -5,7 +5,7 @@
 \title{Calculation of some Descriptive Tasks}
 \usage{
 ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges",
- corr.method= "pearson", fr.select=NULL)
+ corr.method= "pearson", fr.select=NULL, tojson=F)
 }
 \arguments{
 \item{data}{The input data}
@@ -23,6 +23,8 @@ If it is equal to zero no outliers will be returned.}
 "kendall" or "spearman".}
 
 \item{fr.select}{One or more nominal variables to calculate their corresponding frequencies.}
+
+\item{tojson}{If TRUE the results are returned in json format}
 }
 \value{
 A list with...
@@ -35,10 +37,9 @@ and the necessary components of the selected generilized linear model.
 \details{
 ...
 }
-\author{
-Kleanthis Koupidis
-}
 \seealso{
 \code{\link{open_spending.ds}}
 }
-
+\author{
+Kleanthis Koupidis
+}

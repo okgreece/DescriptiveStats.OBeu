@@ -4,9 +4,10 @@
 #' @description
 #' This function calculates skewness of the input vector, matrix or data frame.
 #' 
-#' @usage ds.skewness(x)
+#' @usage ds.skewness(x, tojson=F)
 #' 
 #' @param x A vector, matrix or data frame.
+#' @param tojson If TRUE the results are returned in json format
 #'  
 #' @details 
 #' This function returns the skewness, also known as Pearson's moment coefficient of skewness, of numbers of the input data.
@@ -18,10 +19,11 @@
 #' 
 #' @rdname ds.skewness
 #'
+#' @import jsonlite
 #' @export
 
 
-ds.skewness <- function(x)
+ds.skewness <- function(x, tojson=F)
 {
   data <- as.data.frame(x)
   stopifnot(all(sapply(x, is.factor)|sapply(x, is.character))==F)
@@ -41,6 +43,11 @@ ds.skewness <- function(x)
   sum <- apply(mult, 2, sum)
   m3 <- sum / nrow(data.num)
   skewness <- m3/sd3
+  
+  if (tojson==T){
+    
+    skewness=jsonlite::toJSON(skewness)
+  }
   
   # Return
   return(skewness)

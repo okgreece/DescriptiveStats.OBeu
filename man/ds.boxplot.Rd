@@ -4,7 +4,7 @@
 \alias{ds.boxplot}
 \title{Boxplot Parameters of a matrix or data frame}
 \usage{
-ds.boxplot(data, out.level=1.5, width = 0.15 , outl = T)
+ds.boxplot(data, out.level=1.5, width = 0.15 , outl = T, tojson=F)
 }
 \arguments{
 \item{data}{The input numeric matrix or data frame.}
@@ -15,6 +15,8 @@ no outliers will be returned.}
 \item{width}{The width level is determined 0.15 times the square root of the size of the input data.}
 
 \item{outl}{If TRUE the outliers will be computed at the selected "out.level" level (default is 1.5 times the Interquartile Range).}
+
+\item{tojson}{If TRUE the results are returned in json format}
 }
 \value{
 Returns a list with the extracted components of \code{\link{ds.box}} for each variable/column of the input data.
@@ -25,10 +27,9 @@ This function calculates the statistics of the boxplot for the input matrix or d
 \details{
 This function returns as a list object the statistical parameters needed to visualize boxplot.
 }
-\author{
-Aikaterini Chatzopoulou, Kleanthis Koupidis
-}
 \seealso{
 \code{\link{ds.box}}, \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
-
+\author{
+Aikaterini Chatzopoulou, Kleanthis Koupidis
+}

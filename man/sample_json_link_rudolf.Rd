@@ -17,4 +17,3 @@ Sample data from Rudolf API
   \item The functional classification code
   }
 }
-

@@ -4,10 +4,12 @@
 \alias{ds.kurtosis}
 \title{Calculation of Kurtosis}
 \usage{
-ds.kurtosis(x)
+ds.kurtosis(x, tojson=F)
 }
 \arguments{
 \item{x}{A vector, matrix or data frame.}
+
+\item{tojson}{If TRUE the results are returned in json format}
 }
 \description{
 This function calculates kurtosis of the input vector, matrix or data frame.
@@ -15,11 +17,10 @@ This function calculates kurtosis of the input vector, matrix or data frame.
 \details{
 This function returns the kurtosis, based on a scaled version of the fourth moment, of numbers of the input data.
 }
-\author{
-Aikaterini Chatzopoulou
-}
 \seealso{
 \code{\link{ds.skewness}}, \code{\link{ds.statistics}}, 
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
-
+\author{
+Aikaterini Chatzopoulou
+}

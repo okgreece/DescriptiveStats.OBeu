@@ -44,7 +44,7 @@ open_spending.ds <- function(json_data, dimensions=NULL, amounts=NULL, measured.
                              cor.method= "pearson", freq.select=NULL){  
   
   if (RCurl::url.exists(json_data)){
-  json_data<-RCurl::getURL( json_data, ssl.verifyhost=FALSE )
+  json_data= RCurl::getURL( json_data, ssl.verifyhost=FALSE )
   } 
   
   #s <- readLines(json_data);

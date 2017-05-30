@@ -4,7 +4,7 @@
 \alias{ds.box}
 \title{Boxplot Parameters of a numeric vector}
 \usage{
-ds.box(x, c=1.5, c.width = 0.15 , out = T)
+ds.box(x, c=1.5, c.width = 0.15 , out = T, tojson=F)
 }
 \arguments{
 \item{x}{The input numeric vector}
@@ -15,6 +15,8 @@ If it is equal to zero or out=F, no outliers will be returned.}
 \item{c.width}{The width level is determined 0.15 times the square root of the size of the input vector}
 
 \item{out}{If TRUE the outliers will be computed at the selected "c" level (default is 1.5 times the Interquartile Range).}
+
+\item{tojson}{If TRUE the results are returned in json format}
 }
 \value{
 Returns a list with the following components:
@@ -37,10 +39,9 @@ This function calculates the statistical measures needed to visualize the boxplo
 \details{
 This function returns a list with the parameters needed to visualize a boxplot.
 }
-\author{
-Kleanthis Koupidis
-}
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
-
+\author{
+Kleanthis Koupidis
+}
