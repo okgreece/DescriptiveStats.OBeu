@@ -4,7 +4,7 @@
 \alias{ds.hist}
 \title{Histogram breaks and frequencies}
 \usage{
-ds.hist(x, breaks=Sturges, tojson=F)
+ds.hist(x, breaks="Sturges", tojson=F)
 }
 \arguments{
 \item{x}{The input numeric vector}
