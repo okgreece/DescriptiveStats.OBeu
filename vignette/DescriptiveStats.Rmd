@@ -9,9 +9,11 @@ vignette: |
 
 # Intoduction
 This package was created in order to enable the calculation of descriptive statistical measures, for the needs of a European project.
+“DescriptiveStats.OBeu” includes functions for measuring central tendency and dispersion of numeric variables along with their distributions and correlations and the frequencies of categorical variables for a given dataset.
 This document introduces you to DescriptiveStats.OBeu's basic set of tools.
 
 ## Input
+The input dataset of the main function is a JSON link or a JSON file or a text in JSON format. There are different parameters that a user could specify (see the package specification) and interact with the results. 
 The parameters: “dimensions”, “measured.dimensions” and “amounts” should be defined by the user, to form the dataset. Then an automated process calculates the basic descriptive measures of tendency and spread, boxplot and histogram parameters in order to describe and visualize the distribution characteristics of the desired dataset.
 
 +--------------------+--------------------------------------------------------------------------------------------+
@@ -143,6 +145,14 @@ ds.kurtosis(Wuppertal_df$Amount)
 This function calculates skewness of the input data.
 ```{r}
 ds.skewness(Wuppertal_df)
+```
+
+### Open spending
+The last function `open_spending.ds()` extracts and analyze the json data provided from Open Spending API, using `ds.analysis()` function.
+```{r}
+Wuppertal_openspending
+open_spending.ds(Wuppertal_openspending, dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
+                 amounts = "Amount")
 ```
 
 # Conclusion
