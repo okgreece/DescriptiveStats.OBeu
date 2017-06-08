@@ -1,8 +1,9 @@
 ---
 title: "DescriptiveStats.OBeu"
+author: "Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas"
+date: '`r Sys.Date()`'
 output:
   github_document: null
-date: '`r Sys.Date()`'
 vignette: |
   %\VignetteIndexEntry{Vignette Title} %\VignetteEngine{knitr::rmarkdown} \usepackage[utf8]{inputenc}
 ---
