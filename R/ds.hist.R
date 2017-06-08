@@ -17,7 +17,7 @@
 #' which are in package \pkg{grDevices}.
 #' 
 #' 
-#' @return A list with the following components:
+#' @return A list or json file with the following components:
 #' 
 #' \itemize{
 #' \item cuts The boundaries of the histogram classes

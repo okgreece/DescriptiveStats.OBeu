@@ -18,7 +18,11 @@
 #####################################################################################################
 
 nums<-function(data){
+  
   data <- as.data.frame(data)
+  
+  # Check if all are categorical
+  stopifnot(all(sapply(data, is.factor) | sapply(data, is.character))==F)
   
   if(ncol(data)>=2){
   num <- sapply(data, is.numeric)

@@ -14,7 +14,7 @@
 #' standart deviation, skewness and kurtosis.
 #' 
 #' @return 
-#' A json file with the following components:
+#' A list or json file with the following components:
 #' \itemize{
 #' \item Min The minimum observed value of the input data
 #' \item Max The maximum observed value of the input data

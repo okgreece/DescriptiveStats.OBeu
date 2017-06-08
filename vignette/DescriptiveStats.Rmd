@@ -102,10 +102,10 @@ Table: Output descriptions in each function.
 Simple examples for each function are provided, in order for the user to understand the use and how to deal with these functions.
 
 In some examples specific columns of the dataset are selected in order for smaller amount of results to be presented.
-The dataset that is being used is available in DescriptiveStats.OBeu package and represents the budget for wuppertal for 2009 to 2018.
+The dataset that is being used is available in DescriptiveStats.OBeu package and represents the budget for Wuppertal for 2009 to 2018.
 
 ### Statistics
-We often need the basic descriptive statistics for the data we are working with. The `ds.statistics()` function can provide  these results.
+We often need the basic descriptive statistics for the data We are working with. The `ds.statistics()` function can provide  these results.
 ```{r}
 library(DescriptiveStats.OBeu)
 ds.statistics(Wuppertal_df[,-4])
@@ -138,7 +138,7 @@ ds.frequency(Wuppertal_df[,2:3])
 ### Kurtosis
 This function calculates kurtosis of the input data.
 ```{r}
-ds.kurtosis(Wuppertal_df$Amount)
+ds.kurtosis(Wuppertal_df)
 ```
 
 ### Skewness
