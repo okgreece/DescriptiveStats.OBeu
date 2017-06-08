@@ -19,7 +19,7 @@
 #' @author Kleanthis Koupidis
 #' 
 #' @return 
-#' Returns a list with the following components:
+#' Returns a list or a json file with the following components:
 #' \itemize{ 
 #' \item lo.whisker The extreme of the lower whisker
 #' \item lo.hinge The lower "hinge"

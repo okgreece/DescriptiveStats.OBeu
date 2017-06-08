@@ -2,9 +2,9 @@
 #' Calculation of some Descriptive Tasks
 #'  
 #' @description
-#' The input of this function can be a matrix or data frame. The function calculates the basic descriptive measures, 
-#' the correlation and the boxplot parameters of all the numerical variables, the frequencies of all the nominal variables
-#' and the necessary components of the selected generilized linear model.
+#' The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all 
+#' the numerical variables, the frequencies of all the nominal variables and the necessary components of the 
+#' selected generilized linear model.
 #' 
 #' @usage ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges",
 #'  corr.method= "pearson", fr.select=NULL, tojson=F)
@@ -21,9 +21,19 @@
 #' @param tojson If TRUE the results are returned in json format
 #' 
 #' @details 
-#' ...
+#' This function returns a list with the basic statistics, the parameters needed to visualize a boxplot
+#' and a histogram, it also provides the frequencies of non numerical data of the input dataset and the correlation 
+#' coefficient. The input of this function can be a matrix or data frame.
 #' 
-#' @return A list with...
+#' @return A list or json file with the following components:
+#' 
+#' \itemize{
+#' \item descriptives The descriptive measures
+#' \item boxplot The statistics of the boxplot
+#' \item histogram The histogram parameters
+#' \item frequencies The frequencies and the relative frequencies of factors/characters of the input dataset
+#' \item correlation The correlation coefficient
+#' } 
 #'
 #' @author Kleanthis Koupidis
 #' 
