@@ -114,7 +114,24 @@ ds.statistics(Wuppertal_df[,-4])
 ### Histogram
 `ds.hist()` gives the parameters of the numeric input vector.
 ```{r}
-ds.hist(Wuppertal_df$Amount)
+histogram <- ds.hist(Wuppertal_df$Amount)
+str(histogram)
+
+head(histogram$cuts)
+
+head(histogram$density)
+
+head(histogram$normal.curve.x)
+
+head(histogram$normal.curve.y)
+
+head(histogram$fit.line.x)
+
+head(histogram$fit.line.y)
+
+head(histogram$mean)
+
+head(histogram$median)
 ```
 
 ### Boxplot
