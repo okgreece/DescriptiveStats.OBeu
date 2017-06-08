@@ -6,7 +6,7 @@
 #' 
 #' @usage ds.kurtosis(x, tojson=F)
 #' 
-#' @param x A vector, matrix or data frame.
+#' @param x A numeric vector, matrix or data frame.
 #' @param tojson If TRUE the results are returned in json format
 #' 
 #' @details 
@@ -26,7 +26,6 @@
 ds.kurtosis <- function(x, tojson=F)
 {
   data <- as.data.frame(x)
-  stopifnot(all(sapply(x, is.factor)|sapply(x, is.character))==F)
   
   # only numeric data
   data.num<-nums(data)

@@ -7,8 +7,8 @@
 #' 
 #' @usage ds.correlation(x, y=NULL, cor.method="pearson", tojson=F)
 #' 
-#' @param x A vector, matrix or data frame
-#' @param y A vector, matrix or data frame
+#' @param x A numeric vector, matrix or data frame
+#' @param y A vector, matrix or data frame with same dimension as x. By default it is equal with NULL.
 #' @param cor.method The correlation coefficient method to compute: "pearson" (default),
 #' "kendall" or "spearman".
 #' @param tojson If TRUE the results are returned in json format, default returns a data frame

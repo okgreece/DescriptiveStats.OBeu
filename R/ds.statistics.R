@@ -40,9 +40,6 @@
 
 ds.statistics <- function(data, tojson=F)
 {
-  # Check if all are categorical
-  stopifnot(!all(is.factor(data)) & !all(is.character(data)))
-  
   #Convert to data frame
   data<-as.data.frame(data)
   

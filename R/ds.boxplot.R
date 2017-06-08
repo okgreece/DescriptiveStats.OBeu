@@ -33,9 +33,6 @@ ds.boxplot<-function(data, out.level=1.5, width = 0.15 , outl = T, tojson=F){
   # Convert to data frame
   data<-as.data.frame(data)
   
-  # Check if all are categorical
-  stopifnot(all(sapply(data, is.factor) | sapply(data, is.character))==F)
-  
   # only numeric data
   data.num<-nums(data)
   
