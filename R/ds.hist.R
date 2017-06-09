@@ -7,7 +7,7 @@
 #' 
 #' @usage ds.hist(x, breaks="Sturges", tojson=F)
 #' 
-#' @param x The input numeric vector
+#' @param x The input numeric vector, matrix or data frame
 #' @param breaks The method or the number of classes for the histogram
 #' @param tojson If TRUE the results are returned in json format, default returns a list
 #' 
@@ -35,8 +35,18 @@
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @examples 
+#' # with a vector as an input and the defaults parameters
+#' vec <- as.vector(iris)
+#' ds.hist(vec)
+#' 
+#' # with a data frame as an input and json output
 #' data <- iris
-#' ds.hist(data, breaks="Sturges", tojson=F)
+#' ds.hist(data, breaks="Sturges", tojson=T)
+#' 
+#' # with a matrix as an input and json output
+#' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+#'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+#' ds.hist(Matrix, tojson=T)
 #' 
 #' @rdname ds.hist
 #' @import jsonlite

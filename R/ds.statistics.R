@@ -32,6 +32,19 @@
 #' 
 #' @seealso \code{\link{open_spending.ds}}
 #' 
+#' @examples 
+#' # with matrix as an input and json outpout
+#' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+#'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+#' ds.statistics(Matrix, tojson=T)
+#' 
+#' # with vector as an input
+#' vec <- as.vector(iris)
+#' ds.statistics(vec, tojson=F)
+#' 
+#' # with data frame as an input
+#' ds.statistics(iris, tojson=F)
+#' 
 #' @rdname ds.statistics
 #' 
 #' @import jsonlite

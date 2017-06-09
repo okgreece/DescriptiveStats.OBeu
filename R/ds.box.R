@@ -36,9 +36,15 @@
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
 #' @examples 
+#' # with matrix as an input and the default parameters
 #' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 #'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-#' ds.box(Matrix, c=1.5, c.width = 0.15 , out = T, tojson=F)
+#' ds.box(Matrix)
+#' 
+#' # with matrix as an input and the different parameters
+#' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+#'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+#' ds.box(Matrix, c=3, c.width = 0.20 , out = F, tojson=F)
 #' 
 #' @rdname ds.box
 #' @import jsonlite

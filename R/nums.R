@@ -6,12 +6,24 @@
 #' 
 #' @usage nums(data)
 #' 
-#' @param data The input data frame
+#' @param data A numeric vector, matrix or data frame.
 #' 
 #' @return This function returns a data frame with the numeric columns of the input dataset.
 #'
 #' @author Kleanthis Koupidis
 #' 
+#' @examples 
+#' # with data frame as input
+#' nums(iris)
+#' 
+#' # with vector as input
+#' vec <- as.vector(iris)
+#' nums(vec)
+#' 
+#' # with matrix as input
+#' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+#'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+#' nums(Matrix)
 #' @rdname nums
 #' 
 #' @export

@@ -20,8 +20,12 @@
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #'  
 #' @examples 
+#' # with data frame as an input and a selected column to calculate its frequencies
 #' ds.frequency(iris, select = "Species", tojson = F)
-#'
+#' 
+#' # with data frame as an input without a selected column and json output
+#' ds.frequency(iris, tojson = T)
+#' 
 #' @rdname ds.frequency
 #' 
 #' @import jsonlite

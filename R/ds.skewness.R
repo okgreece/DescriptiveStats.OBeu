@@ -17,6 +17,19 @@
 #' @seealso \code{\link{ds.kurtosis}}, \code{\link{ds.statistics}}, 
 #' \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
+#' @examples 
+#' # with a matrix as an input
+#' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+#'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+#' ds.skewness(Matrix, tojson=F)
+#' 
+#' # with a data frame as an input
+#' ds.skewness(iris, tojson=F)
+#' 
+#' # with a vector as an input and json output
+#' vec <- as.vector(iris)
+#' ds.skewness(vec, tojson=T)
+#' 
 #' @rdname ds.skewness
 #'
 #' @import jsonlite

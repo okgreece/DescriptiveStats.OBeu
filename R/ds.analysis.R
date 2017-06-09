@@ -40,11 +40,18 @@
 #' @seealso \code{\link{open_spending.ds}}
 #' 
 #' @examples 
+#' # with data frame as input with the default parameters
 #' data <- iris
-#' ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges", 
-#'                 corr.method= "pearson", fr.select=NULL, tojson=F)
+#' ds.analysis(data)
 #'
-#'  @rdname ds.analysis
+#' # using the previous data frame with different parameters
+#' ds.analysis(data, c.out=1, box.width=0.20, outliers=T, hist.class="Sturges", 
+#'                 corr.method= "spearman", fr.select=NULL, tojson=T)
+#' 
+#' # using the previous data frame with different parameters fr.select specific column with nominal variables
+#' ds.analysis(data, c.out=1, box.width=0.20, outliers=F, fr.select="Species", tojson=T)
+#'                 
+#' @rdname ds.analysis
 #' 
 #' @import jsonlite
 #' @export
