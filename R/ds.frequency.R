@@ -19,6 +19,9 @@
 #'
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #'  
+#' @examples 
+#' ds.frequency(iris, select = "Species", tojson = F)
+#'
 #' @rdname ds.frequency
 #' 
 #' @import jsonlite

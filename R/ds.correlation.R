@@ -22,6 +22,10 @@
 #' 
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
+#' @examples 
+#' data <- iris
+#' ds.correlation(data, cor.method = "pearson", tojson=F)
+#' 
 #' @rdname ds.correlation
 #' 
 #' @import jsonlite

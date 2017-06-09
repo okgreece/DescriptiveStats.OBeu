@@ -23,6 +23,11 @@
 #' 
 #' @seealso \code{\link{ds.box}}, \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
+#' @examples 
+#' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+#'          `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+#' ds.boxplot(Matrix, out.level=1.5, width = 0.15 , outl = T, tojson=F)
+#' 
 #' @rdname ds.boxplot
 #' 
 #' @import jsonlite

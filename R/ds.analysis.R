@@ -39,7 +39,12 @@
 #' 
 #' @seealso \code{\link{open_spending.ds}}
 #' 
-#' @rdname ds.analysis
+#' @examples 
+#' data <- iris
+#' ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges", 
+#'                 corr.method= "pearson", fr.select=NULL, tojson=F)
+#'
+#'  @rdname ds.analysis
 #' 
 #' @import jsonlite
 #' @export

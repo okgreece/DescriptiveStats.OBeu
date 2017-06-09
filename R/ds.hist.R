@@ -34,6 +34,10 @@
 #' 
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
+#' @examples 
+#' data <- iris
+#' ds.hist(data, breaks="Sturges", tojson=F)
+#' 
 #' @rdname ds.hist
 #' @import jsonlite
 #' @export
