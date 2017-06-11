@@ -55,7 +55,8 @@ ds.analysis(data)
 ds.analysis(data, c.out=1, box.width=0.20, outliers=T, hist.class="Sturges", 
                 corr.method= "spearman", fr.select=NULL, tojson=T)
 
-# using the previous data frame with different parameters fr.select specific column with nominal variables
+# using the previous data frame with different parameters 
+# fr.select parameter specified as Species
 ds.analysis(data, c.out=1, box.width=0.20, outliers=F, fr.select="Species", tojson=T)
                 
 }
