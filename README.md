@@ -1,4 +1,4 @@
-<img src="okfgr2.png" align="left" /> DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
+DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
 ================
 Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas
 November 7, 2016

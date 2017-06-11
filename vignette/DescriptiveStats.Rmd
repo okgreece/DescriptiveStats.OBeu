@@ -1,5 +1,5 @@
 ---
-title: DescriptiveStats.OBeu <img src="okfgr2.png" align="right" />
+title: DescriptiveStats.OBeu <img src="okfgr2.png" align="right" /> 
 author: "Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas"
 date: '`r Sys.Date()`'
 output:
