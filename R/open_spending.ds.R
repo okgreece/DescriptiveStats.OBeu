@@ -1,5 +1,5 @@
 #' @title 
-#' Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending API
+#' Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending and Rudolf APIs.
 #'  
 #' @description
 #' Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
@@ -22,7 +22,7 @@
 #' @param freq.select One or more nominal variables to calculate their corresponding frequencies.
 #' 
 #' @details 
-#' This function is used to read data in json format from Open Spending API, in order to implement 
+#' This function is used to read data in json format from Open Spending and Rudolf APIs., in order to implement 
 #' some basic descriptive tasks through \code{\link{ds.analysis}} function.
 #' 
 #' @return A json string with the resulted parameters of the \code{\link{ds.analysis}} function.
