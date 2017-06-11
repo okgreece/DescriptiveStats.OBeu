@@ -4,7 +4,7 @@
 \alias{ds.kurtosis}
 \title{Calculation of Kurtosis}
 \usage{
-ds.kurtosis(x, tojson=F)
+ds.kurtosis(x, tojson=FALSE)
 }
 \arguments{
 \item{x}{A numeric vector, matrix or data frame.}
@@ -21,14 +21,14 @@ This function returns the kurtosis, based on a scaled version of the fourth mome
 # with a matrix as an input
 Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-ds.kurtosis(Matrix, tojson=F)
+ds.kurtosis(Matrix, tojson=FALSE)
 
 # with a data frame as an input
-ds.kurtosis(iris, tojson=F)
+ds.kurtosis(iris, tojson=FALSE)
 
 # with a vector as an input and json output
 vec <- as.vector(iris)
-ds.kurtosis(vec, tojson=T)
+ds.kurtosis(vec, tojson=TRUE)
 
 }
 \seealso{

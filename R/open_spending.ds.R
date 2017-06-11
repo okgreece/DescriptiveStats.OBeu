@@ -37,7 +37,7 @@
 #' @import reshape
 #'
 #' @export
-############################################################################################################
+
  
 open_spending.ds <- function(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
                              coef.outl=1.5, box.outliers=T, box.wdth=0.15,

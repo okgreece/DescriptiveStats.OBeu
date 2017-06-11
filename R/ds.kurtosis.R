@@ -4,7 +4,7 @@
 #' @description
 #' This function calculates kurtosis of the input vector, matrix or data frame.
 #' 
-#' @usage ds.kurtosis(x, tojson=F)
+#' @usage ds.kurtosis(x, tojson=FALSE)
 #' 
 #' @param x A numeric vector, matrix or data frame.
 #' @param tojson If TRUE the results are returned in json format
@@ -21,14 +21,14 @@
 #' # with a matrix as an input
 #' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 #'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-#' ds.kurtosis(Matrix, tojson=F)
+#' ds.kurtosis(Matrix, tojson=FALSE)
 #' 
 #' # with a data frame as an input
-#' ds.kurtosis(iris, tojson=F)
+#' ds.kurtosis(iris, tojson=FALSE)
 #' 
 #' # with a vector as an input and json output
 #' vec <- as.vector(iris)
-#' ds.kurtosis(vec, tojson=T)
+#' ds.kurtosis(vec, tojson=TRUE)
 #' 
 #' @rdname ds.kurtosis
 #' 
@@ -36,7 +36,7 @@
 #' @export
 
 
-ds.kurtosis <- function(x, tojson=F)
+ds.kurtosis <- function(x, tojson=FALSE)
 {
   data <- as.data.frame(x)
   

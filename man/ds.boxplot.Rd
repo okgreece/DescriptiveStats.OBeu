@@ -4,7 +4,7 @@
 \alias{ds.boxplot}
 \title{Boxplot Parameters of a matrix or data frame}
 \usage{
-ds.boxplot(data, out.level=1.5, width = 0.15 , outl = T, tojson=F)
+ds.boxplot(data, out.level=1.5, width = 0.15 , outl = TRUE, tojson=FALSE)
 }
 \arguments{
 \item{data}{The input numeric matrix or data frame.}
@@ -31,11 +31,11 @@ This function returns as a list object the statistical parameters needed to visu
 # with matrix as an input and the default parameters
 Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
          `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-ds.boxplot(Matrix, out.level=1.5, width = 0.15 , outl = T, tojson=F)
+ds.boxplot(Matrix, out.level=1.5, width = 0.15 , outl = TRUE, tojson=FALSE)
 
 # with data frame as an input, different parameters and json output
 data <- iris
-ds.boxplot(data, out.level=2, width = 0.25 , outl = F, tojson=T)
+ds.boxplot(data, out.level=2, width = 0.25 , outl = FALSE, tojson=TRUE)
 
 }
 \seealso{

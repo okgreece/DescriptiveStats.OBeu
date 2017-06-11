@@ -4,7 +4,7 @@
 #' @description
 #' This function calculates the frequencies and the relative frequencies of factors/characters of the input dataset.
 #' 
-#' @usage ds.frequency(data, select=NULL, tojson=F)
+#' @usage ds.frequency(data, select=NULL, tojson=FALSE)
 #' 
 #' @param data A vector, matrix or data frame which includes at least one factor/character.
 #' @param select Select one or more specific nominal variables to calculate their corresponding frequencies, 
@@ -21,18 +21,18 @@
 #'  
 #' @examples 
 #' # with data frame as an input and a selected column to calculate its frequencies
-#' ds.frequency(iris, select = "Species", tojson = F)
+#' ds.frequency(iris, select = "Species", tojson = FALSE)
 #' 
 #' # with data frame as an input without a selected column and json output
-#' ds.frequency(iris, tojson = T)
+#' ds.frequency(iris, tojson = TRUE)
 #' 
 #' @rdname ds.frequency
 #' 
 #' @import jsonlite
 #' @export
-#####################################################################################################################################
 
-ds.frequency <- function(data, select=NULL, tojson=F){
+
+ds.frequency <- function(data, select=NULL, tojson=FALSE){
 
   data <- as.data.frame(data)
   

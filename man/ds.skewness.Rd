@@ -4,7 +4,7 @@
 \alias{ds.skewness}
 \title{Calculation of Skewness}
 \usage{
-ds.skewness(x, tojson=F)
+ds.skewness(x, tojson=FALSE)
 }
 \arguments{
 \item{x}{A numeric vector, matrix or data frame.}
@@ -21,14 +21,14 @@ This function returns the skewness, also known as Pearson's moment coefficient o
 # with a matrix as an input
 Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-ds.skewness(Matrix, tojson=F)
+ds.skewness(Matrix, tojson=FALSE)
 
 # with a data frame as an input
-ds.skewness(iris, tojson=F)
+ds.skewness(iris, tojson=FALSE)
 
 # with a vector as an input and json output
 vec <- as.vector(iris)
-ds.skewness(vec, tojson=T)
+ds.skewness(vec, tojson=TRUE)
 
 }
 \seealso{

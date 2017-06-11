@@ -5,8 +5,8 @@
 #' The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all 
 #' the numerical variables and the frequencies of all the nominal variables.
 #' 
-#' @usage ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges",
-#'  corr.method= "pearson", fr.select=NULL, tojson=F)
+#' @usage ds.analysis(data, c.out=1.5, box.width=0.15, outliers=TRUE, hist.class="Sturges", 
+#' corr.method= "pearson", fr.select=NULL, tojson=FALSE)
 #' 
 #' @param data The input data
 #' @param c.out Determines the length of the "whiskers" plot.
@@ -44,21 +44,21 @@
 #' ds.analysis(data)
 #'
 #' # using the previous data frame with different parameters
-#' ds.analysis(data, c.out=1, box.width=0.20, outliers=T, hist.class="Sturges", 
-#'                 corr.method= "spearman", fr.select=NULL, tojson=T)
+#' ds.analysis(data, c.out=1, box.width=0.20, outliers=TRUE, hist.class="Sturges", 
+#'                 corr.method= "spearman", fr.select=NULL, tojson=TRUE)
 #' 
 #' # using the previous data frame with different parameters 
 #' # fr.select parameter specified as Species
-#' ds.analysis(data, c.out=1, box.width=0.20, outliers=F, fr.select="Species", tojson=T)
+#' ds.analysis(data, c.out=1, box.width=0.20, outliers=FALSE, fr.select="Species", tojson=TRUE)
 #'                 
 #' @rdname ds.analysis
 #' 
 #' @import jsonlite
 #' @export
-#####################################################################################################
 
-ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges", 
-                        corr.method= "pearson", fr.select=NULL, tojson=F){
+
+ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=TRUE, hist.class="Sturges", 
+                        corr.method= "pearson", fr.select=NULL, tojson=FALSE){
       
     if(all(is.factor(data)) & !all(is.character(data))){
       freq <- ds.frequency(data)

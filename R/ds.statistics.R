@@ -4,7 +4,7 @@
 #' @description
 #' This function calculates the basic descriptive measures of the input dataset.
 #' 
-#' @usage ds.statistics(data, tojson=F)
+#' @usage ds.statistics(data, tojson=FALSE)
 #' 
 #' @param data A numeric vector, matrix or data frame
 #' @param tojson If TRUE the results are returned in json format, default returns a list
@@ -36,14 +36,14 @@
 #' # with matrix as an input and json outpout
 #' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 #'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-#' ds.statistics(Matrix, tojson=T)
+#' ds.statistics(Matrix, tojson=TRUE)
 #' 
 #' # with vector as an input
 #' vec <- as.vector(iris)
-#' ds.statistics(vec, tojson=F)
+#' ds.statistics(vec, tojson=FALSE)
 #' 
 #' # with data frame as an input
-#' ds.statistics(iris, tojson=F)
+#' ds.statistics(iris, tojson=FALSE)
 #' 
 #' @rdname ds.statistics
 #' 
@@ -51,7 +51,7 @@
 #'
 #' @export
 
-ds.statistics <- function(data, tojson=F)
+ds.statistics <- function(data, tojson=FALSE)
 {
   #Convert to data frame
   data<-as.data.frame(data)

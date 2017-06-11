@@ -5,7 +5,7 @@
 #' This function computes the histogram parameters of the numeric input vector. The default for 
 #' breaks is the value resulted from Sturges algorithm.
 #' 
-#' @usage ds.hist(x, breaks="Sturges", tojson=F)
+#' @usage ds.hist(x, breaks= "Sturges", tojson=FALSE)
 #' 
 #' @param x The input numeric vector, matrix or data frame
 #' @param breaks The method or the number of classes for the histogram
@@ -41,18 +41,18 @@
 #' 
 #' # with a data frame as an input and json output
 #' data <- iris
-#' ds.hist(data, breaks="Sturges", tojson=T)
+#' ds.hist(data, breaks="Sturges", tojson=TRUE)
 #' 
 #' # with a matrix as an input and json output
 #' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 #'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-#' ds.hist(Matrix, tojson=T)
+#' ds.hist(Matrix, tojson=TRUE)
 #' 
 #' @rdname ds.hist
 #' @import jsonlite
 #' @export
 
-ds.hist <- function(x, breaks= "Sturges", tojson=F) {
+ds.hist <- function(x, breaks= "Sturges", tojson=FALSE) {
   
   x = as.numeric(unlist(x))
 

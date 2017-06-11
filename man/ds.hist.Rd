@@ -4,7 +4,7 @@
 \alias{ds.hist}
 \title{Histogram breaks and frequencies}
 \usage{
-ds.hist(x, breaks="Sturges", tojson=F)
+ds.hist(x, breaks= "Sturges", tojson=FALSE)
 }
 \arguments{
 \item{x}{The input numeric vector, matrix or data frame}
@@ -43,12 +43,12 @@ ds.hist(vec)
 
 # with a data frame as an input and json output
 data <- iris
-ds.hist(data, breaks="Sturges", tojson=T)
+ds.hist(data, breaks="Sturges", tojson=TRUE)
 
 # with a matrix as an input and json output
 Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-ds.hist(Matrix, tojson=T)
+ds.hist(Matrix, tojson=TRUE)
 
 }
 \seealso{

@@ -4,8 +4,8 @@
 \alias{ds.analysis}
 \title{Calculation of some Descriptive Tasks}
 \usage{
-ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges",
- corr.method= "pearson", fr.select=NULL, tojson=F)
+ds.analysis(data, c.out=1.5, box.width=0.15, outliers=TRUE, hist.class="Sturges", 
+corr.method= "pearson", fr.select=NULL, tojson=FALSE)
 }
 \arguments{
 \item{data}{The input data}
@@ -52,12 +52,12 @@ data <- iris
 ds.analysis(data)
 
 # using the previous data frame with different parameters
-ds.analysis(data, c.out=1, box.width=0.20, outliers=T, hist.class="Sturges", 
-                corr.method= "spearman", fr.select=NULL, tojson=T)
+ds.analysis(data, c.out=1, box.width=0.20, outliers=TRUE, hist.class="Sturges", 
+                corr.method= "spearman", fr.select=NULL, tojson=TRUE)
 
 # using the previous data frame with different parameters 
 # fr.select parameter specified as Species
-ds.analysis(data, c.out=1, box.width=0.20, outliers=F, fr.select="Species", tojson=T)
+ds.analysis(data, c.out=1, box.width=0.20, outliers=FALSE, fr.select="Species", tojson=TRUE)
                 
 }
 \seealso{

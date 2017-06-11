@@ -4,7 +4,7 @@
 #' @description
 #' This function calculates the statistical measures needed to visualize the boxplot of a numeric vector.
 #' 
-#' @usage ds.box(x, c=1.5, c.width = 0.15 , out = T, tojson=F)
+#' @usage ds.box(x, c=1.5, c.width = 0.15 , out = TRUE, tojson=FALSE)
 #' 
 #' @param x The input numeric vector
 #' @param c Determines the length of the "whiskers" plot.
@@ -44,14 +44,14 @@
 #' # with matrix as an input and the different parameters
 #' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 #'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-#' ds.box(Matrix, c=3, c.width = 0.20 , out = F, tojson=F)
+#' ds.box(Matrix, c=3, c.width = 0.20 , out = FALSE, tojson=FALSE)
 #' 
 #' @rdname ds.box
 #' @import jsonlite
 #' 
 #' @export
 
-ds.box<-function(x, c=1.5, c.width = 0.15 , out = T, tojson=F){
+ds.box<-function(x, c=1.5, c.width = 0.15 , out = TRUE, tojson=FALSE){
   
   b <- grDevices::boxplot.stats(x, coef=c,  do.out = out)
   

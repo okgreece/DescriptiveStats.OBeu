@@ -4,7 +4,7 @@
 #' @description
 #' This function calculates the statistics of the boxplot for the input matrix or data frame.
 #' 
-#' @usage ds.boxplot(data, out.level=1.5, width = 0.15 , outl = T, tojson=F)
+#' @usage ds.boxplot(data, out.level=1.5, width = 0.15 , outl = TRUE, tojson=FALSE)
 #' 
 #' @param data The input numeric matrix or data frame.
 #' @param out.level Determines the length of the "whiskers" plot. If it is equal to zero or "outl" is set to F, 
@@ -27,18 +27,18 @@
 #' # with matrix as an input and the default parameters
 #' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 #'          `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-#' ds.boxplot(Matrix, out.level=1.5, width = 0.15 , outl = T, tojson=F)
+#' ds.boxplot(Matrix, out.level=1.5, width = 0.15 , outl = TRUE, tojson=FALSE)
 #' 
 #' # with data frame as an input, different parameters and json output
 #' data <- iris
-#' ds.boxplot(data, out.level=2, width = 0.25 , outl = F, tojson=T)
+#' ds.boxplot(data, out.level=2, width = 0.25 , outl = FALSE, tojson=TRUE)
 #' 
 #' @rdname ds.boxplot
 #' 
 #' @import jsonlite
 #' @export
 
-ds.boxplot<-function(data, out.level=1.5, width = 0.15 , outl = T, tojson=F){
+ds.boxplot<-function(data, out.level=1.5, width = 0.15 , outl = TRUE, tojson=FALSE){
   
   # Convert to data frame
   data<-as.data.frame(data)

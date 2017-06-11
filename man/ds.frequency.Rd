@@ -4,7 +4,7 @@
 \alias{ds.frequency}
 \title{Barplot parameters}
 \usage{
-ds.frequency(data, select=NULL, tojson=F)
+ds.frequency(data, select=NULL, tojson=FALSE)
 }
 \arguments{
 \item{data}{A vector, matrix or data frame which includes at least one factor/character.}
@@ -23,10 +23,10 @@ of the input dataset.
 }
 \examples{
 # with data frame as an input and a selected column to calculate its frequencies
-ds.frequency(iris, select = "Species", tojson = F)
+ds.frequency(iris, select = "Species", tojson = FALSE)
 
 # with data frame as an input without a selected column and json output
-ds.frequency(iris, tojson = T)
+ds.frequency(iris, tojson = TRUE)
 
 }
 \seealso{

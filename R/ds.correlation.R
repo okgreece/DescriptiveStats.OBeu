@@ -5,7 +5,7 @@
 #' This functions calculates the correlation coefficient of the input vectors, matrix or data frame.
 #' By default, the correlation coefficient of pearson is computed.
 #' 
-#' @usage ds.correlation(x, y=NULL, cor.method="pearson", tojson=F)
+#' @usage ds.correlation(x, y=NULL, cor.method="pearson", tojson=FALSE)
 #' 
 #' @param x A numeric vector, matrix or data frame
 #' @param y A vector, matrix or data frame with same dimension as x. By default it is equal with NULL.
@@ -25,20 +25,20 @@
 #' @examples 
 #' # with data frame as an input and the default parameters
 #' data <- iris
-#' ds.correlation(data, cor.method = "pearson", tojson=F)
+#' ds.correlation(data, cor.method = "pearson", tojson=FALSE)
 #' 
 #' # with matrix as an input , different parameters and json output
 #' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 #'          `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-#' ds.correlation(Matrix, cor.method = "kendall", tojson=T)
+#' ds.correlation(Matrix, cor.method = "kendall", tojson=TRUE)
 #' 
 #' @rdname ds.correlation
 #' 
 #' @import jsonlite
 #' @export
-###########################################################################################
 
-ds.correlation<-function(x, y=NULL, cor.method="pearson", tojson=F){
+
+ds.correlation<-function(x, y=NULL, cor.method="pearson", tojson=FALSE){
   
   # Convert to data frame
   if (is.null(y)==F){
