@@ -7,9 +7,9 @@
 ds.correlation(x, y=NULL, cor.method="pearson", tojson=F)
 }
 \arguments{
-\item{x}{A vector, matrix or data frame}
+\item{x}{A numeric vector, matrix or data frame}
 
-\item{y}{A vector, matrix or data frame}
+\item{y}{A vector, matrix or data frame with same dimension as x. By default it is equal with NULL.}
 
 \item{cor.method}{The correlation coefficient method to compute: "pearson" (default),
 "kendall" or "spearman".}
@@ -24,6 +24,17 @@ By default, the correlation coefficient of pearson is computed.
 This function returns an upper triangle matrix with the correlation coefficients 
 of the input data. The correlation coefficient of pearson is computed, by default. 
 Other options are "kendall" or "spearman".
+}
+\examples{
+# with data frame as an input and the default parameters
+data <- iris
+ds.correlation(data, cor.method = "pearson", tojson=F)
+
+# with matrix as an input , different parameters and json output
+Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+ds.correlation(Matrix, cor.method = "kendall", tojson=T)
+
 }
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}

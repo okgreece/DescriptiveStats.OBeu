@@ -27,15 +27,37 @@ If it is equal to zero no outliers will be returned.}
 \item{tojson}{If TRUE the results are returned in json format}
 }
 \value{
-A list with...
+A list or json file with the following components:
+
+\itemize{
+\item descriptives The descriptive measures
+\item boxplot The statistics of the boxplot
+\item histogram The histogram parameters
+\item frequencies The frequencies and the relative frequencies of factors/characters of the input dataset
+\item correlation The correlation coefficient
+}
 }
 \description{
-The input of this function can be a matrix or data frame. The function calculates the basic descriptive measures, 
-the correlation and the boxplot parameters of all the numerical variables, the frequencies of all the nominal variables
-and the necessary components of the selected generilized linear model.
+The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all 
+the numerical variables and the frequencies of all the nominal variables.
 }
 \details{
-...
+This function returns a list with the basic statistics, the parameters needed to visualize a boxplot
+and a histogram, it also provides the frequencies of non numerical data of the input dataset and the correlation 
+coefficient. The input of this function can be a matrix or data frame.
+}
+\examples{
+# with data frame as input with the default parameters
+data <- iris
+ds.analysis(data)
+
+# using the previous data frame with different parameters
+ds.analysis(data, c.out=1, box.width=0.20, outliers=T, hist.class="Sturges", 
+                corr.method= "spearman", fr.select=NULL, tojson=T)
+
+# using the previous data frame with different parameters fr.select specific column with nominal variables
+ds.analysis(data, c.out=1, box.width=0.20, outliers=F, fr.select="Species", tojson=T)
+                
 }
 \seealso{
 \code{\link{open_spending.ds}}

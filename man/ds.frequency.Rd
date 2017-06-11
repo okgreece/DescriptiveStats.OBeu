@@ -21,6 +21,14 @@ This function calculates the frequencies and the relative frequencies of factors
 This function returns a list with the frequencies and relative frequencies of factors/characters 
 of the input dataset.
 }
+\examples{
+# with data frame as an input and a selected column to calculate its frequencies
+ds.frequency(iris, select = "Species", tojson = F)
+
+# with data frame as an input without a selected column and json output
+ds.frequency(iris, tojson = T)
+
+}
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }

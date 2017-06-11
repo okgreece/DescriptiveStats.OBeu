@@ -7,7 +7,7 @@
 ds.kurtosis(x, tojson=F)
 }
 \arguments{
-\item{x}{A vector, matrix or data frame.}
+\item{x}{A numeric vector, matrix or data frame.}
 
 \item{tojson}{If TRUE the results are returned in json format}
 }
@@ -16,6 +16,20 @@ This function calculates kurtosis of the input vector, matrix or data frame.
 }
 \details{
 This function returns the kurtosis, based on a scaled version of the fourth moment, of numbers of the input data.
+}
+\examples{
+# with a matrix as an input
+Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+ds.kurtosis(Matrix, tojson=F)
+
+# with a data frame as an input
+ds.kurtosis(iris, tojson=F)
+
+# with a vector as an input and json output
+vec <- as.vector(iris)
+ds.kurtosis(vec, tojson=T)
+
 }
 \seealso{
 \code{\link{ds.skewness}}, \code{\link{ds.statistics}}, 

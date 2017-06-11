@@ -3,8 +3,7 @@
 #'  
 #' @description
 #' The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all 
-#' the numerical variables, the frequencies of all the nominal variables and the necessary components of the 
-#' selected generilized linear model.
+#' the numerical variables and the frequencies of all the nominal variables.
 #' 
 #' @usage ds.analysis(data, c.out=1.5, box.width=0.15, outliers=T, hist.class="Sturges",
 #'  corr.method= "pearson", fr.select=NULL, tojson=F)
@@ -48,7 +47,8 @@
 #' ds.analysis(data, c.out=1, box.width=0.20, outliers=T, hist.class="Sturges", 
 #'                 corr.method= "spearman", fr.select=NULL, tojson=T)
 #' 
-#' # using the previous data frame with different parameters fr.select specific column with nominal variables
+#' # using the previous data frame with different parameters 
+#' fr.select parameter specified as Species
 #' ds.analysis(data, c.out=1, box.width=0.20, outliers=F, fr.select="Species", tojson=T)
 #'                 
 #' @rdname ds.analysis

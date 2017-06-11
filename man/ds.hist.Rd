@@ -7,14 +7,14 @@
 ds.hist(x, breaks="Sturges", tojson=F)
 }
 \arguments{
-\item{x}{The input numeric vector}
+\item{x}{The input numeric vector, matrix or data frame}
 
 \item{breaks}{The method or the number of classes for the histogram}
 
 \item{tojson}{If TRUE the results are returned in json format, default returns a list}
 }
 \value{
-A list with the following components:
+A list or json file with the following components:
 
 \itemize{
 \item cuts The boundaries of the histogram classes
@@ -35,6 +35,21 @@ breaks is the value resulted from Sturges algorithm.
 The possible values for breaks are Sturges see \code{\link[grDevices]{nclass.Sturges}}, 
 Scott see \code{\link[grDevices]{nclass.scott}} and FD or Freedman Diaconis \code{\link[grDevices]{nclass.FD}}
 which are in package \pkg{grDevices}.
+}
+\examples{
+# with a vector as an input and the defaults parameters
+vec <- as.vector(iris)
+ds.hist(vec)
+
+# with a data frame as an input and json output
+data <- iris
+ds.hist(data, breaks="Sturges", tojson=T)
+
+# with a matrix as an input and json output
+Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+ds.hist(Matrix, tojson=T)
+
 }
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}

@@ -27,6 +27,17 @@ This function calculates the statistics of the boxplot for the input matrix or d
 \details{
 This function returns as a list object the statistical parameters needed to visualize boxplot.
 }
+\examples{
+# with matrix as an input and the default parameters
+Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+ds.boxplot(Matrix, out.level=1.5, width = 0.15 , outl = T, tojson=F)
+
+# with data frame as an input, different parameters and json output
+data <- iris
+ds.boxplot(data, out.level=2, width = 0.25 , outl = F, tojson=T)
+
+}
 \seealso{
 \code{\link{ds.box}}, \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }

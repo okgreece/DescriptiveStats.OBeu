@@ -12,7 +12,7 @@ ds.statistics(data, tojson=F)
 \item{tojson}{If TRUE the results are returned in json format, default returns a list}
 }
 \value{
-A json file with the following components:
+A list or json file with the following components:
 \itemize{
 \item Min The minimum observed value of the input data
 \item Max The maximum observed value of the input data
@@ -32,6 +32,20 @@ This function calculates the basic descriptive measures of the input dataset.
 \details{
 This function returns the following values of the input data: minimum, maximum, range, mean, median, first and third quantiles, variance,
 standart deviation, skewness and kurtosis.
+}
+\examples{
+# with matrix as an input and json outpout
+Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+ds.statistics(Matrix, tojson=T)
+
+# with vector as an input
+vec <- as.vector(iris)
+ds.statistics(vec, tojson=F)
+
+# with data frame as an input
+ds.statistics(iris, tojson=F)
+
 }
 \seealso{
 \code{\link{open_spending.ds}}

@@ -19,7 +19,7 @@ If it is equal to zero or out=F, no outliers will be returned.}
 \item{tojson}{If TRUE the results are returned in json format}
 }
 \value{
-Returns a list with the following components:
+Returns a list or a json file with the following components:
 \itemize{ 
 \item lo.whisker The extreme of the lower whisker
 \item lo.hinge The lower "hinge"
@@ -38,6 +38,18 @@ This function calculates the statistical measures needed to visualize the boxplo
 }
 \details{
 This function returns a list with the parameters needed to visualize a boxplot.
+}
+\examples{
+# with matrix as an input and the default parameters
+Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+ds.box(Matrix)
+
+# with matrix as an input and the different parameters
+Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
+        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+ds.box(Matrix, c=3, c.width = 0.20 , out = F, tojson=F)
+
 }
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
