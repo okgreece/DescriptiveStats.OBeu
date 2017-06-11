@@ -1,6 +1,6 @@
 ---
-title: "DescriptiveStats.OBeu"
-author: "Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas"
+title: DescriptiveStats.OBeu <img src="okfgr2.png" align="right" />
+author: "Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas"
 date: '`r Sys.Date()`'
 output:
   github_document: null
