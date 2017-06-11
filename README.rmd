@@ -1,5 +1,5 @@
 ---
-title: DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
+title: <img src="okfgr2.png" align="left" /> DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
 author: "Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas"
 date: "November 7, 2016"
 output:
