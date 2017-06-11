@@ -2,7 +2,7 @@
 % Please edit documentation in R/open_spending.ds.R
 \name{open_spending.ds}
 \alias{open_spending.ds}
-\title{Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending API}
+\title{Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending and Rudolf APIs.}
 \usage{
 open_spending.ds(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
 coef.outl=1.5, box.outliers=T, box.wdth=0.15,
@@ -37,7 +37,7 @@ A json string with the resulted parameters of the \code{\link{ds.analysis}} func
 Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
 }
 \details{
-This function is used to read data in json format from Open Spending API, in order to implement 
+This function is used to read data in json format from Open Spending and Rudolf APIs., in order to implement 
 some basic descriptive tasks through \code{\link{ds.analysis}} function.
 }
 \seealso{
