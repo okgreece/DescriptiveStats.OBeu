@@ -5,7 +5,7 @@ date: "November 7, 2016"
 output:
   github_document:
     fig_width: 8
-    fig_height: 8
+    fig_height: 10
     dev: png
     html_preview: false
   number_sections: yes
