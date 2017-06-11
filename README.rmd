@@ -21,7 +21,7 @@ subtitle: A Short Guide in R and OpenCPU environments
 [![Licence](https://img.shields.io/badge/licence-GPL--2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
 This document describes the use of the functions implemented in DescriptiveStats.OBeu package in OpenCPU environment. 
-<img src="okfgr2.png" align="right" />
+
 
 #Install:
 
@@ -350,3 +350,4 @@ copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
 # Github:
 
 + https://github.com/okgreece/DescriptiveStats.OBeu
+<img src="okfgr2.png" align="right" />
