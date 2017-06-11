@@ -109,7 +109,9 @@ json_data
 
 ``` r
 # a link with json file-openspending
-sample_json_link_openspending
+"http://next.openspending.org/api/3/cubes/21260d070eb5d63a121ea4c400dafbbb:apbn_fungsi_2016/facts?pagesize=20" 
+# or use a dataset from the package sample_json_link_openspending or 
+# Wuppertal_openspending
 ```
 
 Define the dimensions:
