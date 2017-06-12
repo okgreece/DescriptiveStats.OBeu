@@ -31,6 +31,12 @@
 #' 
 #' @seealso \code{\link{ds.analysis}}
 #' 
+#' @examples 
+#' # OpenBudgets.eu Dataset Example:
+#' Wuppertal_openspending
+#' open_spending.ds(Wuppertal_openspending, dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
+#'                 amounts = "Amount")
+#'                 
 #' @rdname open_spending.ds
 #' 
 #' @import jsonlite

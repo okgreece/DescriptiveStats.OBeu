@@ -26,6 +26,10 @@
 #' # with data frame as an input without a selected column and json output
 #' ds.frequency(iris, tojson = TRUE)
 #' 
+#' # OpenBudgets.eu Dataset Example:
+#' Wuppertal_df
+#' ds.frequency(Wuppertal_df, select = "Produkt", tojson = FALSE)
+#' 
 #' @rdname ds.frequency
 #' 
 #' @import jsonlite

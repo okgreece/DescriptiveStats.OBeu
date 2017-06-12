@@ -44,12 +44,17 @@
 #' ds.analysis(data)
 #'
 #' # using the previous data frame with different parameters
-#' ds.analysis(data, c.out=1, box.width=0.20, outliers=TRUE, hist.class="Sturges", 
-#'                 corr.method= "spearman", fr.select=NULL, tojson=TRUE)
+#' ds.analysis(data, c.out = 1, box.width = 0.20, outliers = TRUE, hist.class = "Sturges", 
+#'                 corr.method = "spearman", fr.select = NULL, tojson = TRUE)
 #' 
 #' # using the previous data frame with different parameters 
 #' # fr.select parameter specified as Species
-#' ds.analysis(data, c.out=1, box.width=0.20, outliers=FALSE, fr.select="Species", tojson=TRUE)
+#' ds.analysis(data, c.out = 1, box.width = 0.20, outliers = FALSE, fr.select = "Species", tojson = TRUE)
+#' 
+#' # OpenBudgets.eu Dataset Example:
+#' Wuppertal_df
+#' ds.analysis(Wuppertal_df, c.out = 2, box.width = 0.15, outliers = FALSE, hist.class = "Sturges", 
+#'        corr.method = "pearson", fr.select = NULL, tojson = FALSE)
 #'                 
 #' @rdname ds.analysis
 #' 
