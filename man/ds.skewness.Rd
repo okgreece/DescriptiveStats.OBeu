@@ -27,8 +27,12 @@ ds.skewness(Matrix, tojson=FALSE)
 ds.skewness(iris, tojson=FALSE)
 
 # with a vector as an input and json output
-vec <- as.vector(iris)
+vec <- as.vector(iris$Sepal.Width)
 ds.skewness(vec, tojson=TRUE)
+
+# OpenBudgets.eu Dataset Example:
+Wuppertal_df
+ds.skewness(Wuppertal_df[,-4], tojson = FALSE)
 
 }
 \seealso{

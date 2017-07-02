@@ -40,15 +40,17 @@ This function calculates the statistical measures needed to visualize the boxplo
 This function returns a list with the parameters needed to visualize a boxplot.
 }
 \examples{
-# with matrix as an input and the default parameters
-Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
-        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-ds.box(Matrix)
+# with vector as an input and the default parameters
+vec <- as.vector(iris$Sepal.Width)
+ds.box(vec)
 
-# with matrix as an input and the different parameters
-Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
-        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-ds.box(Matrix, c=3, c.width = 0.20 , out = FALSE, tojson=FALSE)
+# with vector as an input and the different parameters
+vec <- as.vector(iris$Sepal.Width)
+ds.box(vec, c = 3, c.width = 0.20 , out = FALSE, tojson = FALSE)
+
+# OpenBudgets.eu Dataset Example:
+amounts <- as.vector(Wuppertal_df$Amount)
+ds.box(amounts, c = 1.5, c.width = 0.20, out = TRUE)
 
 }
 \seealso{

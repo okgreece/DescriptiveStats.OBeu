@@ -52,12 +52,15 @@ data <- iris
 ds.analysis(data)
 
 # using the previous data frame with different parameters
-ds.analysis(data, c.out=1, box.width=0.20, outliers=TRUE, hist.class="Sturges", 
-                corr.method= "spearman", fr.select=NULL, tojson=TRUE)
+ds.analysis(data, c.out = 1, box.width = 0.20, outliers = TRUE, tojson = TRUE)
 
 # using the previous data frame with different parameters 
 # fr.select parameter specified as Species
-ds.analysis(data, c.out=1, box.width=0.20, outliers=FALSE, fr.select="Species", tojson=TRUE)
+ds.analysis(data, c.out = 1, outliers = FALSE, fr.select = "Species", tojson = TRUE)
+
+# OpenBudgets.eu Dataset Example:
+df=Wuppertal_df
+ds.analysis(df, c.out = 2, box.width = 0.15, outliers = FALSE, tojson = FALSE)
                 
 }
 \seealso{

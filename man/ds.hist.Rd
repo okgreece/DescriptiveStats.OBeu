@@ -38,17 +38,21 @@ which are in package \pkg{grDevices}.
 }
 \examples{
 # with a vector as an input and the defaults parameters
-vec <- as.vector(iris)
+vec <- as.vector(iris$Sepal.Width)
 ds.hist(vec)
 
 # with a data frame as an input and json output
 data <- iris
-ds.hist(data, breaks="Sturges", tojson=TRUE)
+ds.hist(data, breaks = "Sturges", tojson = TRUE)
 
 # with a matrix as an input and json output
 Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
 ds.hist(Matrix, tojson=TRUE)
+
+# OpenBudgets.eu Dataset Example:
+Wuppertal_df
+ds.hist(Wuppertal_df$Amount, tojson = TRUE)
 
 }
 \seealso{

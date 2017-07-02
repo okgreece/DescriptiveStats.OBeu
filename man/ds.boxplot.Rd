@@ -37,6 +37,10 @@ ds.boxplot(Matrix, out.level=1.5, width = 0.15 , outl = TRUE, tojson=FALSE)
 data <- iris
 ds.boxplot(data, out.level=2, width = 0.25 , outl = FALSE, tojson=TRUE)
 
+# OpenBudgets.eu Dataset Example:
+Wuppertal_df
+ds.boxplot(Wuppertal_df$Amount, out.level = 2.5, width = 0.15 , outl = TRUE, tojson = FALSE)
+       
 }
 \seealso{
 \code{\link{ds.box}}, \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}

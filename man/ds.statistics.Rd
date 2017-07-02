@@ -40,11 +40,15 @@ Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 ds.statistics(Matrix, tojson=TRUE)
 
 # with vector as an input
-vec <- as.vector(iris)
+vec <- as.vector(iris$Sepal.Width)
 ds.statistics(vec, tojson=FALSE)
 
 # with data frame as an input
 ds.statistics(iris, tojson=FALSE)
+
+# OpenBudgets.eu Dataset Example:
+Wuppertal_df
+ds.statistics(Wuppertal_df$Amount, tojson = TRUE)
 
 }
 \seealso{

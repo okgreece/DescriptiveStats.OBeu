@@ -3,17 +3,23 @@
 \name{Wuppertal_df}
 \alias{Wuppertal_df}
 \title{Wuppertal Fiscal Data extracted from Open Spending API}
-\format{A link with the json format data}
+\format{A data frame with the previous characteristics as columns}
 \source{
 OpenSpending
 }
 \description{
-...
+This dataset contains the the budget for wuppertal for 2009 to 2018, as extracted in 2014-2015. 
+
 \itemize{
-  \item The year ...
-  \item The ....
-  \item The ...
-  \item The ...
-  \item The ...
+  \item The product ID
+  \item The account type
+  \item The kind
+  \item The year these amounts were measaured
+  \item The amount
+  \item The product area ID
+  \item The product group ID
+  \item The product
+  \item The product area
+  \item The product group
   }
 }

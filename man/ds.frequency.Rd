@@ -28,6 +28,10 @@ ds.frequency(iris, select = "Species", tojson = FALSE)
 # with data frame as an input without a selected column and json output
 ds.frequency(iris, tojson = TRUE)
 
+# OpenBudgets.eu Dataset Example:
+Wuppertal_df
+ds.frequency(Wuppertal_df, select = "Produkt", tojson = FALSE)
+
 }
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
