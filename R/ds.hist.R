@@ -60,27 +60,13 @@ ds.hist <- function(x, breaks= "Sturges", tojson=FALSE) {
   
   x = as.numeric(unlist(x))
 
-  histog=graphics::hist(x,probability = T,plot = F,warn.unused = F)
-  
-  # norm line
-  
-  ynorm= stats::density(stats::rnorm(x, mean = mean(x), sd = stats::sd(x)))
-  
-  # prob line
-  fit.line=stats::density(x)
-  
-  mean = mean(x)
-  median = median(x)
+  histog=graphics::hist(x,probability = F,plot = F,warn.unused = F)
   
   hist.param = list(
                  cuts = histog$breaks,
-                 density = histog$density,
-                 normal.curve.x = ynorm$x,
-                 normal.curve.y = ynorm$y,
-                 fit.line.x=fit.line$x,
-                 fit.line.y=fit.line$y,
-                 mean = mean,
-                 median = median
+                 counts = histog$counts,
+                 mean = mean(x),
+                 median = median(x)
                )
   
   if (tojson==T){
