@@ -42,9 +42,9 @@ some basic descriptive tasks through \code{\link{ds.analysis}} function.
 }
 \examples{
 # OpenBudgets.eu Dataset Example:
-data=Wuppertal_openspending
-open_spending.ds(data, dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
-                amounts = "Amount")
+#data=Wuppertal_openspending
+#open_spending.ds(data, dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
+  #              amounts = "Amount")
                 
 }
 \seealso{
