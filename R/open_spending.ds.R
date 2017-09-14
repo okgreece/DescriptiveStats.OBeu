@@ -48,10 +48,10 @@
 open_spending.ds <- function(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
                              coef.outl=1.5, box.outliers=T, box.wdth=0.15,
                              cor.method= "pearson", freq.select=NULL){  
-  
-  if (RCurl::url.exists(json_data)){
-  json_data= RCurl::getURL( json_data, ssl.verifyhost=FALSE )
-  } 
+  linkexist<-RCurl::url.exists(json_data)
+  if (linkexist){
+  json_data = RCurl::getURL( json_data, ssl.verifyhost=FALSE )
+  } else if (!linkexist) stop("Not valid json data input")
   
   #s <- readLines(json_data);
   dt <- jsonlite::fromJSON(json_data)
