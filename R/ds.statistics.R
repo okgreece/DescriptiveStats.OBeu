@@ -50,8 +50,6 @@
 #' ds.statistics(Wuppertal_df$Amount, tojson = TRUE)
 #' 
 #' @rdname ds.statistics
-#' 
-#' @import jsonlite
 #'
 #' @export
 

@@ -38,7 +38,6 @@
 #'
 #' @rdname ds.correlation
 #' 
-#' @import jsonlite
 #' @export
 
 

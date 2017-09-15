@@ -32,7 +32,6 @@
 #' 
 #' @rdname ds.frequency
 #' 
-#' @import jsonlite
 #' @export
 
 

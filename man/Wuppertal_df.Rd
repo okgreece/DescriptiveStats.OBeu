@@ -5,7 +5,7 @@
 \title{Wuppertal Fiscal Data extracted from Open Spending API}
 \format{A data frame with the previous characteristics as columns}
 \source{
-OpenSpending
+http://next.openspending.org/api/3/cubes/4b6d969e07ef7a86aa54e539fc127a14:wuppertalhaushalt/facts
 }
 \description{
 This dataset contains the the budget for wuppertal for 2009 to 2018, as extracted in 2014-2015. 

@@ -36,7 +36,6 @@
 #' 
 #' @rdname ds.skewness
 #'
-#' @import jsonlite
 #' @export
 
 

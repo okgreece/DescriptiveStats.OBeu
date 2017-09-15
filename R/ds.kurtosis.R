@@ -36,7 +36,6 @@
 #' 
 #' @rdname ds.kurtosis
 #' 
-#' @import jsonlite
 #' @export
 
 

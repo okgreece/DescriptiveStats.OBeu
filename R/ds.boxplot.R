@@ -39,7 +39,6 @@
 #'        
 #' @rdname ds.boxplot
 #' 
-#' @import jsonlite
 #' @export
 
 ds.boxplot<-function(data, out.level=1.5, width = 0.15 , outl = TRUE, tojson=FALSE){

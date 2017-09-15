@@ -56,7 +56,6 @@
 #'                 
 #' @rdname ds.analysis
 #' 
-#' @import jsonlite
 #' @export
 
 

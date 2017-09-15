@@ -39,8 +39,6 @@
 #'                 
 #' @rdname open_spending.ds
 #' 
-#' @import jsonlite
-#' @import reshape
 #'
 #' @export
 

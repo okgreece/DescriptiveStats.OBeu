@@ -12,7 +12,7 @@
 #' 
 #' @format A link with the json format data
 #' @name sample_json_link_openspending
-#' @source OpenSpending
+#' @source http://next.openspending.org/
 #' 
 #' 
 NULL

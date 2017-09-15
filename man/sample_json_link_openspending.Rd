@@ -5,7 +5,7 @@
 \title{Sample data from Open Spending}
 \format{A link with the json format data}
 \source{
-OpenSpending
+http://next.openspending.org/
 }
 \description{
 Sample data of Revised Budget phase amounts

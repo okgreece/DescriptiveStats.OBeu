@@ -49,7 +49,6 @@
 #' ds.box(amounts, c = 1.5, c.width = 0.20, out = TRUE)
 #'
 #' @rdname ds.box
-#' @import jsonlite
 #' 
 #' @export
 
