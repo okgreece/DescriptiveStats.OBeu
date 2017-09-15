@@ -1,7 +1,7 @@
 Package: DescriptiveStats.OBeu
 Type: Package
 Title: Descriptive Statistics OpenBudgets.eu
-Version: 1.1.5
+Version: 1.2.0
 Date: 2016-09-18
 Description: DescriptiveStats.OBeu is a package developed for OpenBudgets.eu datasets, to estimate and return the needed parameters for visualizations. It enables the calculation of descriptive statistical measures in Budget data of municipalities across Europe, according to the OpenBudgets.eu data model. This package includes functions for measuring central tendency and dispersion of amount variables along with their distributions and correlations and the frequencies of categorical variables for a given dataset of the input OpenBudgets.eu fiscal datasets. This package can be used generally to extract visualization parameters convert them to JSON format and use them as input in a different graphical interface. 
 Author: Kleanthis Koupidis <koupidis@okfn.gr>, Aikaterini Chatzopoulou <kchatzopoul@okfn.gr>,  Charalampos Bratsas <charalampos.bratsas@okfn.org>
