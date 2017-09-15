@@ -18,7 +18,7 @@
 #' 
 #' @format A link with the json format data
 #' @name Wuppertal_openspending
-#' @source OpenSpending
+#' @source http://next.openspending.org/api/3/cubes/4b6d969e07ef7a86aa54e539fc127a14:wuppertalhaushalt/facts
 #' 
 #' 
 NULL

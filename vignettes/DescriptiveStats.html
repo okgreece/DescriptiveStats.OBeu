@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas" />
+
+<meta name="date" content="2017-09-15" />
+
+<title>Introduction DescriptiveStats.OBeu</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Introduction DescriptiveStats.OBeu</h1>
+<h4 class="author"><em>Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas</em></h4>
+<h4 class="date"><em>2017-09-15</em></h4>
+
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This package was created in order to enable the calculation of descriptive statistical measures, for the needs of a European project. “DescriptiveStats.OBeu” includes functions for measuring central tendency and dispersion of numeric variables along with their distributions and correlations and the frequencies of categorical variables for a given dataset. This document introduces you to DescriptiveStats.OBeu’s basic set of tools.</p>
+<div id="input" class="section level2">
+<h2>Input</h2>
+<p>The input dataset of the main function is a JSON link or a JSON file or a text in JSON format. There are different parameters that a user could specify (see the package specification) and interact with the results.</p>
+<p>The parameters: “dimensions”, “measured.dimensions” and “amounts” should be defined by the user, to form the dataset. Then an automated process calculates the basic descriptive measures of tendency and spread, boxplot and histogram parameters in order to describe and visualize the distribution characteristics of the desired dataset.</p>
+<table>
+<caption>A sort description about the inputs.</caption>
+<colgroup>
+<col width="18%"></col>
+<col width="81%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Input</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>json_data</p></td>
+<td><p>The json string, URL or file from Open Spending API</p></td>
+</tr>
+<tr class="even">
+<td><p>dimensions</p></td>
+<td><p>The dimensions of the input data</p></td>
+</tr>
+<tr class="odd">
+<td><p>amounts</p></td>
+<td><p>The measures of the input data</p></td>
+</tr>
+<tr class="even">
+<td><p>measured.dimensions</p></td>
+<td><p>The dimensions to which correspond amount/numeric variables</p></td>
+</tr>
+<tr class="odd">
+<td><p>coef.outl</p></td>
+<td><p>Determines the length of the “whiskers” plot. Default is 1.5.</p></td>
+</tr>
+<tr class="even">
+<td><p>box.outliers</p></td>
+<td><p>If TRUE the outliers will be computed at the selected “coef.outl” level</p></td>
+</tr>
+<tr class="odd">
+<td><p>box.width</p></td>
+<td><p>The width level is determined 0.15 times the square root of the size of the input data.</p></td>
+</tr>
+<tr class="even">
+<td><p>cor.method</p></td>
+<td><p>The correlation coefficient method to compute: “pearson” (default),“kendall” or “spearman”.</p></td>
+</tr>
+<tr class="odd">
+<td><p>freq.select</p></td>
+<td><p>One or more nominal variables to calculate their corresponding frequencies.</p></td>
+</tr>
+</tbody>
+</table>
+<div id="pre-processing-of-input" class="section level4">
+<h4>Pre-processing of input</h4>
+<p><strong>DescriptiveStats.OBeu</strong> includes functions that automatically calculates the central tendency and spread measures, the boxplot, histogram and barplot visualization parameters and the correlation matrix of the input fiscal dataset.</p>
+<p>The final returns are the parameters needed for forming summary tables of central tendency and dispersion measures and visualizing boxplot, histogram, barplot and correlation matrix of the input data.</p>
+</div>
+<div id="central-tendency-measures" class="section level4">
+<h4>Central Tendency Measures</h4>
+<p>Central Tendency Measures describe the central position of a <a href="https://en.wikipedia.org/wiki/Probability_distribution">distribution</a> for a group of data. The basic measures are the mean and the median.</p>
+</div>
+<div id="dispersion-measures-measures-of-spread" class="section level4">
+<h4>Dispersion Measures (Measures of Spread)</h4>
+<p>Dispersion measures describe how similar or varied the data are. The range, quartiles and the interquartile range, variance and standard deviation are measures of spread.</p>
+</div>
+</div>
+<div id="output" class="section level2">
+<h2>Output</h2>
+<p>The output of this process is a list in json format divided into four components of parameters and results with the first subcomponents.</p>
+<p>Here is a sort description of the outputs in each function:</p>
+<table>
+<caption>Output descriptions in each function.</caption>
+<colgroup>
+<col width="15%"></col>
+<col width="24%"></col>
+<col width="59%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Output</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>statistics</p></td>
+<td><ul>
+<li>Min</li>
+<li>Max</li>
+<li>Range</li>
+<li>Mean</li>
+<li>Median</li>
+<li>Quantiles</li>
+<li>Variance</li>
+<li>StandardDeviation</li>
+<li>Skewness</li>
+<li>Kurtosis</li>
+</ul></td>
+<td><ul>
+<li>The minimum observed value of the input data</li>
+<li>The maximum observed value of the input data</li>
+<li>The difference between maximum and minimum</li>
+<li>The average value of the input data</li>
+<li>The median value of the input data</li>
+<li>The 25%, 75% percentiles</li>
+<li>The variance of the input data</li>
+<li>The standard deviation of the input data</li>
+<li>The Skewness of the input data</li>
+<li>The Kurtosis of the input data</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><p>boxplot</p></td>
+<td><ul>
+<li>lo.whisker</li>
+<li>lo.hinge</li>
+<li>median</li>
+<li>up.hinge</li>
+<li>up.whisker</li>
+<li>box.width</li>
+<li>lo.out</li>
+<li>up.out</li>
+<li>n</li>
+</ul></td>
+<td><ul>
+<li>Lower horizontal line out of the box</li>
+<li>Lower horizontal line of the box</li>
+<li>Horizontal line in the box</li>
+<li>Upper horizontal line of the box</li>
+<li>Upper horizontal line out of the box</li>
+<li>The box width of each variable</li>
+<li>Lower outliers</li>
+<li>Upper outliers</li>
+<li>The number of non-NA observations</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><p>histogram</p></td>
+<td><ul>
+<li>cuts</li>
+<li>counts</li>
+<li>mean</li>
+<li>median</li>
+</ul></td>
+<td><ul>
+<li>The boundaries of the histogram classes</li>
+<li>The frequency of each histogram class</li>
+<li>The average value of the input vector</li>
+<li>The median value of the input data</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><p>frequencies</p></td>
+<td><ul>
+<li>Variable name</li>
+<li>frequencies</li>
+<li>“_row&quot;</li>
+<li>relative.frequencies</li>
+</ul></td>
+<td><ul>
+<li>The name of the calculated variable</li>
+<li>The frequency value</li>
+<li>Name of the categories of the variable</li>
+<li>Relative frequency values</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><p>correlation</p></td>
+<td><ul>
+<li>Variable name</li>
+<li>Correlation value</li>
+<li>“_row&quot;</li>
+</ul></td>
+<td><ul>
+<li>The name of the calculated variable</li>
+<li>The correlation value</li>
+<li>The corresponding correlation variable</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<p>Simple examples for each function are provided, in order for the user to understand the use and how to deal with these functions.</p>
+<p>In some examples specific columns of the dataset are selected in order for smaller amount of results to be presented. The dataset that is being used is available in DescriptiveStats.OBeu package and represents the budget for Wuppertal for 2009 to 2018.</p>
+<div id="statistics" class="section level3">
+<h3>Statistics</h3>
+<p>We often need the basic descriptive statistics for the data We are working with. The <code>ds.statistics()</code> function can provide these results.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DescriptiveStats.OBeu)
+<span class="kw">ds.statistics</span>(Wuppertal_df[,<span class="op">-</span><span class="dv">4</span>])</code></pre></div>
+<pre><code>## $Min
+## $Min$Amount
+## [1] -2040681
+## 
+## $Min$ProduktbereichNR
+## [1] 11
+## 
+## $Min$ProduktgruppeNR
+## [1] 1101
+## 
+## 
+## $Max
+## $Max$Amount
+## [1] 507995000
+## 
+## $Max$ProduktbereichNR
+## [1] 71
+## 
+## $Max$ProduktgruppeNR
+## [1] 7101
+## 
+## 
+## $Range
+## $Range$Amount
+## [1] 510035681
+## 
+## $Range$ProduktbereichNR
+## [1] 60
+## 
+## $Range$ProduktgruppeNR
+## [1] 6000
+## 
+## 
+## $Mean
+## $Mean$Amount
+## [1] 6171229
+## 
+## $Mean$ProduktbereichNR
+## [1] 30.11422
+## 
+## $Mean$ProduktgruppeNR
+## [1] 3020.384
+## 
+## 
+## $Median
+## $Median$Amount
+## [1] 736038.1
+## 
+## $Median$ProduktbereichNR
+## [1] 31
+## 
+## $Median$ProduktgruppeNR
+## [1] 3103
+## 
+## 
+## $Quantiles
+## $Quantiles$Amount
+##       25%       75% 
+##  243696.1 2653000.0 
+## 
+## $Quantiles$ProduktbereichNR
+## 25% 75% 
+##  11  51 
+## 
+## $Quantiles$ProduktgruppeNR
+##  25%  75% 
+## 1130 5102 
+## 
+## 
+## $Variance
+## $Variance$Amount
+## [1] 7.771069e+14
+## 
+## $Variance$ProduktbereichNR
+## [1] 313.2779
+## 
+## $Variance$ProduktgruppeNR
+## [1] 3116183
+## 
+## 
+## $StandardDeviation
+## $StandardDeviation$Amount
+## [1] 27876637
+## 
+## $StandardDeviation$ProduktbereichNR
+## [1] 17.69966
+## 
+## $StandardDeviation$ProduktgruppeNR
+## [1] 1765.272
+## 
+## 
+## $Kurtosis
+##           Amount ProduktbereichNR  ProduktgruppeNR 
+##       160.151906        -1.413781        -1.412865 
+## 
+## $Skewness
+##           Amount ProduktbereichNR  ProduktgruppeNR 
+##       11.4762126        0.2965627        0.2976537</code></pre>
+</div>
+<div id="histogram" class="section level3">
+<h3>Histogram</h3>
+<p><code>ds.hist()</code> gives the parameters of the numeric input vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">histogram &lt;-<span class="st"> </span><span class="kw">ds.hist</span>(Wuppertal_df<span class="op">$</span>Amount)
+histogram</code></pre></div>
+<pre><code>## $cuts
+##  [1] -5.0e+07  0.0e+00  5.0e+07  1.0e+08  1.5e+08  2.0e+08  2.5e+08
+##  [8]  3.0e+08  3.5e+08  4.0e+08  4.5e+08  5.0e+08  5.5e+08
+## 
+## $counts
+##  [1]   46 6032   83   30   10    0    1   11    2    4    4    2
+## 
+## $mean
+## [1] 6171229
+## 
+## $median
+## [1] 736038.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(histogram)</code></pre></div>
+<pre><code>## List of 4
+##  $ cuts  : num [1:13] -5.0e+07 0.0 5.0e+07 1.0e+08 1.5e+08 2.0e+08 2.5e+08 3.0e+08 3.5e+08 4.0e+08 ...
+##  $ counts: int [1:12] 46 6032 83 30 10 0 1 11 2 4 ...
+##  $ mean  : num 6171229
+##  $ median: num 736038</code></pre>
+</div>
+<div id="boxplot" class="section level3">
+<h3>Boxplot</h3>
+<p>The <code>ds.boxplot()</code> function gives the statistics needed for a boxplot to be drawn.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ds.boxplot</span>(Wuppertal_df<span class="op">$</span>Amount,<span class="dt">out.level =</span> <span class="dv">0</span>)</code></pre></div>
+<pre><code>## $data
+## $data$lo.whisker
+## [1] -2040681
+## 
+## $data$lo.hinge
+## [1] 243696.1
+## 
+## $data$median
+## [1] 736038.1
+## 
+## $data$up.hinge
+## [1] 2653000
+## 
+## $data$up.whisker
+## [1] 507995000
+## 
+## $data$box.width
+## [1] 11.83
+## 
+## $data$lo.out
+## NULL
+## 
+## $data$up.out
+## NULL
+## 
+## $data$n
+## [1] 6225</code></pre>
+</div>
+<div id="correlation" class="section level3">
+<h3>Correlation</h3>
+<p>This function calculates the correlation coefficient of the input data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ds.correlation</span>(Wuppertal_df)</code></pre></div>
+<pre><code>##                  Year Amount ProduktbereichNR ProduktgruppeNR
+## Year                1   0.02             0.01            0.01
+## Amount              0   1.00             0.15            0.15
+## ProduktbereichNR    0   0.00             1.00            1.00
+## ProduktgruppeNR     0   0.00             0.00            1.00</code></pre>
+</div>
+<div id="frequency" class="section level3">
+<h3>Frequency</h3>
+<p><code>ds.frequency()</code> provides the frequencies and the relative frequencies of factors/characters of the input dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ds.frequency</span>(Wuppertal_df[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>])</code></pre></div>
+<pre><code>## $frequencies
+## $frequencies$Kontotyp
+##         Var1 Freq
+## 1 Aufwendung 3197
+## 2     Ertrag 3028
+## 
+## $frequencies$Art
+##       Var1 Freq
+## 1 Ergebnis 2739
+## 2     Plan 3486
+## 
+## 
+## $relative.frequencies
+## $relative.frequencies$Kontotyp
+##         Var1      Freq
+## 1 Aufwendung 0.5135743
+## 2     Ertrag 0.4864257
+## 
+## $relative.frequencies$Art
+##       Var1 Freq
+## 1 Ergebnis 0.44
+## 2     Plan 0.56</code></pre>
+</div>
+<div id="kurtosis" class="section level3">
+<h3>Kurtosis</h3>
+<p>This function calculates kurtosis of the input data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ds.kurtosis</span>(Wuppertal_df)</code></pre></div>
+<pre><code>##             Year           Amount ProduktbereichNR  ProduktgruppeNR 
+##       -0.8371997      160.1519064       -1.4137810       -1.4128654</code></pre>
+</div>
+<div id="skewness" class="section level3">
+<h3>Skewness</h3>
+<p>This function calculates skewness of the input data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ds.skewness</span>(Wuppertal_df)</code></pre></div>
+<pre><code>##             Year           Amount ProduktbereichNR  ProduktgruppeNR 
+##        0.1669875       11.4762126        0.2965627        0.2976537</code></pre>
+</div>
+<div id="open-spending" class="section level3">
+<h3>Open spending</h3>
+<p>The last function <code>open_spending.ds()</code> extracts and analyze the json data provided from Open Spending API, using <code>ds.analysis()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Wuppertal_openspending</code></pre></div>
+<pre><code>## [1] &quot;http://next.openspending.org/api/3/cubes/4b6d969e07ef7a86aa54e539fc127a14:wuppertalhaushalt/facts&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">descript =<span class="st"> </span><span class="kw">open_spending.ds</span>(
+  <span class="dt">json_data =</span>  Wuppertal_openspending, 
+  <span class="dt">dimensions =</span><span class="st">&quot;functional_classification_3.Produktgruppe|date_2.Year&quot;</span>,
+  <span class="dt">amounts =</span> <span class="st">&quot;Amount&quot;</span>
+  )
+<span class="co"># Pretty output using prettify of jsonlite library</span>
+jsonlite<span class="op">::</span><span class="kw">prettify</span>(descript,<span class="dt">indent =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## {
+##   &quot;descriptives&quot;: {
+##     &quot;Min&quot;: {
+##       &quot;Amount&quot;: [
+##         533.21
+##       ]
+##     },
+##     &quot;Max&quot;: {
+##       &quot;Amount&quot;: [
+##         2997043.49
+##       ]
+##     },
+##     &quot;Range&quot;: {
+##       &quot;Amount&quot;: [
+##         2996510.28
+##       ]
+##     },
+##     &quot;Mean&quot;: {
+##       &quot;Amount&quot;: [
+##         659132.4457
+##       ]
+##     },
+##     &quot;Median&quot;: {
+##       &quot;Amount&quot;: [
+##         476400.565
+##       ]
+##     },
+##     &quot;Quantiles&quot;: {
+##       &quot;Amount&quot;: [
+##         313924.26,
+##         656962.815
+##       ]
+##     },
+##     &quot;Variance&quot;: {
+##       &quot;Amount&quot;: [
+##         469375540712.697
+##       ]
+##     },
+##     &quot;StandardDeviation&quot;: {
+##       &quot;Amount&quot;: [
+##         685109.8749
+##       ]
+##     },
+##     &quot;Kurtosis&quot;: [
+##       5.7675
+##     ],
+##     &quot;Skewness&quot;: [
+##       2.5221
+##     ]
+##   },
+##   &quot;boxplot&quot;: {
+##     &quot;Amount&quot;: {
+##       &quot;lo.whisker&quot;: [
+##         533.21
+##       ],
+##       &quot;lo.hinge&quot;: [
+##         306296.49
+##       ],
+##       &quot;median&quot;: [
+##         476400.565
+##       ],
+##       &quot;up.hinge&quot;: [
+##         658308.4
+##       ],
+##       &quot;up.whisker&quot;: [
+##         1185907.2
+##       ],
+##       &quot;box.width&quot;: [
+##         1.5
+##       ],
+##       &quot;lo.out&quot;: [
+## 
+##       ],
+##       &quot;up.out&quot;: [
+##         2954238.51,
+##         2979998.49,
+##         2992244.95,
+##         2916160.36,
+##         2885816.5,
+##         2997043.49,
+##         2875275.56,
+##         1252420.49,
+##         1248584.45
+##       ],
+##       &quot;n&quot;: [
+##         100
+##       ]
+##     }
+##   },
+##   &quot;histogram&quot;: {
+##     &quot;Amount&quot;: {
+##       &quot;cuts&quot;: [
+##         0,
+##         500000,
+##         1000000,
+##         1500000,
+##         2000000,
+##         2500000,
+##         3000000
+##       ],
+##       &quot;counts&quot;: [
+##         54,
+##         32,
+##         7,
+##         0,
+##         0,
+##         7
+##       ],
+##       &quot;mean&quot;: [
+##         659132.4457
+##       ],
+##       &quot;median&quot;: [
+##         476400.565
+##       ]
+##     }
+##   },
+##   &quot;frequencies&quot;: {
+##     &quot;frequencies&quot;: {
+##       &quot;functional_classification_3.Produktgruppe&quot;: [
+##         {
+##           &quot;Var1&quot;: &quot;&quot;,
+##           &quot;Freq&quot;: 2
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;(entfallen in 2013) Geschäftsbereichsleitung GB 1.1 &quot;,
+##           &quot;Freq&quot;: 5
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Beschäftigtenvertretung&quot;,
+##           &quot;Freq&quot;: 1
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Bezirksvertretungen&quot;,
+##           &quot;Freq&quot;: 7
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Geschäftsbereichsleitung GB 1&quot;,
+##           &quot;Freq&quot;: 15
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Geschäftsbereichsleitung GB 2.1&quot;,
+##           &quot;Freq&quot;: 7
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Geschäftsbereichsleitung GB 2.2&quot;,
+##           &quot;Freq&quot;: 7
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Geschäftsbereichsleitung GB 4&quot;,
+##           &quot;Freq&quot;: 28
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Gleichstellung von Frau und Mann&quot;,
+##           &quot;Freq&quot;: 7
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Politische Gremien&quot;,
+##           &quot;Freq&quot;: 7
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Verwaltungsführung&quot;,
+##           &quot;Freq&quot;: 14
+##         }
+##       ],
+##       &quot;date_2.Year&quot;: [
+##         {
+##           &quot;Var1&quot;: &quot;2009&quot;,
+##           &quot;Freq&quot;: 16
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2010&quot;,
+##           &quot;Freq&quot;: 15
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2011&quot;,
+##           &quot;Freq&quot;: 14
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2012&quot;,
+##           &quot;Freq&quot;: 14
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2013&quot;,
+##           &quot;Freq&quot;: 15
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2014&quot;,
+##           &quot;Freq&quot;: 13
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2015&quot;,
+##           &quot;Freq&quot;: 13
+##         }
+##       ]
+##     },
+##     &quot;relative.frequencies&quot;: {
+##       &quot;functional_classification_3.Produktgruppe&quot;: [
+##         {
+##           &quot;Var1&quot;: &quot;&quot;,
+##           &quot;Freq&quot;: 0.02
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;(entfallen in 2013) Geschäftsbereichsleitung GB 1.1 &quot;,
+##           &quot;Freq&quot;: 0.05
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Beschäftigtenvertretung&quot;,
+##           &quot;Freq&quot;: 0.01
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Bezirksvertretungen&quot;,
+##           &quot;Freq&quot;: 0.07
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Geschäftsbereichsleitung GB 1&quot;,
+##           &quot;Freq&quot;: 0.15
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Geschäftsbereichsleitung GB 2.1&quot;,
+##           &quot;Freq&quot;: 0.07
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Geschäftsbereichsleitung GB 2.2&quot;,
+##           &quot;Freq&quot;: 0.07
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Geschäftsbereichsleitung GB 4&quot;,
+##           &quot;Freq&quot;: 0.28
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Gleichstellung von Frau und Mann&quot;,
+##           &quot;Freq&quot;: 0.07
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Politische Gremien&quot;,
+##           &quot;Freq&quot;: 0.07
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;Verwaltungsführung&quot;,
+##           &quot;Freq&quot;: 0.14
+##         }
+##       ],
+##       &quot;date_2.Year&quot;: [
+##         {
+##           &quot;Var1&quot;: &quot;2009&quot;,
+##           &quot;Freq&quot;: 0.16
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2010&quot;,
+##           &quot;Freq&quot;: 0.15
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2011&quot;,
+##           &quot;Freq&quot;: 0.14
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2012&quot;,
+##           &quot;Freq&quot;: 0.14
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2013&quot;,
+##           &quot;Freq&quot;: 0.15
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2014&quot;,
+##           &quot;Freq&quot;: 0.13
+##         },
+##         {
+##           &quot;Var1&quot;: &quot;2015&quot;,
+##           &quot;Freq&quot;: 0.13
+##         }
+##       ]
+##     }
+##   },
+##   &quot;correlation&quot;: {
+## 
+##   }
+## }
+## </code></pre>
+</div>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>These seven functions provide the basic statistics of data. Even inexperienced users can handle them, in order to evaluate their data and be able to visualize them.</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

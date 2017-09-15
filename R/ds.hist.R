@@ -53,7 +53,6 @@
 #' ds.hist(Wuppertal_df$Amount, tojson = TRUE)
 #' 
 #' @rdname ds.hist
-#' @import jsonlite
 #' @export
 
 ds.hist <- function(x, breaks= "Sturges", tojson=FALSE) {
@@ -66,7 +65,7 @@ ds.hist <- function(x, breaks= "Sturges", tojson=FALSE) {
                  cuts = histog$breaks,
                  counts = histog$counts,
                  mean = mean(x),
-                 median = median(x)
+                 median = stats::median(x)
                )
   
   if (tojson==T){

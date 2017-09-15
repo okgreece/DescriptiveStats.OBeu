@@ -1,24 +1,18 @@
 ---
-title: "Introduction DescriptiveStats.OBeu"
+title: "DescriptiveStats.OBeu" 
 author: "Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Introduction DescriptiveStats.OBeu}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+vignette:   %\VignetteIndexEntry{Introduction DescriptiveStats.OBeu} %\VignetteEngine{knitr::rmarkdown} \usepackage[utf8]{inputenc}
 ---
 
-# Introduction
-
+  
+# Intoduction
 This package was created in order to enable the calculation of descriptive statistical measures, for the needs of a European project.
 “DescriptiveStats.OBeu” includes functions for measuring central tendency and dispersion of numeric variables along with their distributions and correlations and the frequencies of categorical variables for a given dataset.
 This document introduces you to DescriptiveStats.OBeu's basic set of tools.
 
 ## Input
-
 The input dataset of the main function is a JSON link or a JSON file or a text in JSON format. There are different parameters that a user could specify (see the package specification) and interact with the results. 
-
 The parameters: “dimensions”, “measured.dimensions” and “amounts” should be defined by the user, to form the dataset. Then an automated process calculates the basic descriptive measures of tendency and spread, boxplot and histogram parameters in order to describe and visualize the distribution characteristics of the desired dataset.
 
 +--------------------+--------------------------------------------------------------------------------------------+
@@ -43,29 +37,23 @@ The parameters: “dimensions”, “measured.dimensions” and “amounts” sh
 | freq.select        | One or more nominal variables to calculate their corresponding frequencies.                |
 +--------------------+--------------------------------------------------------------------------------------------+
 
-Table:A sort description about the inputs. 
+Table: A sort description about the inputs. 
 
 #### Pre-processing of input
-
 **DescriptiveStats.OBeu** includes functions that automatically calculates the central tendency and spread measures, the boxplot, histogram and barplot visualization parameters and the correlation matrix of the input fiscal dataset. 
 
 The final returns are the parameters needed for forming summary tables of central tendency and dispersion measures and visualizing boxplot, histogram, barplot and correlation matrix of the input data.
 
 #### Central Tendency Measures
-
 Central Tendency Measures describe the central position of a [distribution](https://en.wikipedia.org/wiki/Probability_distribution) for a group of data. 
 The basic measures are the mean and the median.
 
 #### Dispersion Measures (Measures of Spread)
-
 Dispersion measures describe how similar or varied the data are. The range, quartiles and the interquartile range, variance and standard deviation are measures of spread.
 
 ## Output
-
 The output of this process is a list in json format divided into four components of parameters and results with the first subcomponents.
-
 Here is a sort description of the outputs in each function:
-
 
 +---------------+------------------------+-----------------------------------------------------------+
 | Function      | Output                 | Description                                               |
@@ -109,91 +97,74 @@ Here is a sort description of the outputs in each function:
 Table: Output descriptions in each function.
 
 ## Examples
-
 Simple examples for each function are provided, in order for the user to understand the use and how to deal with these functions.
 
 In some examples specific columns of the dataset are selected in order for smaller amount of results to be presented.
 The dataset that is being used is available in DescriptiveStats.OBeu package and represents the budget for Wuppertal for 2009 to 2018.
 
 ### Statistics
-
 We often need the basic descriptive statistics for the data We are working with. The `ds.statistics()` function can provide  these results.
-
 ```{r}
 library(DescriptiveStats.OBeu)
 ds.statistics(Wuppertal_df[,-4])
 ```
 
 ### Histogram
-
 `ds.hist()` gives the parameters of the numeric input vector.
-
 ```{r}
 histogram <- ds.hist(Wuppertal_df$Amount)
-histogram
-```
-```{r}
 str(histogram)
+
+head(histogram$cuts)
+
+head(histogram$counts)
+
+head(histogram$mean)
+
+head(histogram$median)
 ```
 
 ### Boxplot
-
 The `ds.boxplot()` function gives the statistics needed for a boxplot to be drawn.
-
 ```{r}
 ds.boxplot(Wuppertal_df$Amount,out.level = 0)
 ```
 
 ### Correlation
-
 This function calculates the correlation coefficient of the input data.
-
 ```{r}
 ds.correlation(Wuppertal_df)
 ```
 
 ### Frequency
-
 `ds.frequency()` provides the frequencies and the relative frequencies of factors/characters of the input dataset.
-
 ```{r}
 ds.frequency(Wuppertal_df[,2:3])
 ```
 
 ### Kurtosis
-
 This function calculates kurtosis of the input data.
-
 ```{r}
 ds.kurtosis(Wuppertal_df)
 ```
 
 ### Skewness
-
 This function calculates skewness of the input data.
-
 ```{r}
 ds.skewness(Wuppertal_df)
 ```
 
 ### Open spending
-
 The last function `open_spending.ds()` extracts and analyze the json data provided from Open Spending API, using `ds.analysis()` function.
-
 ```{r}
 Wuppertal_openspending
 ```
-
 ```{r}
-descript = open_spending.ds(
-  json_data =  Wuppertal_openspending, 
-  dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
-  amounts = "Amount"
-  )
-# Pretty output using prettify of jsonlite library
+descript= open_spending.ds(Wuppertal_openspending, dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
+                 amounts = "Amount")
 jsonlite::prettify(descript,indent = 2)
 ```
 
-# Conclusion
 
+# Conclusion
 These seven functions provide the basic statistics of data. Even inexperienced users can handle them, in order to evaluate their data and be able to visualize them.
