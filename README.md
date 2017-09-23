@@ -1,361 +1,608 @@
-DescriptiveStats.OBeu <img src="obeu_logo.png" align="right" />
+DescriptiveStats.OBeu <img src="okfgr2.png" align="right" />
 ================
 Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas
-November 7, 2016
 
-[![Build Status](https://travis-ci.org/okgreece/DescriptiveStats.OBeu.svg?branch=master)](https://travis-ci.org/okgreece/DescriptiveStats.OBeu) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls) [![Github Issues](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/issues.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/issues) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![packageversion](https://img.shields.io/badge/Package%20version-1.1.5-orange.svg?style=flat-square)](commits/master) [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.1-6666ff.svg)](https://cran.r-project.org/) [![Licence](https://img.shields.io/badge/licence-GPL--2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+[![Build Status](https://travis-ci.org/okgreece/DescriptiveStats.OBeu.svg?branch=master)](https://travis-ci.org/okgreece/DescriptiveStats.OBeu) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls) [![Github Issues](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/issues.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/issues) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![packageversion](https://img.shields.io/badge/Package%20version-1.2.1-orange.svg?style=flat-square)](commits/master) [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.1-6666ff.svg)](https://cran.r-project.org/) [![Licence](https://img.shields.io/badge/licence-GPL--2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
-This document describes the use of the functions implemented in DescriptiveStats.OBeu package in OpenCPU environment.
+Εstimate and return the necessary parameters for descriptive statistics visualizations, used in [OpenBudgets.eu](http://openbudgets.eu/). It includes functions for measuring central tendency and dispersion of amount variables along with their distributions and correlations and the frequencies of categorical variables for Budget data of municipalities across Europe, according to the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
 
-Install:
-========
-
-Load *devtools* library or install it if not already:
+This package can generally be used to extract visualization parameters convert them to JSON format and use them as input in a different graphical interface. Most functions can have general use out of the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
 
 ``` r
-install.packages("devtools")
-```
-
-Then install *DescriptiveStats.OBeu* from [Github](https://github.com/okgreece/DescriptiveStats.OBeu)
-
-``` r
+# install DescriptiveStats.OBeu
+install.packages(DescriptiveStats.OBeu) 
+# or
+# alternatively install the development version from github
 devtools::install_github("okgreece/DescriptiveStats.OBeu")
 ```
 
-And load the library
+Load library `DescriptiveStats.OBeu` <img src="obeu_logo.png" align="right" />
 
 ``` r
 library(DescriptiveStats.OBeu)
 ```
 
-### R Example
+Descriptive Statistics in a call
+================================
 
-The package includes the following data:
+`ds.analysis` is used to estimate *minimum*, *maximum*, *range*, *mean*, *median*, *first and third quantiles*, *variance*, *standart deviation*, *skewness* and *kurtosis*, *boxplot*, *histogram parameters* needed for visualization of numeric variables and *frequencies* of factor variables of a given vector, matrix or data frame of data.
 
-``` r
-# 1. a link to json file-openspending
-sample_json_link_openspending
-```
-
-    ## [1] "http://next.openspending.org/api/3/cubes/21260d070eb5d63a121ea4c400dafbbb:apbn_fungsi_2016/facts?pagesize=20"
+`ds.analysis` returns by default a list object, we set `tojson` parameter `TRUE`, `outliers` parameter `FALSE`, `fr.select = "Produktbereich"`. Τhere is one numeric variable, correlation will be empty.
 
 ``` r
-# 2. a link to json file-rudolf
-sample_json_link_rudolf
+wuppertalanalysis = ds.analysis(Wuppertal_df,outliers=FALSE, fr.select = "Produktbereich", tojson=TRUE) # json string format
+jsonlite::prettify(wuppertalanalysis) # use prettify of jsonlite library to add indentation to the returned JSON string
 ```
 
-    ## [1] "http://ws307.math.auth.gr/rudolf/public/api/v3/cubes/global/aggregate?drilldown=global__budgetPhase__afd93.prefLabel%7Cglobal__fiscalPeriod__28951.notation&cut=global__organization__0eba1.prefLabel:http://el.dbpedia.org/resource/%CE%94%CE%AE%CE%BC%CE%BF%CF%82_%CE%91%CE%B8%CE%B7%CE%BD%CE%B1%CE%AF%CF%89%CE%BD&aggregates=global__amount__0397f.sum"
+    ## {
+    ##     "descriptives": {
+    ##         "Min": {
+    ##             "Amount": [
+    ##                 -2040680.54
+    ##             ]
+    ##         },
+    ##         "Max": {
+    ##             "Amount": [
+    ##                 507995000
+    ##             ]
+    ##         },
+    ##         "Range": {
+    ##             "Amount": [
+    ##                 510035680.54
+    ##             ]
+    ##         },
+    ##         "Mean": {
+    ##             "Amount": [
+    ##                 6171229.3658
+    ##             ]
+    ##         },
+    ##         "Median": {
+    ##             "Amount": [
+    ##                 736038.09
+    ##             ]
+    ##         },
+    ##         "Quantiles": {
+    ##             "Amount": [
+    ##                 243696.13,
+    ##                 2653000
+    ##             ]
+    ##         },
+    ##         "Variance": {
+    ##             "Amount": [
+    ##                 777106882358169
+    ##             ]
+    ##         },
+    ##         "StandardDeviation": {
+    ##             "Amount": [
+    ##                 27876636.8552
+    ##             ]
+    ##         },
+    ##         "Kurtosis": [
+    ##             160.1519
+    ##         ],
+    ##         "Skewness": [
+    ##             11.4762
+    ##         ]
+    ##     },
+    ##     "boxplot": {
+    ##         "Amount": {
+    ##             "lo.whisker": [
+    ##                 -2040680.54
+    ##             ],
+    ##             "lo.hinge": [
+    ##                 243696.13
+    ##             ],
+    ##             "median": [
+    ##                 736038.09
+    ##             ],
+    ##             "up.hinge": [
+    ##                 2653000
+    ##             ],
+    ##             "up.whisker": [
+    ##                 6243113.59
+    ##             ],
+    ##             "box.width": [
+    ##                 11.83
+    ##             ],
+    ##             "lo.out": {
+    ## 
+    ##             },
+    ##             "up.out": {
+    ## 
+    ##             },
+    ##             "n": [
+    ##                 6225
+    ##             ]
+    ##         }
+    ##     },
+    ##     "histogram": {
+    ##         "Amount": {
+    ##             "cuts": [
+    ##                 -50000000,
+    ##                 0,
+    ##                 50000000,
+    ##                 100000000,
+    ##                 150000000,
+    ##                 200000000,
+    ##                 250000000,
+    ##                 300000000,
+    ##                 350000000,
+    ##                 400000000,
+    ##                 450000000,
+    ##                 500000000,
+    ##                 550000000
+    ##             ],
+    ##             "counts": [
+    ##                 46,
+    ##                 6032,
+    ##                 83,
+    ##                 30,
+    ##                 10,
+    ##                 0,
+    ##                 1,
+    ##                 11,
+    ##                 2,
+    ##                 4,
+    ##                 4,
+    ##                 2
+    ##             ],
+    ##             "mean": [
+    ##                 6171229.3658
+    ##             ],
+    ##             "median": [
+    ##                 736038.09
+    ##             ]
+    ##         }
+    ##     },
+    ##     "frequencies": {
+    ##         "frequencies": {
+    ##             "Produktbereich": [
+    ##                 {
+    ##                     "Var1": "Allgemeine Finanzwirtschaft",
+    ##                     "Freq": 101
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Bauen und Wohnen",
+    ##                     "Freq": 193
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Gesundheitsdienste",
+    ##                     "Freq": 207
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Innere Verwaltung",
+    ##                     "Freq": 1737
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Kinder-, Jugend- u. Familienhilfe",
+    ##                     "Freq": 373
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Kultur und Wissenschaft",
+    ##                     "Freq": 346
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Natur- und Landschaftspflege",
+    ##                     "Freq": 256
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Räuml.Planung, Entw., Geoinfo.",
+    ##                     "Freq": 463
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Schulträgeraufgaben",
+    ##                     "Freq": 364
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Sicherheit und Ordnung",
+    ##                     "Freq": 591
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Soziale Leistungen",
+    ##                     "Freq": 663
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Sportförderung",
+    ##                     "Freq": 224
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Stiftungen",
+    ##                     "Freq": 31
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Umweltschutz",
+    ##                     "Freq": 128
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Ver- und Entsorgung",
+    ##                     "Freq": 155
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Verkehrsflächen/-anlagen,ÖPNV",
+    ##                     "Freq": 261
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Wirtschaft und Tourismus",
+    ##                     "Freq": 132
+    ##                 }
+    ##             ]
+    ##         },
+    ##         "relative.frequencies": {
+    ##             "Produktbereich": [
+    ##                 {
+    ##                     "Var1": "Allgemeine Finanzwirtschaft",
+    ##                     "Freq": 0.0162
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Bauen und Wohnen",
+    ##                     "Freq": 0.031
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Gesundheitsdienste",
+    ##                     "Freq": 0.0333
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Innere Verwaltung",
+    ##                     "Freq": 0.279
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Kinder-, Jugend- u. Familienhilfe",
+    ##                     "Freq": 0.0599
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Kultur und Wissenschaft",
+    ##                     "Freq": 0.0556
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Natur- und Landschaftspflege",
+    ##                     "Freq": 0.0411
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Räuml.Planung, Entw., Geoinfo.",
+    ##                     "Freq": 0.0744
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Schulträgeraufgaben",
+    ##                     "Freq": 0.0585
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Sicherheit und Ordnung",
+    ##                     "Freq": 0.0949
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Soziale Leistungen",
+    ##                     "Freq": 0.1065
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Sportförderung",
+    ##                     "Freq": 0.036
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Stiftungen",
+    ##                     "Freq": 0.005
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Umweltschutz",
+    ##                     "Freq": 0.0206
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Ver- und Entsorgung",
+    ##                     "Freq": 0.0249
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Verkehrsflächen/-anlagen,ÖPNV",
+    ##                     "Freq": 0.0419
+    ##                 },
+    ##                 {
+    ##                     "Var1": "Wirtschaft und Tourismus",
+    ##                     "Freq": 0.0212
+    ##                 }
+    ##             ]
+    ##         }
+    ##     },
+    ##     "correlation": {
+    ## 
+    ##     }
+    ## }
+    ## 
 
-OpenCPU Short Guide - DescriptiveStats.OBeu
-===========================================
+`ds.analysis` uses internally the functions `ds.statistics`,`ds.hist`,`ds.boxplot`,`ds.correlation` and `ds.frequency`. However, these functions can be used independently and depends on the user requirements (see package manual or vignettes).
 
-Go to: <http://okfnrg.math.auth.gr/ocpu/test/>
+Descriptive Statistics on OpenBudgets.eu platform
+=================================================
 
-How to use functions:
----------------------
+`open_spending.ds` is designed to estimate and return the basic descriptive measures, the correlation and the boxplot parameters of all the numerical variables and the frequencies of all factor variables of [OpenBudgets.eu](http://openbudgets.eu/) datasets.
 
-Type to the endpoint:
+The input data must be a JSON link according to the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model). There are different parameters that a user could specify, e.g. `dimensions`, `measured.dimensions` and `amounts` should be defined by the user, to form the dimensions of the dataset. Then the basic descriptive measures of tendency and spread, boxplot and histogram parameters are estimated in order to describe and visualize the distribution characteristics of the desired dataset.
+
+`open_spending.ds` estimates and returns the json data that are described with the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model), using `ds.analysis` function.
 
 ``` r
- ../library/ {name of the library} /R/ {function}
+descript = open_spending.ds(
+  json_data =  Wuppertal_openspending, 
+  dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
+  amounts = "Amount"
+  )
+# Pretty output using prettify of jsonlite library
+jsonlite::prettify(descript,indent = 2)
 ```
 
-If you want to see the function parameters you should:
-
--   Select Method:
-
-``` r
-Get
-```
-
-and in order to run a function you should:
-
--   Select Method:
-
-``` r
-Post
-```
-
-The you can push Ajax Request.
-
-Example \#1 - Open Spending-DescriptiveStats
---------------------------------------------
-
-1 Go to <http://okfnrg.math.auth.gr/ocpu/test/>
-
-2 Copy and paste the following function to the endpoint
-
-``` r
-../library/DescriptiveStats.OBeu/R/open_spending.ds
-```
-
-3 *Select Method*:
-
-``` r
-Post
-```
-
-4 **Add parameters** and set:
-
-Define the input time series data:
-
--   *Param Name*:
-
-``` r
-json_data
-```
-
--   *Param Value* -the **URL** of json data:
-
-``` r
-# a link with json file-openspending
-"http://next.openspending.org/api/3/cubes/21260d070eb5d63a121ea4c400dafbbb:apbn_fungsi_2016/facts?pagesize=20" 
-# or use a dataset from the package sample_json_link_openspending or 
-# Wuppertal_openspending
-```
-
-Define the dimensions:
-
--   *Param Name*:
-
-``` r
-dimensions
-```
-
--   *Param Value*:
-
-``` r
-"functional_classification_2.Function|functional_classification_2.Code"
-```
-
-Define the amount parameter:
-
--   *Param Name*:
-
-``` r
-amounts 
-```
-
--   *Param Value*:
-
-``` r
-"Revised"
-```
-
-Define the level of boxplot outliers (*optional*),default is 1.5:
-
--   *Param Name*:
-
-``` r
-coef.outl
-```
-
--   *Param Value*:
-
-``` r
-0.8
-```
-
-Define TRUE/FALSE if outliers should be returned (*optional*),default is TRUE:
-
--   *Param Name*:
-
-``` r
-box.outliers
-```
-
--   *Param Value*:
-
-``` r
-TRUE
-```
-
-Define box width in boxplot (*optional*),default is 0.25\*sqrt(n):
-
--   *Param Name*:
-
-``` r
-box.wdth
-```
-
--   *Param Value*:
-
-``` r
-0.2
-```
-
-Define the correlation method (*cor.method*), default is *"pearson"*:
-
--   *Param Name*:
-
-``` r
-cor.method
-```
-
--   *Param Value* -for example:
-
-``` r
-"spearman" 
-```
-
-5 Ready! Click on **Ajax request**!
-
-6 To see the results:
-
-copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
-
-7 and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
-
-Example \#2 - Rudolf DescriptiveStats
--------------------------------------
-
-1 Go to <http://okfnrg.math.auth.gr/ocpu/test/>
-
-2 Copy and paste the following function to the endpoint
-
-``` r
-../library/DescriptiveStats.OBeu/R/open_spending.ds
-```
-
-3 *Select Method*:
-
-``` r
-Post
-```
-
-4 **Add parameters** and set:
-
-Define the input time series data:
-
--   *Param Name*:
-
-``` r
-json_data
-```
-
--   *Param Value* -the following output from rudolf/ open spending api or you can provide the also **json URL**:
-
-``` r
-# 1. json link
-sample_json_link_rudolf
-```
-
-Define the dimension of the input data (nominal variables):
-
--   *Param Name*:
-
-``` r
-dimensions
-```
-
--   *Param Value*:
-
-``` r
-"global__fiscalPeriod__28951.notation"
-```
-
-Define the measured dimensions parameter (e.g. budgetPhase dimension includes variables that are measurable/numeric variables):
-
--   *Param Name*:
-
-``` r
-measured.dimensions
-```
-
--   *Param Value*:
-
-``` r
-"global__budgetPhase__afd93.prefLabel"
-```
-
-Define the amount parameter:
-
--   *Param Name*:
-
-``` r
-amounts
-```
-
--   *Param Value*:
-
-``` r
-"global__amount__0397f.sum"
-```
-
-Define the level of boxplot outliers (*optional*),default is 1.5:
-
--   *Param Name*:
-
-``` r
-coef.outl
-```
-
--   *Param Value*:
-
-``` r
-0.8
-```
-
-Define TRUE/FALSE if outliers should be returned (*optional*),default is TRUE:
-
--   *Param Name*:
-
-``` r
-box.outliers
-```
-
--   *Param Value*:
-
-``` r
-TRUE
-```
-
-Define box width in boxplot (*optional*),default is 0.25\*sqrt(n):
-
--   *Param Name*:
-
-``` r
-box.wdth
-```
-
--   *Param Value*:
-
-``` r
-0.2
-```
-
-Define the correlation method (*cor.method*), default is *"pearson"*:
-
--   *Param Name*:
-
-``` r
-cor.method
-```
-
--   *Param Value* -for example:
-
-``` r
-"spearman" 
-```
-
-5 Ready! Click on **Ajax request**!
-
-6 To see the results:
-
-copy the */ocpu/tmp/{this}/R/.val* (the first choice on the right panel)
-
-7 and paste <http://okfnrg.math.auth.gr/ocpu/tmp/> {this} /R/.val on a new tab.
-
-Further Details:
-================
-
--   <https://www.opencpu.org/help.html>
-
--   <https://cran.r-project.org/web/packages/opencpu/vignettes/opencpu-server.pdf>
-
--   <https://www.opencpu.org/jslib.html>
-
-Github:
-=======
-
--   <https://github.com/okgreece/DescriptiveStats.OBeu> <img src="okfgr2.png" align="right" />
+    ## {
+    ##   "descriptives": {
+    ##     "Min": {
+    ##       "Amount": [
+    ##         533.21
+    ##       ]
+    ##     },
+    ##     "Max": {
+    ##       "Amount": [
+    ##         2997043.49
+    ##       ]
+    ##     },
+    ##     "Range": {
+    ##       "Amount": [
+    ##         2996510.28
+    ##       ]
+    ##     },
+    ##     "Mean": {
+    ##       "Amount": [
+    ##         659132.4457
+    ##       ]
+    ##     },
+    ##     "Median": {
+    ##       "Amount": [
+    ##         476400.565
+    ##       ]
+    ##     },
+    ##     "Quantiles": {
+    ##       "Amount": [
+    ##         313924.26,
+    ##         656962.815
+    ##       ]
+    ##     },
+    ##     "Variance": {
+    ##       "Amount": [
+    ##         469375540712.697
+    ##       ]
+    ##     },
+    ##     "StandardDeviation": {
+    ##       "Amount": [
+    ##         685109.8749
+    ##       ]
+    ##     },
+    ##     "Kurtosis": [
+    ##       5.7675
+    ##     ],
+    ##     "Skewness": [
+    ##       2.5221
+    ##     ]
+    ##   },
+    ##   "boxplot": {
+    ##     "Amount": {
+    ##       "lo.whisker": [
+    ##         533.21
+    ##       ],
+    ##       "lo.hinge": [
+    ##         306296.49
+    ##       ],
+    ##       "median": [
+    ##         476400.565
+    ##       ],
+    ##       "up.hinge": [
+    ##         658308.4
+    ##       ],
+    ##       "up.whisker": [
+    ##         1185907.2
+    ##       ],
+    ##       "box.width": [
+    ##         1.5
+    ##       ],
+    ##       "lo.out": [
+    ## 
+    ##       ],
+    ##       "up.out": [
+    ##         2954238.51,
+    ##         2979998.49,
+    ##         2992244.95,
+    ##         2916160.36,
+    ##         2885816.5,
+    ##         2997043.49,
+    ##         2875275.56,
+    ##         1252420.49,
+    ##         1248584.45
+    ##       ],
+    ##       "n": [
+    ##         100
+    ##       ]
+    ##     }
+    ##   },
+    ##   "histogram": {
+    ##     "Amount": {
+    ##       "cuts": [
+    ##         0,
+    ##         500000,
+    ##         1000000,
+    ##         1500000,
+    ##         2000000,
+    ##         2500000,
+    ##         3000000
+    ##       ],
+    ##       "counts": [
+    ##         54,
+    ##         32,
+    ##         7,
+    ##         0,
+    ##         0,
+    ##         7
+    ##       ],
+    ##       "mean": [
+    ##         659132.4457
+    ##       ],
+    ##       "median": [
+    ##         476400.565
+    ##       ]
+    ##     }
+    ##   },
+    ##   "frequencies": {
+    ##     "frequencies": {
+    ##       "functional_classification_3.Produktgruppe": [
+    ##         {
+    ##           "Var1": "",
+    ##           "Freq": 2
+    ##         },
+    ##         {
+    ##           "Var1": "(entfallen in 2013) Geschäftsbereichsleitung GB 1.1 ",
+    ##           "Freq": 5
+    ##         },
+    ##         {
+    ##           "Var1": "Beschäftigtenvertretung",
+    ##           "Freq": 1
+    ##         },
+    ##         {
+    ##           "Var1": "Bezirksvertretungen",
+    ##           "Freq": 7
+    ##         },
+    ##         {
+    ##           "Var1": "Geschäftsbereichsleitung GB 1",
+    ##           "Freq": 15
+    ##         },
+    ##         {
+    ##           "Var1": "Geschäftsbereichsleitung GB 2.1",
+    ##           "Freq": 7
+    ##         },
+    ##         {
+    ##           "Var1": "Geschäftsbereichsleitung GB 2.2",
+    ##           "Freq": 7
+    ##         },
+    ##         {
+    ##           "Var1": "Geschäftsbereichsleitung GB 4",
+    ##           "Freq": 28
+    ##         },
+    ##         {
+    ##           "Var1": "Gleichstellung von Frau und Mann",
+    ##           "Freq": 7
+    ##         },
+    ##         {
+    ##           "Var1": "Politische Gremien",
+    ##           "Freq": 7
+    ##         },
+    ##         {
+    ##           "Var1": "Verwaltungsführung",
+    ##           "Freq": 14
+    ##         }
+    ##       ],
+    ##       "date_2.Year": [
+    ##         {
+    ##           "Var1": "2009",
+    ##           "Freq": 16
+    ##         },
+    ##         {
+    ##           "Var1": "2010",
+    ##           "Freq": 15
+    ##         },
+    ##         {
+    ##           "Var1": "2011",
+    ##           "Freq": 14
+    ##         },
+    ##         {
+    ##           "Var1": "2012",
+    ##           "Freq": 14
+    ##         },
+    ##         {
+    ##           "Var1": "2013",
+    ##           "Freq": 15
+    ##         },
+    ##         {
+    ##           "Var1": "2014",
+    ##           "Freq": 13
+    ##         },
+    ##         {
+    ##           "Var1": "2015",
+    ##           "Freq": 13
+    ##         }
+    ##       ]
+    ##     },
+    ##     "relative.frequencies": {
+    ##       "functional_classification_3.Produktgruppe": [
+    ##         {
+    ##           "Var1": "",
+    ##           "Freq": 0.02
+    ##         },
+    ##         {
+    ##           "Var1": "(entfallen in 2013) Geschäftsbereichsleitung GB 1.1 ",
+    ##           "Freq": 0.05
+    ##         },
+    ##         {
+    ##           "Var1": "Beschäftigtenvertretung",
+    ##           "Freq": 0.01
+    ##         },
+    ##         {
+    ##           "Var1": "Bezirksvertretungen",
+    ##           "Freq": 0.07
+    ##         },
+    ##         {
+    ##           "Var1": "Geschäftsbereichsleitung GB 1",
+    ##           "Freq": 0.15
+    ##         },
+    ##         {
+    ##           "Var1": "Geschäftsbereichsleitung GB 2.1",
+    ##           "Freq": 0.07
+    ##         },
+    ##         {
+    ##           "Var1": "Geschäftsbereichsleitung GB 2.2",
+    ##           "Freq": 0.07
+    ##         },
+    ##         {
+    ##           "Var1": "Geschäftsbereichsleitung GB 4",
+    ##           "Freq": 0.28
+    ##         },
+    ##         {
+    ##           "Var1": "Gleichstellung von Frau und Mann",
+    ##           "Freq": 0.07
+    ##         },
+    ##         {
+    ##           "Var1": "Politische Gremien",
+    ##           "Freq": 0.07
+    ##         },
+    ##         {
+    ##           "Var1": "Verwaltungsführung",
+    ##           "Freq": 0.14
+    ##         }
+    ##       ],
+    ##       "date_2.Year": [
+    ##         {
+    ##           "Var1": "2009",
+    ##           "Freq": 0.16
+    ##         },
+    ##         {
+    ##           "Var1": "2010",
+    ##           "Freq": 0.15
+    ##         },
+    ##         {
+    ##           "Var1": "2011",
+    ##           "Freq": 0.14
+    ##         },
+    ##         {
+    ##           "Var1": "2012",
+    ##           "Freq": 0.14
+    ##         },
+    ##         {
+    ##           "Var1": "2013",
+    ##           "Freq": 0.15
+    ##         },
+    ##         {
+    ##           "Var1": "2014",
+    ##           "Freq": 0.13
+    ##         },
+    ##         {
+    ##           "Var1": "2015",
+    ##           "Freq": 0.13
+    ##         }
+    ##       ]
+    ##     }
+    ##   },
+    ##   "correlation": {
+    ## 
+    ##   }
+    ## }
+    ##
