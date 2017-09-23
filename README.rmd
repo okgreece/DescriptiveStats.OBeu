@@ -23,7 +23,7 @@ output:
 This package can generally be used to extract visualization parameters convert them to JSON format and use them as input in a different graphical interface. Most functions can have general use out of the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
 
 ```{r, eval=FALSE, include=TRUE}
-# install DescriptiveStats.OBeu
+# install DescriptiveStats.OBeu- cran stable version
 install.packages(DescriptiveStats.OBeu) 
 # or
 # alternatively install the development version from github
