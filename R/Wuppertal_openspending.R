@@ -1,7 +1,7 @@
 #' Wuppertal Fiscal Data extracted from Open Spending API
 #' 
 #' @description 
-#' This dataset contains the the budget for wuppertal for 2009 to 2018, as extracted in 2014-2015.
+#' This dataset contains the budget of wuppertal for 2009 to 2020
 #' 
 #' \itemize{
 #'   \item The product ID

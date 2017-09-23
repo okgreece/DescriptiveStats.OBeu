@@ -32,9 +32,6 @@
 #'          `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
 #' ds.correlation(Matrix, cor.method = "kendall", tojson=TRUE)
 #' 
-#' # OpenBudgets.eu Dataset Example:
-#' Wuppertal_df
-#' ds.correlation(Wuppertal_df, cor.method = "pearson", tojson = FALSE)
 #'
 #' @rdname ds.correlation
 #' 

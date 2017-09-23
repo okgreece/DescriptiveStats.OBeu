@@ -1,0 +1,200 @@
+---
+title: "DescriptiveStats in OpenBudget.eu"
+author: "Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`DescriptiveStats.OBeu` is used on [OpenBudgets.eu](http://openbudgets.eu/tools/) data mininig tool platform with [OpenCPU integration of R and JavaScript](https://www.opencpu.org/) to estimate central tendency and dispersion of numeric variables along with their distributions and correlations and the frequencies of categorical dimensions for budget or expenditure datasets of Municipality across Europe.
+
+The vignette shows the way `DescriptiveStats.OBeu` (in R and OpenCPU environment) is fitted with datasets of [OpenBudgets.eu](http://openbudgets.eu) according to the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model). Detailed documentation about OpenBudgets.eu data model can be found [here](http://openbudgets.eu/assets/deliverables/D1.4.pdf)
+
+The input and the resulted object are in json format.
+
+First you have to load the library
+```{r load, warning=FALSE, include=TRUE}
+# load DescriptiveStats.OBeu
+library(DescriptiveStats.OBeu)
+```
+
+# Descriptive Statistics on OpenBudgets.eu platform
+
+`open_spending.ds` is designed to estimate and return the basic descriptive measures, correlation, histogram and boxplot parameters of all the numerical variables and the frequencies of all the nominal variables of [OpenBudgets.eu](http://openbudgets.eu/) datasets. 
+
+The input data must be a JSON link that are described with the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model). There are different parameters that a user could specify, e.g. `dimensions`, `measured.dimensions` and `amounts` should be defined by the user, to form the dimensions of the dataset. The basic descriptive measures of tendency and spread, boxplot and histogram parameters are estimated, in order to describe and visualize the distribution characteristics of the desired dataset.
+
++--------------------+--------------------------------------------------------------------------------------------+
+| Input              | Description                                                                                |
++====================+============================================================================================+
+| json_data          | The json string, URL or file from Open Spending API                                        |
++--------------------+--------------------------------------------------------------------------------------------+
+| dimensions         | The dimensions of the input data                                                           |
++--------------------+--------------------------------------------------------------------------------------------+
+| amounts            | The measures of the input data                                                             |
++--------------------+--------------------------------------------------------------------------------------------+
+| measured.dimensions| The dimensions to which correspond amount/numeric variables                                |
++--------------------+--------------------------------------------------------------------------------------------+
+| coef.outl          | Determines the length of the "whiskers" plot. Default is 1.5.                              |
++--------------------+--------------------------------------------------------------------------------------------+
+| box.outliers       | If TRUE the outliers will be computed at the selected "coef.outl" level                    |
++--------------------+--------------------------------------------------------------------------------------------+
+| box.width          | The width level is determined 0.15 times the square root of the size of the input data.    |
++--------------------+--------------------------------------------------------------------------------------------+
+| cor.method         | The correlation coefficient method to compute: "pearson" (default),"kendall" or "spearman".|
++--------------------+--------------------------------------------------------------------------------------------+
+| freq.select        | One or more nominal variables to calculate their corresponding frequencies.                |
++--------------------+--------------------------------------------------------------------------------------------+
+
+Table: `open_spending.ds` input 
+
+## Pre-processing of input
+
+**DescriptiveStats.OBeu** includes functions that automatically calculates the central tendency and spread measures, the boxplot, histogram and barplot visualization parameters and the correlation matrix of the input fiscal dataset. 
+
+The final returns are the parameters needed for forming summary tables of central tendency and dispersion measures and visualizing boxplot, histogram, barplot and correlation matrix of the input data.
+
+## Central Tendency Measures
+
+Central Tendency Measures describe the central position of a [distribution](https://en.wikipedia.org/wiki/Probability_distribution) for a group of data. 
+The basic measures are the mean and the median.
+
+## Dispersion Measures (Measures of Spread)
+
+Dispersion measures describe how similar or varied the data are. The range, quartiles and the interquartile range, variance and standard deviation are measures of spread.
+
+# Output
+
+The output of this process is a list in json format divided into four components of parameters and results with the first subcomponents.
+
+Here is a sort description of the outputs in each function:
+
+
++---------------+------------------------+-----------------------------------------------------------+
+| Function      | Output                 | Description                                               |
++===============+========================+===========================================================+
+| `statistics`  | - Min                  | - The minimum observed value of the input data            |
+|               | - Max                  | - The maximum observed value of the input data            |
+|               | - Range                | - The difference between maximum and minimum              |
+|               | - Mean                 | - The average value of the input data                     |
+|               | - Median               | - The median value of the input data                      |
+|               | - Quantiles            | - The 25%, 75% percentiles                                |
+|               | - Variance             | - The variance of the input data                          |
+|               | - StandardDeviation    | - The standard deviation of the input data                |
+|               | - Skewness             | - The Skewness of the input data                          |
+|               | - Kurtosis             | - The Kurtosis of the input data                          |
++---------------+------------------------+-----------------------------------------------------------+
+| `boxplot`     | - lo.whisker           | - Lower horizontal line out of the box                    |
+|               | - lo.hinge             | - Lower horizontal line of the box                        |
+|               | - median               | - Horizontal line in the box                              |
+|               | - up.hinge             | - Upper horizontal line of the box                        |
+|               | - up.whisker           | - Upper horizontal line out of the box                    |
+|               | - box.width            | - The box width of each variable                          |
+|               | - lo.out               | - Lower outliers                                          |
+|               | - up.out               | - Upper outliers                                          |
+|               | - n                    | - The number of non-NA observations                       |
++---------------+------------------------+-----------------------------------------------------------+
+| `histogram`   | - cuts                 | - The boundaries of the histogram classes                 |
+|               | - counts               | - The frequency of each histogram class                   |
+|               | - mean                 | - The average value of the input vector                   |
+|               | - median               | - The median value of the input data                      |
++---------------+------------------------+-----------------------------------------------------------+
+| `frequencies` | - Variable name        | - The name of the calculated variable                     |
+|               | - frequencies          | - The frequency value                                     |
+|               | - "_row"               | - Name of the categories of the variable                  |
+|               | - relative.frequencies | - Relative frequency values                               |
++---------------+------------------------+-----------------------------------------------------------+
+| `correlation` | - Variable name        | - The name of the calculated variable                     |
+|               | - Correlation value    | - The correlation value                                   |
+|               | - "_row"               | - The corresponding correlation variable                  |
++---------------+------------------------+-----------------------------------------------------------+
+
+Table: `open_spending.ds` return
+
+# Examples
+
+Simple examples for each function are provided, in order for the user to understand the use and how to deal with these functions.
+
+In some examples specific columns of the dataset are selected in order for smaller amount of results to be presented.
+The dataset that is being used is available as json link in DescriptiveStats.OBeu package and represents the budget for Wuppertal for 2009 to 2020.
+
+## In R environment
+
+`open_spending.ds` function's input are data as json link and described with [OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
+
+```{r data}
+Wuppertal_openspending
+```
+
+```{r open_spending}
+descript = open_spending.ds(
+  json_data =  Wuppertal_openspending, 
+  dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
+  amounts = "Amount"
+  )
+# Pretty output using prettify of jsonlite library
+jsonlite::prettify(descript)
+```
+
+## In OpenCPU environment
+
+### Select library and function
+
+1. Go to: yourserver/ocpu/test
+
+2. Copy and paste the following function to the endpoint 
+```{r, eval=FALSE, include=TRUE}
+../library/DescriptiveStats.OBeu/R/open_spending.ds
+# library/ {name of the library} /R/ {function}
+```
+
+3. **Select Method**: **`Post`**
+
+### Add parameters 
+
+Click **add parameters** every time you want to add a new parameters and values.
+
+4. Define the input data:
+
+    - **Param Name**: **`json_data`**
+    - **Param Value** (*URL* of json data): **`"http://next.openspending.org/api/3/cubes/21260d070eb5d63a121ea4c400dafbbb:apbn_fungsi_2016/facts?pagesize=20"`** 
+    (or any other json URL with the data)
+
+5. Define the *dimensions* parameter:
+
+    - **Param Name**: **`dimensions`**
+    - **Param Value**: **`"functional_classification_2.Function|functional_classification_2.Code"`**
+
+
+6. Define the *amount* parameter:
+
+    - **Param Name**: **`amounts`**
+    - **Param Value**: **`"Revised"`**
+
+
+You add likewise further parameters and change the default parameters of `coef.outl`, `box.outliers`, `box.wdth`, `cor.method`, see DesciptiveStats.OBeu *reference manual* for further details.
+
+
+7. Ready! Click on **Ajax request**!
+
+## Results
+
+8. copy the **/ocpu/tmp/{this_id_number}/R/.val** (second on the right panel)
+
+9. finally, paste **`yourserver/ocpu/tmp/{this_id_number}/R/.val`** on a new tab.
+
+
+# Further Details
+
++ [HTTP in OpenCPU](https://www.opencpu.org/api.html)
++ [OpenCPU Help](https://www.opencpu.org/help.html)
++ [OpenCPU JavaScript Client](https://www.opencpu.org/jslib.html)
++ [OpenCPU on CRAN](https://cran.r-project.org/package=opencpu)
+
+# Github
++ [OpenCPU package *development version*](https://github.com/opencpu/opencpu)
++ [DescriptiveStats.OBeu package *development version*](https://github.com/okgreece/DescriptiveStats.OBeu)
+

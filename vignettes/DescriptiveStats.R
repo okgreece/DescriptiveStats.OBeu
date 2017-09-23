@@ -1,38 +1,44 @@
-## ------------------------------------------------------------------------
+## ----load, warning=FALSE, include=TRUE-----------------------------------
+# load DescriptiveStats.OBeu
 library(DescriptiveStats.OBeu)
-ds.statistics(Wuppertal_df[,-4])
 
-## ------------------------------------------------------------------------
-histogram <- ds.hist(Wuppertal_df$Amount)
-histogram
+## ---- echo=FALSE, include = TRUE-----------------------------------------
+str(Wuppertal_df)
 
-## ------------------------------------------------------------------------
-str(histogram)
+## ----analysis------------------------------------------------------------
+wuppertalanalysis = ds.analysis(Wuppertal_df,outliers=FALSE, fr.select = "Produktbereich", tojson=TRUE) # json string format
+jsonlite::prettify(wuppertalanalysis) # use prettify of jsonlite library to add indentation to the returned JSON string
 
-## ------------------------------------------------------------------------
-ds.boxplot(Wuppertal_df$Amount,out.level = 0)
+## ----descriptive stats---------------------------------------------------
+ds.statistics(Wuppertal_df) # list format
 
-## ------------------------------------------------------------------------
-ds.correlation(Wuppertal_df)
+## ----descriptive stats to json-------------------------------------------
+wuppertalstats = ds.statistics(Wuppertal_df, tojson = TRUE) # json  format
+jsonlite::prettify(wuppertalstats) # use prettify of jsonlite library to add indentation to the returned JSON string
 
-## ------------------------------------------------------------------------
-ds.frequency(Wuppertal_df[,2:3])
+## ----hist----------------------------------------------------------------
+ds.hist(Wuppertal_df$Amount, breaks= "Sturges") # list format
 
-## ------------------------------------------------------------------------
-ds.kurtosis(Wuppertal_df)
+## ----hist json-----------------------------------------------------------
+wuppertalhist = ds.hist(Wuppertal_df$Amount, breaks= "Sturges", tojson=TRUE) # json  format
+jsonlite::prettify(wuppertalhist) # use prettify of jsonlite library to add indentation to the returned JSON string
 
-## ------------------------------------------------------------------------
-ds.skewness(Wuppertal_df)
+## ----boxplot json--------------------------------------------------------
+wuppertalbox = ds.boxplot(Wuppertal_df, width = 0.15 , outl = FALSE, tojson=TRUE) # json  format
+jsonlite::prettify(wuppertalbox) # use prettify of jsonlite library to add indentation to the returned JSON string
 
-## ------------------------------------------------------------------------
-Wuppertal_openspending
 
-## ------------------------------------------------------------------------
-descript = open_spending.ds(
-  json_data =  Wuppertal_openspending, 
-  dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
-  amounts = "Amount"
-  )
-# Pretty output using prettify of jsonlite library
-jsonlite::prettify(descript,indent = 2)
+## ----correlation json----------------------------------------------------
+iriscorr = ds.correlation(iris, cor.method="pearson", tojson=TRUE) # json format
+jsonlite::prettify(iriscorr) # use prettify of jsonlite library to add indentation to the returned JSON string
+
+## ----frequency-----------------------------------------------------------
+wuppertalfreq = ds.frequency(Wuppertal_df$Produktbereich, tojson = TRUE)
+jsonlite::prettify(wuppertalfreq) # use prettify of jsonlite library to add indentation to the returned JSON string
+
+## ----kurtosis------------------------------------------------------------
+ds.kurtosis(Wuppertal_df$Amount, tojson=TRUE)
+
+## ----skewness------------------------------------------------------------
+ds.skewness(Wuppertal_df$Amount, tojson=TRUE)
 

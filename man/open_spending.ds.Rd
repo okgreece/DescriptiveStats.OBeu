@@ -34,7 +34,7 @@ If it is equal to zero no outliers will be returned.}
 A json string with the resulted parameters of the \code{\link{ds.analysis}} function.
 }
 \description{
-Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
+Extract and analyze the input data provided from Open Spending API of OpenBudgets.eu, using the ds.analysis function.
 }
 \details{
 This function is used to read data in json format from Open Spending and Rudolf APIs., in order to implement 

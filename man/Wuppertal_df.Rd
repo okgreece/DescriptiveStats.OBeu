@@ -8,7 +8,7 @@
 http://next.openspending.org/api/3/cubes/4b6d969e07ef7a86aa54e539fc127a14:wuppertalhaushalt/facts
 }
 \description{
-This dataset contains the the budget for wuppertal for 2009 to 2018, as extracted in 2014-2015. 
+This dataset contains the budget of wuppertal for 2009 to 2020 
 
 \itemize{
   \item The product ID

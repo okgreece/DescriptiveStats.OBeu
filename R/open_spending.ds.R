@@ -2,7 +2,7 @@
 #' Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending and Rudolf APIs.
 #'  
 #' @description
-#' Extract and analyze the input data provided from Open Spending API, using the ds.analysis function.
+#' Extract and analyze the input data provided from Open Spending API of OpenBudgets.eu, using the ds.analysis function.
 #' 
 #' @usage open_spending.ds(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
 #' coef.outl=1.5, box.outliers=T, box.wdth=0.15,
