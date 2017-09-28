@@ -38,12 +38,12 @@ A list or json file with the following components:
 }
 }
 \description{
-The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all 
+The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all
 the numerical variables and the frequencies of all the nominal variables.
 }
 \details{
 This function returns a list with the basic statistics, the parameters needed to visualize a boxplot
-and a histogram, it also provides the frequencies of non numerical data of the input dataset and the correlation 
+and a histogram, it also provides the frequencies of non numerical data of the input dataset and the correlation
 coefficient. The input of this function can be a matrix or data frame.
 }
 \examples{

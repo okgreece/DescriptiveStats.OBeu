@@ -1,6 +1,13 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^ReadMe.md$
-^C:\Users\Kleanthis-Okf\Documents\DescriptiveStats\.OBeu\docs$
 ^_pkgdown\.yml$
+^index\.rmd$
 ^pkgdown$
+^NEWS\.rmd$
+^NEWS\.html$
+^NEWS\.txt$
+^README\.rmd$
+^obeu_logo\.png$
+^okfgr2\.png$
+^.travis\.yml$
+^docs$
