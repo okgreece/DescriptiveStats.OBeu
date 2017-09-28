@@ -4,7 +4,11 @@ Title: Descriptive Statistics OpenBudgets.eu
 Version: 1.2.1
 Date: 2017-09-16
 Description: Estimate and return the needed parameters for visualizations designed for OpenBudgets.eu <http://openbudgets.eu/> datasets. Calculate descriptive statistical measures in Budget data of municipalities across Europe, according to the OpenBudgets.eu data model. There are functions for measuring central tendency and dispersion of amount variables along with their distributions and correlations and the frequencies of categorical variables for a given dataset of the input OpenBudgets.eu fiscal datasets. Also, can be used generally to extract visualization parameters convert them to JSON format and use them as input in a different graphical interface. 
-Author: Kleanthis Koupidis <koupidis@okfn.gr>, Aikaterini Chatzopoulou <kchatzopoul@okfn.gr>,  Charalampos Bratsas <charalampos.bratsas@okfn.org>
+Authors@R: c(
+    person("Kleanthis", "Koupidis", , "koupidis@okfn.gr", role = c("aut", "cre")),
+    person("Aikaterini", "Chatzopoulou", , "kchatzopoul@okfn.gr", role = "aut"),
+    person("Charalampos", "Bratsas", , "charalampos.bratsas@okfn.org", role = "aut")
+    )
 Maintainer: Kleanthis Koupidis <koupidis@okfn.gr>
 URL: https://github.com/okgreece/DescriptiveStats.OBeu
 BugReports: https://github.com/okgreece/DescriptiveStats.OBeu/issues
@@ -16,3 +20,4 @@ RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)

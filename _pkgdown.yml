@@ -1,0 +1,61 @@
+template:
+  - assets: C:/Users/Kleanthis-Okf/Documents/DescriptiveStats.OBeu/pkgdown/extra.css
+navbar:
+  title: ""
+  left:
+    - text: "Home"
+      icon:  fa-home
+      href: index.html
+    - text: "Function Reference"
+      icon:   fa-info-circle
+      href: reference/index.html
+    - text: "Vignettes"
+      icon:  fa-book
+      href: articles/index.html
+      menu:
+        - text: "Getting started with DescriptiveStats.OBeu"
+          href: articles/DescriptiveStats.html
+        - text: "DescriptiveStats in OpenBudget.eu"
+          href: articles/DescriptiveStatsObeu.html
+        - text: "Using DescriptiveStats.OBeu with OpenCPU"
+          href: articles/DescriptiveStatsOPENCPU.html
+    - text: "News"
+      icon: fa-newspaper-o
+      href: news/index.html
+      
+  right:
+    - icon: fa-github
+      href: https://github.com/okgreece/DescriptiveStats.OBeu
+reference:
+  - title: "Core Functions"
+    contents: 
+      - ds.box
+      - ds.boxplot
+      - ds.correlation
+      - ds.frequency
+      - ds.hist
+      - ds.kurtosis
+      - ds.skewness
+      - ds.statistics
+      - nums
+      
+  - title: "Descriptive Statistics"
+    contents: 
+      - ds.analysis
+      
+  - title: "Open Budgets"
+    contents: 
+      - open_spending.ds
+      
+  - title: "Data"
+    contents:
+      - sample_json_link_openspending
+      - Wuppertal_openspending
+      - Wuppertal_df
+authors:
+  Kleanthis Koupidis:
+    href: https://github.com/kleanthisk10
+  Aikaterini Chatzopoulou:
+    href: https://github.com/katerinachat
+  Charalampos Bratsas:
+    href: https://github.com/cbratsas

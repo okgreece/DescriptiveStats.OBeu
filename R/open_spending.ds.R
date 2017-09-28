@@ -1,5 +1,5 @@
 #' @title 
-#' Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending and Rudolf APIs.
+#' Read and Calculate the Basic Descriptive Statistics on OpenBudgets.eu data
 #'  
 #' @description
 #' Extract and analyze the input data provided from Open Spending API of OpenBudgets.eu, using the ds.analysis function.
