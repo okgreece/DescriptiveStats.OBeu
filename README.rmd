@@ -17,11 +17,11 @@ output:
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.1-6666ff.svg)](https://cran.r-project.org/)
 [![Licence](https://img.shields.io/badge/licence-GPL--2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
-#DescriptiveStats.OBeu 
+#[DescriptiveStats.OBeu ](https://okgreece.github.io/DescriptiveStats.OBeu/)
 Εstimate and return the necessary parameters for descriptive statistics visualizations, used in [OpenBudgets.eu](http://openbudgets.eu/). It includes functions for measuring central tendency and dispersion of amount variables along with their distributions and correlations and the frequencies of categorical variables for Budget data of municipalities across Europe, according to the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
 
 This package can generally be used to extract visualization parameters convert them to JSON format and use them as input in a different graphical interface. Most functions can have general use out of the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
-
+You can see detailed information [here](https://okgreece.github.io/DescriptiveStats.OBeu/).
 ```{r, eval=FALSE, include=TRUE}
 # install DescriptiveStats.OBeu- cran stable version
 install.packages(DescriptiveStats.OBeu) 
