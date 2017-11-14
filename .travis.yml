@@ -18,9 +18,10 @@ r_packages:
  - grDevices
  - jsonlite
  - reshape
-apt_packages:
-  - libxml2-dev
-sudo: required
+addons:
+  apt:
+    packages:
+      - libxml2-dev
 warnings_are_errors: false
 after_success:
   - Rscript -e 'covr::codecov()'
