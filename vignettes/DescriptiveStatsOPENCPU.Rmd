@@ -97,9 +97,8 @@ Click **add parameters** every time you want to add a new parameters and values.
 
 4. Define the input data:
 
-    - **Param Name**: **`json_data`**
-    - **Param Value** (*URL* of json data): **`Wuppertal_df`** 
-    (or any other json URL with the data)
+    - **Param Name**: **`data`**
+    - **Param Value**: **`Wuppertal_df`** 
 
 5. Define the *outliers* parameter(optional):
 

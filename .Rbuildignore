@@ -11,5 +11,4 @@
 ^okfgr2\.png$
 ^.travis\.yml$
 ^docs$
-^.DescriptiveStatsObeu\.R
-^.DescriptiveStatsOPENCPU\.R
+^DescriptiveStats\.OBeu\.pdf$

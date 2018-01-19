@@ -116,9 +116,6 @@ Table: `open_spending.ds` return
 
 # Examples
 
-Simple examples for each function are provided, in order for the user to understand the use and how to deal with these functions.
-
-In some examples specific columns of the dataset are selected in order for smaller amount of results to be presented.
 The dataset that is being used is available as json link in DescriptiveStats.OBeu package and represents the budget for Wuppertal for 2009 to 2020.
 
 ## In R environment
