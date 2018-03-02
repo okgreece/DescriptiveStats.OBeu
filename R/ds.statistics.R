@@ -28,7 +28,7 @@
 #' \item Kurtosis The Kurtosis of the input data
 #' }
 #' 
-#' @author Aikaterini Chatzopoulou, Kleanthis Koupidis
+#' @author Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas
 #' 
 #' @seealso \code{\link{open_spending.ds}}
 #' 
@@ -63,11 +63,11 @@ ds.statistics <- function(data, tojson=FALSE)
   
   # Calculation of statistics
   min <- lapply(data.num, min)
-
+  
   max <- lapply(data.num, max)
   
   range <- as.list(unlist(max)-unlist(min))
-
+  
   mean <- lapply(data.num, mean)
   
   median <- lapply(data.num, median)
@@ -81,7 +81,7 @@ ds.statistics <- function(data, tojson=FALSE)
   skewness <- ds.skewness(data.num)
   
   q <- lapply(data.num, stats::quantile, probs=c(0.25,0.75) ) 
-
+  
   # construction of dataframe with all the statistics
   statistics<-list(Min=min, Max=max,Range=range, Mean=mean, Median=median, 
                    Quantiles=q,Variance=var, StandardDeviation=stdev,
@@ -91,7 +91,7 @@ ds.statistics <- function(data, tojson=FALSE)
     
     statistics=jsonlite::toJSON(statistics)
   }
-
+  
   # Return
   return(statistics)
 }

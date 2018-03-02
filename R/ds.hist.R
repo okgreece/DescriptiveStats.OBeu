@@ -12,8 +12,8 @@
 #' @param tojson If TRUE the results are returned in json format, default returns a list
 #' 
 #' @details 
-#' The possible values for breaks are Sturges see \code{\link[grDevices]{nclass.Sturges}}, 
-#' Scott see \code{\link[grDevices]{nclass.scott}} and FD or Freedman Diaconis \code{\link[grDevices]{nclass.FD}}
+#' The possible values for breaks are Sturges see \code{\link{nclass.Sturges}}, 
+#' Scott see \code{\link{nclass.scott}} and FD or Freedman Diaconis \code{\link{nclass.FD}}
 #' which are in package \pkg{grDevices}.
 #' 
 #' 
@@ -30,7 +30,7 @@
 #' \item median The median value of the input data
 #' } 
 #' 
-#' @author Kleanthis Koupidis
+#' @author Kleanthis Koupidis, Charalampos Bratsas
 #' 
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
@@ -49,15 +49,15 @@
 ds.hist <- function(x, breaks= "Sturges", tojson=FALSE) {
   
   x = as.numeric(unlist(x))
-
+  
   histog=graphics::hist(x,probability = F,plot = F,warn.unused = F)
   
   hist.param = list(
-                 cuts = histog$breaks,
-                 counts = histog$counts,
-                 mean = mean(x),
-                 median = stats::median(x)
-               )
+    cuts = histog$breaks,
+    counts = histog$counts,
+    mean = mean(x),
+    median = stats::median(x)
+  )
   
   if (tojson==T){
     

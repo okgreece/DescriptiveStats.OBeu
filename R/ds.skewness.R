@@ -42,7 +42,7 @@
 ds.skewness <- function(x, tojson=FALSE)
 {
   data <- as.data.frame(x)
-
+  
   # only numeric data
   data.num<-nums(data)
   

@@ -12,7 +12,7 @@
 #' @details 
 #' This function returns the kurtosis, based on a scaled version of the fourth moment, of numbers of the input data.
 #' 
-#' @author Aikaterini Chatzopoulou
+#' @author Aikaterini Chatzopoulou, Charalampos Bratsas
 #' 
 #' @seealso \code{\link{ds.skewness}}, \code{\link{ds.statistics}}, 
 #' \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
@@ -49,7 +49,7 @@ ds.kurtosis <- function(x, tojson=FALSE)
   # calculation
   mean <- apply(data.num,2,mean)
   sd <- apply(data.num, 2, sd)
-
+  
   sd4 <- sapply(sd,function(x) x^4)
   
   data.num[,1:ncol(data.num)] <- sweep(data.num,2,mean)
@@ -58,7 +58,7 @@ ds.kurtosis <- function(x, tojson=FALSE)
   sum <- apply(mult, 2, sum)
   m4 <- sum / nrow(data.num)
   kurtosis <- (m4/sd4)-3
-
+  
   
   if (tojson==T){
     
