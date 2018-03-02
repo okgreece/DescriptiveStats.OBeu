@@ -2,7 +2,7 @@
 % Please edit documentation in R/open_spending.ds.R
 \name{open_spending.ds}
 \alias{open_spending.ds}
-\title{Read and Calculate the Basic Descriptive Statistics on OpenBudgets.eu data}
+\title{Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending and Rudolf APIs.}
 \usage{
 open_spending.ds(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
 coef.outl=1.5, box.outliers=T, box.wdth=0.15,

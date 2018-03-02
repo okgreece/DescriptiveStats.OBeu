@@ -40,5 +40,5 @@ ds.kurtosis(Wuppertal_df[,-4], tojson = FALSE)
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 \author{
-Aikaterini Chatzopoulou
+Aikaterini Chatzopoulou, Charalampos Bratsas
 }

@@ -55,5 +55,5 @@ ds.statistics(Wuppertal_df$Amount, tojson = TRUE)
 \code{\link{open_spending.ds}}
 }
 \author{
-Aikaterini Chatzopoulou, Kleanthis Koupidis
+Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas
 }

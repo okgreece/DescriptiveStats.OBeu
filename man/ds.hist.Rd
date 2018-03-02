@@ -32,8 +32,8 @@ This function computes the histogram parameters of the numeric input vector. The
 breaks is the value resulted from Sturges algorithm.
 }
 \details{
-The possible values for breaks are Sturges see \code{\link[grDevices]{nclass.Sturges}},
-Scott see \code{\link[grDevices]{nclass.scott}} and FD or Freedman Diaconis \code{\link[grDevices]{nclass.FD}}
+The possible values for breaks are Sturges see \code{\link{nclass.Sturges}},
+Scott see \code{\link{nclass.scott}} and FD or Freedman Diaconis \code{\link{nclass.FD}}
 which are in package \pkg{grDevices}.
 }
 \examples{
@@ -50,5 +50,5 @@ ds.hist(Wuppertal_df$Amount, tojson = TRUE)
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 \author{
-Kleanthis Koupidis
+Kleanthis Koupidis, Charalampos Bratsas
 }

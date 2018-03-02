@@ -1,10 +1,9 @@
 ---
 title: "Using DescriptiveStats.OBeu with OpenCPU"
 author: "Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Using DescriptiveStats.OBeu with OpenCPU}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
