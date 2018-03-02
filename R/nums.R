@@ -41,12 +41,12 @@ nums<-function(data){
   stopifnot(all(sapply(data, is.factor) | sapply(data, is.character))==F)
   
   if(ncol(data)>=2){
-  num <- sapply(data, is.numeric)
-  
-  data.num <- data[num]
-  
-  data.num <- as.data.frame(data.num)
+    num <- sapply(data, is.numeric)
+    
+    data.num <- data[num]
+    
+    data.num <- as.data.frame(data.num)
   } else data.num <- data
-
+  
   return(data.num)
 }

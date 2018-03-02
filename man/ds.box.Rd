@@ -57,5 +57,5 @@ ds.box(amounts, c = 1.5, c.width = 0.20, out = TRUE)
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 \author{
-Kleanthis Koupidis
+Kleanthis Koupidis, Charalampos Bratsas
 }

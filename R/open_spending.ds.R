@@ -1,5 +1,5 @@
 #' @title 
-#' Read and Calculate the Basic Descriptive Statistics on OpenBudgets.eu data
+#' Read and Calculate the Basic Information for Basic Descriptive Tasks from Open Spending and Rudolf APIs.
 #'  
 #' @description
 #' Extract and analyze the input data provided from Open Spending API of OpenBudgets.eu, using the ds.analysis function.
@@ -39,19 +39,18 @@
 #'                 
 #' @rdname open_spending.ds
 #' 
-#'
 #' @export
 
- 
+
 open_spending.ds <- function(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
                              coef.outl=1.5, box.outliers=T, box.wdth=0.15,
-                             cor.method= "pearson", freq.select=NULL){  
+                             cor.method= "pearson", freq.select=NULL){
+  
   linkexist<-RCurl::url.exists(json_data)
   if (linkexist){
     #json_data = RCurl::getURL(json_data)#, ssl.verifyhost=FALSE )
   } else if (!linkexist) stop("Not valid json data input")
   
-  #s <- readLines(json_data);
   dt <- jsonlite::fromJSON(json_data)
   
   components <- c("data", "cells")

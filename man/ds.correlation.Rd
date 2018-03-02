@@ -41,5 +41,5 @@ ds.correlation(Matrix, cor.method = "kendall", tojson=TRUE)
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 \author{
-Aikaterini Chatzopoulou, Kleanthis Koupidis
+Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas
 }

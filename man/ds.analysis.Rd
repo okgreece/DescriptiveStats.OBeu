@@ -67,5 +67,5 @@ ds.analysis(df, c.out = 2, box.width = 0.15, outliers = FALSE, tojson = FALSE)
 \code{\link{open_spending.ds}}
 }
 \author{
-Kleanthis Koupidis
+Kleanthis Koupidis, Charalampos Bratsas
 }

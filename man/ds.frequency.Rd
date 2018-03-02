@@ -37,5 +37,5 @@ ds.frequency(Wuppertal_df, select = "Produkt", tojson = FALSE)
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 \author{
-Kleanthis Koupidis
+Kleanthis Koupidis, Charalampos Bratsas
 }
