@@ -16,7 +16,7 @@
 #' @details 
 #' This function returns a list with the parameters needed to visualize a boxplot.
 #' 
-#' @author Kleanthis Koupidis
+#' @author Kleanthis Koupidis, Charalampos Bratsas
 #' 
 #' @return 
 #' Returns a list or a json file with the following components:
@@ -74,10 +74,10 @@ ds.box<-function(x, c=1.5, c.width = 0.15 , out = TRUE, tojson=FALSE){
     lo.out <- x[x < lo.hinge - c * diff(c(lo.hinge,up.hinge))]
     
     up.out <- x[x > up.hinge + c * diff(c(lo.hinge,up.hinge))]
-    } else {
-      lo.out <- NULL
-      up.out <- NULL
-      }
+  } else {
+    lo.out <- NULL
+    up.out <- NULL
+  }
   
   box<-list(lo.whisker=lo.whisker,
             lo.hinge=lo.hinge,

@@ -34,7 +34,7 @@
 #' \item correlation The correlation coefficient
 #' } 
 #'
-#' @author Kleanthis Koupidis
+#' @author Kleanthis Koupidis, Charalampos Bratsas
 #' 
 #' @seealso \code{\link{open_spending.ds}}
 #' 
@@ -61,41 +61,42 @@
 
 ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=TRUE, hist.class="Sturges", 
                         corr.method= "pearson", fr.select=NULL, tojson=FALSE){
+  
+  if(all(is.factor(data)) & !all(is.character(data))){
+    freq <- ds.frequency(data)
+  } else {
+    
+    descriptives <- ds.statistics(data)
+    
+    # If correlation can be calculated
+    if (length(nums(data))>=2) {
+      correlation <- ds.correlation(data,y=NULL, cor.method=corr.method)
+    }else {
+      correlation <- NULL
+    }
+    
+    boxplot <- ds.boxplot(data, out.level=c.out, width = box.width , outl =outliers)
+    data<-as.data.frame(data)
+    histogram <- apply( nums(data), 2,ds.hist, breaks=hist.class)
+    
+    frequencies <- ds.frequency(data,select=fr.select) 
+    
+    
+    stat.plots <- list(
+      descriptives=descriptives,
+      boxplot= boxplot,
+      histogram=histogram,
+      frequencies= frequencies,
+      correlation=correlation
+    ) 
+    
+    if (tojson==TRUE){
       
-    if(all(is.factor(data)) & !all(is.character(data))){
-      freq <- ds.frequency(data)
-    } else {
+      stat.plots=jsonlite::toJSON(stat.plots)
       
-      descriptives <- ds.statistics(data)
-      
-      # If correlation can be calculated
-      if (length(nums(data))>=2) {
-        correlation <- ds.correlation(data,y=NULL, cor.method=corr.method)
-      }else {
-        correlation <- NULL
-      }
-
-      boxplot <- ds.boxplot(data, out.level=c.out, width = box.width , outl =outliers)
-      data<-as.data.frame(data)
-      histogram <- apply( nums(data), 2,ds.hist, breaks=hist.class)
-      
-      frequencies <- ds.frequency(data,select=fr.select) 
-      
-      
-      stat.plots <- list(
-        descriptives=descriptives,
-        boxplot= boxplot,
-        histogram=histogram,
-        frequencies= frequencies,
-        correlation=correlation
-      ) 
-      
-      if (tojson==T){
-        
-        stat.plots=jsonlite::toJSON(stat.plots)
-      }
-      
-      return(stat.plots)
-    } 
-      
+    }
+    
+    return(stat.plots)
+  } 
+  
 }

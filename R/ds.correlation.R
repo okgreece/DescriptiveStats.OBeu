@@ -18,7 +18,7 @@
 #' of the input data. The correlation coefficient of pearson is computed, by default. 
 #' Other options are "kendall" or "spearman".
 #' 
-#' @author Aikaterini Chatzopoulou, Kleanthis Koupidis
+#' @author Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas
 #' 
 #' @seealso \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 #' 
@@ -44,17 +44,17 @@ ds.correlation<-function(x, y=NULL, cor.method="pearson", tojson=FALSE){
   if (is.null(y)==F){
     
     data<-as.data.frame(x,y)
-   
+    
   } else if (is.null(y)){
     
-      data <- as.data.frame(x)
+    data <- as.data.frame(x)
   }
   
   data.num<-nums(data)
   
   # Check that the data frame has at least two numeric variables
   stopifnot( length(data.num) >= 2 )
-
+  
   # Correlation method
   cor.method=match.arg(cor.method,c("pearson", "kendall", "spearman"))
   
