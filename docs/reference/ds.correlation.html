@@ -166,7 +166,7 @@ Other options are "kendall" or "spearman".</p>
 <span class='co'># with matrix as an input , different parameters and json output</span>
 <span class='no'>Matrix</span> <span class='kw'>&lt;-</span> <span class='fu'>cbind</span>(<span class='kw'>Uni05</span> <span class='kw'>=</span> (<span class='fl'>1</span>:<span class='fl'>200</span>)/<span class='fl'>21</span>, <span class='kw'>Norm</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>200</span>),
          <span class='kw'>`5T`</span> <span class='kw'>=</span> <span class='fu'>rt</span>(<span class='fl'>200</span>, <span class='kw'>df</span> <span class='kw'>=</span> <span class='fl'>5</span>), <span class='kw'>Gam2</span> <span class='kw'>=</span> <span class='fu'>rgamma</span>(<span class='fl'>200</span>, <span class='kw'>shape</span> <span class='kw'>=</span> <span class='fl'>2</span>))
-<span class='fu'>ds.correlation</span>(<span class='no'>Matrix</span>, <span class='kw'>cor.method</span> <span class='kw'>=</span> <span class='st'>"kendall"</span>, <span class='kw'>tojson</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [{"Uni05":1,"Norm":0.01,"X5T":0.09,"Gam2":-0.03,"_row":"Uni05"},{"Uni05":0,"Norm":1,"X5T":-0.02,"Gam2":0.05,"_row":"Norm"},{"Uni05":0,"Norm":0,"X5T":1,"Gam2":-0.05,"_row":"5T"},{"Uni05":0,"Norm":0,"X5T":0,"Gam2":1,"_row":"Gam2"}] </div><div class='input'>
+<span class='fu'>ds.correlation</span>(<span class='no'>Matrix</span>, <span class='kw'>cor.method</span> <span class='kw'>=</span> <span class='st'>"kendall"</span>, <span class='kw'>tojson</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [{"Uni05":1,"Norm":0.08,"X5T":0,"Gam2":0.05,"_row":"Uni05"},{"Uni05":0,"Norm":1,"X5T":-0.01,"Gam2":0.05,"_row":"Norm"},{"Uni05":0,"Norm":0,"X5T":1,"Gam2":-0.05,"_row":"5T"},{"Uni05":0,"Norm":0,"X5T":0,"Gam2":1,"_row":"Gam2"}] </div><div class='input'>
 
 </div></pre>
   </div>
@@ -184,7 +184,7 @@ Other options are "kendall" or "spearman".</p>
 
     <h2>Author</h2>
     
-Aikaterini Chatzopoulou, Kleanthis Koupidis
+Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas
 
   </div>
 </div>

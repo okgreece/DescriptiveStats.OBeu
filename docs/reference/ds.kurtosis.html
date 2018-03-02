@@ -148,8 +148,8 @@
     <pre class="examples"><div class='input'><span class='co'># with a matrix as an input</span>
 <span class='no'>Matrix</span> <span class='kw'>&lt;-</span> <span class='fu'>cbind</span>(<span class='kw'>Uni05</span> <span class='kw'>=</span> (<span class='fl'>1</span>:<span class='fl'>200</span>)/<span class='fl'>21</span>, <span class='kw'>Norm</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>200</span>),
         <span class='kw'>`5T`</span> <span class='kw'>=</span> <span class='fu'>rt</span>(<span class='fl'>200</span>, <span class='kw'>df</span> <span class='kw'>=</span> <span class='fl'>5</span>), <span class='kw'>Gam2</span> <span class='kw'>=</span> <span class='fu'>rgamma</span>(<span class='fl'>200</span>, <span class='kw'>shape</span> <span class='kw'>=</span> <span class='fl'>2</span>))
-<span class='fu'>ds.kurtosis</span>(<span class='no'>Matrix</span>, <span class='kw'>tojson</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;      Uni05       Norm         5T       Gam2 
-#&gt; -1.2180144 -0.1444564  1.0644187  2.5076612 </div><div class='input'>
+<span class='fu'>ds.kurtosis</span>(<span class='no'>Matrix</span>, <span class='kw'>tojson</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;       Uni05        Norm          5T        Gam2 
+#&gt; -1.21801440 -0.02707921  1.28673364  2.78573928 </div><div class='input'>
 <span class='co'># with a data frame as an input</span>
 <span class='fu'>ds.kurtosis</span>(<span class='no'>iris</span>, <span class='kw'>tojson</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
 #&gt;   -0.6058125    0.1387047   -1.4168574   -1.3581792 </div><div class='input'>
@@ -680,7 +680,7 @@
 
     <h2>Author</h2>
     
-Aikaterini Chatzopoulou
+Aikaterini Chatzopoulou, Charalampos Bratsas
 
   </div>
 </div>

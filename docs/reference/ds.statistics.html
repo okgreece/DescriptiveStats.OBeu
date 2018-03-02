@@ -164,7 +164,7 @@ standart deviation, skewness and kurtosis.</p>
     <pre class="examples"><div class='input'><span class='co'># with matrix as an input and json outpout</span>
 <span class='no'>Matrix</span> <span class='kw'>&lt;-</span> <span class='fu'>cbind</span>(<span class='kw'>Uni05</span> <span class='kw'>=</span> (<span class='fl'>1</span>:<span class='fl'>200</span>)/<span class='fl'>21</span>, <span class='kw'>Norm</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>200</span>),
         <span class='kw'>`5T`</span> <span class='kw'>=</span> <span class='fu'>rt</span>(<span class='fl'>200</span>, <span class='kw'>df</span> <span class='kw'>=</span> <span class='fl'>5</span>), <span class='kw'>Gam2</span> <span class='kw'>=</span> <span class='fu'>rgamma</span>(<span class='fl'>200</span>, <span class='kw'>shape</span> <span class='kw'>=</span> <span class='fl'>2</span>))
-<span class='fu'>ds.statistics</span>(<span class='no'>Matrix</span>, <span class='kw'>tojson</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; {"Min":{"Uni05":[0.0476],"Norm":[-3.0045],"5T":[-3.6795],"Gam2":[0.0678]},"Max":{"Uni05":[9.5238],"Norm":[2.7847],"5T":[3.1201],"Gam2":[7.1988]},"Range":{"Uni05":[9.4762],"Norm":[5.7892],"5T":[6.7996],"Gam2":[7.131]},"Mean":{"Uni05":[4.7857],"Norm":[0.1005],"5T":[-0.0127],"Gam2":[1.964]},"Median":{"Uni05":[4.7857],"Norm":[0.1597],"5T":[-0.0553],"Gam2":[1.6926]},"Quantiles":{"Uni05":[2.4167,7.1548],"Norm":[-0.5408,0.7795],"5T":[-0.7811,0.768],"Gam2":[1.0098,2.7223]},"Variance":{"Uni05":[7.5964],"Norm":[1.1521],"5T":[1.3612],"Gam2":[1.7045]},"StandardDeviation":{"Uni05":[2.7562],"Norm":[1.0734],"5T":[1.1667],"Gam2":[1.3056]},"Kurtosis":[-1.218,0.0908,0.4195,1.3491],"Skewness":[1.3416e-016,-0.2283,0.0364,1.1124]} </div><div class='input'>
+<span class='fu'>ds.statistics</span>(<span class='no'>Matrix</span>, <span class='kw'>tojson</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; {"Min":{"Uni05":[0.0476],"Norm":[-2.8218],"5T":[-4.4624],"Gam2":[0.0275]},"Max":{"Uni05":[9.5238],"Norm":[3.0081],"5T":[3.6418],"Gam2":[8.625]},"Range":{"Uni05":[9.4762],"Norm":[5.8299],"5T":[8.1042],"Gam2":[8.5975]},"Mean":{"Uni05":[4.7857],"Norm":[-0.0004],"5T":[-0.0112],"Gam2":[1.9207]},"Median":{"Uni05":[4.7857],"Norm":[0.0001],"5T":[0.0834],"Gam2":[1.5614]},"Quantiles":{"Uni05":[2.4167,7.1548],"Norm":[-0.687,0.7029],"5T":[-0.6672,0.7756],"Gam2":[0.912,2.69]},"Variance":{"Uni05":[7.5964],"Norm":[1.0494],"5T":[1.7732],"Gam2":[1.8683]},"StandardDeviation":{"Uni05":[2.7562],"Norm":[1.0244],"5T":[1.3316],"Gam2":[1.3668]},"Kurtosis":[-1.218,-0.1445,1.0644,2.5077],"Skewness":[1.3416e-016,-0.0745,-0.3999,1.302]} </div><div class='input'>
 <span class='co'># with vector as an input</span>
 <span class='no'>vec</span> <span class='kw'>&lt;-</span> <span class='fu'>as.vector</span>(<span class='no'>iris</span>$<span class='no'>Sepal.Width</span>)
 <span class='fu'>ds.statistics</span>(<span class='no'>vec</span>, <span class='kw'>tojson</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $Min
@@ -866,7 +866,7 @@ standart deviation, skewness and kurtosis.</p>
 
     <h2>Author</h2>
     
-Aikaterini Chatzopoulou, Kleanthis Koupidis
+Aikaterini Chatzopoulou, Kleanthis Koupidis, Charalampos Bratsas
 
   </div>
 </div>
