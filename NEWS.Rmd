@@ -2,7 +2,7 @@
 title: "NEWS"
 output: md_document
 ---
-## DescriptiveStats.OBeu 1.2.2
+## DescriptiveStats.OBeu 1.3.0
 
 new functions CV, compare.stats
 
