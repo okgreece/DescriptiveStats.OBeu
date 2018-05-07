@@ -32,9 +32,11 @@ jsonlite::prettify(wuppertalbox) # use prettify of jsonlite library to add inden
 iriscorr = ds.correlation(iris, cor.method="pearson", tojson=TRUE) # json format
 jsonlite::prettify(iriscorr) # use prettify of jsonlite library to add indentation to the returned JSON string
 
+
 ## ----frequency-----------------------------------------------------------
 wuppertalfreq = ds.frequency(Wuppertal_df$Produktbereich, tojson = TRUE)
 jsonlite::prettify(wuppertalfreq) # use prettify of jsonlite library to add indentation to the returned JSON string
+
 
 ## ----kurtosis------------------------------------------------------------
 ds.kurtosis(Wuppertal_df$Amount, tojson=TRUE)

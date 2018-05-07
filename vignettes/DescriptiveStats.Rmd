@@ -131,6 +131,7 @@ In this example `iris` dataset is used. Factor or character variables in the inp
 ```{r correlation json}
 iriscorr = ds.correlation(iris, cor.method="pearson", tojson=TRUE) # json format
 jsonlite::prettify(iriscorr) # use prettify of jsonlite library to add indentation to the returned JSON string
+
 ```
 ## Frequency
 
@@ -138,6 +139,7 @@ Frequencies and relative frequencies of factors/characters of the input dataset 
 ```{r frequency} 
 wuppertalfreq = ds.frequency(Wuppertal_df$Produktbereich, tojson = TRUE)
 jsonlite::prettify(wuppertalfreq) # use prettify of jsonlite library to add indentation to the returned JSON string
+
 ```
 If the input is a dataframe and the `select` parameter is not specified, all the factor variables will be returned.
 

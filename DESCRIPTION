@@ -17,8 +17,6 @@ Encoding: UTF-8
 LazyData: true
 Imports: dplyr, graphics, grDevices, jsonlite, magrittr, RCurl, reshape, stats
 RoxygenNote: 6.0.1
-Suggests: knitr,
-    pandoc,
-    rmarkdown
+Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
