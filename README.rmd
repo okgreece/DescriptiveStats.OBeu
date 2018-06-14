@@ -17,8 +17,9 @@ output:
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.1-6666ff.svg)](https://cran.r-project.org/)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/DescriptiveStats.OBeu)](http://cran.rstudio.com/web/packages/DescriptiveStats.OBeu/index.html)
 [![Licence](https://img.shields.io/badge/licence-GPL--2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
-[![DOI](https://zenodo.org/badge/73140139.svg)](https://zenodo.org/badge/latestdoi/73140139)
-
+[![Rdoc](http://www.rdocumentation.org/badges/version/DescriptiveStats.OBeu)](http://www.rdocumentation.org/packages/DescriptiveStats.OBeu)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1289784.svg)](https://doi.org/10.5281/zenodo.1289784)
+ 
 #[DescriptiveStats.OBeu ](https://okgreece.github.io/DescriptiveStats.OBeu/)
 Εstimate and return the necessary parameters for descriptive statistics visualizations, used in [OpenBudgets.eu](http://openbudgets.eu/). It includes functions for measuring central tendency and dispersion of amount variables along with their distributions and correlations and the frequencies of categorical variables for Budget data of municipalities across Europe, according to the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
 
