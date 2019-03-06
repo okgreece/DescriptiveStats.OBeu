@@ -15,12 +15,13 @@
 #' @rdname CV
 #' 
 #' @export
+#' 
 
 CV <- function(x) {
   
-  if (isTRUE(is.data.frame(x) | is.matrix(x))){
-    cv = apply(x, 2, function(i) stats::sd(i)/mean(i))
-  } else  cv = stats::sd(x)/mean(x)
+  if (isTRUE(is.data.frame(x) | is.matrix(x))) {
+    cv <- apply(x, 2, function(i) stats::sd(i)/mean(i))
+  } else  cv <- stats::sd(x)/mean(x)
   
   return(cv)
 }

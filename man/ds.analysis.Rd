@@ -4,8 +4,8 @@
 \alias{ds.analysis}
 \title{Calculation of some Descriptive Tasks}
 \usage{
-ds.analysis(data, c.out=1.5, box.width=0.15, outliers=TRUE, hist.class="Sturges", 
-corr.method= "pearson", fr.select=NULL, tojson=FALSE)
+ds.analysis(data, c.out = 1.5, box.width = 0.15, outliers = TRUE, hist.class = "Sturges", 
+corr.method = "pearson", fr.select = NULL, tojson = FALSE)
 }
 \arguments{
 \item{data}{The input data}
@@ -38,29 +38,28 @@ A list or json file with the following components:
 }
 }
 \description{
-The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all
+The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all 
 the numerical variables and the frequencies of all the nominal variables.
 }
 \details{
 This function returns a list with the basic statistics, the parameters needed to visualize a boxplot
-and a histogram, it also provides the frequencies of non numerical data of the input dataset and the correlation
+and a histogram, it also provides the frequencies of non numerical data of the input dataset and the correlation 
 coefficient. The input of this function can be a matrix or data frame.
 }
 \examples{
-# with data frame as input with the default parameters
-data <- iris
-ds.analysis(data)
+# iris data frame as input with the default parameters
+ds.analysis(iris)
 
-# using the previous data frame with different parameters
-ds.analysis(data, c.out = 1, box.width = 0.20, outliers = TRUE, tojson = TRUE)
+# using iris data frame with different parameters
+ds.analysis(iris, c.out = 1, box.width = 0.20, outliers = TRUE, tojson = TRUE)
 
-# using the previous data frame with different parameters 
+# using iris data frame with different parameters 
 # fr.select parameter specified as Species
-ds.analysis(data, c.out = 1, outliers = FALSE, fr.select = "Species", tojson = TRUE)
+ds.analysis(iris, c.out = 1, outliers = FALSE, fr.select = "Species", tojson = TRUE)
 
 # OpenBudgets.eu Dataset Example:
-df=Wuppertal_df
-ds.analysis(df, c.out = 2, box.width = 0.15, outliers = FALSE, tojson = FALSE)
+ds.analysis(Wuppertal_df, c.out = 2, box.width = 0.15, 
+outliers = FALSE, tojson = FALSE)
                 
 }
 \seealso{

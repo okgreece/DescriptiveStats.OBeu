@@ -18,18 +18,18 @@
 #' @rdname multisub
 #' 
 #' @export
+#' 
 
 multisub <- function(pattern, replacement, x, ...) {
   
-  if (length(pattern)!=length(replacement)) {
+  if (length(pattern) != length(replacement)) {
     stop("The pattern and replacement vectors should have the same length.")
   }
   
-  res = x
+  res <- x
   
   for (i in 1:length(pattern)) {
-    res = gsub(pattern[i], replacement[i], res, ...)
+    res <- gsub(pattern[i], replacement[i], res, ...)
   }
-  
   return(res)
 }

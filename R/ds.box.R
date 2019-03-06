@@ -4,7 +4,7 @@
 #' @description
 #' This function calculates the statistical measures needed to visualize the boxplot of a numeric vector.
 #' 
-#' @usage ds.box(x, c=1.5, c.width = 0.15 , out = TRUE, tojson=FALSE)
+#' @usage ds.box(x, c = 1.5, c.width = 0.15 , out = TRUE, tojson = FALSE)
 #' 
 #' @param x The input numeric vector
 #' @param c Determines the length of the "whiskers" plot.
@@ -51,48 +51,40 @@
 #' @rdname ds.box
 #' 
 #' @export
+#' 
 
-ds.box<-function(x, c=1.5, c.width = 0.15 , out = TRUE, tojson=FALSE){
+ds.box <- function(x, c = 1.5, c.width = 0.15 , out = TRUE, tojson = FALSE) {
   
-  b <- grDevices::boxplot.stats(x, coef=c,  do.out = out)
-  
+  b <- grDevices::boxplot.stats(x, coef = c,  do.out = out)
   lo.whisker <- unname(unlist(b)[1])
-  
   lo.hinge <- unname(unlist(b)[2])
-  
   median <- unname(unlist(b)[3])
-  
   up.hinge <- unname(unlist(b)[4])
-  
   up.whisker <- unname(unlist(b)[5])
+  n <- unname(unlist(b)[6])
+  box.width <- round(c.width * sqrt(n), 2)
   
-  n<-unname(unlist(b)[6])
-  
-  box.width <- round( c.width * sqrt(n) ,2)
-  
-  if (out==T & c!=0){
+  if (out == TRUE & c != 0) {
     lo.out <- x[x < lo.hinge - c * diff(c(lo.hinge,up.hinge))]
-    
     up.out <- x[x > up.hinge + c * diff(c(lo.hinge,up.hinge))]
   } else {
     lo.out <- NULL
     up.out <- NULL
   }
   
-  box<-list(lo.whisker=lo.whisker,
-            lo.hinge=lo.hinge,
-            median=median,
-            up.hinge=up.hinge,
-            up.whisker=up.whisker,
-            box.width=box.width,
-            lo.out=lo.out,
-            up.out=up.out,
-            n=n)
+  box <- list(
+    lo.whisker = lo.whisker,
+    lo.hinge = lo.hinge,
+    median = median,
+    up.hinge = up.hinge,
+    up.whisker = up.whisker,
+    box.width = box.width,
+    lo.out = lo.out,
+    up.out = up.out,
+    n = n)
   
-  if (tojson==T){
-    
-    box=jsonlite::toJSON(box)
+  if (tojson == TRUE) {
+    box <- jsonlite::toJSON(box)
   }
-  
   return(box)
 }

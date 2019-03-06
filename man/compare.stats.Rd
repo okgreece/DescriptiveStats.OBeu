@@ -16,7 +16,7 @@ compare.stats(df, group_var, values, m_functions)
 \item{m_functions}{functions to apply in values}
 }
 \value{
-This function returns a data frame with the selected group_vars and
+This function returns a data frame with the selected group_vars and 
 the result of m_functions applied in the selected values.
 }
 \description{

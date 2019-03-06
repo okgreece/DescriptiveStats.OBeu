@@ -4,7 +4,7 @@
 \alias{ds.correlation}
 \title{Correlation Coefficient of a dataframe}
 \usage{
-ds.correlation(x, y=NULL, cor.method="pearson", tojson=FALSE)
+ds.correlation(x, y = NULL, cor.method = "pearson", tojson = FALSE)
 }
 \arguments{
 \item{x}{A numeric vector, matrix or data frame}
@@ -21,19 +21,18 @@ This functions calculates the correlation coefficient of the input vectors, matr
 By default, the correlation coefficient of pearson is computed.
 }
 \details{
-This function returns an upper triangle matrix with the correlation coefficients
-of the input data. The correlation coefficient of pearson is computed, by default.
+This function returns an upper triangle matrix with the correlation coefficients 
+of the input data. The correlation coefficient of pearson is computed, by default. 
 Other options are "kendall" or "spearman".
 }
 \examples{
-# with data frame as an input and the default parameters
-data <- iris
-ds.correlation(data, cor.method = "pearson", tojson=FALSE)
+# iris data frame as an input and the default parameters
+ds.correlation(iris, cor.method = "pearson", tojson = FALSE)
 
 # with matrix as an input , different parameters and json output
 Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
          `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-ds.correlation(Matrix, cor.method = "kendall", tojson=TRUE)
+ds.correlation(Matrix, cor.method = "kendall", tojson = TRUE)
 
 
 }

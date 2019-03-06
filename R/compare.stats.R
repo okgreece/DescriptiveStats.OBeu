@@ -18,14 +18,15 @@
 #' @importFrom magrittr %>%
 #' @rdname compare.stats
 #' @export
+#' 
 
 compare.stats <- function(df, group_var, values, m_functions = c("mean","sd","length")) {
   
-  df = as.data.frame(df)
+  df <- as.data.frame(df)
 
   as.data.frame(
     df %>%
       dplyr::group_by_at(.vars = group_var) %>%
-      dplyr::summarise_at(values,m_functions)
+      dplyr::summarise_at(values, m_functions)
   )
 }

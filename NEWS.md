@@ -1,3 +1,13 @@
+DescriptiveStats.OBeu 1.3.1
+---------------------------
+
+fix cran warnings and code structure
+
+DescriptiveStats.OBeu 1.3.0
+---------------------------
+
+new functions CV, multisub, compare.stats
+
 DescriptiveStats.OBeu 1.2.1
 ---------------------------
 

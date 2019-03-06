@@ -4,9 +4,9 @@
 #' @description
 #' Extract and analyze the input data provided from Open Spending API of OpenBudgets.eu, using the ds.analysis function.
 #' 
-#' @usage open_spending.ds(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
-#' coef.outl=1.5, box.outliers=T, box.wdth=0.15,
-#' cor.method= "pearson", freq.select=NULL)
+#' @usage open_spending.ds(json_data, dimensions = NULL, amounts = NULL, 
+#' measured.dimensions = NULL, coef.outl = 1.5, box.outliers = TRUE, 
+#' box.wdth = 0.15, cor.method = "pearson", freq.select = NULL)
 #' 
 #' @param json_data The json string, URL or file from Open Spending API
 #' @param dimensions The dimensions of the input data
@@ -33,62 +33,50 @@
 #' 
 #' @examples 
 #' # OpenBudgets.eu Dataset Example:
-#' #data=Wuppertal_openspending
-#' #open_spending.ds(data, dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
-#'   #              amounts = "Amount")
+#' # open_spending.ds(json_data = Wuppertal_openspending, 
+#'   #    dimensions ="functional_classification_3.Produktgruppe|date_2.Year",
+#'   #    amounts = "Amount")
 #'                 
 #' @rdname open_spending.ds
 #' 
 #' @export
+#' 
 
-
-open_spending.ds <- function(json_data, dimensions=NULL, amounts=NULL, measured.dimensions=NULL, 
-                             coef.outl=1.5, box.outliers=T, box.wdth=0.15,
-                             cor.method= "pearson", freq.select=NULL){
+open_spending.ds <- function(json_data, dimensions = NULL, amounts = NULL, 
+                             measured.dimensions = NULL, coef.outl = 1.5, box.outliers = TRUE, 
+                             box.wdth = 0.15, cor.method = "pearson", freq.select = NULL) {
   
-  linkexist<-RCurl::url.exists(json_data)
-  if (linkexist){
+  linkexist <- RCurl::url.exists(json_data)
+  if (linkexist) {
     #json_data = RCurl::getURL(json_data)#, ssl.verifyhost=FALSE )
   } else if (!linkexist) stop("Not valid json data input")
   
   dt <- jsonlite::fromJSON(json_data)
-  
   components <- c("data", "cells")
-  
-  select.comp <- match.arg(components, names(dt), several.ok = T)
-  
+  select.comp <- match.arg(components, names(dt), several.ok = TRUE)
   dt <- as.data.frame(dt[select.comp])
+  amounts <- unlist(strsplit(amounts,"\\|"))
+  dimensions <- unlist(strsplit(dimensions,"\\|"))
   
-  amounts = unlist(strsplit(amounts,"\\|"))
-  
-  dimensions = unlist(strsplit(dimensions,"\\|"))
-  
-  if (select.comp== "data") {
-    
-    names(dt) <- gsub("data.","",names(dt)) 
-    
+  if (select.comp == "data") {
+    names(dt) <- gsub("data.", "", names(dt)) 
     variables <- c(dimensions,amounts)
-    
     dt2 <- dt[variables]
-    dt2[dimensions] <- sapply(dt2[dimensions],as.character)
-  }  else {
+    dt2[dimensions] <- sapply(dt2[dimensions], as.character)
+  } else {
     names(dt) <- gsub("cells.","",names(dt))
-    
     melt <- reshape::melt.data.frame(dt)
-    
-    formula <- paste(dimensions,measured.dimensions,sep="~") 
-    
-    dt2 <- reshape::cast(melt,formula,sum,
-                         subset=melt$variable==amounts) 
+    formula <- paste(dimensions, measured.dimensions, sep = "~") 
+    dt2 <- reshape::cast(melt, formula, sum,
+                         subset = melt$variable == amounts) 
   }
   
-  dt2 <- stats::na.omit(dt2) 
-  
-  ds.result <- ds.analysis(dt2, c.out=coef.outl,outliers=box.outliers,box.width=box.wdth, 
-                           corr.method= cor.method, fr.select=freq.select) 
+  dt2 <- stats::na.omit(dt2)
+  ds.result <- ds.analysis(dt2, c.out = coef.outl, outliers = box.outliers, 
+                           box.width = box.wdth, corr.method = cor.method,
+                           fr.select = freq.select) 
   
   ds.results <- jsonlite::toJSON(ds.result)
   
   return(ds.results)
 } 
-

@@ -4,7 +4,7 @@
 #' @description
 #' This function calculates the basic descriptive measures of the input dataset.
 #' 
-#' @usage ds.statistics(data, tojson=FALSE)
+#' @usage ds.statistics(data, tojson = FALSE)
 #' 
 #' @param data A numeric vector, matrix or data frame
 #' @param tojson If TRUE the results are returned in json format, default returns a list
@@ -36,62 +36,59 @@
 #' # with matrix as an input and json outpout
 #' Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 #'         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-#' ds.statistics(Matrix, tojson=TRUE)
+#' ds.statistics(Matrix, tojson = TRUE)
 #' 
 #' # with vector as an input
 #' vec <- as.vector(iris$Sepal.Width)
-#' ds.statistics(vec, tojson=FALSE)
+#' ds.statistics(vec, tojson = FALSE)
 #' 
-#' # with data frame as an input
-#' ds.statistics(iris, tojson=FALSE)
+#' # with iris data frame as an input
+#' ds.statistics(iris, tojson = FALSE)
 #' 
 #' # OpenBudgets.eu Dataset Example:
-#' Wuppertal_df
 #' ds.statistics(Wuppertal_df$Amount, tojson = TRUE)
 #' 
 #' @rdname ds.statistics
 #'
 #' @export
+#' 
 
-ds.statistics <- function(data, tojson=FALSE)
-{
+ds.statistics <- function(data, tojson = FALSE) {
+  
   #Convert to data frame
-  data<-as.data.frame(data)
+  data <- as.data.frame(data)
   
   # only numeric data
-  data.num<-nums(data)
+  data.num <- nums(data)
   
   # Calculation of statistics
   min <- lapply(data.num, min)
-  
   max <- lapply(data.num, max)
-  
-  range <- as.list(unlist(max)-unlist(min))
-  
+  range <- as.list(unlist(max) - unlist(min))
   mean <- lapply(data.num, mean)
-  
   median <- lapply(data.num, median)
-  
   var <- lapply(data.num, var)
-  
   stdev <- lapply(data.num, stats::sd)
-  
   kurtosis <- ds.kurtosis(data.num)
-  
   skewness <- ds.skewness(data.num)
-  
-  q <- lapply(data.num, stats::quantile, probs=c(0.25,0.75) ) 
+  q <- lapply(data.num, stats::quantile, probs = c(0.25, 0.75)) 
   
   # construction of dataframe with all the statistics
-  statistics<-list(Min=min, Max=max,Range=range, Mean=mean, Median=median, 
-                   Quantiles=q,Variance=var, StandardDeviation=stdev,
-                   Kurtosis=kurtosis, Skewness=skewness)
+  statistics <- list(
+    Min = min,
+    Max = max,
+    Range = range, 
+    Mean = mean,
+    Median = median, 
+    Quantiles = q, 
+    Variance = var, 
+    StandardDeviation = stdev,
+    Kurtosis = kurtosis, 
+    Skewness = skewness)
   
-  if (tojson==T){
-    
-    statistics=jsonlite::toJSON(statistics)
+  if (tojson == TRUE) { 
+    statistics <- jsonlite::toJSON(statistics)
   }
-  
   # Return
   return(statistics)
 }

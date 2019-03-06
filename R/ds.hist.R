@@ -5,7 +5,7 @@
 #' This function computes the histogram parameters of the numeric input vector. The default for 
 #' breaks is the value resulted from Sturges algorithm.
 #' 
-#' @usage ds.hist(x, breaks= "Sturges", tojson=FALSE)
+#' @usage ds.hist(x, breaks = "Sturges", tojson = FALSE)
 #' 
 #' @param x The input numeric vector, matrix or data frame
 #' @param breaks The method or the number of classes for the histogram
@@ -40,29 +40,25 @@
 #' ds.hist(vec)
 #' 
 #' # OpenBudgets.eu Dataset Example:
-#' Wuppertal_df
 #' ds.hist(Wuppertal_df$Amount, tojson = TRUE)
 #' 
 #' @rdname ds.hist
 #' @export
+#' 
 
-ds.hist <- function(x, breaks= "Sturges", tojson=FALSE) {
+ds.hist <- function(x, breaks = "Sturges", tojson = FALSE) {
   
-  x = as.numeric(unlist(x))
+  x <- as.numeric(unlist(x))
+  histog <- graphics::hist(x, probability = FALSE, plot = FALSE, warn.unused = FALSE)
   
-  histog=graphics::hist(x,probability = F,plot = F,warn.unused = F)
-  
-  hist.param = list(
+  hist.param <- list(
     cuts = histog$breaks,
     counts = histog$counts,
     mean = mean(x),
-    median = stats::median(x)
-  )
+    median = stats::median(x))
   
-  if (tojson==T){
-    
-    hist.param=jsonlite::toJSON(hist.param)
+  if (tojson == TRUE) {
+    hist.param <- jsonlite::toJSON(hist.param)
   }
-  
   return(hist.param)
 }

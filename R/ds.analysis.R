@@ -5,8 +5,8 @@
 #' The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all 
 #' the numerical variables and the frequencies of all the nominal variables.
 #' 
-#' @usage ds.analysis(data, c.out=1.5, box.width=0.15, outliers=TRUE, hist.class="Sturges", 
-#' corr.method= "pearson", fr.select=NULL, tojson=FALSE)
+#' @usage ds.analysis(data, c.out = 1.5, box.width = 0.15, outliers = TRUE, hist.class = "Sturges", 
+#' corr.method = "pearson", fr.select = NULL, tojson = FALSE)
 #' 
 #' @param data The input data
 #' @param c.out Determines the length of the "whiskers" plot.
@@ -39,64 +39,55 @@
 #' @seealso \code{\link{open_spending.ds}}
 #' 
 #' @examples 
-#' # with data frame as input with the default parameters
-#' data <- iris
-#' ds.analysis(data)
+#' # iris data frame as input with the default parameters
+#' ds.analysis(iris)
 #'
-#' # using the previous data frame with different parameters
-#' ds.analysis(data, c.out = 1, box.width = 0.20, outliers = TRUE, tojson = TRUE)
+#' # using iris data frame with different parameters
+#' ds.analysis(iris, c.out = 1, box.width = 0.20, outliers = TRUE, tojson = TRUE)
 #' 
-#' # using the previous data frame with different parameters 
+#' # using iris data frame with different parameters 
 #' # fr.select parameter specified as Species
-#' ds.analysis(data, c.out = 1, outliers = FALSE, fr.select = "Species", tojson = TRUE)
+#' ds.analysis(iris, c.out = 1, outliers = FALSE, fr.select = "Species", tojson = TRUE)
 #' 
 #' # OpenBudgets.eu Dataset Example:
-#' df=Wuppertal_df
-#' ds.analysis(df, c.out = 2, box.width = 0.15, outliers = FALSE, tojson = FALSE)
+#' ds.analysis(Wuppertal_df, c.out = 2, box.width = 0.15, 
+#' outliers = FALSE, tojson = FALSE)
 #'                 
 #' @rdname ds.analysis
 #' 
 #' @export
+#' 
 
-
-ds.analysis <- function(data, c.out=1.5, box.width=0.15, outliers=TRUE, hist.class="Sturges", 
-                        corr.method= "pearson", fr.select=NULL, tojson=FALSE){
+ds.analysis <- function(data, c.out = 1.5, box.width = 0.15, outliers = TRUE, hist.class = "Sturges", 
+                        corr.method = "pearson", fr.select = NULL, tojson = FALSE) {
   
-  if(all(is.factor(data)) & !all(is.character(data))){
+  if(all(is.factor(data)) & !all(is.character(data))) {
     freq <- ds.frequency(data)
   } else {
-    
     descriptives <- ds.statistics(data)
     
     # If correlation can be calculated
-    if (length(nums(data))>=2) {
-      correlation <- ds.correlation(data,y=NULL, cor.method=corr.method)
-    }else {
+    if (length(nums(data)) >= 2) {
+      correlation <- ds.correlation(data, y = NULL, cor.method = corr.method)
+    } else {
       correlation <- NULL
     }
     
-    boxplot <- ds.boxplot(data, out.level=c.out, width = box.width , outl =outliers)
-    data<-as.data.frame(data)
-    histogram <- apply( nums(data), 2,ds.hist, breaks=hist.class)
-    
-    frequencies <- ds.frequency(data,select=fr.select) 
-    
+    boxplot <- ds.boxplot(data, out.level = c.out, width = box.width, outl = outliers)
+    data <- as.data.frame(data)
+    histogram <- apply(nums(data), 2, ds.hist, breaks = hist.class)
+    frequencies <- ds.frequency(data, select = fr.select)
     
     stat.plots <- list(
-      descriptives=descriptives,
-      boxplot= boxplot,
-      histogram=histogram,
-      frequencies= frequencies,
-      correlation=correlation
-    ) 
+      descriptives = descriptives,
+      boxplot = boxplot,
+      histogram = histogram,
+      frequencies = frequencies,
+      correlation = correlation) 
     
-    if (tojson==TRUE){
-      
-      stat.plots=jsonlite::toJSON(stat.plots)
-      
+    if (tojson==TRUE) {
+      stat.plots <- jsonlite::toJSON(stat.plots)
     }
-    
     return(stat.plots)
   } 
-  
 }

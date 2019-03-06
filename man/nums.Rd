@@ -29,8 +29,7 @@ Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
 nums(Matrix)
 
 # OpenBudgets.eu Dataset Example:
-Wuppertal_df
-nums(Wuppertal_df[,-4])
+head(nums(Wuppertal_df))
 
 }
 \author{

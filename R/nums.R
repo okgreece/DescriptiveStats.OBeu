@@ -26,27 +26,26 @@
 #' nums(Matrix)
 #' 
 #' # OpenBudgets.eu Dataset Example:
-#' Wuppertal_df
-#' nums(Wuppertal_df[,-4])
+#' head(nums(Wuppertal_df))
 #' 
 #' @rdname nums
 #' 
 #' @export
+#' 
 
-nums<-function(data){
+nums <- function(data) {
   
   data <- as.data.frame(data)
   
   # Check if all are categorical
-  stopifnot(all(sapply(data, is.factor) | sapply(data, is.character))==F)
+  stopifnot(all(sapply(data, is.factor) | sapply(data, is.character)) == FALSE)
   
-  if(ncol(data)>=2){
+  if(ncol(data) >= 2) {
     num <- sapply(data, is.numeric)
-    
     data.num <- data[num]
-    
     data.num <- as.data.frame(data.num)
-  } else data.num <- data
-  
+  } else {
+    data.num <- data
+  }
   return(data.num)
 }
