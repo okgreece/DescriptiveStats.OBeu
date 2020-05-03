@@ -1,3 +1,8 @@
+DescriptiveStats.OBeu 1.3.2
+---------------------------
+
+update vignette DescriptiveStatsObeu
+
 DescriptiveStats.OBeu 1.3.1
 ---------------------------
 
