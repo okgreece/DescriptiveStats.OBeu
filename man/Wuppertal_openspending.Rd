@@ -3,7 +3,9 @@
 \name{Wuppertal_openspending}
 \alias{Wuppertal_openspending}
 \title{Wuppertal Fiscal Data extracted from Open Spending API}
-\format{A link with the json format data}
+\format{
+A link with the json format data
+}
 \source{
 http://next.openspending.org/api/3/cubes/4b6d969e07ef7a86aa54e539fc127a14:wuppertalhaushalt/facts
 }

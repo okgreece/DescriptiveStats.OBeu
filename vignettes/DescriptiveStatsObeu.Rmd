@@ -121,11 +121,11 @@ The dataset that is being used is available as json link in DescriptiveStats.OBe
 
 `open_spending.ds` function's input are data as json link and described with [OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
 
-```{r data}
+```{r data, eval=FALSE, include=TRUE}
 Wuppertal_openspending
 ```
 
-```{r open_spending}
+```{r open_spending, eval=FALSE, include=TRUE}
 descript = open_spending.ds(
   json_data =  Wuppertal_openspending, 
   dimensions ="functional_classification_3.Produktgruppe|date_2.Year",

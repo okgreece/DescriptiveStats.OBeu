@@ -3,7 +3,9 @@
 \name{sample_json_link_openspending}
 \alias{sample_json_link_openspending}
 \title{Sample data from Open Spending}
-\format{A link with the json format data}
+\format{
+A link with the json format data
+}
 \source{
 http://next.openspending.org/
 }
