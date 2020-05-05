@@ -8,8 +8,6 @@ r:
   - devel  
 before_install:
   - tlmgr install index
-github_packages:
-  - devtools
 r_packages:
  - stats
  - rmarkdown
@@ -18,10 +16,6 @@ r_packages:
  - grDevices
  - jsonlite
  - reshape
-addons:
-  apt:
-    packages:
-      - libxml2-dev
+apt_packages:
+  - libxml2-dev
 warnings_are_errors: false
-after_success:
-  - Rscript -e 'covr::codecov()'
