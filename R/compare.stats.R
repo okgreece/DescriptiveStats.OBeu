@@ -17,11 +17,11 @@
 #'
 #' @author Kleanthis Koupidis
 #' @importFrom magrittr %>%
-#' @rdname compare_stats
+#' @rdname compare.stats
 #' @export
 #'
 
-compare_stats <- function(df,
+compare.stats <- function(df,
                           group_var,
                           values,
                           m_functions = c("mean", "sd", "length")) {
