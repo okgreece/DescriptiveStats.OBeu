@@ -35,8 +35,10 @@ standart deviation, skewness and kurtosis.
 }
 \examples{
 # with matrix as an input and json outpout
-Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
-        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+Matrix <- cbind(
+  Uni05 = (1:200) / 21, Norm = rnorm(200),
+  `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2)
+)
 ds.statistics(Matrix, tojson = TRUE)
 
 # with vector as an input
@@ -48,7 +50,6 @@ ds.statistics(iris, tojson = FALSE)
 
 # OpenBudgets.eu Dataset Example:
 ds.statistics(Wuppertal_df$Amount, tojson = TRUE)
-
 }
 \seealso{
 \code{\link{open_spending.ds}}

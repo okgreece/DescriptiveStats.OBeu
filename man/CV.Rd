@@ -10,10 +10,12 @@ CV(x)
 \item{x}{A numeric vector or matrix or dataframe}
 }
 \value{
-This function returns a vector with the coefficient of variance for the input vector,matrix or data frame.
+This function returns a vector with the coefficient of variance for
+ the input vector,matrix or data frame.
 }
 \description{
-Extract and return a data frame with the columns that include only numeric values
+Extract and return a data frame with the columns that include only numeric
+ values
 }
 \author{
 Kleanthis Koupidis

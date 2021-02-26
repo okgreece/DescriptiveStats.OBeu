@@ -19,8 +19,10 @@ This function returns the kurtosis, based on a scaled version of the fourth mome
 }
 \examples{
 # with a matrix as an input
-Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
-        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+Matrix <- cbind(
+  Uni05 = (1:200) / 21, Norm = rnorm(200),
+  `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2)
+)
 ds.kurtosis(Matrix, tojson = FALSE)
 
 # with iris data frame as an input
@@ -32,10 +34,9 @@ ds.kurtosis(vec, tojson = TRUE)
 
 # OpenBudgets.eu Dataset Example:
 ds.kurtosis(Wuppertal_df, tojson = FALSE)
-
 }
 \seealso{
-\code{\link{ds.skewness}}, \code{\link{ds.statistics}}, 
+\code{\link{ds.skewness}}, \code{\link{ds.statistics}},
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
 }
 \author{

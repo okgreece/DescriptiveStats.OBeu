@@ -1,3 +1,9 @@
+DescriptiveStats.OBeu 1.3.3
+---------------------------
+
+Used lintr and styler packages to adjust code. Rename function
+compare.stats() to compare\_stats()
+
 DescriptiveStats.OBeu 1.3.2
 ---------------------------
 

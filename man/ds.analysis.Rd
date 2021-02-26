@@ -4,8 +4,9 @@
 \alias{ds.analysis}
 \title{Calculation of some Descriptive Tasks}
 \usage{
-ds.analysis(data, c.out = 1.5, box.width = 0.15, outliers = TRUE, hist.class = "Sturges", 
-corr.method = "pearson", fr.select = NULL, tojson = FALSE)
+ds.analysis(data, c.out = 1.5, box.width = 0.15, outliers = TRUE,
+hist.class = "Sturges", corr.method = "pearson", fr.select = NULL,
+tojson = FALSE)
 }
 \arguments{
 \item{data}{The input data}
@@ -13,16 +14,19 @@ corr.method = "pearson", fr.select = NULL, tojson = FALSE)
 \item{c.out}{Determines the length of the "whiskers" plot.
 If it is equal to zero no outliers will be returned.}
 
-\item{box.width}{The width level is determined 0.15 times the square root of the size of the input data.}
+\item{box.width}{The width level is determined 0.15 times the square root of
+the size of the input data.}
 
-\item{outliers}{If TRUE the outliers will be computed at the selected "c.out" level (default is 1.5 times the Interquartile Range).}
+\item{outliers}{If TRUE the outliers will be computed at the selected "c.out"
+level (default is 1.5 times the Interquartile Range).}
 
 \item{hist.class}{The method or the number of classes for the histogram.}
 
-\item{corr.method}{The correlation coefficient method to compute: "pearson" (default),
-"kendall" or "spearman".}
+\item{corr.method}{The correlation coefficient method to compute: "pearson"
+(default), "kendall" or "spearman".}
 
-\item{fr.select}{One or more nominal variables to calculate their corresponding frequencies.}
+\item{fr.select}{One or more nominal variables to calculate their
+corresponding frequencies.}
 
 \item{tojson}{If TRUE the results are returned in json format}
 }
@@ -33,34 +37,53 @@ A list or json file with the following components:
 \item descriptives The descriptive measures
 \item boxplot The statistics of the boxplot
 \item histogram The histogram parameters
-\item frequencies The frequencies and the relative frequencies of factors/characters of the input dataset
+\item frequencies The frequencies and the relative frequencies of factors/
+characters of the input dataset
 \item correlation The correlation coefficient
 }
 }
 \description{
-The function calculates the basic descriptive measures, the correlation and the boxplot parameters of all 
-the numerical variables and the frequencies of all the nominal variables.
+The function calculates the basic descriptive measures, the correlation and
+the boxplot parameters of all the numerical variables and the frequencies of
+all the nominal variables.
 }
 \details{
-This function returns a list with the basic statistics, the parameters needed to visualize a boxplot
-and a histogram, it also provides the frequencies of non numerical data of the input dataset and the correlation 
-coefficient. The input of this function can be a matrix or data frame.
+This function returns a list with the basic statistics, the parameters needed
+to visualize a boxplot and a histogram, it also provides the frequencies of
+non numerical data of the input dataset and the correlation coefficient. The
+input of this function can be a matrix or data frame.
 }
 \examples{
 # iris data frame as input with the default parameters
-ds.analysis(iris)
+ds.analysis(data = iris)
 
 # using iris data frame with different parameters
-ds.analysis(iris, c.out = 1, box.width = 0.20, outliers = TRUE, tojson = TRUE)
+ds.analysis(
+  data = iris,
+  c.out = 1,
+  box.width = 0.20,
+  outliers = TRUE,
+  tojson = TRUE
+)
 
-# using iris data frame with different parameters 
+# using iris data frame with different parameters
 # fr.select parameter specified as Species
-ds.analysis(iris, c.out = 1, outliers = FALSE, fr.select = "Species", tojson = TRUE)
+ds.analysis(
+  data = iris,
+  c.out = 1,
+  outliers = FALSE,
+  fr.select = "Species",
+  tojson = TRUE
+)
 
 # OpenBudgets.eu Dataset Example:
-ds.analysis(Wuppertal_df, c.out = 2, box.width = 0.15, 
-outliers = FALSE, tojson = FALSE)
-                
+ds.analysis(
+  data = Wuppertal_df,
+  c.out = 2,
+  box.width = 0.15,
+  outliers = FALSE,
+  tojson = FALSE
+)
 }
 \seealso{
 \code{\link{open_spending.ds}}

@@ -1,6 +1,6 @@
 #' Sample data from Open Spending
-#' 
-#' @description 
+#'
+#' @description
 #' Sample data of Revised Budget phase amounts
 #' \itemize{
 #'   \item The year (2016) of the recorded approved budget phase amounts
@@ -9,10 +9,10 @@
 #'   \item The functional classification description
 #'   \item The functional classification code
 #'   }
-#' 
+#'
 #' @format A link with the json format data
 #' @name sample_json_link_openspending
 #' @source http://next.openspending.org/
-#' 
-#' 
+#'
+#'
 NULL

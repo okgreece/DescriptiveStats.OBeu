@@ -21,8 +21,8 @@ This functions calculates the correlation coefficient of the input vectors, matr
 By default, the correlation coefficient of pearson is computed.
 }
 \details{
-This function returns an upper triangle matrix with the correlation coefficients 
-of the input data. The correlation coefficient of pearson is computed, by default. 
+This function returns an upper triangle matrix with the correlation coefficients
+of the input data. The correlation coefficient of pearson is computed, by default.
 Other options are "kendall" or "spearman".
 }
 \examples{
@@ -30,11 +30,11 @@ Other options are "kendall" or "spearman".
 ds.correlation(iris, cor.method = "pearson", tojson = FALSE)
 
 # with matrix as an input , different parameters and json output
-Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
-         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+Matrix <- cbind(
+  Uni05 = (1:200) / 21, Norm = rnorm(200),
+  `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2)
+)
 ds.correlation(Matrix, cor.method = "kendall", tojson = TRUE)
-
-
 }
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}

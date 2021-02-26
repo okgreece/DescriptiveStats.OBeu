@@ -9,7 +9,7 @@ ds.boxplot(data, out.level = 1.5, width = 0.15 , outl = TRUE, tojson = FALSE)
 \arguments{
 \item{data}{The input numeric matrix or data frame.}
 
-\item{out.level}{Determines the length of the "whiskers" plot. If it is equal to zero or "outl" is set to F, 
+\item{out.level}{Determines the length of the "whiskers" plot. If it is equal to zero or "outl" is set to F,
 no outliers will be returned.}
 
 \item{width}{The width level is determined 0.15 times the square root of the size of the input data.}
@@ -29,17 +29,20 @@ This function returns as a list object the statistical parameters needed to visu
 }
 \examples{
 # with matrix as an input and the default parameters
-Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
-         `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
-ds.boxplot(Matrix, out.level = 1.5, width = 0.15 , outl = TRUE, tojson = FALSE)
+Matrix <- cbind(
+  Uni05 = (1:200) / 21, Norm = rnorm(200),
+  `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2)
+)
+ds.boxplot(Matrix, out.level = 1.5, width = 0.15, outl = TRUE, tojson = FALSE)
 
 # iris data frame as an input, different parameters and json output
-ds.boxplot(iris, out.level = 2, width = 0.25 , outl = FALSE, tojson = TRUE)
+ds.boxplot(iris, out.level = 2, width = 0.25, outl = FALSE, tojson = TRUE)
 
 # OpenBudgets.eu Dataset Example:
-ds.boxplot(Wuppertal_df$Amount, out.level = 2.5, width = 0.15, 
-outl = TRUE, tojson = FALSE)
-       
+ds.boxplot(Wuppertal_df$Amount,
+  out.level = 2.5, width = 0.15,
+  outl = TRUE, tojson = FALSE
+)
 }
 \seealso{
 \code{\link{ds.box}}, \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}

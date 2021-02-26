@@ -24,13 +24,14 @@ vec <- as.vector(iris$Sepal.Width)
 nums(vec)
 
 # with matrix as input
-Matrix <- cbind(Uni05 = (1:200)/21, Norm = rnorm(200),
-        `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2))
+Matrix <- cbind(
+  Uni05 = (1:200) / 21, Norm = rnorm(200),
+  `5T` = rt(200, df = 5), Gam2 = rgamma(200, shape = 2)
+)
 nums(Matrix)
 
 # OpenBudgets.eu Dataset Example:
 head(nums(Wuppertal_df))
-
 }
 \author{
 Kleanthis Koupidis

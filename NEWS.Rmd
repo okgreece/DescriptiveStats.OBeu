@@ -3,6 +3,10 @@ title: "NEWS"
 output: md_document
 ---
 
+## DescriptiveStats.OBeu 1.3.3
+Used lintr and styler packages to adjust code. Rename function compare.stats()
+to compare_stats()
+
 ## DescriptiveStats.OBeu 1.3.2
 
 update vignette DescriptiveStatsObeu

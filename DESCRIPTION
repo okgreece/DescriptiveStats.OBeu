@@ -16,6 +16,6 @@ License: GPL-2 | file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: dplyr, graphics, grDevices, jsonlite, magrittr, RCurl, reshape, stats
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Suggests: curl, knitr, rmarkdown
 VignetteBuilder: knitr

@@ -19,20 +19,20 @@ A list or json file with the following components:
 \itemize{
 \item cuts The boundaries of the histogram classes
 \item density The density of each histogram class
-\item normal.curve.x Abscissa of the normal curve 
-\item normal.curve.y Ordinate of the normal curve 
-\item fit.line.x Abscissa of the data density curve 
-\item fit.line.y Ordinate of the data density curve 
+\item normal.curve.x Abscissa of the normal curve
+\item normal.curve.y Ordinate of the normal curve
+\item fit.line.x Abscissa of the data density curve
+\item fit.line.y Ordinate of the data density curve
 \item mean The average value of the input vector
 \item median The median value of the input data
 }
 }
 \description{
-This function computes the histogram parameters of the numeric input vector. The default for 
+This function computes the histogram parameters of the numeric input vector. The default for
 breaks is the value resulted from Sturges algorithm.
 }
 \details{
-The possible values for breaks are Sturges see \code{\link{nclass.Sturges}}, 
+The possible values for breaks are Sturges see \code{\link{nclass.Sturges}},
 Scott see \code{\link{nclass.scott}} and FD or Freedman Diaconis \code{\link{nclass.FD}}
 which are in package \pkg{grDevices}.
 }
@@ -43,7 +43,6 @@ ds.hist(vec)
 
 # OpenBudgets.eu Dataset Example:
 ds.hist(Wuppertal_df$Amount, tojson = TRUE)
-
 }
 \seealso{
 \code{\link{ds.analysis}}, \code{\link{open_spending.ds}}
