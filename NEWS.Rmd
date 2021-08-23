@@ -3,6 +3,9 @@ title: "NEWS"
 output: md_document
 ---
 
+## DescriptiveStats.OBeu 1.4.0
+new function non_nums
+
 ## DescriptiveStats.OBeu 1.3.3
 Used lintr and styler packages to adjust code. Rename function compare.stats()
 to compare_stats()
