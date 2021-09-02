@@ -2,14 +2,41 @@ DescriptiveStats.OBeu <img src="okfgr2.png" align="right" />
 ================
 Kleanthis Koupidis, Aikaterini Chatzopoulou, Charalampos Bratsas
 
-[![Build Status](https://travis-ci.org/okgreece/DescriptiveStats.OBeu.svg?branch=master)](https://travis-ci.org/okgreece/DescriptiveStats.OBeu) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/DescriptiveStats.OBeu)](https://cran.r-project.org/package=DescriptiveStats.OBeu) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls) [![Github Issues](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/issues.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/issues) [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.1-6666ff.svg)](https://cran.r-project.org/) [![](http://cranlogs.r-pkg.org/badges/grand-total/DescriptiveStats.OBeu)](http://cran.rstudio.com/web/packages/DescriptiveStats.OBeu/index.html) [![Licence](https://img.shields.io/badge/licence-GPL--2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) [![Rdoc](http://www.rdocumentation.org/badges/version/DescriptiveStats.OBeu)](http://www.rdocumentation.org/packages/DescriptiveStats.OBeu) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1289784.svg)](https://doi.org/10.5281/zenodo.1289784)
+<!-- badges: start -->
 
-[DescriptiveStats.OBeu](https://okgreece.github.io/DescriptiveStats.OBeu/)
-==========================================================================
+[![R-CMD-check](https://github.com/okgreece/DescriptiveStats.OBeu/workflows/R-CMD-check/badge.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/actions)
+<!-- badges: end -->
 
-Εstimate and return the necessary parameters for descriptive statistics visualizations, used in [OpenBudgets.eu](http://openbudgets.eu/). It includes functions for measuring central tendency and dispersion of amount variables along with their distributions and correlations and the frequencies of categorical variables for Budget data of municipalities across Europe, according to the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/DescriptiveStats.OBeu)](https://cran.r-project.org/package=DescriptiveStats.OBeu)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Pending
+Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls)
+[![Github
+Issues](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/issues.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/issues)
+[![minimal R
+version](https://img.shields.io/badge/R%3E%3D-3.1-6666ff.svg)](https://cran.r-project.org/)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/DescriptiveStats.OBeu)](http://cran.rstudio.com/web/packages/DescriptiveStats.OBeu/index.html)
+[![Licence](https://img.shields.io/badge/licence-GPL--2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+[![Rdoc](http://www.rdocumentation.org/badges/version/DescriptiveStats.OBeu)](http://www.rdocumentation.org/packages/DescriptiveStats.OBeu)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1289784.svg)](https://doi.org/10.5281/zenodo.1289784)
 
-This package can generally be used to extract visualization parameters convert them to JSON format and use them as input in a different graphical interface. Most functions can have general use out of the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model). You can see detailed information [here](https://okgreece.github.io/DescriptiveStats.OBeu/).
+\#[DescriptiveStats.OBeu](https://okgreece.github.io/DescriptiveStats.OBeu/)
+Εstimate and return the necessary parameters for descriptive statistics
+visualizations, used in [OpenBudgets.eu](http://openbudgets.eu/). It
+includes functions for measuring central tendency and dispersion of
+amount variables along with their distributions and correlations and the
+frequencies of categorical variables for Budget data of municipalities
+across Europe, according to the [OpenBudgets.eu data
+model](https://github.com/openbudgets/data-model).
+
+This package can generally be used to extract visualization parameters
+convert them to JSON format and use them as input in a different
+graphical interface. Most functions can have general use out of the
+[OpenBudgets.eu data model](https://github.com/openbudgets/data-model).
+You can see detailed information
+[here](https://okgreece.github.io/DescriptiveStats.OBeu/).
 
 ``` r
 # install DescriptiveStats.OBeu- cran stable version
@@ -19,18 +46,25 @@ install.packages(DescriptiveStats.OBeu)
 devtools::install_github("okgreece/DescriptiveStats.OBeu")
 ```
 
-Load library `DescriptiveStats.OBeu` <img src="obeu_logo.png" align="right" />
+Load library `DescriptiveStats.OBeu`
+<img src="obeu_logo.png" align="right" />
 
 ``` r
 library(DescriptiveStats.OBeu)
 ```
 
-Descriptive Statistics in a call
-================================
+\#Descriptive Statistics in a call
 
-`ds.analysis` is used to estimate *minimum*, *maximum*, *range*, *mean*, *median*, *first and third quantiles*, *variance*, *standart deviation*, *skewness* and *kurtosis*, *boxplot*, *histogram parameters* needed for visualization of numeric variables and *frequencies* of factor variables of a given vector, matrix or data frame of data.
+`ds.analysis` is used to estimate *minimum*, *maximum*, *range*, *mean*,
+*median*, *first and third quantiles*, *variance*, *standart deviation*,
+*skewness* and *kurtosis*, *boxplot*, *histogram parameters* needed for
+visualization of numeric variables and *frequencies* of factor variables
+of a given vector, matrix or data frame of data.
 
-`ds.analysis` returns by default a list object, we set `tojson` parameter `TRUE`, `outliers` parameter `FALSE`, `fr.select = "Produktbereich"`. Τhere is one numeric variable, correlation will be empty.
+`ds.analysis` returns by default a list object, we set `tojson`
+parameter `TRUE`, `outliers` parameter `FALSE`,
+`fr.select = "Produktbereich"`. Τhere is one numeric variable,
+correlation will be empty.
 
 ``` r
 wuppertalanalysis = ds.analysis(Wuppertal_df,outliers=FALSE, fr.select = "Produktbereich", tojson=TRUE) # json string format
@@ -189,11 +223,11 @@ jsonlite::prettify(wuppertalanalysis) # use prettify of jsonlite library to add 
     ##                     "Freq": 256
     ##                 },
     ##                 {
-    ##                     "Var1": "Räuml.Planung, Entw., Geoinfo.",
+    ##                     "Var1": "Rauml.Planung, Entw., Geoinfo.",
     ##                     "Freq": 463
     ##                 },
     ##                 {
-    ##                     "Var1": "Schulträgeraufgaben",
+    ##                     "Var1": "Schultrageraufgaben",
     ##                     "Freq": 364
     ##                 },
     ##                 {
@@ -205,7 +239,7 @@ jsonlite::prettify(wuppertalanalysis) # use prettify of jsonlite library to add 
     ##                     "Freq": 663
     ##                 },
     ##                 {
-    ##                     "Var1": "Sportförderung",
+    ##                     "Var1": "Sportforderung",
     ##                     "Freq": 224
     ##                 },
     ##                 {
@@ -221,7 +255,7 @@ jsonlite::prettify(wuppertalanalysis) # use prettify of jsonlite library to add 
     ##                     "Freq": 155
     ##                 },
     ##                 {
-    ##                     "Var1": "Verkehrsflächen/-anlagen,ÖPNV",
+    ##                     "Var1": "Verkehrsflachen/-anlagen,OPNV",
     ##                     "Freq": 261
     ##                 },
     ##                 {
@@ -261,11 +295,11 @@ jsonlite::prettify(wuppertalanalysis) # use prettify of jsonlite library to add 
     ##                     "Freq": 0.0411
     ##                 },
     ##                 {
-    ##                     "Var1": "Räuml.Planung, Entw., Geoinfo.",
+    ##                     "Var1": "Rauml.Planung, Entw., Geoinfo.",
     ##                     "Freq": 0.0744
     ##                 },
     ##                 {
-    ##                     "Var1": "Schulträgeraufgaben",
+    ##                     "Var1": "Schultrageraufgaben",
     ##                     "Freq": 0.0585
     ##                 },
     ##                 {
@@ -277,7 +311,7 @@ jsonlite::prettify(wuppertalanalysis) # use prettify of jsonlite library to add 
     ##                     "Freq": 0.1065
     ##                 },
     ##                 {
-    ##                     "Var1": "Sportförderung",
+    ##                     "Var1": "Sportforderung",
     ##                     "Freq": 0.036
     ##                 },
     ##                 {
@@ -293,7 +327,7 @@ jsonlite::prettify(wuppertalanalysis) # use prettify of jsonlite library to add 
     ##                     "Freq": 0.0249
     ##                 },
     ##                 {
-    ##                     "Var1": "Verkehrsflächen/-anlagen,ÖPNV",
+    ##                     "Var1": "Verkehrsflachen/-anlagen,OPNV",
     ##                     "Freq": 0.0419
     ##                 },
     ##                 {
@@ -309,16 +343,31 @@ jsonlite::prettify(wuppertalanalysis) # use prettify of jsonlite library to add 
     ## }
     ## 
 
-`ds.analysis` uses internally the functions `ds.statistics`,`ds.hist`,`ds.boxplot`,`ds.correlation` and `ds.frequency`. However, these functions can be used independently and depends on the user requirements (see package manual or vignettes).
+`ds.analysis` uses internally the functions
+`ds.statistics`,`ds.hist`,`ds.boxplot`,`ds.correlation` and
+`ds.frequency`. However, these functions can be used independently and
+depends on the user requirements (see package manual or vignettes).
 
-Descriptive Statistics on OpenBudgets.eu platform
-=================================================
+\#Descriptive Statistics on OpenBudgets.eu platform
 
-`open_spending.ds` is designed to estimate and return the basic descriptive measures, the correlation and the boxplot parameters of all the numerical variables and the frequencies of all factor variables of [OpenBudgets.eu](http://openbudgets.eu/) datasets.
+`open_spending.ds` is designed to estimate and return the basic
+descriptive measures, the correlation and the boxplot parameters of all
+the numerical variables and the frequencies of all factor variables of
+[OpenBudgets.eu](http://openbudgets.eu/) datasets.
 
-The input data must be a JSON link according to the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model). There are different parameters that a user could specify, e.g. `dimensions`, `measured.dimensions` and `amounts` should be defined by the user, to form the dimensions of the dataset. Then the basic descriptive measures of tendency and spread, boxplot and histogram parameters are estimated in order to describe and visualize the distribution characteristics of the desired dataset.
+The input data must be a JSON link according to the [OpenBudgets.eu data
+model](https://github.com/openbudgets/data-model). There are different
+parameters that a user could specify, e.g. `dimensions`,
+`measured.dimensions` and `amounts` should be defined by the user, to
+form the dimensions of the dataset. Then the basic descriptive measures
+of tendency and spread, boxplot and histogram parameters are estimated
+in order to describe and visualize the distribution characteristics of
+the desired dataset.
 
-`open_spending.ds` estimates and returns the json data that are described with the [OpenBudgets.eu data model](https://github.com/openbudgets/data-model), using `ds.analysis` function.
+`open_spending.ds` estimates and returns the json data that are
+described with the [OpenBudgets.eu data
+model](https://github.com/openbudgets/data-model), using `ds.analysis`
+function.
 
 ``` r
 descript = open_spending.ds(
@@ -454,11 +503,11 @@ jsonlite::prettify(descript,indent = 2)
     ##           "Freq": 2
     ##         },
     ##         {
-    ##           "Var1": "(entfallen in 2013) Geschäftsbereichsleitung GB 1.1 ",
+    ##           "Var1": "(entfallen in 2013) Geschaftsbereichsleitung GB 1.1 ",
     ##           "Freq": 5
     ##         },
     ##         {
-    ##           "Var1": "Beschäftigtenvertretung",
+    ##           "Var1": "Beschaftigtenvertretung",
     ##           "Freq": 1
     ##         },
     ##         {
@@ -466,19 +515,19 @@ jsonlite::prettify(descript,indent = 2)
     ##           "Freq": 7
     ##         },
     ##         {
-    ##           "Var1": "Geschäftsbereichsleitung GB 1",
+    ##           "Var1": "Geschaftsbereichsleitung GB 1",
     ##           "Freq": 15
     ##         },
     ##         {
-    ##           "Var1": "Geschäftsbereichsleitung GB 2.1",
+    ##           "Var1": "Geschaftsbereichsleitung GB 2.1",
     ##           "Freq": 7
     ##         },
     ##         {
-    ##           "Var1": "Geschäftsbereichsleitung GB 2.2",
+    ##           "Var1": "Geschaftsbereichsleitung GB 2.2",
     ##           "Freq": 7
     ##         },
     ##         {
-    ##           "Var1": "Geschäftsbereichsleitung GB 4",
+    ##           "Var1": "Geschaftsbereichsleitung GB 4",
     ##           "Freq": 28
     ##         },
     ##         {
@@ -490,7 +539,7 @@ jsonlite::prettify(descript,indent = 2)
     ##           "Freq": 7
     ##         },
     ##         {
-    ##           "Var1": "Verwaltungsführung",
+    ##           "Var1": "Verwaltungsfuhrung",
     ##           "Freq": 14
     ##         }
     ##       ],
@@ -532,11 +581,11 @@ jsonlite::prettify(descript,indent = 2)
     ##           "Freq": 0.02
     ##         },
     ##         {
-    ##           "Var1": "(entfallen in 2013) Geschäftsbereichsleitung GB 1.1 ",
+    ##           "Var1": "(entfallen in 2013) Geschaftsbereichsleitung GB 1.1 ",
     ##           "Freq": 0.05
     ##         },
     ##         {
-    ##           "Var1": "Beschäftigtenvertretung",
+    ##           "Var1": "Beschaftigtenvertretung",
     ##           "Freq": 0.01
     ##         },
     ##         {
@@ -544,19 +593,19 @@ jsonlite::prettify(descript,indent = 2)
     ##           "Freq": 0.07
     ##         },
     ##         {
-    ##           "Var1": "Geschäftsbereichsleitung GB 1",
+    ##           "Var1": "Geschaftsbereichsleitung GB 1",
     ##           "Freq": 0.15
     ##         },
     ##         {
-    ##           "Var1": "Geschäftsbereichsleitung GB 2.1",
+    ##           "Var1": "Geschaftsbereichsleitung GB 2.1",
     ##           "Freq": 0.07
     ##         },
     ##         {
-    ##           "Var1": "Geschäftsbereichsleitung GB 2.2",
+    ##           "Var1": "Geschaftsbereichsleitung GB 2.2",
     ##           "Freq": 0.07
     ##         },
     ##         {
-    ##           "Var1": "Geschäftsbereichsleitung GB 4",
+    ##           "Var1": "Geschaftsbereichsleitung GB 4",
     ##           "Freq": 0.28
     ##         },
     ##         {
@@ -568,7 +617,7 @@ jsonlite::prettify(descript,indent = 2)
     ##           "Freq": 0.07
     ##         },
     ##         {
-    ##           "Var1": "Verwaltungsführung",
+    ##           "Var1": "Verwaltungsfuhrung",
     ##           "Freq": 0.14
     ##         }
     ##       ],
@@ -608,4 +657,4 @@ jsonlite::prettify(descript,indent = 2)
     ## 
     ##   }
     ## }
-    ##
+    ## 

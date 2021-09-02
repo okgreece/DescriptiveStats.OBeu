@@ -9,6 +9,6 @@
 ^README\.rmd$
 ^obeu_logo\.png$
 ^okfgr2\.png$
-^.travis\.yml$
 ^docs$
 ^DescriptiveStats\.OBeu\.pdf$
+^\.github$

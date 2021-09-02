@@ -9,7 +9,10 @@ output:
     html_preview: no
   number_sections: yes
 ---
-[![Build Status](https://travis-ci.org/okgreece/DescriptiveStats.OBeu.svg?branch=master)](https://travis-ci.org/okgreece/DescriptiveStats.OBeu)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/okgreece/DescriptiveStats.OBeu/workflows/R-CMD-check/badge.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/actions)
+<!-- badges: end -->
+
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/DescriptiveStats.OBeu)](https://cran.r-project.org/package=DescriptiveStats.OBeu)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Pending Pull-Requests](http://githubbadges.herokuapp.com/okgreece/DescriptiveStats.OBeu/pulls.svg)](https://github.com/okgreece/DescriptiveStats.OBeu/pulls)
